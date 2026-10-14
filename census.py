@@ -7,7 +7,8 @@ including PDFs, meet WCAG 2.1 AA by 2027-04-26. This tool takes that cohort
 small sample of each one's public pages, and checks the PDFs linked there for
 the structure screen readers rely on: tags, a document language, a title,
 extractable text and figure alt text. Each PDF's creation date lets documents
-made after the rule be compared with older ones.
+made after the rule be compared with older ones. It also notes whether each
+home page links to a page about accessibility or the ADA.
 
 Machine checks only: passing them is necessary for an accessible PDF, never
 sufficient, and nothing here is a WCAG conformance judgment.
@@ -38,7 +39,7 @@ import urllib.parse
 import urllib.request
 import urllib.robotparser
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 UA = ("MV2-title2-pdf-census/%s (Munim, Inc.; munimversion2@gmail.com; "
       "reads public pages only)" % __version__)
@@ -68,6 +69,10 @@ PDF_LINK_RE = re.compile(
 SKIP_PAGE_EXT = (".jpg", ".jpeg", ".png", ".gif", ".svg", ".webp", ".ico", ".doc", ".docx",
                  ".xls", ".xlsx", ".ppt", ".pptx", ".zip", ".mp3", ".mp4", ".mov", ".ics",
                  ".css", ".js", ".xml", ".rss", ".json", ".txt", ".csv")
+# A home-page link to a page about accessibility or the ADA, by its URL path or
+# its text. "ADA" counts only in capitals and not before "County" (Ada County, Idaho).
+A11Y_PATH_RE = re.compile(r"accessib|section-?508", re.I)
+A11Y_TEXT_RE = re.compile(r"(?i:accessib|section 508)|\bADA\b(?! County)")
 CHECKS = ("tagged", "marked", "lang", "title", "display_doc_title", "image_only", "basic4")
 
 Response = collections.namedtuple("Response", "status url ctype body truncated error")
@@ -97,29 +102,60 @@ def http_get(url, max_bytes, timeout=20):
 
 
 class LinkParser(html.parser.HTMLParser):
+    """The href of every <a>, and the text inside it (texts[i] belongs to hrefs[i])."""
+
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.hrefs = []
+        self.texts = []
+        self._open = None
 
     def handle_starttag(self, tag, attrs):
         if tag == "a":
+            self._open = None
             for name, value in attrs:
                 if name == "href" and value:
                     self.hrefs.append(value.strip())
+                    self.texts.append("")
+                    self._open = len(self.hrefs) - 1
+
+    def handle_endtag(self, tag):
+        if tag == "a":
+            self._open = None
+
+    def handle_data(self, data):
+        if self._open is not None:
+            self.texts[self._open] += data
 
 
-def extract_links(page, base):
-    """Absolute http(s) links of a page's <a href>s, without fragments, in order, deduplicated."""
+def parse_links(page):
     parser = LinkParser()
     try:
         parser.feed(page)
     except Exception:
         pass
+    return parser
+
+
+def extract_links(page, base):
+    """Absolute http(s) links of a page's <a href>s, without fragments, in order, deduplicated."""
     out, seen = [], set()
-    for href in parser.hrefs:
+    for href in parse_links(page).hrefs:
         url = urllib.parse.urldefrag(urllib.parse.urljoin(base, href))[0]
         if urllib.parse.urlsplit(url).scheme in ("http", "https") and url not in seen:
             seen.add(url)
+            out.append(url)
+    return out
+
+
+def accessibility_links(page, base):
+    """Absolute links whose URL path or link text is about accessibility or the ADA."""
+    parser, out = parse_links(page), []
+    for href, text in zip(parser.hrefs, parser.texts):
+        url = urllib.parse.urldefrag(urllib.parse.urljoin(base, href))[0]
+        if urllib.parse.urlsplit(url).scheme not in ("http", "https") or url in out:
+            continue
+        if A11Y_PATH_RE.search(urllib.parse.urlsplit(url).path) or A11Y_TEXT_RE.search(" ".join(text.split())):
             out.append(url)
     return out
 
@@ -311,7 +347,7 @@ def crawl_site(row, get=http_get, pages=8, pdfs=8, delay=1.0, sleep=time.sleep,
                max_page_bytes=5_000_000, max_pdf_bytes=15_000_000, deadline=None):
     """Read one government's home page, a sample of its pages and the PDFs they link."""
     site = {k: row.get(k, "") for k in ("qid", "name", "kind", "state", "population", "website")}
-    site.update(status="ok", pages_read=0, pdf_links=0, pdfs_tried=0, pdfs_ok=0)
+    site.update(status="ok", pages_read=0, pdf_links=0, pdfs_tried=0, pdfs_ok=0, a11y_link=None)
     found = []
     if deadline and time.time() > deadline:
         site["status"] = "not_started"
@@ -339,7 +375,9 @@ def crawl_site(row, get=http_get, pages=8, pdfs=8, delay=1.0, sleep=time.sleep,
         site["status"] = "home_not_html"
         return site, found
     base = home.url or start
-    links = extract_links(decode(home), base)
+    page = decode(home)
+    links = extract_links(page, base)
+    site["a11y_link"] = bool(accessibility_links(page, base))
     pdf_urls = [u for u in links if looks_like_pdf(u)]
     inner = [u for u in links if same_site(u, base) and not looks_like_pdf(u) and crawlable_page(u)
              and u.rstrip("/") != base.rstrip("/")]
@@ -516,6 +554,7 @@ def summarize(sites, pdfs, min_site_pdfs=3):
         "sites": len(sites),
         "site_status": dict(collections.Counter(s.get("status", "") for s in sites).most_common()),
         "sites_with_ok_pdf": len(per_site),
+        "home_a11y_link": share([s for s in sites if s.get("a11y_link") is not None], "a11y_link"),
         "pdfs_tried": len(pdfs),
         "pdf_results": dict(collections.Counter(p.get("result", "") for p in pdfs).most_common()),
         "overall": {c: share(ok, c) for c in CHECKS},
@@ -555,6 +594,8 @@ def report(summary):
              "conformance judgment. Shares with 95% Wilson intervals.", "",
              "- Sites: %d; with at least one readable PDF: %d" % (summary["sites"], summary["sites_with_ok_pdf"]),
              "- Site outcomes: %s" % json.dumps(summary["site_status"]),
+             "- Home page links to a page about accessibility or the ADA (by link text or URL): %s"
+             % pct(summary.get("home_a11y_link")),
              "- PDFs tried: %d; outcomes: %s" % (summary["pdfs_tried"], json.dumps(summary["pdf_results"])), "",
              "## All readable PDFs", "", "| Check | Share |", "|---|---|"]
     names = {"tagged": "Tagged (structure tree)", "marked": "Marked", "lang": "Document language set",
@@ -647,7 +688,8 @@ def main(argv=None):
             f.write(report(summary))
         write_csv(site_table(sites, pdfs), args.out_dir.rstrip("/") + "/sites.csv",
                   ["qid", "name", "kind", "state", "population", "website", "status", "pages_read",
-                   "pdf_links", "pdfs_tried", "pdfs_ok", "tagged", "lang", "title", "image_only", "basic4"])
+                   "pdf_links", "pdfs_tried", "pdfs_ok", "a11y_link", "tagged", "lang", "title",
+                   "image_only", "basic4"])
         print(report(summary))
     return 0
 

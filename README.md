@@ -17,10 +17,11 @@ This tool takes that cohort and measures the basics:
    - figures in the structure tree, and how many have alt text
    - the creation date, so **PDFs made after the rule can be compared with older ones**, overall and within the same site
    - the software that made it (Word, Acrobat, a scanner, print-to-PDF, ...)
+4. **One check on each home page** (new in 0.2.0): does it link to a page about accessibility or the ADA? A link counts if its URL path contains "accessib" or "section-508", or its text contains "accessib", "Section 508" or "ADA" in capitals (not "ADA County"). This is a rough signal of whether residents can find an accessibility statement or a way to report a barrier; the rule itself does not require one.
 
 ## What it is not
 
-Passing these checks is **necessary but not sufficient** for an accessible PDF: correct reading order, meaningful alt text, table headers and colour contrast need a person or deeper tools. Nothing here is a WCAG conformance judgment about any government, and no result says anyone is out of compliance. The sample is the PDFs reachable within two clicks of each home page, so it over-represents current documents such as agendas, minutes and notices.
+Passing these checks is **necessary but not sufficient** for an accessible PDF: correct reading order, meaningful alt text, table headers and colour contrast need a person or deeper tools. Nothing here is a WCAG conformance judgment about any government, and no result says anyone is out of compliance. The sample is the PDFs reachable within two clicks of each home page, so it over-represents current documents such as agendas, minutes and notices. The home-page link check misses statements linked only from inner pages or footers rendered by script, and counts some links that are about physical access.
 
 The tool stores **structural facts only**: no document text, no metadata titles, no personal data.
 
@@ -46,7 +47,7 @@ python -m unittest -v
 
 ## Results
 
-The first full run is in progress; results will be published here with the data.
+The first full run is queued; results will be published here with the data.
 
 ## Licence and credits
 

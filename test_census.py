@@ -72,6 +72,16 @@ class LinkTests(unittest.TestCase):
         self.assertEqual(c.extract_links(page, "http://city.example/"),
                          ["http://city.example/news", "https://other.example/x.PDF"])
 
+    def test_accessibility_links_by_path_or_text(self):
+        page = ('<a href="/accessibility">x</a><a href="/page/12"><span>Accessibility</span> Statement</a>'
+                '<a href="/departments/ada-county">Ada County</a><a href="/y">ADA County Fair</a>'
+                '<a href="/parks">ADA Transition Plan</a><a href="/x">Contact</a>'
+                '<a href="mailto:ada@city.example">ADA coordinator</a><a href="/accessibility#top">again</a>')
+        self.assertEqual(c.accessibility_links(page, "http://city.example/"),
+                         ["http://city.example/accessibility", "http://city.example/page/12",
+                          "http://city.example/parks"])
+        self.assertEqual(c.accessibility_links("<p>no links</p>", "http://city.example/"), [])
+
     def test_looks_like_pdf(self):
         for url in ("http://a.gov/x/Report.PDF", "https://a.gov/DocumentCenter/View/123/Budget-2026",
                     "https://a.gov/AgendaCenter/ViewFile/Agenda/_10142026-1", "https://a.gov/Archive.aspx?ADID=55"):
@@ -173,6 +183,7 @@ class CrawlTests(unittest.TestCase):
         site, found = c.crawl_site(row, get=get, sleep=lambda s: None)
         self.assertEqual(site["status"], "ok")
         self.assertEqual(site["pages_read"], 1)
+        self.assertIs(site["a11y_link"], False)
         self.assertNotIn("http://city.example/private/x", calls)
         self.assertEqual(site["pdf_links"], 4)
         self.assertEqual((site["pdfs_tried"], site["pdfs_ok"]), (4, 2))
@@ -180,12 +191,28 @@ class CrawlTests(unittest.TestCase):
         self.assertEqual(results, ["http_error", "not_pdf", "ok", "ok"])
         self.assertIn("https://other.example/robots.txt", calls)
 
+    def test_home_accessibility_link(self):
+        home = b'<a href="/accessibility-statement">Accessibility</a>'
+
+        def get(url, max_bytes, timeout=20):
+            if url == "http://city.example/":
+                return resp(url, home)
+            return resp(url, status=404)
+
+        site, found = c.crawl_site({"qid": "Q4", "website": "http://city.example"}, get=get,
+                                   sleep=lambda s: None)
+        self.assertEqual(site["status"], "ok")
+        self.assertIs(site["a11y_link"], True)
+        self.assertEqual(site["pages_read"], 1)
+        self.assertEqual(found, [])
+
     def test_blocked_home(self):
         def get(url, max_bytes, timeout=20):
             return resp(url, status=403) if not url.endswith("robots.txt") else resp(url, status=404)
         site, found = c.crawl_site({"qid": "Q2", "website": "https://blocked.example/"}, get=get,
                                    sleep=lambda s: None)
         self.assertEqual(site["status"], "home_403")
+        self.assertIsNone(site["a11y_link"])
         self.assertEqual(found, [])
 
 
@@ -199,8 +226,9 @@ class SummaryTests(unittest.TestCase):
             dict(base, qid="Q2", tagged=False, basic4=False, created=None),
             {"qid": "Q2", "result": "not_pdf"},
         ]
-        self.sites = [{"qid": "Q1", "status": "ok"}, {"qid": "Q2", "status": "ok"},
-                      {"qid": "Q3", "status": "home_403"}]
+        self.sites = [{"qid": "Q1", "status": "ok", "a11y_link": True},
+                      {"qid": "Q2", "status": "ok", "a11y_link": False},
+                      {"qid": "Q3", "status": "home_403", "a11y_link": None}]
 
     def test_summarize(self):
         s = c.summarize(self.sites, self.pdfs)
@@ -214,12 +242,16 @@ class SummaryTests(unittest.TestCase):
         self.assertEqual(s["pdf_results"], {"ok": 3, "not_pdf": 1})
         self.assertEqual(s["figures"]["total"], 2)
         self.assertIsNone(s["sites_rated"]["mean_tagged_share"])
-        self.assertIn("33.3%", c.report(s))
+        self.assertEqual((s["home_a11y_link"]["k"], s["home_a11y_link"]["n"]), (1, 2))
+        text = c.report(s)
+        self.assertIn("33.3%", text)
+        self.assertIn("accessibility or the ADA (by link text or URL): 50.0%", text)
 
     def test_site_table(self):
         rows = c.site_table(self.sites, self.pdfs)
         q1 = [r for r in rows if r["qid"] == "Q1"][0]
         self.assertEqual((q1["tagged"], q1["lang"]), (1, 2))
+        self.assertIs(q1["a11y_link"], True)
 
     def test_parse_cohort(self):
         def b(qid, label, kind, pop, site):
