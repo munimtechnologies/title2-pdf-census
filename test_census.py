@@ -3,6 +3,7 @@
 import os
 import sys
 import unittest
+from unittest import mock
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import census as c  # noqa: E402
@@ -109,6 +110,30 @@ class LinkTests(unittest.TestCase):
     def test_normalize_site(self):
         self.assertEqual(c.normalize_site("WWW.City.gov"), "http://www.city.gov/")
         self.assertEqual(c.normalize_site("https://City.gov/home?x=1"), "https://city.gov/home")
+
+    def test_quote_url(self):
+        # 0.2.0 sent these as written; urllib refuses a space, so all 1,572 such links failed.
+        self.assertEqual(c.quote_url("https://a.gov/media/Commissioners Court/2026/Burn Ban.pdf"),
+                         "https://a.gov/media/Commissioners%20Court/2026/Burn%20Ban.pdf")
+        self.assertEqual(c.quote_url("https://a.gov/x%20y.pdf?a=1&b=c d"), "https://a.gov/x%20y.pdf?a=1&b=c%20d")
+        self.assertEqual(c.quote_url("https://a.gov/año.pdf"), "https://a.gov/a%C3%B1o.pdf")
+        for url in ("https://a.gov/Archive.aspx?ADID=55", "https://a.gov/DocumentCenter/View/123/Budget-2026",
+                    "https://query.wikidata.org/sparql?query=SELECT+%3Fitem&format=json"):
+            self.assertEqual(c.quote_url(url), url)
+
+    def test_http_get_sends_the_quoted_url(self):
+        sent = []
+
+        def fake(req, timeout=20):
+            sent.append((req.full_url, req.get_header("User-agent")))
+            raise OSError("offline")
+
+        with mock.patch.object(c.urllib.request, "urlopen", fake):
+            r = c.http_get("https://a.gov/media/Burn Ban Order.pdf", 100)
+        self.assertEqual(sent, [("https://a.gov/media/Burn%20Ban%20Order.pdf", c.UA)])
+        self.assertEqual((r.status, r.url), (0, "https://a.gov/media/Burn Ban Order.pdf"))
+        self.assertIn("mv2@munimtech.com", c.UA)
+        self.assertIn(c.__version__, c.UA)
 
 
 class PdfFactTests(unittest.TestCase):

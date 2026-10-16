@@ -1,0 +1,9 @@
+{
+ "run": "title2-pdf-census-v4 (census.py 0.2.0), crawled 2026-10-16",
+ "note": "Counted from the run's per-PDF records (pdfs.jsonl, not published: its URLs were not checked for personal names). Every PDF link whose URL contains a space failed with status 0, because 0.2.0 passed links to urllib unencoded; 0.2.1 encodes them.",
+ "pdfs_tried": 7504,
+ "http_error": 1944,
+ "http_error_status_0": 1673,
+ "http_error_with_space_in_url": 1572,
+ "ok_with_space_in_url": 0
+}

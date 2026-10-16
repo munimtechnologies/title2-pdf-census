@@ -39,9 +39,9 @@ import urllib.parse
 import urllib.request
 import urllib.robotparser
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
-UA = ("MV2-title2-pdf-census/%s (Munim, Inc.; munimversion2@gmail.com; "
+UA = ("MV2-title2-pdf-census/%s (Munim, Inc.; mv2@munimtech.com; "
       "reads public pages only)" % __version__)
 RULE_DATE = "2024-04-24"
 WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
@@ -74,15 +74,26 @@ SKIP_PAGE_EXT = (".jpg", ".jpeg", ".png", ".gif", ".svg", ".webp", ".ico", ".doc
 A11Y_PATH_RE = re.compile(r"accessib|section-?508", re.I)
 A11Y_TEXT_RE = re.compile(r"(?i:accessib|section 508)|\bADA\b(?! County)")
 CHECKS = ("tagged", "marked", "lang", "title", "display_doc_title", "image_only", "basic4")
+# Characters left as they are when a link is percent-encoded: the URL delimiters and
+# existing %xx escapes. Spaces and non-ASCII letters are encoded.
+URL_SAFE = "/%:@!$&'()*+,;=~?"
 
 Response = collections.namedtuple("Response", "status url ctype body truncated error")
 
 
 # ---------------------------------------------------------------- fetching
 
+def quote_url(url):
+    """url with spaces and other characters urllib refuses percent-encoded in its path and
+    query, as a browser does. 0.2.0 sent links as written, so every link with a space failed."""
+    p = urllib.parse.urlsplit(url)
+    return urllib.parse.urlunsplit((p.scheme, p.netloc, urllib.parse.quote(p.path, safe=URL_SAFE),
+                                    urllib.parse.quote(p.query, safe=URL_SAFE), ""))
+
+
 def http_get(url, max_bytes, timeout=20):
     """GET url, reading at most max_bytes; never raises."""
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
+    req = urllib.request.Request(quote_url(url), headers={"User-Agent": UA, "Accept": "*/*"})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
             chunks, size = [], 0

@@ -45,12 +45,31 @@ python -m unittest -v
 
 `summarize` writes `summary.json`, `results.md` (shares with 95% Wilson intervals) and `sites.csv` (one row per government).
 
-## Results
+## Results: first full run (0.2.0, crawled 2026-10-16)
 
-The first full run is queued; results will be published here with the data.
+Files: [results/v0.2.0/](results/v0.2.0/) (`summary.json`, `results.md`, `sites.csv`, `cohort.csv`, `code-sha256.txt`). `test_results_v020.py` recomputes every number below from them.
+
+**Read this first: the run has a known gap.** Version 0.2.0 sent each link exactly as written, and Python's HTTP client refuses a URL with a space in it. So all 1,572 PDF links with a space in their address failed, and not one of them was read: 1,572 of the 1,944 fetch errors. Files named like "Burn Ban Order 8272026.pdf" are often uploaded straight from a staff computer, so the PDFs below may lean toward documents that went through a publishing system. 0.2.1 encodes such links as a browser does, and a second full run is queued. Until then, treat these numbers as a first look.
+
+- **Cohort:** 1,657 governments with a website (Wikidata). The query with state names failed (HTTP 502) and the fallback has none, so there is no breakdown by state in this run.
+- **Reach:** 1,264 home pages read; 199 sites disallow crawlers in robots.txt and were not read. 5,079 PDFs were read from 930 sites, out of 7,504 tried.
+- **All readable PDFs:** tagged 61.2% (59.8-62.5); document language set 57.1% (55.7-58.4); title in metadata 42.6% (41.3-44.0); image only 12.7% (11.8-13.7). **All four basics: 22.4% (21.2-23.5).**
+- **Made since the rule (created on or after 2024-04-24) against before:** tagged 66.6% (64.8-68.4) against 56.8% (54.8-58.8); all four basics 26.0% (24.3-27.7) against 18.2% (16.7-19.8). The metadata title did not move: 43.1% (41.2-45.0) against 42.9% (40.9-45.0). It is now the most common missing basic.
+- **Within the same site:** 589 sites have PDFs from both periods. Their share tagged rose by +6.6 percentage points on average; it rose at 247 sites, fell at 198 and stayed the same at 144 (two-sided sign test on the 445 that changed, p = 0.02).
+- **The software decides most of it:** PDFs saved from Word are tagged 94.3% (92.8-95.5) of the time; print-to-PDF output 11.5% (8.1-16.1); scanner output 5.0% (3.3-7.4), and 75.0% (70.7-78.9) of scanner PDFs are images with no text at all.
+- **Figures:** 66,846 figures are tagged in 1,927 PDFs, and 13.8% of them have alt text.
+- **Home pages:** 73.8% (71.3-76.2) link to a page about accessibility or the ADA.
+
+What the before/after comparison can't say: a PDF's creation date isn't its publication date, re-saved files get new dates, and recent documents are a different mix (more agendas and notices) than the older ones still linked. The within-site comparison removes differences between governments, but not that mix.
+
+## Changes
+
+- **0.2.1:** links are percent-encoded before they are fetched (spaces, non-ASCII letters), as a browser does; 0.2.0 failed on every link with a space. The contact address in the User-Agent and below is now mv2@munimtech.com. Results of the first full run (0.2.0) added.
+- **0.2.0:** home-page check for a link to an accessibility or ADA page.
+- **0.1.0:** first release.
 
 ## Licence and credits
 
 Code: Apache-2.0. Data and results: CC BY 4.0. Cohort data from [Wikidata](https://www.wikidata.org) (CC0). Uses [pypdf](https://github.com/py-pdf/pypdf) (BSD-3-Clause).
 
-Made by MV2 of Munim, Inc. with AI agents. Contact: munimversion2@gmail.com. If you run one of these sites and want it left out of future runs, email us and we will exclude it.
+Made by MV2 of Munim, Inc. with AI agents. Contact: mv2@munimtech.com. If you run one of these sites and want it left out of future runs, email us and we will exclude it.
