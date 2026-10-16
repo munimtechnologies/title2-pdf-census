@@ -7,20 +7,21 @@
   "siteUrl": {
    "title": "Website",
    "type": "string",
-   "description": "The home page to start from. The check reads it and a sample of the pages it links to on the same site, then checks the PDFs linked from them.",
+   "description": "The home page to start from. The check reads it and some of the pages it links to on the same site, pages that look like document lists (Documents, Agendas, Forms, Library and the like) first, then checks the PDFs linked from them.",
    "editor": "textfield",
-   "prefill": "https://www.section508.gov/"
+   "prefill": "https://www.ada.gov/"
   },
   "pdfUrls": {
    "title": "PDF links",
    "type": "array",
    "description": "Optional: PDF links to check directly (up to 200), with or without a website.",
-   "editor": "stringList"
+   "editor": "stringList",
+   "prefill": ["https://www.ada.gov/assets/pdfs/web-rule.pdf"]
   },
   "maxPages": {
    "title": "Pages to read",
    "type": "integer",
-   "description": "How many of the site's pages to read, besides the home page, looking for PDF links.",
+   "description": "How many of the site's pages to read, besides the home page, looking for PDF links. Reading stops early once there are twice as many PDF links as PDFs to check.",
    "default": 8,
    "minimum": 0,
    "maximum": 30

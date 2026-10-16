@@ -54,7 +54,7 @@ python site_check.py https://www.example.gov/ --md report.md --json report.json
 python site_check.py --pdf https://www.example.gov/docs/agenda.pdf --md report.md
 ```
 
-The same manners apply: public pages only, robots.txt honoured, a pause between requests. The same limits apply too: machine checks of four basics, not a WCAG conformance judgment or legal advice. It finds links with the census's own code, so the 0.2.2 fix below (links on pages that set `<base href>`) applies to it as well. The `.actor/` folder packages it as an [Apify](https://apify.com) Actor (`actor_main.py`), so it can also run without installing anything.
+The same manners apply: public pages only, robots.txt honoured, a pause between requests. The same limits apply too: machine checks of four basics, not a WCAG conformance judgment or legal advice. It finds links with the census's own code, so the 0.2.2 fix below (links on pages that set `<base href>`) applies to it as well. Unlike the census, it does not pick pages at random: since 0.1.1 it reads pages that look like document lists first (Documents, Agendas, Forms, Library, CivicPlus's DocumentCenter and the like, by link text or address), follows such links one level further, and stops once it has twice as many PDF links as PDFs to check. Its first version sampled pages as the census does and found no PDF at all on section508.gov or ada.gov. The `.actor/` folder packages it as an [Apify](https://apify.com) Actor (`actor_main.py`), so it can also run without installing anything.
 
 ## Results: second full run (0.2.1, crawled 2026-10-16)
 
@@ -93,6 +93,7 @@ What the before/after comparison can't say: a PDF's creation date isn't its publ
 
 ## Changes
 
+- **site_check 0.1.1:** reads pages that look like document lists first and follows them one level further, instead of sampling pages at random; stops early once it has enough PDF links; says so plainly when it finds no PDF links. The Actor's example input is now ada.gov plus the Justice Department's Title II web rule PDF (0.1.0's example, section508.gov, gave an empty report). census.py is unchanged (0.2.2).
 - **0.2.2:** relative links resolve against the page's `<base href>`, as a browser does. 0.2.1 ignored it, so on sites that set it (Revize and others) links on inner pages pointed to the wrong folder and failed with 404. Results of the second full run (0.2.1) added. site_check uses the same link code, so it gets the fix too.
 - **site_check 0.1.0:** one-website check with plain-language fixes, and an Apify Actor wrapper (`.actor/`, `actor_main.py`). census.py is unchanged (0.2.1).
 - **0.2.1:** links are percent-encoded before they are fetched (spaces, non-ASCII letters), as a browser does; 0.2.0 failed on every link with a space. The contact address in the User-Agent and below is now mv2@munimtech.com. Results of the first full run (0.2.0) added.

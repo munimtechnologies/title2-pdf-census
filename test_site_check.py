@@ -94,6 +94,7 @@ class CheckPdfTests(unittest.TestCase):
         self.assertIn("- https://a.gov/x.pdf: http_error", md)
         self.assertNotIn("## What to fix", md)
         self.assertNotIn("| PDF |", md)
+        self.assertNotIn(sc.NO_PDFS, md)
         self.assertEqual(sc.dataset_rows(result), [{"name": "x.pdf", "url": "https://a.gov/x.pdf",
                                                     "result": "http_error"}])
 
@@ -107,6 +108,90 @@ class CheckPdfTests(unittest.TestCase):
         self.assertEqual(sc.link("https://a.gov/Annual Report (2025).pdf"),
                          "https://a.gov/Annual%20Report%20%282025%29.pdf")
         self.assertEqual(sc.cell("a|b"), "a\\|b")
+
+
+class CrawlTests(unittest.TestCase):
+    """0.1.1: document-like pages are read first, one level deeper too, and reading stops
+    once there are twice as many PDF links as PDFs to check."""
+
+    def pages(self, calls):
+        return [u for u in calls if not u.endswith("/robots.txt") and not c.looks_like_pdf(u)]
+
+    def test_doc_like(self):
+        self.assertTrue(sc.doc_like("https://a.gov/DocumentCenter/Index/3"))
+        self.assertTrue(sc.doc_like("https://a.gov/AgendaCenter"))
+        self.assertTrue(sc.doc_like("https://a.gov/x.aspx?id=4", "Agendas &  Minutes"))
+        self.assertTrue(sc.doc_like("https://a.gov/resources/", "Guidance & Resource Materials"))
+        self.assertTrue(sc.doc_like("https://a.gov/Annual%20Reports/"))
+        self.assertFalse(sc.doc_like("https://a.gov/parks", "Parks"))
+        self.assertFalse(sc.doc_like("https://a.gov/docsis"))
+        self.assertFalse(sc.doc_like("https://a.gov/accessibility", "Accessibility"))
+
+    def test_page_links_merge_texts_and_follow_base_href(self):
+        page = '<base href="https://a.gov/"><a href="x.htm">One</a><a href="x.htm#top"> Two\n</a><a href="mailto:a@a.gov">m</a>'
+        self.assertEqual(sc.page_links(page, "https://a.gov/dept/page"), {"https://a.gov/x.htm": "One Two"})
+
+    def test_doc_pages_first(self):
+        home = (b'<a href="/about">About us</a><a href="/news">News</a><a href="/parks">Parks</a>'
+                b'<a href="/departments/clerk">Clerk</a><a href="/DocumentCenter">Documents</a>')
+        web = {"https://city.example/": resp("https://city.example/", home),
+               "https://city.example/DocumentCenter": resp("https://city.example/DocumentCenter",
+                                                           b'<a href="/DocumentCenter/View/12">Budget</a>')}
+        calls = []
+        site, found = sc.crawl("https://city.example/", get=web_get(web, calls), pages=1, pdfs=1, sleep=no_sleep)
+        self.assertEqual(self.pages(calls), ["https://city.example/", "https://city.example/DocumentCenter"])
+        self.assertEqual((site["pages_read"], site["doc_pages_read"], site["pdf_links"]), (1, 1, 1))
+        self.assertEqual([r["url"] for r in found], ["https://city.example/DocumentCenter/View/12"])
+
+    def test_follows_doc_links_one_level_deeper(self):
+        web = {"https://a.gov/": resp("https://a.gov/", b'<a href="/news">News</a>'
+                                                        b'<a href="/resources/">Guidance &amp; Resource Materials</a>'),
+               "https://a.gov/resources/": resp("https://a.gov/resources/",
+                                                b'<a href="/resources/primer/">Title II primer</a>'
+                                                b'<a href="/news">News</a><a href="/web-guidance/">On the web</a>'),
+               "https://a.gov/web-guidance/": resp("https://a.gov/web-guidance/",
+                                                   b'<a href="/assets/pdfs/web-rule.pdf">the rule</a>')}
+        calls = []
+        site, _ = sc.crawl("https://a.gov/", get=web_get(web, calls), pages=3, pdfs=8, sleep=no_sleep)
+        self.assertEqual(self.pages(calls), ["https://a.gov/", "https://a.gov/resources/",
+                                             "https://a.gov/resources/primer/", "https://a.gov/web-guidance/"])
+        self.assertEqual((site["pages_read"], site["doc_pages_read"], site["pdf_links"]), (3, 3, 1))
+        self.assertIn("https://a.gov/assets/pdfs/web-rule.pdf", calls)
+
+    def test_stops_once_enough_pdf_links(self):
+        home = b'<a href="/a.pdf">a</a><a href="/b.pdf">b</a><a href="/documents">Documents</a>'
+        calls = []
+        site, found = sc.crawl("https://a.gov/", get=web_get({"https://a.gov/": resp("https://a.gov/", home)}, calls),
+                               pages=8, pdfs=1, sleep=no_sleep)
+        self.assertEqual((site["pages_read"], site["pdf_links"]), (0, 2))
+        self.assertNotIn("https://a.gov/documents", calls)
+        self.assertEqual(site["pdfs_tried"], 2)
+        self.assertEqual(site["pdfs_ok"], 0)
+        self.assertEqual([r["result"] for r in found], ["http_error", "http_error"])
+
+    def test_robots_and_other_pages_after_docs(self):
+        web = {"https://a.gov/robots.txt": resp("r", b"User-agent: *\nDisallow: /private/\n", ctype="text/plain"),
+               "https://a.gov/": resp("https://a.gov/", b'<a href="/news">News</a>'
+                                                        b'<a href="/private/documents">Documents</a>'
+                                                        b'<a href="https://elsewhere.example/forms">Forms</a>')}
+        calls = []
+        site, found = sc.crawl("https://a.gov/", get=web_get(web, calls), pages=8, pdfs=8, sleep=no_sleep)
+        self.assertEqual(self.pages(calls), ["https://a.gov/", "https://a.gov/news"])
+        self.assertEqual((site["pages_read"], site["doc_pages_read"], site["pdf_links"]), (1, 0, 0))
+        self.assertEqual(found, [])
+        md = sc.markdown(sc.run("https://a.gov/", get=web_get(web), sleep=no_sleep, checked="2026-10-16"))
+        self.assertIn("- Pages read besides the home page: 1; PDF links found: 0", md)
+        self.assertIn(sc.NO_PDFS, md)
+
+    def test_home_failures(self):
+        web = {"https://a.gov/robots.txt": resp("r", b"User-agent: *\nDisallow: /\n", ctype="text/plain")}
+        self.assertEqual(sc.crawl("https://a.gov/", get=web_get(web), sleep=no_sleep)[0]["status"], "robots_disallow")
+        self.assertEqual(sc.crawl("https://b.gov/", get=web_get({}), sleep=no_sleep)[0]["status"], "home_404")
+        web = {"https://b.gov/": resp("https://b.gov/", b"%PDF-1.4", ctype="application/pdf")}
+        site = sc.crawl("https://b.gov/", get=web_get(web), sleep=no_sleep)[0]
+        self.assertEqual(site["status"], "home_not_html")
+        md = sc.markdown(sc.run("https://b.gov/", get=web_get(web), sleep=no_sleep, checked="2026-10-16"))
+        self.assertNotIn(sc.NO_PDFS, md)
 
 
 @unittest.skipUnless(HAVE_PYPDF, "pypdf not installed")
@@ -140,7 +225,7 @@ class RunTests(unittest.TestCase):
     def test_markdown(self):
         md = sc.markdown(self.out)
         for text in ("# PDF basics check: city.example",
-                     "Checked 2026-10-16 with site_check 0.1.0",
+                     "Checked 2026-10-16 with site_check %s" % sc.__version__,
                      "- Home page links to a page about accessibility or the ADA: yes",
                      "- 3 PDFs checked; 1 pass all four basics; 0 could not be read.",
                      "| [agenda.pdf](http://city.example/docs/agenda.pdf) | yes | yes | yes | yes | word |",
@@ -153,6 +238,7 @@ class RunTests(unittest.TestCase):
                      sc.BASELINE, sc.DEADLINES, "mv2@munimtech.com", "with AI agents"):
             self.assertIn(text, md)
         self.assertNotIn("## Not read", md)
+        self.assertNotIn(sc.NO_PDFS, md)
 
     def test_dataset_rows(self):
         rows = {r["name"]: r for r in sc.dataset_rows(self.out)}
@@ -185,6 +271,14 @@ class ActorFileTests(unittest.TestCase):
         self.assertIn("clamp(inp.get(\"maxPdfs\"), 1, 50, 8)", main)
         self.assertEqual((schema["properties"]["maxPdfs"]["minimum"], schema["properties"]["maxPdfs"]["maximum"],
                           schema["properties"]["maxPdfs"]["default"]), (1, 50, 8))
+
+    def test_prefill_has_a_pdf(self):
+        # 0.1.0's prefill (section508.gov) gave an empty report: no PDF links on the pages read.
+        props = json.loads(read(".actor", "input_schema.json"))["properties"]
+        self.assertTrue(props["siteUrl"]["prefill"].startswith("https://"))
+        self.assertTrue(props["pdfUrls"]["prefill"])
+        for url in props["pdfUrls"]["prefill"]:
+            self.assertTrue(c.looks_like_pdf(url), url)
 
     def test_dataset_view_fields_exist(self):
         view = json.loads(read(".actor", "dataset_schema.json"))["views"]["overview"]

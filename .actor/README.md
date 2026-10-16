@@ -1,8 +1,9 @@
 # PDF Accessibility Basics Check (ADA Title II)
 
-Give it a website, a list of PDF links, or both. It reads the home page and a sample of the
-site's pages, finds the PDFs they link to, and checks each PDF for four basics that screen
-readers rely on:
+Give it a website, a list of PDF links, or both. It reads the home page and some of the site's
+pages, those that look like document lists (Documents, Agendas, Forms, Library and the like)
+first, finds the PDFs they link to, and checks each PDF for four basics that screen readers
+rely on:
 
 - **Tags**: the structure that gives headings, lists, tables and reading order
 - **A document language**
@@ -12,6 +13,8 @@ readers rely on:
 For each PDF that fails, it says in plain words what to fix (for example, which Word export
 option adds tags). It also counts tagged figures without alt text, and says whether the home
 page links to a page about accessibility or the ADA.
+
+The example input checks ada.gov and the Justice Department's own Title II web rule PDF.
 
 ## Why
 
@@ -34,7 +37,8 @@ only 22.4% passed all four basics.
 Machine checks only. Passing them is necessary for an accessible PDF, never sufficient (reading
 order, alt text quality, table headers and colour contrast need a person). This is not a WCAG
 conformance judgment or legal advice, and it does not decide which older documents fall under
-the rule's exceptions.
+the rule's exceptions. It reads a few pages, not the whole site: PDFs linked only from pages it
+did not read are not checked. If it finds none, give PDF links directly or raise Pages to read.
 
 It reads public pages only, honours robots.txt, waits a second between requests and identifies
 itself with a User-Agent that names Munim, Inc. and an email address. It stores no document text.

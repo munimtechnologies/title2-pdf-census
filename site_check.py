@@ -1,8 +1,11 @@
 """site_check: a one-website PDF self-check for ADA Title II, built on census.py.
 
-Reads one website's home page and a sample of its pages (and any PDF links given),
+Reads one website's home page and some of its pages (and any PDF links given),
 checks each PDF for the four basics the census counts (tags, a document language,
 a title, real text) and says in plain words what to fix in each one that fails.
+Unlike the census, which samples pages at random so its shares stay unbiased, it
+reads the pages that look like document lists first (Documents, Agendas, Forms,
+Library and the like), so it finds a site's PDFs with fewer requests.
 
 Same manners as census.py: public pages only, robots.txt honoured, a pause between
 requests, a User-Agent that names Munim, Inc. and an email. Machine checks only:
@@ -20,13 +23,14 @@ Made by MV2 of Munim, Inc. with AI agents.
 import argparse
 import json
 import logging
+import re
 import sys
 import time
 import urllib.parse
 
 import census as c
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 DEADLINES = ("Under the ADA Title II rule (DOJ, 2024-04-24; dates moved by the interim final rule "
              "of 2026-04-20), state and local governments serving 50,000 people or more must meet "
@@ -37,6 +41,14 @@ DEADLINES = ("Under the ADA Title II rule (DOJ, 2024-04-24; dates moved by the i
 BASELINE = ("For comparison: of 5,079 PDFs from 930 US cities and counties of 50,000+ "
             "(title2-pdf-census, first full run, 2026-10-16), 61.2% were tagged and 22.4% "
             "passed all four basics.")
+NO_PDFS = ("No PDF links were found on the pages read. Give PDF links directly, or read more pages.")
+
+# Words in a link's text or URL path that suggest a page listing documents, including
+# CivicPlus's DocumentCenter and AgendaCenter. Read before other pages.
+DOC_RE = re.compile(r"(?<![a-z])(documents?|docs|documentcenter|agendacenter|pdfs?|forms?|agendas?|minutes|"
+                    r"publications?|reports?|resources?|librar(?:y|ies)|downloads?|budgets?|plans?|policies|"
+                    r"ordinances?|notices?|guidance|guides?|fact ?sheets?|archives?|files|meetings?)(?![a-z])",
+                    re.I)
 
 # Each basic a readable PDF can fail, most serious first: (key, label, what to do).
 BASICS = (
@@ -103,6 +115,101 @@ def pdf_record(url, resp):
     return rec
 
 
+def doc_like(url, text=""):
+    """True if a link's text or URL path suggests a page that lists documents."""
+    path = urllib.parse.unquote(urllib.parse.urlsplit(url).path)
+    return bool(DOC_RE.search(" ".join(text.split())) or DOC_RE.search(path))
+
+
+def page_links(page, url):
+    """{absolute http(s) link: the text of every <a> pointing at it}, in page order, without
+    fragments, resolved against the page's <base href> as census.extract_links does."""
+    parser, out = c.parse_links(page), {}
+    base = c.page_base(parser, url)
+    for href, text in zip(parser.hrefs, parser.texts):
+        u = urllib.parse.urldefrag(urllib.parse.urljoin(base, href))[0]
+        if urllib.parse.urlsplit(u).scheme in ("http", "https"):
+            out[u] = (out.get(u, "") + " " + " ".join(text.split())).strip()
+    return out
+
+
+def crawl(site_url, get=c.http_get, pages=8, pdfs=8, delay=1.0, sleep=time.sleep,
+          max_page_bytes=5_000_000, max_pdf_bytes=15_000_000):
+    """Read a website's home page and up to `pages` of its pages, document-like pages first
+    (and the document-like pages they link to), stopping early once there are twice `pdfs`
+    PDF links; then check up to `pdfs` readable PDFs from them. Returns (site, PDF records)."""
+    start = c.normalize_site(site_url)
+    site = {"website": start, "status": "ok", "pages_read": 0, "doc_pages_read": 0, "pdf_links": 0,
+            "pdfs_tried": 0, "pdfs_ok": 0, "a11y_link": None}
+    found, robots = [], {}
+
+    def allowed(url):
+        parts = urllib.parse.urlsplit(url)
+        key = "%s://%s" % (parts.scheme, parts.netloc)
+        if key not in robots:
+            robots[key] = c.robots_for(get(key + "/robots.txt", 500_000))
+            sleep(delay)
+        return robots[key].can_fetch(c.UA, url)
+
+    if not allowed(start):
+        site["status"] = "robots_disallow"
+        return site, found
+    home = get(start, max_page_bytes)
+    sleep(delay)
+    if home.status != 200:
+        site["status"] = "home_%s" % (home.status or (home.error or "error").split(":")[0])
+        return site, found
+    if not c.is_html(home):
+        site["status"] = "home_not_html"
+        return site, found
+    base = home.url or start
+    page = c.decode(home)
+    site["a11y_link"] = bool(c.accessibility_links(page, base))
+    pdf_urls, docs, others, queued = [], [], [], {base.rstrip("/")}
+
+    def take(page, url, first):
+        links = page_links(page, url)
+        pdf_urls.extend(u for u in links if c.looks_like_pdf(u))
+        new_others = []
+        for u, text in links.items():
+            if (c.looks_like_pdf(u) or not c.same_site(u, base) or not c.crawlable_page(u)
+                    or u.rstrip("/") in queued):
+                continue
+            queued.add(u.rstrip("/"))
+            if doc_like(u, text):
+                docs.append(u)
+            else:
+                new_others.append(u)
+        # The home page's other links are sampled as the census does; deeper ones come after.
+        others.extend(c.sample(new_others, len(new_others), start) if first else new_others)
+
+    take(page, base, True)
+    while site["pages_read"] < pages and (docs or others) and len(set(pdf_urls)) < 2 * pdfs:
+        is_doc = bool(docs)
+        url = docs.pop(0) if is_doc else others.pop(0)
+        if not allowed(url):
+            continue
+        resp = get(url, max_page_bytes)
+        sleep(delay)
+        site["pages_read"] += 1
+        site["doc_pages_read"] += is_doc
+        if resp.status == 200 and c.is_html(resp):
+            take(c.decode(resp), resp.url or url, False)
+    pdf_urls = list(dict.fromkeys(pdf_urls))
+    site["pdf_links"] = len(pdf_urls)
+    for url in c.sample(pdf_urls, 2 * pdfs, start):
+        if site["pdfs_ok"] >= pdfs:
+            break
+        if not allowed(url):
+            continue
+        rec = pdf_record(url, get(url, max_pdf_bytes))
+        sleep(delay)
+        site["pdfs_tried"] += 1
+        site["pdfs_ok"] += rec["result"] == "ok"
+        found.append(rec)
+    return site, found
+
+
 def check_pdfs(urls, get=c.http_get, sleep=time.sleep, delay=1.0, max_pdf_bytes=15_000_000):
     """Fetch and check each PDF link (http or https), honouring each host's robots.txt."""
     robots, found = {}, []
@@ -126,18 +233,17 @@ def check_pdfs(urls, get=c.http_get, sleep=time.sleep, delay=1.0, max_pdf_bytes=
 
 def run(site_url="", pdf_urls=(), pages=8, pdfs=8, get=c.http_get, sleep=time.sleep, delay=1.0,
         checked=None):
-    """Check a website (its home page, a sample of pages and the PDFs they link) and/or a list
+    """Check a website (its home page, some of its pages and the PDFs they link) and/or a list
     of PDF links. Returns a dict with the site, one row per PDF and a summary."""
     site, found = None, []
     if site_url:
-        site, found = c.crawl_site({"website": c.normalize_site(site_url)}, get=get, pages=pages, pdfs=pdfs,
-                                   delay=delay, sleep=sleep)
+        site, found = crawl(site_url, get=get, pages=pages, pdfs=pdfs, delay=delay, sleep=sleep)
     seen = {r["url"] for r in found}
     found += check_pdfs([u for u in pdf_urls if u.strip() not in seen], get=get, sleep=sleep,
                         delay=delay)
     rows = []
     for rec in found:
-        row = {k: v for k, v in rec.items() if k not in ("qid", "kind", "state")}
+        row = dict(rec)
         if rec.get("result") == "ok":
             row["fails"] = failures(rec)
             row["notes"] = notes(rec)
@@ -193,6 +299,8 @@ def markdown(result):
                                                                                   site["pdf_links"]),
                   "- Home page links to a page about accessibility or the ADA: %s" % a11y]
     lines += ["- %s" % status_line(result), ""]
+    if site and site["status"] == "ok" and not site["pdf_links"]:
+        lines += [NO_PDFS, ""]
     ok = [r for r in rows if r.get("result") == "ok"]
     if ok:
         lines += ["| PDF | Tags | Language | Title | Text | Made with |", "|---|---|---|---|---|---|"]
