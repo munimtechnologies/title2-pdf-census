@@ -39,7 +39,7 @@ import urllib.parse
 import urllib.request
 import urllib.robotparser
 
-__version__ = "0.2.1"
+__version__ = "0.2.2"
 
 UA = ("MV2-title2-pdf-census/%s (Munim, Inc.; mv2@munimtech.com; "
       "reads public pages only)" % __version__)
@@ -113,15 +113,21 @@ def http_get(url, max_bytes, timeout=20):
 
 
 class LinkParser(html.parser.HTMLParser):
-    """The href of every <a>, and the text inside it (texts[i] belongs to hrefs[i])."""
+    """The href of every <a>, and the text inside it (texts[i] belongs to hrefs[i]),
+    plus the href of the page's first <base> element, if it has one."""
 
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.hrefs = []
         self.texts = []
+        self.base = None
         self._open = None
 
     def handle_starttag(self, tag, attrs):
+        if tag == "base" and self.base is None:
+            for name, value in attrs:
+                if name == "href" and value and value.strip():
+                    self.base = value.strip()
         if tag == "a":
             self._open = None
             for name, value in attrs:
@@ -148,10 +154,23 @@ def parse_links(page):
     return parser
 
 
+def page_base(parser, url):
+    """The URL a page's relative links resolve against: its first <base href> (itself resolved
+    against the page), else the page's own URL. Revize and other CMSs set <base href> to the
+    site root; 0.2.1 ignored it, so relative links on their inner pages resolved under the
+    page's folder and failed with 404."""
+    if parser.base:
+        base = urllib.parse.urljoin(url, parser.base)
+        if urllib.parse.urlsplit(base).scheme in ("http", "https"):
+            return base
+    return url
+
+
 def extract_links(page, base):
     """Absolute http(s) links of a page's <a href>s, without fragments, in order, deduplicated."""
-    out, seen = [], set()
-    for href in parse_links(page).hrefs:
+    parser, out, seen = parse_links(page), [], set()
+    base = page_base(parser, base)
+    for href in parser.hrefs:
         url = urllib.parse.urldefrag(urllib.parse.urljoin(base, href))[0]
         if urllib.parse.urlsplit(url).scheme in ("http", "https") and url not in seen:
             seen.add(url)
@@ -162,6 +181,7 @@ def extract_links(page, base):
 def accessibility_links(page, base):
     """Absolute links whose URL path or link text is about accessibility or the ADA."""
     parser, out = parse_links(page), []
+    base = page_base(parser, base)
     for href, text in zip(parser.hrefs, parser.texts):
         url = urllib.parse.urldefrag(urllib.parse.urljoin(base, href))[0]
         if urllib.parse.urlsplit(url).scheme not in ("http", "https") or url in out:

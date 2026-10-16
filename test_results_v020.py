@@ -135,8 +135,10 @@ class ReadmeTests(unittest.TestCase):
         self.assertIn("%s link to a page about accessibility" % ci(self.s["home_a11y_link"]), self.md)
 
     def test_version_and_contact(self):
-        self.assertEqual(c.__version__, "0.2.1")
-        self.assertIn("**%s:**" % c.__version__, self.md)
+        # The run was made with 0.2.0; census.py has moved on (0.2.1, then 0.2.2) and the
+        # README's Changes list must name every version.
+        for version in ("0.2.0", "0.2.1", c.__version__):
+            self.assertIn("**%s:**" % version, self.md)
         self.assertIn("mv2@munimtech.com", self.md)
         self.assertNotIn("munimversion2", self.md)
 
