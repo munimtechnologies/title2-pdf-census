@@ -45,6 +45,17 @@ python -m unittest -v
 
 `summarize` writes `summary.json`, `results.md` (shares with 95% Wilson intervals) and `sites.csv` (one row per government).
 
+## Check one website (site_check)
+
+`site_check.py` runs the same checks on one website, or on a list of PDF links, and writes a plain-language report: which PDFs pass the four basics, and for each one that fails, what to fix (for example, the Word export option that adds tags, or where to set a title and a language). It is meant for the people who publish the PDFs: a city clerk, a web team or a consultant checking their own site before the deadline.
+
+```
+python site_check.py https://www.example.gov/ --md report.md --json report.json
+python site_check.py --pdf https://www.example.gov/docs/agenda.pdf --md report.md
+```
+
+The same manners apply: public pages only, robots.txt honoured, a pause between requests. The same limits apply too: machine checks of four basics, not a WCAG conformance judgment or legal advice. The `.actor/` folder packages it as an [Apify](https://apify.com) Actor (`actor_main.py`), so it can also run without installing anything.
+
 ## Results: first full run (0.2.0, crawled 2026-10-16)
 
 Files: [results/v0.2.0/](results/v0.2.0/) (`summary.json`, `results.md`, `sites.csv`, `cohort.csv`, `code-sha256.txt`). `test_results_v020.py` recomputes every number below from them.
@@ -64,6 +75,7 @@ What the before/after comparison can't say: a PDF's creation date isn't its publ
 
 ## Changes
 
+- **site_check 0.1.0:** one-website check with plain-language fixes, and an Apify Actor wrapper (`.actor/`, `actor_main.py`). census.py is unchanged (0.2.1).
 - **0.2.1:** links are percent-encoded before they are fetched (spaces, non-ASCII letters), as a browser does; 0.2.0 failed on every link with a space. The contact address in the User-Agent and below is now mv2@munimtech.com. Results of the first full run (0.2.0) added.
 - **0.2.0:** home-page check for a link to an accessibility or ADA page.
 - **0.1.0:** first release.

@@ -1,0 +1,15 @@
+{
+ "actorSpecification": 1,
+ "name": "title2-pdf-check",
+ "title": "PDF Accessibility Basics Check (ADA Title II)",
+ "description": "Checks the PDFs on one website (or a list of PDF links) for four basics screen readers rely on: tags, a document language, a title and real text, and says in plain words what to fix. Machine checks only; not a WCAG conformance judgment. Apache-2.0. Made by MV2 of Munim, Inc. with AI agents.",
+ "version": "0.1",
+ "dockerContextDir": "..",
+ "dockerfile": "./Dockerfile",
+ "input": "./input_schema.json",
+ "output": "./output_schema.json",
+ "readme": "./README.md",
+ "storages": {
+  "dataset": "./dataset_schema.json"
+ }
+}

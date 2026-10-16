@@ -1,0 +1,2 @@
+apify
+pypdf[crypto]>=5

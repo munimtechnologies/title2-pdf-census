@@ -1,0 +1,27 @@
+{
+ "actorSpecification": 1,
+ "fields": {},
+ "views": {
+  "overview": {
+   "title": "PDFs",
+   "transformation": {
+    "fields": ["name", "all_four", "tagged", "lang", "title", "has_text", "fails", "notes", "result", "url"]
+   },
+   "display": {
+    "component": "table",
+    "properties": {
+     "name": {"label": "PDF", "format": "text"},
+     "all_four": {"label": "All four basics", "format": "boolean"},
+     "tagged": {"label": "Tags", "format": "boolean"},
+     "lang": {"label": "Language", "format": "boolean"},
+     "title": {"label": "Title", "format": "boolean"},
+     "has_text": {"label": "Text", "format": "boolean"},
+     "fails": {"label": "To fix", "format": "array"},
+     "notes": {"label": "Also worth fixing", "format": "array"},
+     "result": {"label": "Read", "format": "text"},
+     "url": {"label": "Link", "format": "link"}
+    }
+   }
+  }
+ }
+}

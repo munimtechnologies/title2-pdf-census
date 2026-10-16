@@ -1,0 +1,21 @@
+{
+ "actorOutputSchemaVersion": 1,
+ "title": "PDF basics check",
+ "properties": {
+  "pdfs": {
+   "type": "string",
+   "title": "PDFs",
+   "template": "{{links.apiDefaultDatasetUrl}}/items"
+  },
+  "report": {
+   "type": "string",
+   "title": "Report (Markdown)",
+   "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/REPORT"
+  },
+  "summary": {
+   "type": "string",
+   "title": "Summary",
+   "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/SUMMARY"
+  }
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "title": "PDF Accessibility Basics Check (ADA Title II)",
+ "description": "Give a website, a list of PDF links, or both.",
+ "type": "object",
+ "schemaVersion": 1,
+ "properties": {
+  "siteUrl": {
+   "title": "Website",
+   "type": "string",
+   "description": "The home page to start from. The check reads it and a sample of the pages it links to on the same site, then checks the PDFs linked from them.",
+   "editor": "textfield",
+   "prefill": "https://www.section508.gov/"
+  },
+  "pdfUrls": {
+   "title": "PDF links",
+   "type": "array",
+   "description": "Optional: PDF links to check directly (up to 200), with or without a website.",
+   "editor": "stringList"
+  },
+  "maxPages": {
+   "title": "Pages to read",
+   "type": "integer",
+   "description": "How many of the site's pages to read, besides the home page, looking for PDF links.",
+   "default": 8,
+   "minimum": 0,
+   "maximum": 30
+  },
+  "maxPdfs": {
+   "title": "PDFs to check from the website",
+   "type": "integer",
+   "description": "How many readable PDFs to check from the website (links given in PDF links are all checked).",
+   "default": 8,
+   "minimum": 1,
+   "maximum": 50
+  }
+ }
+}
