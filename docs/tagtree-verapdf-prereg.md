@@ -47,3 +47,23 @@ and anything found there is reported as found.
 - The corpus files are small and synthetic; agreement on them does not prove accuracy on real-world PDFs.
 - veraPDF decides whether content is tagged through its own model. Its rule texts are public,
   but its exact implementation is not reproduced here.
+
+## Change log
+- **2026-10-17 ~16:40Z, before any data** (the v1 job was still queued; code unchanged). Two
+  reading rules, added after a closer look at veraPDF's own rule and issue tracker. V1-V3 are still
+  computed and reported first, exactly as above.
+  1. veraPDF's rule 7.1-3 applies to every simple content item (text, paths and images:
+     object type `SESimpleContentItem`, test `isTaggedContent == true ||
+     parentsTags.contains('Artifact') == true`,
+     [rule list](https://github.com/veraPDF/veraPDF-validation-profiles/wiki/PDFUA-Part-1-rules)).
+     tagtree counts visible text characters only. If a `7.1-t03-fail` file has 0 unreachable
+     characters and its outline says the untagged content is not text, that file is reported as
+     outside what tagtree measures, next to V1 as computed.
+  2. [veraPDF issue #1629](https://github.com/veraPDF/veraPDF-library/issues/1629) (open) shows
+     that veraPDF 1.30.2 accepts content whose structure elements cannot be reached from
+     StructTreeRoot; tagtree counts that content as dangling. So a pass file whose only
+     unreachable characters are dangling may hold a fault veraPDF does not report, not a tagtree
+     false alarm. V2 and V3 are therefore also reported counting untagged characters only (V2u,
+     V3u), and every pass file with dangling characters is checked by hand for whether its MCIDs
+     are reachable from the root. A separate positive control for the dangling class is
+     pre-registered in [tagtree-orphans-prereg.md](tagtree-orphans-prereg.md).
