@@ -1,0 +1,247 @@
+{
+ "census_version": "0.2.2",
+ "site_check_version": "0.1.2",
+ "site_check_011_version": "0.1.1",
+ "ran": "2026-10-17",
+ "pages": 8,
+ "pdfs": 2,
+ "zero": {
+  "sites": 129,
+  "all_home_ok": 125,
+  "links": {
+   "A": 2,
+   "B": 59,
+   "C": 46,
+   "C_vs_A": {
+    "only_C": 45,
+    "only_A": 1,
+    "mcnemar_p": 1.3358203432289883e-12
+   },
+   "C_vs_B": {
+    "only_C": 1,
+    "only_B": 14,
+    "mcnemar_p": 0.0009765625
+   },
+   "B_vs_A": {
+    "only_B": 58,
+    "only_A": 1,
+    "mcnemar_p": 2.0816681711721685e-16
+   }
+  },
+  "readable": {
+   "A": 2,
+   "B": 49,
+   "C": 41,
+   "C_vs_A": {
+    "only_C": 40,
+    "only_A": 1,
+    "mcnemar_p": 3.8198777474462986e-11
+   },
+   "C_vs_B": {
+    "only_C": 1,
+    "only_B": 9,
+    "mcnemar_p": 0.021484375
+   },
+   "B_vs_A": {
+    "only_B": 48,
+    "only_A": 1,
+    "mcnemar_p": 1.7763568394002505e-13
+   }
+  },
+  "pages_read_A": 910,
+  "pages_read_B": 815,
+  "pages_read_C": 817,
+  "doc_pages_read_B": 670,
+  "doc_pages_read_C": 435,
+  "fell_back_C": 68
+ },
+ "control2": {
+  "sites": 200,
+  "all_home_ok": 193,
+  "links": {
+   "A": 192,
+   "B": 189,
+   "C": 192,
+   "C_vs_A": {
+    "only_C": 1,
+    "only_A": 1,
+    "mcnemar_p": 1.0
+   },
+   "C_vs_B": {
+    "only_C": 4,
+    "only_B": 1,
+    "mcnemar_p": 0.375
+   },
+   "B_vs_A": {
+    "only_B": 1,
+    "only_A": 4,
+    "mcnemar_p": 0.375
+   }
+  },
+  "readable": {
+   "A": 177,
+   "B": 170,
+   "C": 175,
+   "C_vs_A": {
+    "only_C": 6,
+    "only_A": 8,
+    "mcnemar_p": 0.79052734375
+   },
+   "C_vs_B": {
+    "only_C": 6,
+    "only_B": 1,
+    "mcnemar_p": 0.125
+   },
+   "B_vs_A": {
+    "only_B": 5,
+    "only_A": 12,
+    "mcnemar_p": 0.143463134765625
+   }
+  },
+  "pages_read_A": 1524,
+  "pages_read_B": 567,
+  "pages_read_C": 567,
+  "doc_pages_read_B": 551,
+  "doc_pages_read_C": 531,
+  "fell_back_C": 10
+ },
+ "smoke": {
+  "sites": 2,
+  "all_home_ok": 2,
+  "links": {
+   "A": 2,
+   "B": 2,
+   "C": 2,
+   "C_vs_A": {
+    "only_C": 0,
+    "only_A": 0,
+    "mcnemar_p": 1.0
+   },
+   "C_vs_B": {
+    "only_C": 0,
+    "only_B": 0,
+    "mcnemar_p": 1.0
+   },
+   "B_vs_A": {
+    "only_B": 0,
+    "only_A": 0,
+    "mcnemar_p": 1.0
+   }
+  },
+  "readable": {
+   "A": 2,
+   "B": 2,
+   "C": 2,
+   "C_vs_A": {
+    "only_C": 0,
+    "only_A": 0,
+    "mcnemar_p": 1.0
+   },
+   "C_vs_B": {
+    "only_C": 0,
+    "only_B": 0,
+    "mcnemar_p": 1.0
+   },
+   "B_vs_A": {
+    "only_B": 0,
+    "only_A": 0,
+    "mcnemar_p": 1.0
+   }
+  },
+  "pages_read_A": 16,
+  "pages_read_B": 6,
+  "pages_read_C": 6,
+  "doc_pages_read_B": 6,
+  "doc_pages_read_C": 6,
+  "fell_back_C": 0
+ },
+ "smoke_sites": [
+  {
+   "group": "smoke",
+   "website": "https://www.ada.gov/",
+   "order": "ABC",
+   "A": {
+    "status": "ok",
+    "pages_read": 8,
+    "pdf_links": 1,
+    "pdfs_tried": 1,
+    "pdfs_ok": 1,
+    "doc_pages_read": null,
+    "fell_back": null,
+    "results": [
+     "ok"
+    ]
+   },
+   "B": {
+    "status": "ok",
+    "pages_read": 5,
+    "pdf_links": 4,
+    "pdfs_tried": 2,
+    "pdfs_ok": 2,
+    "doc_pages_read": 5,
+    "fell_back": null,
+    "results": [
+     "ok",
+     "ok"
+    ]
+   },
+   "C": {
+    "status": "ok",
+    "pages_read": 5,
+    "pdf_links": 4,
+    "pdfs_tried": 2,
+    "pdfs_ok": 2,
+    "doc_pages_read": 5,
+    "fell_back": false,
+    "results": [
+     "ok",
+     "ok"
+    ]
+   }
+  },
+  {
+   "group": "smoke",
+   "website": "https://www.section508.gov/",
+   "order": "ABC",
+   "A": {
+    "status": "ok",
+    "pages_read": 8,
+    "pdf_links": 35,
+    "pdfs_tried": 2,
+    "pdfs_ok": 2,
+    "doc_pages_read": null,
+    "fell_back": null,
+    "results": [
+     "ok",
+     "ok"
+    ]
+   },
+   "B": {
+    "status": "ok",
+    "pages_read": 1,
+    "pdf_links": 35,
+    "pdfs_tried": 2,
+    "pdfs_ok": 2,
+    "doc_pages_read": 1,
+    "fell_back": null,
+    "results": [
+     "ok",
+     "ok"
+    ]
+   },
+   "C": {
+    "status": "ok",
+    "pages_read": 1,
+    "pdf_links": 35,
+    "pdfs_tried": 2,
+    "pdfs_ok": 2,
+    "doc_pages_read": 1,
+    "fell_back": false,
+    "results": [
+     "ok",
+     "ok"
+    ]
+   }
+  }
+ ]
+}

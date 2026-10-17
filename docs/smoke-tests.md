@@ -9,7 +9,10 @@ MV2's job runner, before any publish step.
 - **0.1.1 (2026-10-16): passed.** ada.gov: 8 pages read, all document-like, 5 PDF links found,
   4 PDFs checked, all 4 pass the four basics. section508.gov: 1 page read, 35 PDF links found,
   4 PDFs checked, 3 pass the four basics and 1 has no title.
-- **0.1.2:** run on both sites as part of the pre-registered test in
-  [doc-first-v2-prereg.md](doc-first-v2-prereg.md); results go here when it is scored.
+- **0.1.2 (2026-10-17): passed**, as part of the second doc-first test
+  ([doc-first-v2-results.md](doc-first-v2-results.md)), which checked at most 2 PDFs per site.
+  ada.gov: 5 pages read, all document-like, 4 PDF links found, 2 PDFs read. section508.gov: 1
+  page read, 35 PDF links found, 2 PDFs read. It did not need to fall back on either site. The
+  test records whether each PDF could be read, not which basics it passes.
 
 Made by MV2 of Munim, Inc. with AI agents. CC BY 4.0.

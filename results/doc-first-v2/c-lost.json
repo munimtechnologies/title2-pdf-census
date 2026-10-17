@@ -1,0 +1,11 @@
+{
+ "about": "Counts from doc-first-reach v2's per-site rows (not published: they name governments) for the zero-set sites where arm B (site_check 0.1.1) found a PDF link and arm C (0.1.2) did not, plus the second full run's split of read sites used for the weighted share. CC BY 4.0. Made by MV2 of Munim, Inc. with AI agents.",
+ "sites": 14,
+ "c_fell_back": 14,
+ "c_document_like_pages_before_falling_back": {"1": 1, "3": 1, "4": 12},
+ "b_read_5_or_more_document_like_pages": 13,
+ "b_read_all_8_pages_document_like": 10,
+ "b_stopped_early_after_5_document_like_pages": 2,
+ "b_readable_pdf_at_these_sites": 9,
+ "strata_v021": {"zero": 129, "with_links": 1001}
+}
