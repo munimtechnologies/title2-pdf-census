@@ -54,3 +54,22 @@ does not count), O1 and O2 are reported as untestable, not as passes or misses.
 - MCIDs whose element has no page (/Pg) anywhere above it count as reachable on every page
   (tagtree's "wildcard" rule). If such an MCID shares a number with an orphan, O2 can fail for
   that reason; the result will say so.
+
+## Change log
+- **2026-10-17 ~17:45Z, before any data** (the v1 job was still queued; code unchanged; the
+  checks O1-O3 are unchanged). Three notes from a second look at veraPDF's tracker and releases:
+  1. **Version wording.** veraPDF 1.30.3 was released on 2026-10-09 (its notes list security and
+     PDF/UA-2 rule fixes, nothing about #1629), and #1629 is still open with milestone 1.32.1, which
+     has no release. So the accurate claim is "no released veraPDF (through 1.30.3) reports this
+     file's fault as of 2026-10-17"; "1.30.2" is the version the reporter tested. The results will
+     use that wording and re-check the issue's state on the day they are written.
+  2. **Not a second case.** The related [issue #1630](https://github.com/veraPDF/veraPDF-library/issues/1630)
+     (same reporter, Link annotation, StructParent 33) turned out, per a contributor's corrected
+     comment of 2026-10-01, to be a *wrong parent* in the ParentTree: the element it points to is
+     reachable from StructTreeRoot. That is not the dangling class, so it is not added as a case.
+  3. **What "dangling" claims.** In #1630 a PDF Association participant notes (2026-10-05) that no
+     PDF specification defines a traversal direction, so a validator should not assume root-down.
+     tagtree's measure is explicitly root-down (the order a tree-walking screen reader follows), as
+     the tagtree-reach pre-registration says. A dangling MCID therefore means "its text is not
+     reachable from StructTreeRoot via K arrays", not "the file fails PDF/UA". The results will say
+     this in those words and will not call the file non-conformant.
