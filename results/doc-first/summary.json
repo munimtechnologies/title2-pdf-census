@@ -1,0 +1,57 @@
+{
+ "census_version": "0.2.2",
+ "site_check_version": "0.1.1",
+ "ran": "2026-10-17",
+ "pages": 8,
+ "pdfs": 2,
+ "zero": {
+  "sites": 129,
+  "both_home_ok": 127,
+  "links": {
+   "A": 2,
+   "B": 60,
+   "both": 1,
+   "only_A": 1,
+   "only_B": 59,
+   "neither": 66,
+   "mcnemar_p": 1.0581813203458523e-16
+  },
+  "readable": {
+   "A": 2,
+   "B": 50,
+   "both": 1,
+   "only_A": 1,
+   "only_B": 49,
+   "neither": 76,
+   "mcnemar_p": 9.059419880941277e-14
+  },
+  "pages_read_A": 926,
+  "pages_read_B": 829,
+  "doc_pages_read_B": 684
+ },
+ "control": {
+  "sites": 100,
+  "both_home_ok": 97,
+  "links": {
+   "A": 97,
+   "B": 90,
+   "both": 90,
+   "only_A": 7,
+   "only_B": 0,
+   "neither": 0,
+   "mcnemar_p": 0.015625
+  },
+  "readable": {
+   "A": 92,
+   "B": 88,
+   "both": 86,
+   "only_A": 6,
+   "only_B": 2,
+   "neither": 3,
+   "mcnemar_p": 0.2890625
+  },
+  "pages_read_A": 764,
+  "pages_read_B": 317,
+  "doc_pages_read_B": 301
+ }
+}

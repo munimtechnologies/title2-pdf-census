@@ -5,7 +5,8 @@ checks each PDF for the four basics the census counts (tags, a document language
 a title, real text) and says in plain words what to fix in each one that fails.
 Unlike the census, which samples pages at random so its shares stay unbiased, it
 reads the pages that look like document lists first (Documents, Agendas, Forms,
-Library and the like), so it finds a site's PDFs with fewer requests.
+Library and the like), so it finds a site's PDFs with fewer requests. If half its
+pages turn up no PDF link, it reads the site's other pages first (0.1.2).
 
 Same manners as census.py: public pages only, robots.txt honoured, a pause between
 requests, a User-Agent that names Munim, Inc. and an email. Machine checks only:
@@ -30,16 +31,16 @@ import urllib.parse
 
 import census as c
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 DEADLINES = ("Under the ADA Title II rule (DOJ, 2024-04-24; dates moved by the interim final rule "
              "of 2026-04-20), state and local governments serving 50,000 people or more must meet "
              "WCAG 2.1 AA, PDFs included, by 2027-04-26; smaller governments and special districts "
              "by 2028-04-26. Some older documents fall under the rule's exceptions; this check does "
              "not decide that.")
-# The census's first full run (0.2.0, crawled 2026-10-16), for comparison.
-BASELINE = ("For comparison: of 5,079 PDFs from 930 US cities and counties of 50,000+ "
-            "(title2-pdf-census, first full run, 2026-10-16), 61.2% were tagged and 22.4% "
+# The census's third full run (0.2.2, crawled 2026-10-16 to 2026-10-17), for comparison.
+BASELINE = ("For comparison: of 5,412 PDFs from 926 US cities and counties of 50,000+ "
+            "(title2-pdf-census, third full run, 2026-10-17), 60.5% were tagged and 22.0% "
             "passed all four basics.")
 NO_PDFS = ("No PDF links were found on the pages read. Give PDF links directly, or read more pages.")
 
@@ -69,9 +70,9 @@ BASICS = (
      "Description > Title)."),
 )
 LABELS = {key: label for key, label, _ in BASICS}
-PRINT_NOTE = ("Made with print-to-PDF, whose output is seldom tagged (11.5% in the census): use the "
+PRINT_NOTE = ("Made with print-to-PDF, whose output is seldom tagged (16.1% in the census): use the "
               "program's own Save as PDF or Export instead.")
-SCANNER_NOTE = "Made by a scanner (5.0% of scanner output in the census was tagged)."
+SCANNER_NOTE = "Made by a scanner (4.5% of scanner output in the census was tagged)."
 
 
 def failures(rec):
@@ -137,10 +138,11 @@ def crawl(site_url, get=c.http_get, pages=8, pdfs=8, delay=1.0, sleep=time.sleep
           max_page_bytes=5_000_000, max_pdf_bytes=15_000_000):
     """Read a website's home page and up to `pages` of its pages, document-like pages first
     (and the document-like pages they link to), stopping early once there are twice `pdfs`
-    PDF links; then check up to `pdfs` readable PDFs from them. Returns (site, PDF records)."""
+    PDF links; then check up to `pdfs` readable PDFs from them. If half the pages are read
+    and no PDF link has turned up, the other pages are read first. Returns (site, PDF records)."""
     start = c.normalize_site(site_url)
     site = {"website": start, "status": "ok", "pages_read": 0, "doc_pages_read": 0, "pdf_links": 0,
-            "pdfs_tried": 0, "pdfs_ok": 0, "a11y_link": None}
+            "pdfs_tried": 0, "pdfs_ok": 0, "a11y_link": None, "fell_back": False}
     found, robots = [], {}
 
     def allowed(url):
@@ -184,8 +186,15 @@ def crawl(site_url, get=c.http_get, pages=8, pdfs=8, delay=1.0, sleep=time.sleep
         others.extend(c.sample(new_others, len(new_others), start) if first else new_others)
 
     take(page, base, True)
+    half = (pages + 1) // 2
     while site["pages_read"] < pages and (docs or others) and len(set(pdf_urls)) < 2 * pdfs:
-        is_doc = bool(docs)
+        # 0.1.1 read every document-like page before any other, and on some sites spent all its
+        # pages on document-like pages without a PDF link while random pages had them. Once half
+        # the pages are read with no PDF link, the other pages go first.
+        dry = site["pages_read"] >= half and not pdf_urls
+        is_doc = bool(docs) and not (dry and others)
+        if docs and not is_doc:
+            site["fell_back"] = True
         url = docs.pop(0) if is_doc else others.pop(0)
         if not allowed(url):
             continue

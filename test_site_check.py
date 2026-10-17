@@ -57,14 +57,18 @@ class AdviceTests(unittest.TestCase):
         self.assertEqual([k for k, _, _ in sc.BASICS], ["image_only", "tagged", "lang", "title"])
 
     def test_quoted_census_numbers(self):
-        s = json.loads(read("results", "v0.2.0", "summary.json"))
+        # 0.1.2: quotes the third full run (0.2.2), the census's headline.
+        s = json.loads(read("results", "v0.2.2", "summary.json"))
         o, by = s["overall"], s["by_producer"]
-        self.assertIn("of {:,} PDFs from {:,} US cities and counties".format(s["pdf_results"]["ok"],
-                                                                           s["sites_with_ok_pdf"]), sc.BASELINE)
+        pdfs = "{:,} PDFs from {:,}".format(s["pdf_results"]["ok"], s["sites_with_ok_pdf"])
+        self.assertIn("of %s US cities and counties" % pdfs, sc.BASELINE)
         self.assertIn("%.1f%% were tagged and %.1f%% passed all four basics" % (
             100 * o["tagged"]["share"], 100 * o["basic4"]["share"]), sc.BASELINE)
         self.assertIn("(%.1f%% in the census)" % (100 * by["print-to-pdf"]["tagged"]["share"]), sc.PRINT_NOTE)
         self.assertIn("(%.1f%% of scanner output" % (100 * by["scanner"]["tagged"]["share"]), sc.SCANNER_NOTE)
+        readme = " ".join(read(".actor", "README.md").split())
+        self.assertIn("%.1f%% of %s large US cities and counties were tagged, and only %.1f%% passed" % (
+            100 * o["tagged"]["share"], pdfs, 100 * o["basic4"]["share"]), readme)
 
 
 class CheckPdfTests(unittest.TestCase):
@@ -112,7 +116,8 @@ class CheckPdfTests(unittest.TestCase):
 
 class CrawlTests(unittest.TestCase):
     """0.1.1: document-like pages are read first, one level deeper too, and reading stops
-    once there are twice as many PDF links as PDFs to check."""
+    once there are twice as many PDF links as PDFs to check. 0.1.2: once half the pages are
+    read with no PDF link, the other pages go first."""
 
     def pages(self, calls):
         return [u for u in calls if not u.endswith("/robots.txt") and not c.looks_like_pdf(u)]
@@ -141,9 +146,12 @@ class CrawlTests(unittest.TestCase):
         site, found = sc.crawl("https://city.example/", get=web_get(web, calls), pages=1, pdfs=1, sleep=no_sleep)
         self.assertEqual(self.pages(calls), ["https://city.example/", "https://city.example/DocumentCenter"])
         self.assertEqual((site["pages_read"], site["doc_pages_read"], site["pdf_links"]), (1, 1, 1))
+        self.assertFalse(site["fell_back"])
         self.assertEqual([r["url"] for r in found], ["https://city.example/DocumentCenter/View/12"])
 
     def test_follows_doc_links_one_level_deeper(self):
+        # Two document-like pages without a PDF link use up half of the 4 pages, so the one
+        # other page (News) is read before the deeper document-like page that has the PDF.
         web = {"https://a.gov/": resp("https://a.gov/", b'<a href="/news">News</a>'
                                                         b'<a href="/resources/">Guidance &amp; Resource Materials</a>'),
                "https://a.gov/resources/": resp("https://a.gov/resources/",
@@ -152,11 +160,40 @@ class CrawlTests(unittest.TestCase):
                "https://a.gov/web-guidance/": resp("https://a.gov/web-guidance/",
                                                    b'<a href="/assets/pdfs/web-rule.pdf">the rule</a>')}
         calls = []
-        site, _ = sc.crawl("https://a.gov/", get=web_get(web, calls), pages=3, pdfs=8, sleep=no_sleep)
+        site, _ = sc.crawl("https://a.gov/", get=web_get(web, calls), pages=4, pdfs=8, sleep=no_sleep)
         self.assertEqual(self.pages(calls), ["https://a.gov/", "https://a.gov/resources/",
-                                             "https://a.gov/resources/primer/", "https://a.gov/web-guidance/"])
-        self.assertEqual((site["pages_read"], site["doc_pages_read"], site["pdf_links"]), (3, 3, 1))
+                                             "https://a.gov/resources/primer/", "https://a.gov/news",
+                                             "https://a.gov/web-guidance/"])
+        self.assertEqual((site["pages_read"], site["doc_pages_read"], site["pdf_links"]), (4, 3, 1))
+        self.assertTrue(site["fell_back"])
         self.assertIn("https://a.gov/assets/pdfs/web-rule.pdf", calls)
+
+    def test_falls_back_to_other_pages(self):
+        # The doc-first-reach test (docs/doc-first-results.md): on some sites every page read
+        # was document-like and none had a PDF link, while random pages did.
+        home = (b'<a href="/documents">Documents</a><a href="/forms">Forms</a><a href="/agendas">Agendas</a>'
+                b'<a href="/news">News</a>')
+        web = {"https://a.gov/": resp("https://a.gov/", home),
+               "https://a.gov/news": resp("https://a.gov/news", b'<a href="/files/budget.pdf">Budget</a>')}
+        for path in ("/documents", "/forms", "/agendas"):
+            web["https://a.gov" + path] = resp("https://a.gov" + path, b"<p>Search our documents</p>")
+        calls = []
+        site, found = sc.crawl("https://a.gov/", get=web_get(web, calls), pages=4, pdfs=8, sleep=no_sleep)
+        self.assertEqual(self.pages(calls), ["https://a.gov/", "https://a.gov/documents", "https://a.gov/forms",
+                                             "https://a.gov/news", "https://a.gov/agendas"])
+        self.assertEqual((site["pages_read"], site["doc_pages_read"], site["pdf_links"]), (4, 3, 1))
+        self.assertTrue(site["fell_back"])
+        self.assertEqual([r["url"] for r in found], ["https://a.gov/files/budget.pdf"])
+
+    def test_no_fall_back_once_a_pdf_link_is_found(self):
+        home = b'<a href="/documents">Documents</a><a href="/forms">Forms</a><a href="/news">News</a>'
+        web = {"https://a.gov/": resp("https://a.gov/", home),
+               "https://a.gov/documents": resp("https://a.gov/documents", b'<a href="/a.pdf">a</a>'),
+               "https://a.gov/forms": resp("https://a.gov/forms", b"<p>none</p>")}
+        calls = []
+        site, _ = sc.crawl("https://a.gov/", get=web_get(web, calls), pages=2, pdfs=8, sleep=no_sleep)
+        self.assertEqual(self.pages(calls), ["https://a.gov/", "https://a.gov/documents", "https://a.gov/forms"])
+        self.assertFalse(site["fell_back"])
 
     def test_stops_once_enough_pdf_links(self):
         home = b'<a href="/a.pdf">a</a><a href="/b.pdf">b</a><a href="/documents">Documents</a>'
@@ -178,6 +215,7 @@ class CrawlTests(unittest.TestCase):
         site, found = sc.crawl("https://a.gov/", get=web_get(web, calls), pages=8, pdfs=8, sleep=no_sleep)
         self.assertEqual(self.pages(calls), ["https://a.gov/", "https://a.gov/news"])
         self.assertEqual((site["pages_read"], site["doc_pages_read"], site["pdf_links"]), (1, 0, 0))
+        self.assertFalse(site["fell_back"])
         self.assertEqual(found, [])
         md = sc.markdown(sc.run("https://a.gov/", get=web_get(web), sleep=no_sleep, checked="2026-10-16"))
         self.assertIn("- Pages read besides the home page: 1; PDF links found: 0", md)

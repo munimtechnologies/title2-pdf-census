@@ -1,0 +1,8 @@
+{
+ "about": "Control-set sites where arm B (site_check 0.1.1) found no PDF link and arm A (census 0.2.2, random pages) found at least one. Counted by hand from the job's per-site rows (sites.jsonl, not published because it names governments). doc-first-reach-v1, run 2026-10-17.",
+ "sites": 7,
+ "b_read_all_8_pages": 7,
+ "b_all_8_pages_document_like": 6,
+ "b_document_like_pages_at_the_other_site": 5,
+ "a_readable_pdf_at_these_sites": 6
+}

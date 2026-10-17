@@ -22,9 +22,20 @@ Under the ADA Title II rule, US state and local governments serving 50,000 peopl
 make their web content, PDFs included, meet WCAG 2.1 AA by April 26, 2027. Smaller governments
 and special districts have until April 26, 2028 (dates as moved by the DOJ's interim final rule
 of April 20, 2026). PDFs are the hardest part. In the open
-[title2-pdf-census](https://github.com/munimtechnologies/title2-pdf-census) first full run
-(October 16, 2026), 61.2% of 5,079 PDFs from 930 large US cities and counties were tagged, and
-only 22.4% passed all four basics.
+[title2-pdf-census](https://github.com/munimtechnologies/title2-pdf-census) third full run
+(October 16-17, 2026), 60.5% of 5,412 PDFs from 926 large US cities and counties were tagged,
+and only 22.0% passed all four basics.
+
+## How it finds PDFs, and how well
+
+It reads document-like pages first. If half the pages it reads turn up no PDF link, it reads
+the site's other pages first. This was tested in the open, with the predictions written down
+before the test ran ([results](https://github.com/munimtechnologies/title2-pdf-census/blob/main/docs/doc-first-results.md)).
+On 127 local-government sites where random page sampling had found no PDF link, reading
+document-like pages first found one on 60 of them, against 2 for random pages. But on sites
+where random pages already worked, it reached a readable PDF slightly less often (88 of 97
+against 92 of 97), because on a few sites every document-like page it read had no PDF link.
+The fallback to other pages is meant to fix that, and its own test is pre-registered.
 
 ## Output
 
