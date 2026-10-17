@@ -67,3 +67,9 @@ and anything found there is reported as found.
      V3u), and every pass file with dangling characters is checked by hand for whether its MCIDs
      are reachable from the root. A separate positive control for the dangling class is
      pre-registered in [tagtree-orphans-prereg.md](tagtree-orphans-prereg.md).
+- **2026-10-17 ~17:45Z, before any data** (job still queued; code and checks unchanged). Version
+  note for rule 2: veraPDF 1.30.3 was released on 2026-10-09 and #1629 remains open (milestone
+  1.32.1, unreleased), so "1.30.2" above is the version the reporter tested, and no released
+  veraPDF reports that fault as of this date. The results will re-check the issue's state when
+  written. The corpus labels used here come from the corpus files themselves, not from running
+  any veraPDF version, so this does not change the data or the checks.
