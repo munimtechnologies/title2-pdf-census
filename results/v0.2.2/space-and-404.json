@@ -1,0 +1,13 @@
+{
+ "run": "title2-pdf-census-v6 (census.py 0.2.2), crawled 2026-10-16 23:55Z to 2026-10-17 00:56Z",
+ "note": "Counted from the run's per-PDF records, with each URL replaced by its SHA-256 and a flag for whether it had a space (pdfs-public.jsonl, not published: it keeps the PDF software strings, which were not checked for personal names). 'with_space' means the link as written on the page contained a space. 0.2.0 failed on every such link; 0.2.1 encoded them but ignored <base href>, so many came back 404; 0.2.2 follows <base href>.",
+ "tried": {"with_space": 980, "without_space": 5269},
+ "http_error": {"with_space": 57, "without_space": 341},
+ "http_404": {"with_space": 25, "without_space": 132},
+ "readable": {
+  "with_space": {"n": 892, "tagged": 513, "lang": 477, "title": 351, "image_only": 140, "basic4": 174,
+                 "scanner": 118, "word": 190},
+  "without_space": {"n": 4520, "tagged": 2761, "lang": 2585, "title": 1915, "image_only": 588, "basic4": 1017,
+                    "scanner": 396, "word": 976}
+ }
+}

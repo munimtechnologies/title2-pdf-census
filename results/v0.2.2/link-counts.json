@@ -1,0 +1,15 @@
+{
+ "pdfs_tried": 6249,
+ "result_http_error": 398,
+ "result_not_pdf": 142,
+ "result_ok": 5412,
+ "result_parse_error": 1,
+ "result_too_large": 296,
+ "status_404": 157,
+ "with_space_http_error": 57,
+ "with_space_not_pdf": 1,
+ "with_space_ok": 892,
+ "with_space_parse_error": 1,
+ "with_space_status_404": 25,
+ "with_space_too_large": 29
+}
