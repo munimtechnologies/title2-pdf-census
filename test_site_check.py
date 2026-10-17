@@ -1,5 +1,6 @@
 """Offline tests for site_check and the Apify Actor files (no network). Apache-2.0 licensed."""
 
+import inspect
 import json
 import os
 import sys
@@ -117,7 +118,7 @@ class CheckPdfTests(unittest.TestCase):
 class CrawlTests(unittest.TestCase):
     """0.1.1: document-like pages are read first, one level deeper too, and reading stops
     once there are twice as many PDF links as PDFs to check. 0.1.2: once half the pages are
-    read with no PDF link, the other pages go first."""
+    read with no PDF link, the other pages go first. 0.1.3: 16 pages by default."""
 
     def pages(self, calls):
         return [u for u in calls if not u.endswith("/robots.txt") and not c.looks_like_pdf(u)]
@@ -184,6 +185,22 @@ class CrawlTests(unittest.TestCase):
         self.assertEqual((site["pages_read"], site["doc_pages_read"], site["pdf_links"]), (4, 3, 1))
         self.assertTrue(site["fell_back"])
         self.assertEqual([r["url"] for r in found], ["https://a.gov/files/budget.pdf"])
+
+    def test_default_reads_8_document_like_pages_before_falling_back(self):
+        # The second doc-first test (docs/doc-first-v2-results.md): with 8 pages 0.1.2 fell back
+        # after 4 document-like pages and lost hard sites where 0.1.1 found PDFs on its 5th to 8th.
+        docs = ["/documents/%d" % i for i in range(10)]
+        home = b"".join(b'<a href="%s">Documents</a>' % p.encode() for p in docs) + b'<a href="/news">News</a>'
+        web = {"https://a.gov/": resp("https://a.gov/", home)}
+        for p in docs:
+            web["https://a.gov" + p] = resp("https://a.gov" + p, b"<p>Search our documents</p>")
+        calls = []
+        site, _ = sc.crawl("https://a.gov/", get=web_get(web, calls), pdfs=8, sleep=no_sleep)
+        read_pages = self.pages(calls)[1:]
+        self.assertEqual(read_pages[:8], ["https://a.gov" + p for p in docs[:8]])
+        self.assertEqual(read_pages[8], "https://a.gov/news")
+        self.assertEqual((site["pages_read"], site["doc_pages_read"]), (11, 10))
+        self.assertTrue(site["fell_back"])
 
     def test_no_fall_back_once_a_pdf_link_is_found(self):
         home = b'<a href="/documents">Documents</a><a href="/forms">Forms</a><a href="/news">News</a>'
@@ -303,12 +320,21 @@ class ActorFileTests(unittest.TestCase):
         self.assertEqual(set(schema["properties"]), {"siteUrl", "pdfUrls", "maxPages", "maxPdfs"})
         for key in schema["properties"]:
             self.assertIn('inp.get("%s")' % key, main)
-        self.assertIn("clamp(inp.get(\"maxPages\"), 0, 30, 8)", main)
+        self.assertIn("clamp(inp.get(\"maxPages\"), 0, 30, sc.PAGES)", main)
         self.assertEqual((schema["properties"]["maxPages"]["minimum"], schema["properties"]["maxPages"]["maximum"],
-                          schema["properties"]["maxPages"]["default"]), (0, 30, 8))
+                          schema["properties"]["maxPages"]["default"]), (0, 30, sc.PAGES))
         self.assertIn("clamp(inp.get(\"maxPdfs\"), 1, 50, 8)", main)
         self.assertEqual((schema["properties"]["maxPdfs"]["minimum"], schema["properties"]["maxPdfs"]["maximum"],
                           schema["properties"]["maxPdfs"]["default"]), (1, 50, 8))
+
+    def test_page_defaults_agree(self):
+        # 0.1.3: the third doc-first test ran 16 pages; every entry point uses the same default.
+        self.assertEqual(sc.PAGES, 16)
+        self.assertEqual(inspect.signature(sc.crawl).parameters["pages"].default, sc.PAGES)
+        self.assertEqual(inspect.signature(sc.run).parameters["pages"].default, sc.PAGES)
+        self.assertEqual(sc.parser().parse_args(["https://a.gov/"]).pages, sc.PAGES)
+        self.assertEqual(json.loads(read(".actor", "input_schema.json"))["properties"]["maxPages"]["default"],
+                         sc.PAGES)
 
     def test_prefill_has_a_pdf(self):
         # 0.1.0's prefill (section508.gov) gave an empty report: no PDF links on the pages read.

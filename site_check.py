@@ -6,7 +6,8 @@ a title, real text) and says in plain words what to fix in each one that fails.
 Unlike the census, which samples pages at random so its shares stay unbiased, it
 reads the pages that look like document lists first (Documents, Agendas, Forms,
 Library and the like), so it finds a site's PDFs with fewer requests. If half its
-pages turn up no PDF link, it reads the site's other pages first (0.1.2).
+pages turn up no PDF link, it reads the site's other pages first (0.1.2). It reads
+16 pages by default, so it falls back only after 8 document-like pages (0.1.3).
 
 Same manners as census.py: public pages only, robots.txt honoured, a pause between
 requests, a User-Agent that names Munim, Inc. and an email. Machine checks only:
@@ -31,7 +32,11 @@ import urllib.parse
 
 import census as c
 
-__version__ = "0.1.2"
+__version__ = "0.1.3"
+
+# Inner pages read by default. The third doc-first test (docs/doc-first-v3-results.md) ran 0.1.2
+# with 16: it falls back only after 8 document-like pages, as many as 0.1.1 read in all.
+PAGES = 16
 
 DEADLINES = ("Under the ADA Title II rule (DOJ, 2024-04-24; dates moved by the interim final rule "
              "of 2026-04-20), state and local governments serving 50,000 people or more must meet "
@@ -134,7 +139,7 @@ def page_links(page, url):
     return out
 
 
-def crawl(site_url, get=c.http_get, pages=8, pdfs=8, delay=1.0, sleep=time.sleep,
+def crawl(site_url, get=c.http_get, pages=PAGES, pdfs=8, delay=1.0, sleep=time.sleep,
           max_page_bytes=5_000_000, max_pdf_bytes=15_000_000):
     """Read a website's home page and up to `pages` of its pages, document-like pages first
     (and the document-like pages they link to), stopping early once there are twice `pdfs`
@@ -240,7 +245,7 @@ def check_pdfs(urls, get=c.http_get, sleep=time.sleep, delay=1.0, max_pdf_bytes=
     return found
 
 
-def run(site_url="", pdf_urls=(), pages=8, pdfs=8, get=c.http_get, sleep=time.sleep, delay=1.0,
+def run(site_url="", pdf_urls=(), pages=PAGES, pdfs=8, get=c.http_get, sleep=time.sleep, delay=1.0,
         checked=None):
     """Check a website (its home page, some of its pages and the PDFs they link) and/or a list
     of PDF links. Returns a dict with the site, one row per PDF and a summary."""
@@ -358,16 +363,21 @@ def dataset_rows(result):
     return out
 
 
-def main(argv=None):
+def parser():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--version", action="version", version=__version__)
     ap.add_argument("site", nargs="?", default="", help="website to check, e.g. https://www.example.gov/")
     ap.add_argument("--pdf", action="append", default=[], help="a PDF link to check (repeatable)")
-    ap.add_argument("--pages", type=int, default=8, help="inner pages read (default 8)")
+    ap.add_argument("--pages", type=int, default=PAGES, help="inner pages read (default %d)" % PAGES)
     ap.add_argument("--pdfs", type=int, default=8, help="readable PDFs checked from the site (default 8)")
     ap.add_argument("--delay", type=float, default=1.0, help="seconds between requests (default 1)")
     ap.add_argument("--json", help="write the full result as JSON here")
     ap.add_argument("--md", help="write the report as Markdown here")
+    return ap
+
+
+def main(argv=None):
+    ap = parser()
     args = ap.parse_args(argv)
     if not args.site and not args.pdf:
         ap.error("give a website or at least one --pdf")

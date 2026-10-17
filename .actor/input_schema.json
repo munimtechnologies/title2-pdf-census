@@ -21,8 +21,8 @@
   "maxPages": {
    "title": "Pages to read",
    "type": "integer",
-   "description": "How many of the site's pages to read, besides the home page, looking for PDF links. Reading stops early once there are twice as many PDF links as PDFs to check.",
-   "default": 8,
+   "description": "How many of the site's pages to read, besides the home page, looking for PDF links. If half of them turn up no PDF link, the rest go to pages that do not look like document lists. Reading stops early once there are twice as many PDF links as PDFs to check.",
+   "default": 16,
    "minimum": 0,
    "maximum": 30
   },

@@ -34,7 +34,7 @@ async def main():
         pdf_urls = [u for u in pdf_urls if isinstance(u, str) and u.strip()][:MAX_PDF_URLS]
         if not site and not pdf_urls:
             raise ValueError("Give a siteUrl or at least one PDF link in pdfUrls.")
-        pages = clamp(inp.get("maxPages"), 0, 30, 8)
+        pages = clamp(inp.get("maxPages"), 0, 30, sc.PAGES)
         pdfs = clamp(inp.get("maxPdfs"), 1, 50, 8)
         logging.getLogger("pypdf").setLevel(logging.ERROR)
         Actor.log.info("Checking %s and %d PDF links", site or "no website", len(pdf_urls))

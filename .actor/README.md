@@ -28,17 +28,19 @@ and only 22.0% passed all four basics.
 
 ## How it finds PDFs, and how well
 
-It reads document-like pages first. If half the pages it reads turn up no PDF link, it reads
-the site's other pages first. This has been tested in the open twice, with the predictions
-written down before each test ran
+It reads up to 16 pages by default, document-like pages first. If half of them turn up no PDF
+link, it reads the site's other pages first. It stops early once it has twice as many PDF links
+as PDFs to check. This has been tested in the open three times, with the predictions written
+down before each test ran
 ([first](https://github.com/munimtechnologies/title2-pdf-census/blob/main/docs/doc-first-results.md),
-[second](https://github.com/munimtechnologies/title2-pdf-census/blob/main/docs/doc-first-v2-results.md)).
-On local-government sites where random page sampling had found no PDF link, reading
-document-like pages first found one on 60 of 127 of them, against 2 for random pages. On sites
-where random pages already work, the current version reached a readable PDF on 175 of 193,
-against 177 for random pages. With the default 8 pages it gives up on document-like pages after
-4, which on some sites is too soon: if it finds no PDF on your site, raise Pages to read to 16
-or give PDF links directly. A third test, of 16 pages as the default, is pre-registered.
+[second](https://github.com/munimtechnologies/title2-pdf-census/blob/main/docs/doc-first-v2-results.md),
+[third](https://github.com/munimtechnologies/title2-pdf-census/blob/main/docs/doc-first-v3-results.md)).
+In the third test, against 16 pages picked at random: on 195 local-government sites where random
+pages work, both reached a readable PDF on 180, but this check read 849 pages against 3025. On
+122 harder sites it found a PDF link on 70, against 58 for random pages (a gain the test could
+not tell apart from chance). The first two tests reported a much larger gain on hard sites; the
+third showed that comparison was flawed, and their pages now say so. If it finds no PDF on your
+site, give PDF links directly or raise Pages to read (up to 30).
 
 ## Output
 

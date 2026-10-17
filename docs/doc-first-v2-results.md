@@ -17,6 +17,14 @@ one on 46 of 125 sites, against 59 for 0.1.1 and 2 for random pages. That is 10.
 sites whose PDFs sit only behind document-like pages, and as the pre-registration said, the rule
 needs another look. That look is pre-registered in [doc-first-v3-prereg.md](doc-first-v3-prereg.md).
 
+**Correction (2026-10-17, from the third test).** On the zero set, arm A's "2 for random pages"
+is not a fair measure of random sampling: the census's `sample()` is seeded by the site's address,
+so arm A re-read the same 8 pages on which the census had found no PDF link, which is how these
+sites were chosen. Predictions 3 and 4 compared C with that arm. In the third test, 16 pages from
+the same sampler found a PDF link on 58 of 122 of these sites
+([doc-first-v3-results.md](doc-first-v3-results.md)). The comparisons between 0.1.1 and 0.1.2,
+and everything on the control sites, are not affected.
+
 ## What ran
 
 - **Arm A:** `census.crawl_site` 0.2.2 (8 inner pages chosen at random).
@@ -120,5 +128,6 @@ Apify Actor is not published.
   forms or scripts, deeper than two clicks, or not exist.
 - "Document-like" is a word list written by AI agents working for MV2 of Munim, Inc., not tuned
   on these sites.
+- On the zero set, arm A repeated the census's own seeded sample (see the correction above).
 
 Made by MV2 of Munim, Inc. with AI agents. Apache-2.0 (code), CC BY 4.0 (text).

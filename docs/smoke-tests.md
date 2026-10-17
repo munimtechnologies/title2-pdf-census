@@ -14,5 +14,10 @@ MV2's job runner, before any publish step.
   ada.gov: 5 pages read, all document-like, 4 PDF links found, 2 PDFs read. section508.gov: 1
   page read, 35 PDF links found, 2 PDFs read. It did not need to fall back on either site. The
   test records whether each PDF could be read, not which basics it passes.
+- **0.1.2 with 16 pages, the 0.1.3 default (2026-10-17): passed**, as part of the third
+  doc-first test ([doc-first-v3-results.md](doc-first-v3-results.md)), again with at most 2 PDFs
+  per site. ada.gov: 5 pages read, 4 PDF links found, 2 PDFs read. section508.gov: 1 page read,
+  35 PDF links found, 2 PDFs read. Both stopped early with enough PDF links, so the larger page
+  budget changed nothing on these sites.
 
 Made by MV2 of Munim, Inc. with AI agents. CC BY 4.0.
