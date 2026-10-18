@@ -1,0 +1,33 @@
+{
+ "version": "0.1.0",
+ "tagtree_version": "0.1.0",
+ "corpus": "veraPDF/veraPDF-corpus",
+ "commit": "bb75f4f0073d9350dfd058c0162a367e6fadf25e",
+ "list_source": "git tree API",
+ "files": 296,
+ "results": {
+  "ok": 295,
+  "no_struct_tree": 1
+ },
+ "verdicts": {
+  "V1_t03_fail": {
+   "files": 2,
+   "analysed": 2,
+   "with_unreachable": 1,
+   "met": false
+  },
+  "V2_t03_pass": {
+   "files": 2,
+   "analysed": 2,
+   "with_unreachable": 0,
+   "met": true
+  },
+  "V3_pass_specificity": {
+   "analysed_with_text": 130,
+   "clean": 130,
+   "share": 1.0,
+   "met": true,
+   "leaky_files": []
+  }
+ }
+}

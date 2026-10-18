@@ -1,0 +1,67 @@
+{
+ "version": "0.1.0",
+ "tagtree_version": "0.1.0",
+ "max_pages": 3,
+ "cases": [
+  {
+   "id": "verapdf-1629",
+   "issue": "https://github.com/veraPDF/veraPDF-library/issues/1629",
+   "page": 1,
+   "orphan_mcids": [
+    15,
+    16,
+    19
+   ],
+   "sha256": "b4defb67deeb5c462b3b1be96a28ed25c6a77a6563a2e149d91b5d2e800017f5",
+   "record": {
+    "result": "ok",
+    "pages_analyzed": 1,
+    "elements": 2,
+    "capped": false,
+    "stm_refs": 0,
+    "wildcard_mcids": 0,
+    "reachable": 15,
+    "untagged": 0,
+    "dangling": 383,
+    "artifact": 0,
+    "xobject": 0,
+    "named": 0,
+    "content_chars": 398,
+    "leak_share": 0.9623,
+    "shell": false,
+    "page_discordance": [],
+    "upward_jumps": 0
+   },
+   "pages": {
+    "1": {
+     "text": {
+      "0": 15,
+      "15": 351,
+      "16": 4,
+      "19": 28
+     },
+     "dangling": {
+      "15": 351,
+      "16": 4,
+      "19": 28
+     }
+    }
+   },
+   "verdicts": {
+    "O1_dangling_text": true,
+    "O2_exact_mcids": true,
+    "O3_counts_agree": true,
+    "named_with_text": [
+     15,
+     16,
+     19
+    ],
+    "dangling_mcids": [
+     15,
+     16,
+     19
+    ]
+   }
+  }
+ ]
+}

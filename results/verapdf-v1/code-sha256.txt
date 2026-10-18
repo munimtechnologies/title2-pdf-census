@@ -1,0 +1,3 @@
+d49fbe0b7eb62dbdac182fe972ea5e27489fbacf22f8732bd5f0cda0e3c94fab  tagtree.py
+a51d47ecbe625ccfe50bf8325c976d2827e0c044f44c800adc4e8cbe4c1fe526  validate.py
+pdfminer.six 20260107 pypdf 6.21.1

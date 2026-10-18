@@ -1,0 +1,222 @@
+{
+ "version": "0.1.0",
+ "sites": 600,
+ "site_status": {
+  "home_403": 18,
+  "ok": 429,
+  "robots_disallow": 93,
+  "home_URLError": 48,
+  "home_400": 2,
+  "home_TimeoutError": 1,
+  "home_404": 6,
+  "home_522": 1,
+  "home_RemoteDisconnected": 2
+ },
+ "pdfs_attempted": 766,
+ "results": {
+  "ok": 766
+ },
+ "eligible": 753,
+ "eligible_sites": 308,
+ "excluded_capped": 0,
+ "excluded_little_text": 13,
+ "char_totals": {
+  "reachable": 2462472,
+  "untagged": 80141,
+  "dangling": 24047,
+  "artifact": 65903,
+  "xobject": 3705,
+  "named": 2877
+ },
+ "P1_leaky": {
+  "n": 753,
+  "k": 49,
+  "share": 0.0651,
+  "ci95": [
+   0.0496,
+   0.085
+  ],
+  "cluster_ci95": [
+   0.0471,
+   0.0854
+  ]
+ },
+ "P2_word": {
+  "n": 280,
+  "k": 10,
+  "share": 0.0357,
+  "ci95": [
+   0.0195,
+   0.0645
+  ]
+ },
+ "P2_other": {
+  "n": 473,
+  "k": 39,
+  "share": 0.0825,
+  "ci95": [
+   0.0609,
+   0.1107
+  ]
+ },
+ "P2_difference": 0.0468,
+ "P3_shell": {
+  "n": 753,
+  "k": 32,
+  "share": 0.0425,
+  "ci95": [
+   0.0303,
+   0.0594
+  ]
+ },
+ "P4_pages_ordered": 1420,
+ "P4_median_discordance": 0.0,
+ "mean_leak_share": 0.0427,
+ "explore_any_dangling": {
+  "n": 753,
+  "k": 23,
+  "share": 0.0305,
+  "ci95": [
+   0.0204,
+   0.0454
+  ]
+ },
+ "explore_any_untagged": {
+  "n": 753,
+  "k": 52,
+  "share": 0.0691,
+  "ci95": [
+   0.053,
+   0.0894
+  ]
+ },
+ "explore_upward_jump": {
+  "n": 753,
+  "k": 86,
+  "share": 0.1142,
+  "ci95": [
+   0.0934,
+   0.1389
+  ]
+ },
+ "explore_pages_discordance_over_0.2": [
+  138,
+  1420
+ ],
+ "by_producer": {
+  "adobe": {
+   "leaky": {
+    "n": 342,
+    "k": 24,
+    "share": 0.0702,
+    "ci95": [
+     0.0476,
+     0.1023
+    ]
+   },
+   "median_leak_share": 0.0
+  },
+  "generator": {
+   "leaky": {
+    "n": 9,
+    "k": 1,
+    "share": 0.1111,
+    "ci95": [
+     0.0199,
+     0.435
+    ]
+   },
+   "median_leak_share": 0.0
+  },
+  "libreoffice": {
+   "leaky": {
+    "n": 1,
+    "k": 0,
+    "share": 0.0,
+    "ci95": [
+     0.0,
+     0.7935
+    ]
+   },
+   "median_leak_share": 0.0
+  },
+  "office-other": {
+   "leaky": {
+    "n": 44,
+    "k": 0,
+    "share": 0.0,
+    "ci95": [
+     0.0,
+     0.0803
+    ]
+   },
+   "median_leak_share": 0.0
+  },
+  "other": {
+   "leaky": {
+    "n": 47,
+    "k": 7,
+    "share": 0.1489,
+    "ci95": [
+     0.0741,
+     0.2769
+    ]
+   },
+   "median_leak_share": 0.0
+  },
+  "print-to-pdf": {
+   "leaky": {
+    "n": 12,
+    "k": 3,
+    "share": 0.25,
+    "ci95": [
+     0.0889,
+     0.5323
+    ]
+   },
+   "median_leak_share": 0.0
+  },
+  "scanner": {
+   "leaky": {
+    "n": 6,
+    "k": 1,
+    "share": 0.1667,
+    "ci95": [
+     0.0301,
+     0.5635
+    ]
+   },
+   "median_leak_share": 0.0
+  },
+  "unknown": {
+   "leaky": {
+    "n": 12,
+    "k": 3,
+    "share": 0.25,
+    "ci95": [
+     0.0889,
+     0.5323
+    ]
+   },
+   "median_leak_share": 0.0
+  },
+  "word": {
+   "leaky": {
+    "n": 280,
+    "k": 10,
+    "share": 0.0357,
+    "ci95": [
+     0.0195,
+     0.0645
+    ]
+   },
+   "median_leak_share": 0.0
+  }
+ },
+ "predictions": {
+  "P1 leaky share >= 0.10": false,
+  "P2 other minus word >= 0.10": false,
+  "P3 shell share >= 0.02": true,
+  "P4 median discordance <= 0.05": true
+ }
+}
