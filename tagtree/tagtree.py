@@ -14,6 +14,13 @@ pages, and classifies every visible character on those pages as reachable,
 untagged (no MCID), dangling (an MCID the tree never reaches), artifact, or
 unknown (an MCID inside a form XObject, or a property list given by name).
 
+0.1.1: pdfminer.six 20260107 picks an object out of a compressed object stream by
+the index the cross-reference stream gives. In some PDFs saved from Word that index
+disagrees with the object numbers in the stream's own header, so pdfminer.six
+returns a neighbouring object (tagtree-diag-v2). tagtree now finds the object by
+its number in the header, as pypdf and qpdf do; `analyze --xref-index` reads as
+0.1.0 did.
+
 The crawl is title2-pdf-census 0.2.2's (public pages only, robots.txt honoured,
 1 s between requests to a site), imported from its published code. Stores no
 document text, only counts. Machine checks only: never a WCAG judgment.
@@ -35,7 +42,7 @@ import sys
 import tempfile
 import time
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 UA = ("MV2-tagtree-reach/%s (Munim, Inc.; mv2@munimtech.com; reads public pages only)"
       % __version__)
@@ -59,6 +66,43 @@ def lit(x):
 
 def is_int(x):
     return isinstance(x, int) and not isinstance(x, bool)
+
+
+def header_slots(objs, n):
+    """{object number: first header slot listing it} from an object stream's 2n header numbers."""
+    slots = {}
+    for j in range(min(n, len(objs) // 2)):
+        if is_int(objs[2 * j]):
+            slots.setdefault(objs[2 * j], j)
+    return slots
+
+
+_ORIGINAL = []
+
+
+def getobj_objstm_by_number(self, stream, index, objid):
+    """pdfminer.six's PDFDocument._getobj_objstm (20260107), except that the object is found by
+    its number in the object stream's header, as pypdf and qpdf do. The cross-reference index
+    is used only when the header does not list the number."""
+    if stream.objid in self._parsed_objs:
+        objs, n = self._parsed_objs[stream.objid]
+    else:
+        objs, n = self._get_objects(stream)
+        if self.caching:
+            self._parsed_objs[stream.objid] = (objs, n)
+    i = 2 * n + header_slots(objs, n).get(objid, index)
+    if i >= len(objs):
+        return _ORIGINAL[0](self, stream, index, objid)  # let pdfminer raise its own error
+    return objs[i]
+
+
+def use_header_numbers(on=True):
+    """Make pdfminer.six find object-stream members by header number (tagtree 0.1.1) or, with
+    on=False, by cross-reference index as pdfminer.six 20260107 does (tagtree 0.1.0)."""
+    from pdfminer.pdfdocument import PDFDocument
+    if not _ORIGINAL:
+        _ORIGINAL.append(PDFDocument._getobj_objstm)
+    PDFDocument._getobj_objstm = getobj_objstm_by_number if on else _ORIGINAL[0]
 
 
 def walk_tree(root, page_ids, node_cap=NODE_CAP):
@@ -237,14 +281,16 @@ def page_metrics(chars, tag_order, wildcard):
     return row
 
 
-def analyze_tags(data, max_pages=3):
-    """Reachability facts for the first max_pages pages of one PDF (bytes)."""
+def analyze_tags(data, max_pages=3, header_numbers=True):
+    """Reachability facts for the first max_pages pages of one PDF (bytes). header_numbers=False
+    finds object-stream members by cross-reference index, as tagtree 0.1.0 did."""
     from pdfminer.pdfdocument import PDFDocument
     from pdfminer.pdfinterp import PDFPageInterpreter, PDFResourceManager
     from pdfminer.pdfpage import PDFPage
     from pdfminer.pdfparser import PDFParser
     from pdfminer.pdftypes import resolve1
 
+    use_header_numbers(header_numbers)
     doc = PDFDocument(PDFParser(io.BytesIO(data)))
     root = resolve1(doc.catalog.get("StructTreeRoot"))
     if not isinstance(root, dict):
@@ -289,11 +335,13 @@ def doc_row(pages, stats, wildcard):
     }
 
 
-def analyze_file(path, timeout=90):
+def analyze_file(path, timeout=90, xref_index=False):
     """analyze_tags in a child process, so a hang or crash costs one PDF, not the run."""
+    cmd = [sys.executable, os.path.abspath(__file__), "analyze", path]
+    if xref_index:
+        cmd.append("--xref-index")
     try:
-        p = subprocess.run([sys.executable, os.path.abspath(__file__), "analyze", path],
-                           capture_output=True, text=True, timeout=timeout)
+        p = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
     except subprocess.TimeoutExpired:
         return {"result": "timeout"}
     if p.returncode != 0 or not p.stdout.strip():
@@ -510,6 +558,8 @@ def main(argv=None):
     a = sub.add_parser("analyze", help="print one PDF's reachability record as JSON")
     a.add_argument("path")
     a.add_argument("--pages", type=int, default=3)
+    a.add_argument("--xref-index", action="store_true",
+                   help="find object-stream members by cross-reference index, as tagtree 0.1.0 did")
     r = sub.add_parser("run", help="crawl a sample of the census cohort and analyse tagged PDFs")
     r.add_argument("--census", required=True, help="path of census.py (title2-pdf-census 0.2.2)")
     r.add_argument("--out-dir", required=True)
@@ -529,7 +579,7 @@ def main(argv=None):
         logging.getLogger("pdfminer").setLevel(logging.ERROR)
         with open(args.path, "rb") as f:
             data = f.read()
-        print(json.dumps(analyze_tags(data, args.pages)))
+        print(json.dumps(analyze_tags(data, args.pages, header_numbers=not args.xref_index)))
     elif args.cmd == "run":
         import importlib.util
         spec = importlib.util.spec_from_file_location("census", args.census)

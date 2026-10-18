@@ -16,8 +16,8 @@ compressed object streams by an index that, in these two Word files, disagrees w
 own list of object numbers, so it returned the wrong objects for most of their structure elements
 ([tagtree-xcheck-results.md](tagtree-xcheck-results.md), "What the diagnosis found"). Read
 correctly, both files are fully reachable. With their records corrected (from
-`results/diag-v2/diag2.json`; `test_results_xcheck.py` recomputes these lines), the first run's
-figures become:
+`results/diag-v2/diag2.json` and, for page order, `results/tagtree-011/check011.json`;
+`test_results_xcheck.py` recomputes these lines), the first run's figures become:
 
 - leaky: 47 of 753 (6.2%), not 49 (6.5%). P1 (10% or more) still fails.
 - Word against the rest: Word 2.9% (8 of 280) against 8.2% (39 of 473): 5.4 points. P2 (10
@@ -26,12 +26,17 @@ figures become:
 - dangling text in 21 PDFs, not 23; 10,788 dangling characters, not 24,047; 90,929 of 2,566,660
   characters (3.5%) unreachable, not 104,188 (4.1%).
 - structure tree with at most one element: 8 PDFs, not 9.
-- P4 still holds: the two files add at most 6 pages to the 1,420, and at least 781 of those 1,420
-  have a discordance of 0, so the median stays 0.0 whatever the 6 pages show.
+- P4 still holds. Read with tagtree 0.1.1, the two files add 5 pages to the 1,420 on which page
+  order is measured (discordance 0.0, 0.5576 and 0.0055 in the first, 0.0 and 0.0 in the second),
+  and the median over the 1,425 pages is still 0.0. 139 of them (9.8%) are out of order by more
+  than 0.2, not 138 of 1,420 (9.7%).
+- a same-column upward jump in tag order: 87 of 753 PDFs (11.6%), not 86 (11.4%).
 
-The rest of this page is as first published, with the figures of tagtree 0.1.0. None of the four
-verdicts changes. The two files held more than half of the dangling text, so the finding that
-dangling text is "not rare" rests on 21 PDFs and 10,788 characters, not 23 and 24,047.
+tagtree 0.1.1, released on 2026-10-18, reads both files this way; with `--xref-index` it reads
+them as 0.1.0 did. The rest of this page is as first published, with the figures of tagtree
+0.1.0. None of the four verdicts changes. The two files held more than half of the dangling text,
+so the finding that dangling text is "not rare" rests on 21 PDFs and 10,788 characters, not 23
+and 24,047.
 
 ## What was measured
 For each tagged PDF, tagtree 0.1.0 walks the structure tree from its root, as a screen reader in

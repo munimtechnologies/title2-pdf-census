@@ -35,10 +35,10 @@ def build(objs):
     return out.getvalue()
 
 
-def tagged_pdf(content=BASE, doc_kids=b"[8 0 R 9 0 R]", first_pg=True, struct=True):
+def tagged_objs(content=BASE, doc_kids=b"[8 0 R 9 0 R]", first_pg=True, struct=True):
     catalog = b"<< /Type /Catalog /Pages 2 0 R /MarkInfo << /Marked true >>"
     catalog += b" /StructTreeRoot 5 0 R >>" if struct else b" >>"
-    return build([
+    return [
         (1, catalog),
         (2, b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>"),
         (3, b"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >>"
@@ -51,7 +51,39 @@ def tagged_pdf(content=BASE, doc_kids=b"[8 0 R 9 0 R]", first_pg=True, struct=Tr
         (9, b"<< /Type /StructElem /S /P /P 7 0 R /Pg 3 0 R /K 1 >>"),
         (10, stream(b"BT /F1 12 Tf 72 600 Td (Inform) Tj ET", FORM)),
         (11, stream(b"/P <</MCID 0>> BDC BT /F1 12 Tf 72 500 Td (Xobj) Tj ET EMC", FORM)),
-    ])
+    ]
+
+
+def tagged_pdf(*args, **kwargs):
+    return build(tagged_objs(*args, **kwargs))
+
+
+def objstm_pdf():
+    """tagged_pdf's file with the Document element (7) and its first P (8) packed into an object
+    stream (12) whose header lists 7 then 8, while the cross-reference stream (13) gives 7 index 1
+    and 8 index 0: the disagreement tagtree-diag-v2 found in two Word PDFs."""
+    objs = dict(tagged_objs())
+    body7, body8 = objs.pop(7), objs.pop(8)
+    head = b"7 0 8 %d " % (len(body7) + 1)
+    data = head + body7 + b" " + body8
+    objs[12] = (b"<< /Type /ObjStm /N 2 /First %d /Length %d >>\nstream\n" % (len(head), len(data))
+                + data + b"\nendstream")
+    out = io.BytesIO()
+    out.write(b"%PDF-1.7\n%\xe2\xe3\xcf\xd3\n")
+    offsets = {}
+    for num in sorted(objs):
+        offsets[num] = out.tell()
+        out.write(b"%d 0 obj\n" % num + objs[num] + b"\nendobj\n")
+    xref = out.tell()
+    rows = [(0, 0, 65535)]
+    for i in range(1, 13):
+        rows.append({7: (2, 12, 1), 8: (2, 12, 0)}.get(i, (1, offsets.get(i, 0), 0)))
+    rows.append((1, xref, 0))
+    table = b"".join(bytes([t]) + f2.to_bytes(4, "big") + f3.to_bytes(2, "big") for t, f2, f3 in rows)
+    out.write(b"13 0 obj\n<< /Type /XRef /Size 14 /W [1 4 2] /Root 1 0 R /Length %d >>\nstream\n" % len(table)
+              + table + b"\nendstream\nendobj\n")
+    out.write(b"startxref\n%d\n%%%%EOF\n" % xref)
+    return out.getvalue()
 
 
 class AnalyzeTags(unittest.TestCase):
@@ -104,6 +136,38 @@ class AnalyzeTags(unittest.TestCase):
         self.assertEqual((r["result"], r["reachable"]), ("ok", 20))
 
 
+class ObjectStreams(unittest.TestCase):
+    """0.1.1: members of an object stream are found by the object number in its header."""
+
+    def test_found_by_header_number(self):
+        r = tagtree.analyze_tags(objstm_pdf())
+        self.assertEqual((r["elements"], r["reachable"], r["untagged"], r["dangling"]), (3, 20, 10, 0))
+
+    def test_xref_index_reads_as_0_1_0(self):
+        # By index, object 7 is the P that holds MCID 0: one element, MCID 1 dangling.
+        r = tagtree.analyze_tags(objstm_pdf(), header_numbers=False)
+        self.assertEqual((r["elements"], r["reachable"], r["untagged"], r["dangling"]), (1, 10, 10, 10))
+        r = tagtree.analyze_tags(objstm_pdf())  # and back
+        self.assertEqual(r["elements"], 3)
+
+    def test_child_process(self):
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as f:
+            f.write(objstm_pdf())
+        try:
+            fixed, as_index = tagtree.analyze_file(f.name), tagtree.analyze_file(f.name, xref_index=True)
+        finally:
+            os.unlink(f.name)
+        self.assertEqual((fixed["elements"], fixed["dangling"]), (3, 0))
+        self.assertEqual((as_index["elements"], as_index["dangling"]), (1, 10))
+
+    def test_plain_xref_table_unchanged(self):
+        a = tagtree.analyze_tags(tagged_pdf(), header_numbers=False)
+        self.assertEqual(a, tagtree.analyze_tags(tagged_pdf()))
+
+    def test_header_slots(self):
+        self.assertEqual(tagtree.header_slots([4, 0, 5, 9, 4, 20, "x"], 3), {4: 0, 5: 1})
+
+
 class Pieces(unittest.TestCase):
     def test_discordance(self):
         self.assertEqual(tagtree.discordance([0, 1, 2, 3, 4]), 0.0)
@@ -151,6 +215,7 @@ class Summary(unittest.TestCase):
         self.assertFalse(s["predictions"]["P3 shell share >= 0.02"])
         self.assertTrue(s["predictions"]["P4 median discordance <= 0.05"])
         self.assertIn("P1", tagtree.report(s))
+        self.assertEqual(s["version"], "0.1.1")
 
 
 if __name__ == "__main__":

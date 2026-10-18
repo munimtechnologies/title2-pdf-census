@@ -1,0 +1,102 @@
+{
+ "version": "0.1.0",
+ "tagtree": "0.1.1",
+ "pdfminer": "20260107",
+ "files": [
+  {
+   "url_sha256": "c8c71fae13ccf1cf19cd67e19caf9f6caccad3bb0c4dc520ad8939e3c0b425b7",
+   "fetch": "ok",
+   "bytes": 714328,
+   "sha256": "58f6f62bc3de1b7c9090235cfb74ddf48bc9d68a27482dd9ab0d890d05394649",
+   "tagtree_0_1_1": {
+    "result": "ok",
+    "pages_analyzed": 3,
+    "elements": 809,
+    "capped": false,
+    "stm_refs": 0,
+    "wildcard_mcids": 0,
+    "reachable": 5720,
+    "untagged": 0,
+    "dangling": 0,
+    "artifact": 255,
+    "xobject": 0,
+    "named": 0,
+    "content_chars": 5720,
+    "leak_share": 0.0,
+    "shell": false,
+    "page_discordance": [
+     0.0,
+     0.5576,
+     0.0055
+    ],
+    "upward_jumps": 2
+   },
+   "xref_index": {
+    "result": "ok",
+    "pages_analyzed": 3,
+    "elements": 0,
+    "capped": false,
+    "stm_refs": 0,
+    "wildcard_mcids": 1,
+    "reachable": 146,
+    "untagged": 0,
+    "dangling": 5574,
+    "artifact": 255,
+    "xobject": 0,
+    "named": 0,
+    "content_chars": 5720,
+    "leak_share": 0.9745,
+    "shell": false,
+    "page_discordance": [],
+    "upward_jumps": 0
+   }
+  },
+  {
+   "url_sha256": "5b10b0e8850b95ae1ae47e646da889ea9a5cc8b2fc34ca1f9e36631a57363ac3",
+   "fetch": "ok",
+   "bytes": 4227803,
+   "sha256": "b2696d00fc5b69095cf2258436756f7cc388f07a22172f954014e5db9ef84bd5",
+   "tagtree_0_1_1": {
+    "result": "ok",
+    "pages_analyzed": 3,
+    "elements": 3690,
+    "capped": false,
+    "stm_refs": 0,
+    "wildcard_mcids": 0,
+    "reachable": 7685,
+    "untagged": 0,
+    "dangling": 0,
+    "artifact": 124,
+    "xobject": 0,
+    "named": 0,
+    "content_chars": 7685,
+    "leak_share": 0.0,
+    "shell": false,
+    "page_discordance": [
+     0.0,
+     0.0
+    ],
+    "upward_jumps": 0
+   },
+   "xref_index": {
+    "result": "ok",
+    "pages_analyzed": 3,
+    "elements": 4,
+    "capped": false,
+    "stm_refs": 0,
+    "wildcard_mcids": 0,
+    "reachable": 0,
+    "untagged": 0,
+    "dangling": 7685,
+    "artifact": 124,
+    "xobject": 0,
+    "named": 0,
+    "content_chars": 7685,
+    "leak_share": 1.0,
+    "shell": true,
+    "page_discordance": [],
+    "upward_jumps": 0
+   }
+  }
+ ]
+}

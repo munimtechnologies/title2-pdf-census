@@ -6,8 +6,8 @@ collected. Job `tagtree-xcheck-v1` ran in a sandbox on 2026-10-18 from 05:19 to 
 crawl finished well inside its 150-minute limit. Files: [results/xcheck-v1/](../results/xcheck-v1/)
 (`summary.json`, `results.md`, `pairs-public.jsonl`, `code-sha256.txt`). `test_results_xcheck.py`
 recomputes every number on this page from them, from [results/tagtree-v1/](../results/tagtree-v1/),
-[results/diag-v1/](../results/diag-v1/) and [results/diag-v2/](../results/diag-v2/). Apache-2.0
-(code), CC BY 4.0 (this text and the data).
+[results/diag-v1/](../results/diag-v1/), [results/diag-v2/](../results/diag-v2/) and
+[results/tagtree-011/](../results/tagtree-011/). Apache-2.0 (code), CC BY 4.0 (this text and the data).
 
 Machine checks only. Nothing here is a WCAG conformance judgment about any government, and no
 government is named.
@@ -103,10 +103,10 @@ Every one of these results meets the confirmation rule we wrote down before `tag
 whether Word or a later tool wrote the indexes, or how common files like these are elsewhere. In
 the 759 PDFs of the re-crawl, no other file made the two readers disagree.
 
-**What changes in tagtree.** tagtree 0.1.1 finds object-stream members by their number in the
-header, with exactly the change tested in `tagtree-diag-v2`; `tagtree.py analyze --xref-index`
-reads as 0.1.0 did. Its unit tests (including a hand-built PDF with swapped indexes) and a re-read
-of both files are queued in the sandbox; it is released once they pass.
+**What changes in tagtree.** tagtree 0.1.1, released on 2026-10-18, finds object-stream members by
+their number in the header, with exactly the change tested in `tagtree-diag-v2`;
+`tagtree.py analyze --xref-index` reads as 0.1.0 did. It was released only after its unit tests
+passed and it read both files as expected (below).
 
 ### How diag-v2 was to be read (written before it ran)
 These rules were written in our working notes before the job ran; they were not published in
@@ -129,13 +129,34 @@ tagtree gives when it finds object-stream members by number (`tagtree_by_number`
 - dangling text in 21 PDFs, not 23; 10,788 dangling characters, not 24,047; 90,929 of 2,566,660
   characters (3.5%) unreachable, not 104,188 (4.1%).
 - structure tree with at most one element: 8 PDFs, not 9.
-- P4 (median page discordance 0.05 or less) still holds. `tagtree-diag-v2` did not record page
-  order, but the two files add at most 6 pages to the 1,420, and at least 781 of those 1,420 have
-  a discordance of 0, so the median stays 0.0 whatever the 6 pages show.
+- P4 (median page discordance 0.05 or less) still holds. Read with tagtree 0.1.1, the two files
+  add 5 pages to the 1,420 on which page order is measured (discordance 0.0, 0.5576 and 0.0055 in
+  the first, 0.0 and 0.0 in the second), and the median over the 1,425 pages is still 0.0. 139 of
+  them (9.8%) are out of order by more than 0.2, not 138 of 1,420 (9.7%).
 
 These are the figures the earlier version of this page gave for the case that the pypdf reader
 was right. [tagtree-reach-results.md](tagtree-reach-results.md) now gives them next to its
 first-published figures, which stay on that page as they were.
+
+## tagtree 0.1.1 on the two files
+Job `tagtree-011-v1` ran in a sandbox on 2026-10-18 from 13:47 to 13:50 UTC
+([results/tagtree-011/](../results/tagtree-011/): `check011.json`, `check011.py`,
+`code-sha256.txt`). First, all 17 unit tests of tagtree 0.1.1 passed, 5 of them new: they build a
+small PDF with a cross-reference stream whose indexes swap two objects and check that 0.1.1 finds
+each object by its number, that `--xref-index` reads it as 0.1.0 did, and that a file with a plain
+cross-reference table reads the same either way. Then it fetched both files again (the same bytes
+as in `tagtree-diag-v2`, by SHA-256) and read each with tagtree 0.1.1, both as released and with
+`--xref-index`.
+
+- **As released**, tagtree 0.1.1 gives exactly the records of `tagtree_by_number` in
+  `results/diag-v2/diag2.json`: 809 and 3,690 structure elements, no dangling or untagged text,
+  no shell page. It also records page order, which the diagnosis did not: the first file has 2
+  upward jumps in tag order and the second none.
+- **With `--xref-index`**, it gives exactly the first run's published records of both files, on
+  every field, so the option reproduces 0.1.0.
+
+Reading rule, written in our working notes before the job ran: release 0.1.1 only if both of these
+hold for both files. They did.
 
 ## The first run against the re-crawl
 `tagtree-diag-v1` also matched the first run's published rows with the re-crawl's, by URL hash.
@@ -163,8 +184,10 @@ the marked-content IDs each walk reaches and was not run again.
   exceptions hold most of the first run's dangling characters. A misread file can look like a
   broken tree, which is exactly what this measure counts, so totals of unreachable text are the
   figures most exposed to parser errors.
-- The corrected figures come from tagtree 0.1.0 run with the change in `diag2.py`, not yet from the
-  released tagtree 0.1.1; the queued re-read checks that 0.1.1 gives the same records.
+- Only the two files were read again with tagtree 0.1.1; the first run and the re-crawl were not
+  re-run with it. On every other PDF of the re-crawl the pypdf reader, which also finds members
+  by number, agreed with tagtree 0.1.0, so we expect no other record to change, but we have not
+  measured it.
 - The pypdf reader counts bytes of shown strings, not characters, so its leak shares differ a
   little from tagtree's; the checks compare flags, decided by the point estimate.
 - The same team wrote both readers from the same definitions, so a shared misunderstanding of

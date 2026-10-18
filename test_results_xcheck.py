@@ -2,13 +2,15 @@
 counts and the disagreement list from pairs-public.jsonl and compares them with summary.json; then
 checks every number docs/tagtree-xcheck-results.md quotes, including what the two disagreements
 would change in the first run (results/tagtree-v1), the third-parser diagnosis of the two
-disagreements and the first run matched with the re-crawl (results/diag-v1), and the confirmed
-cause and the corrected first run on both results pages (results/diag-v2). No network.
+disagreements and the first run matched with the re-crawl (results/diag-v1), the confirmed
+cause and the corrected first run on both results pages (results/diag-v2), and tagtree 0.1.1's
+re-read of the two files with the exact P4 median (results/tagtree-011). No network.
 Apache-2.0 licensed."""
 
 import collections
 import json
 import os
+import statistics
 import unittest
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -16,6 +18,7 @@ XC = os.path.join(HERE, "results", "xcheck-v1")
 REACH = os.path.join(HERE, "results", "tagtree-v1")
 DIAG = os.path.join(HERE, "results", "diag-v1")
 DIAG2 = os.path.join(HERE, "results", "diag-v2")
+T011 = os.path.join(HERE, "results", "tagtree-011")
 LEAK, MIN_CONTENT = 0.05, 50  # tagtree 0.1.0's LEAK_THRESHOLD and MIN_CONTENT
 # Pre-registered thresholds (docs/tagtree-xcheck-prereg.md).
 THRESHOLDS = {"X1_elements_equal": 0.95, "X2_walks_equal": 0.95, "X3_any_dangling_agree": 0.95,
@@ -52,6 +55,13 @@ def load(folder, name):
 
 def pct(k, n):
     return "%.1f%%" % (100.0 * k / n)
+
+
+def listed(xs):
+    """[0.0, 0.5, 0.1] -> '0.0, 0.5 and 0.1'."""
+    if len(xs) == 1:
+        return str(xs[0])
+    return "%s and %s" % (", ".join(str(x) for x in xs[:-1]), xs[-1])
 
 
 def wilson(k, n, z=1.96):
@@ -455,19 +465,6 @@ class Diag2Tests(unittest.TestCase):
         self.assertLess(diff, 10)
         self.assertGreaterEqual(sa / n, 0.02)
 
-    def test_p4_bound(self):
-        pages = [x for d in self.v1 for x in d["page_discordance"]]
-        hit = [d for d in self.v1 if d["url_sha256"] in self.fixed]
-        extra = sum(d["pages_analyzed"] for d in hit)
-        zeros = sum(1 for x in pages if x == 0)
-        self.assertEqual(sum(len(d["page_discordance"]) for d in hit), 0)
-        self.assertGreaterEqual(zeros, 781)
-        self.assertGreaterEqual(zeros, (len(pages) + extra) // 2 + 1)  # so the median stays 0.0
-        phrase = ("the two files add at most {} pages to the {:,}, and at least 781 of those {:,} have a "
-                  "discordance of 0, so the median stays 0.0".format(extra, len(pages), len(pages)))
-        self.assertIn(phrase, self.doc)
-        self.assertIn(phrase, self.reach)
-
     def test_recrawl_corrected(self):
         alt, n = self.corrected(self.pairs), len(self.pairs)
         lk, sh = sum(1 for d in alt if leaky(d)), sum(1 for d in alt if d["shell"])
@@ -488,6 +485,96 @@ class Diag2Tests(unittest.TestCase):
         self.assertNotIn("stay as first published until", self.reach)
         for phrase in ("by hand", "by eye", "hand check", "hand-check", "an ai"):
             self.assertNotIn(phrase, low, phrase)
+
+
+class ReleaseTests(unittest.TestCase):
+    """results/tagtree-011: tagtree 0.1.1 as released and with --xref-index on the two files, its
+    reading rule, and the corrected first run's exact P4 median and upward jumps."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.c = load(T011, "check011.json")
+        cls.files = cls.c["files"]
+        cls.d2 = {f["url_sha256"]: f for f in load(DIAG2, "diag2.json")["files"]}
+        rows = load(REACH, "docs-public.jsonl")
+        cls.rows = {d["url_sha256"]: d for d in rows}
+        cls.v1 = [d for d in rows if d["result"] == "ok" and not d["capped"] and d["content_chars"] >= MIN_CONTENT]
+        cls.fixed = {f["url_sha256"]: f["tagtree_0_1_1"] for f in cls.files}
+        cls.doc = flat(text("docs", "tagtree-xcheck-results.md"))
+        cls.reach = flat(text("docs", "tagtree-reach-results.md"))
+        cls.readme = flat(text("README.md"))
+
+    def test_files(self):
+        c = self.c
+        self.assertEqual((c["version"], c["tagtree"], c["pdfminer"]), ("0.1.0", "0.1.1", "20260107"))
+        self.assertNotIn("http", json.dumps(c))  # URL hashes only
+        self.assertEqual([f["url_sha256"] for f in self.files], list(self.d2))
+        sha = text("results", "tagtree-011", "code-sha256.txt")
+        for name in ("tagtree.py", "test_tagtree.py", "check011.py"):
+            self.assertIn("  " + name, sha)
+        self.assertIn("pdfminer.six 20260107", sha)
+        self.assertIn("xref_index=True", text("results", "tagtree-011", "check011.py"))
+        code = text("tagtree", "tagtree.py")
+        self.assertIn('__version__ = "0.1.1"', code)
+        self.assertIn("def use_header_numbers", code)
+        self.assertIn("class ObjectStreams", text("tagtree", "test_tagtree.py"))
+
+    def test_reading_rule(self):
+        # written before the job ran: release only if both hold for both files
+        for f in self.files:
+            h = f["url_sha256"]
+            self.assertEqual(f["fetch"], "ok")
+            self.assertEqual(f["sha256"], self.d2[h]["sha256"])  # the same bytes as diag-v2
+            new, old = f["tagtree_0_1_1"], f["xref_index"]
+            self.assertEqual(new["result"], "ok")
+            for k in TAGTREE_KEYS:
+                self.assertEqual(new[k], self.d2[h]["tagtree_by_number"][k], k)
+            self.assertEqual(set(old), set(new))
+            for k, v in old.items():  # every public field: the first run's record
+                self.assertEqual(v, self.rows[h][k], k)
+
+    def test_p4_exact(self):
+        v1 = self.v1
+        hit = [d for d in v1 if d["url_sha256"] in self.fixed]
+        self.assertEqual(len(hit), 2)
+        self.assertEqual(sum(len(d["page_discordance"]) for d in hit), 0)
+        pages = [x for d in v1 for x in d["page_discordance"]]
+        a, b = (f["tagtree_0_1_1"]["page_discordance"] for f in self.files)
+        allp = pages + a + b
+        med = round(statistics.median(allp), 4)
+        self.assertLessEqual(med, 0.05)  # P4 still holds
+        over_b, over_a = sum(1 for x in pages if x > 0.2), sum(1 for x in allp if x > 0.2)
+        self.assertEqual([over_b, len(pages)], list(load(REACH, "summary.json")["explore_pages_discordance_over_0.2"]))
+        line = ("Read with tagtree 0.1.1, the two files add {} pages to the {:,} on which page order is measured "
+                "(discordance {} in the first, {} in the second), and the median over the {:,} pages is still {}. "
+                "{} of them ({}) are out of order by more than 0.2, not {} of {:,} ({})".format(
+                    len(a) + len(b), len(pages), listed(a), listed(b), len(allp), med,
+                    over_a, pct(over_a, len(allp)), over_b, len(pages), pct(over_b, len(pages))))
+        self.assertIn(line, self.doc)
+        self.assertIn(line, self.reach)
+        self.assertNotIn("at most 6 pages", self.doc + self.reach)
+
+    def test_upward_jumps(self):
+        v1, n = self.v1, len(self.v1)
+        alt = [dict(d, upward_jumps=self.fixed[d["url_sha256"]]["upward_jumps"]) if d["url_sha256"] in self.fixed
+               else d for d in v1]
+        jb, ja = sum(1 for d in v1 if d["upward_jumps"] > 0), sum(1 for d in alt if d["upward_jumps"] > 0)
+        self.assertIn("a same-column upward jump in tag order: %d of %d PDFs (%s), not %d (%s)" % (
+            ja, n, pct(ja, n), jb, pct(jb, n)), self.reach)
+        self.assertEqual([f["tagtree_0_1_1"]["upward_jumps"] for f in self.files], [2, 0])
+        self.assertIn("the first file has 2 upward jumps in tag order and the second none", self.doc)
+
+    def test_doc(self):
+        doc, reach, readme = self.doc, self.reach, self.readme
+        self.assertIn("Job `tagtree-011-v1` ran in a sandbox on 2026-10-18 from 13:47 to 13:50 UTC", doc)
+        self.assertIn("all 17 unit tests of tagtree 0.1.1 passed, 5 of them new", doc)
+        for page in (doc, reach):
+            self.assertIn("tagtree 0.1.1, released on 2026-10-18", page)
+        self.assertIn("tagtree 0.1.1 (released 2026-10-18) finds object-stream members by number", readme)
+        self.assertIn("**tagtree 0.1.1:**", readme)
+        self.assertNotIn("are queued in the sandbox", doc)
+        self.assertNotIn("the queued re-read", doc)
+        self.assertNotIn("is released once its tests pass", readme)
 
 
 if __name__ == "__main__":
