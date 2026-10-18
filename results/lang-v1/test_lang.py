@@ -117,6 +117,22 @@ class Check(unittest.TestCase):
     def check(self, *args, **kw):
         return lang.check_bytes(make_pdf(*args, **kw), self.det)
 
+    def test_model_from_any_directory(self):
+        # 0.1.0 passed py3langid's relative MODEL_FILE to from_modelpath, which looked for it
+        # under the working directory
+        self.assertTrue(lang.model_path().is_absolute())
+        self.assertTrue(lang.model_path().is_file())
+        here = os.getcwd()
+        with tempfile.TemporaryDirectory() as d:
+            os.chdir(d)
+            try:
+                det = lang.Detectors()
+            finally:
+                os.chdir(here)
+        a, pa, b, pb = det.detect(" ".join(SPANISH[:3]))
+        self.assertEqual((a, b), ("es", "es"))
+        self.assertGreaterEqual(pa, lang.MIN_PROB)
+
     def test_spanish_declared_english(self):
         r = self.check(SPANISH, "(en-US)", elem_lang="es-ES")
         self.assertEqual((r["result"], r["text_lang"], r["lang_primary"], r["lang_well_formed"]),
@@ -206,6 +222,7 @@ class Summary(unittest.TestCase):
 
     def test_counts(self):
         s = lang.summarize(self.docs)
+        self.assertEqual(s["version"], lang.__version__)
         self.assertEqual((s["pdfs"], s["ok"], s["determined"], s["english"], s["non_english"],
                           s["non_english_sites"]), (11, 10, 8, 4, 4, 3))
         self.assertEqual(s["check_results"], {"ok": 10, "error": 1})

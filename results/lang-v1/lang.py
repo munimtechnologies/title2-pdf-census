@@ -33,7 +33,7 @@ import sys
 import tempfile
 import time
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 UA = ("MV2-lang-census/%s (Munim, Inc.; mv2@munimtech.com; reads public pages only)"
       % __version__)
@@ -109,16 +109,25 @@ def chunks_of(text, size=CHUNK):
     return out
 
 
+def model_path():
+    """py3langid's bundled model as an absolute path. In py3langid 0.4.0 MODEL_FILE is
+    'data/model.npz.xz', relative to the package, and from_modelpath resolves a relative path
+    against the working directory, so passing MODEL_FILE as it is fails outside the package."""
+    import pathlib
+    from py3langid import langid
+    path = pathlib.Path(langid.MODEL_FILE)
+    if not path.is_absolute():
+        path = pathlib.Path(langid.__file__).resolve().parent / path
+    return path
+
+
 class Detectors:
     """py3langid (normalized probabilities) and langdetect (seeded), loaded once per process."""
 
     def __init__(self):
-        from py3langid.langid import LanguageIdentifier, MODEL_FILE
+        from py3langid.langid import LanguageIdentifier
         from langdetect import DetectorFactory
-        make = (getattr(LanguageIdentifier, "from_modelpath", None)
-                or getattr(LanguageIdentifier, "from_model_file", None)
-                or LanguageIdentifier.from_pickled_model)
-        self.langid = make(MODEL_FILE, norm_probs=True)
+        self.langid = LanguageIdentifier.from_modelpath(model_path(), norm_probs=True)
         DetectorFactory.seed = 0
 
     def detect(self, text):

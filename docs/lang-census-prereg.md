@@ -97,3 +97,19 @@ text string; and the share of checked PDFs with any `/Lang`.
   in the private output (the summary lists the 20 most common malformed values).
 - We will not contact any government, tool maker or standards body about the results without a
   person's review.
+
+## Amendment 1 (2026-10-18, before any data was collected)
+lang.py 0.1.0 could not load py3langid's language model. In py3langid 0.4.0, `MODEL_FILE` is
+the relative path `data/model.npz.xz` and `LanguageIdentifier.from_modelpath` resolves a
+relative path against the working directory, not the package, so 0.1.0 looked for the model in
+the job's own folder. We found this by reading py3langid's v0.4.0 source while the first job
+(lang-census-v1) was still waiting in the compute queue. That job would stop at its unit tests,
+which build the detectors first, so it is replaced by lang-census-v2 and nothing it produces,
+if it starts before the replacement, will be used.
+
+lang.py 0.1.1 makes the model path absolute (`model_path()`), relative to the installed
+package, and test_lang.py adds a test that loads the detectors from an unrelated working
+directory. Nothing else changes: the crawl, the sites and their order, the detectors and their
+versions, the thresholds, the rules, predictions L1 to L4 and check K are as written above. The
+replacement job (lang-census-v2) waits, as before, until this file and lang.py 0.1.1 are public
+on main.
