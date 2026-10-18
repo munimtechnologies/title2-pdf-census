@@ -1,0 +1,165 @@
+{
+ "version": "0.1.0",
+ "pdfs": 771,
+ "tagtree_results": {
+  "ok": 771
+ },
+ "x_results": {
+  "ok": 759
+ },
+ "eligible": 759,
+ "pairs": 759,
+ "walk_errors": 0,
+ "checks": {
+  "X1_elements_equal": {
+   "n": 759,
+   "k": 757,
+   "share": 0.9974,
+   "ci95": [
+    0.9904,
+    0.9993
+   ],
+   "met": true
+  },
+  "X2_walks_equal": {
+   "n": 759,
+   "k": 757,
+   "share": 0.9974,
+   "ci95": [
+    0.9904,
+    0.9993
+   ],
+   "met": true
+  },
+  "X3_any_dangling_agree": {
+   "n": 759,
+   "k": 757,
+   "share": 0.9974,
+   "ci95": [
+    0.9904,
+    0.9993
+   ],
+   "met": true
+  },
+  "X4_shell_agree": {
+   "n": 759,
+   "k": 758,
+   "share": 0.9987,
+   "ci95": [
+    0.9926,
+    0.9998
+   ],
+   "met": true
+  },
+  "X5_leaky_agree": {
+   "n": 759,
+   "k": 757,
+   "share": 0.9974,
+   "ci95": [
+    0.9904,
+    0.9993
+   ],
+   "met": true
+  }
+ },
+ "recrawl_tagtree": {
+  "leaky": {
+   "n": 759,
+   "k": 50,
+   "share": 0.0659,
+   "ci95": [
+    0.0503,
+    0.0858
+   ]
+  },
+  "shell": {
+   "n": 759,
+   "k": 32,
+   "share": 0.0422,
+   "ci95": [
+    0.03,
+    0.0589
+   ]
+  },
+  "v1": {
+   "leaky": [
+    49,
+    753
+   ],
+   "shell": [
+    32,
+    753
+   ]
+  }
+ },
+ "disagreements": [
+  {
+   "url_sha256": "c8c71fae13ccf1cf19cd67e19caf9f6caccad3bb0c4dc520ad8939e3c0b425b7",
+   "producer_family": "word",
+   "result": "ok",
+   "pages_analyzed": 3,
+   "elements": 0,
+   "reachable": 146,
+   "untagged": 0,
+   "dangling": 5574,
+   "artifact": 255,
+   "xobject": 0,
+   "named": 0,
+   "content_chars": 5720,
+   "leak_share": 0.9745,
+   "shell": false,
+   "x": {
+    "result": "ok",
+    "pages_analyzed": 3,
+    "elements": 809,
+    "capped": false,
+    "stm_refs": 0,
+    "wildcard_mcids": 0,
+    "reachable": 6276,
+    "untagged": 0,
+    "dangling": 0,
+    "artifact": 255,
+    "xobject": 0,
+    "named": 0,
+    "content_units": 6276,
+    "leak_share": 0.0,
+    "shell": false,
+    "walks_equal": false
+   }
+  },
+  {
+   "url_sha256": "5b10b0e8850b95ae1ae47e646da889ea9a5cc8b2fc34ca1f9e36631a57363ac3",
+   "producer_family": "word",
+   "result": "ok",
+   "pages_analyzed": 3,
+   "elements": 4,
+   "reachable": 0,
+   "untagged": 0,
+   "dangling": 7685,
+   "artifact": 124,
+   "xobject": 0,
+   "named": 0,
+   "content_chars": 7685,
+   "leak_share": 1.0,
+   "shell": true,
+   "x": {
+    "result": "ok",
+    "pages_analyzed": 3,
+    "elements": 3690,
+    "capped": false,
+    "stm_refs": 0,
+    "wildcard_mcids": 0,
+    "reachable": 7685,
+    "untagged": 0,
+    "dangling": 0,
+    "artifact": 124,
+    "xobject": 0,
+    "named": 0,
+    "content_units": 7685,
+    "leak_share": 0.0,
+    "shell": false,
+    "walks_equal": false
+   }
+  }
+ ]
+}

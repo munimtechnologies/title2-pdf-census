@@ -66,18 +66,26 @@ pages (9.7%) are out of order by more than 0.2.
   ([tagtree-verapdf-results.md](tagtree-verapdf-results.md)). On veraPDF issue #1629's file it
   flagged exactly the three orphaned marked-content IDs the reporter named. Both corpora are
   small, so these checks show that the classes work, not how often tagtree is right on real files.
-- **Not yet checked independently on these 753 files.** No second implementation has re-measured
-  the shell and leaky PDFs. Some shells are covers or "online-optimized" exports, where a missing
-  tree is a plausible real fault, but that has not been confirmed file by file. A cross-check
-  with a second, independent reader is pre-registered in
-  [tagtree-xcheck-prereg.md](tagtree-xcheck-prereg.md).
+- **Checked by a second, independent reader (added 2026-10-18).** A re-crawl with the same seed
+  read 759 eligible PDFs with both tagtree and a separate pypdf reader. All five pre-registered
+  checks held: on 757 of the 759, the two agree on the element count, the marked-content IDs
+  reached and the dangling, shell and leaky flags ([tagtree-xcheck-results.md](tagtree-xcheck-results.md)).
+  **The two exceptions matter here.** Both are Word PDFs from this page's sample, where tagtree
+  reaches 0 and 4 structure elements and the pypdf reader 809 and 3,690. Together they hold 13,259
+  of the 24,047 dangling characters above. Which library reads them correctly is being checked
+  with a third parser. If tagtree's reading is wrong, this page's figures become: 47 leaky PDFs,
+  not 49; Word 8 of 280, not 10; 31 shells, not 32; 21 PDFs with dangling text, not 23; 90,929
+  unreachable characters (3.5%), not 104,188 (4.1%); 8 trees with at most one element, not 9.
+  P1 and P2 would still fail and P3 would still hold. The figures on this page are left as first
+  published until that check is in.
 - **"Visible" was not quite right.** The pre-registration says tagtree counts visible characters.
   tagtree.py does not check the text render mode, so invisible text (for example an OCR layer
   over a scan) is counted too. A screen reader reads that text as well, so it belongs in the
   measure, but the word "visible" was inaccurate.
 - **Content wrongly marked as an artifact is not detected.** tagtree treats artifacts as
   decoration, so real text hidden as an artifact (veraPDF corpus file 7.1-t02-fail-a) does not
-  count as unreachable. The leak shares here are lower bounds in that sense.
+  count as unreachable. The leak shares here are lower bounds in that sense; a parser misreading
+  a file, as in the two exceptions above, would push them the other way.
 - Only the first 3 pages; only PDFs linked within 8 pages of each home page; up to 3 PDFs per
   site, so larger sites are not weighted by how many PDFs they publish. Producer groups other than
   Word and Adobe have fewer than 50 PDFs each, so their shares are not reliable.
