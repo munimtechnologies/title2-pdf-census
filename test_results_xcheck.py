@@ -2,7 +2,8 @@
 counts and the disagreement list from pairs-public.jsonl and compares them with summary.json; then
 checks every number docs/tagtree-xcheck-results.md quotes, including what the two disagreements
 would change in the first run (results/tagtree-v1), the third-parser diagnosis of the two
-disagreements and the first run matched with the re-crawl (results/diag-v1). No network.
+disagreements and the first run matched with the re-crawl (results/diag-v1), and the confirmed
+cause and the corrected first run on both results pages (results/diag-v2). No network.
 Apache-2.0 licensed."""
 
 import collections
@@ -14,6 +15,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 XC = os.path.join(HERE, "results", "xcheck-v1")
 REACH = os.path.join(HERE, "results", "tagtree-v1")
 DIAG = os.path.join(HERE, "results", "diag-v1")
+DIAG2 = os.path.join(HERE, "results", "diag-v2")
 LEAK, MIN_CONTENT = 0.05, 50  # tagtree 0.1.0's LEAK_THRESHOLD and MIN_CONTENT
 # Pre-registered thresholds (docs/tagtree-xcheck-prereg.md).
 THRESHOLDS = {"X1_elements_equal": 0.95, "X2_walks_equal": 0.95, "X3_any_dangling_agree": 0.95,
@@ -26,6 +28,10 @@ LABELS = {"X1_elements_equal": "X1: same number of structure elements reached fr
 XCHECK_SHA = "8655e9e9ca34488bf6691fd1944507b905490d316a13347518a4ab8ad9e131d2"
 TAGTREE_SHA = "d49fbe0b7eb62dbdac182fe972ea5e27489fbacf22f8732bd5f0cda0e3c94fab"
 DIAG_SHA = "8a90cd6c618a3b7314cb6f20f7f7eaa1c0094fc6afe58f7cd994effd081d9067"
+DIAG2_SHA = "dc657cba2785271f5b6159157d5843cc432ce6c5dab3f27c7ce39731e7553af7"
+# The record fields diag2.py keeps from tagtree (diag2.TAGTREE_KEYS, without "result").
+TAGTREE_KEYS = ("elements", "wildcard_mcids", "reachable", "untagged", "dangling", "artifact",
+                "content_chars", "leak_share", "shell")
 
 
 def text(*parts):
@@ -299,7 +305,8 @@ class DiagTests(unittest.TestCase):
         self.assertIn("gives exactly the results it gave before ({} and {} elements)".format(
             a["tagtree_by_offset"]["elements"], b["tagtree_by_offset"]["elements"]), doc)
         self.assertIn("pypdf %s looks the object's number up" % d["pypdf"], doc)
-        self.assertIn("That is a hypothesis, not yet a finding", doc)
+        self.assertIn("When this page was first updated that was a hypothesis; the second job tested it", doc)
+        self.assertNotIn("not yet a finding", doc)
 
     def test_overlap(self):
         o, doc = self.d["overlap"], self.doc
@@ -326,6 +333,161 @@ class DiagTests(unittest.TestCase):
             # every PDF the pypdf reader disagrees on is one of the two files
             off = {d["url_sha256"] for d in seen} - {d["url_sha256"] for d in agreed}
             self.assertTrue(off and off <= set(self.dis), key)
+
+
+class Diag2Tests(unittest.TestCase):
+    """results/diag-v2: each file's cross-reference indexes against its object-stream headers,
+    pdfminer.six and tagtree finding object-stream members by header number, and the corrected
+    first run on both results pages."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.d = load(DIAG2, "diag2.json")
+        cls.files = cls.d["files"]
+        cls.doc = flat(text("docs", "tagtree-xcheck-results.md"))
+        cls.reach = flat(text("docs", "tagtree-reach-results.md"))
+        cls.dis = {d["url_sha256"]: d for d in load(XC, "summary.json")["disagreements"]}
+        v1 = load(REACH, "docs-public.jsonl")
+        cls.v1 = [d for d in v1 if d["result"] == "ok" and not d["capped"] and d["content_chars"] >= MIN_CONTENT]
+        cls.pairs = load(XC, "pairs-public.jsonl")
+        cls.fixed = {f["url_sha256"]: f["tagtree_by_number"] for f in cls.files}
+
+    def corrected(self, rows):
+        return [dict(d, **{k: self.fixed[d["url_sha256"]][k] for k in TAGTREE_KEYS})
+                if d["url_sha256"] in self.fixed else d for d in rows]
+
+    def test_files(self):
+        d = self.d
+        self.assertEqual((d["version"], d["pdfminer"], d["pypdf"], d["pikepdf"]),
+                         ("0.2.0", "20260107", "6.21.1", "10.17.0"))
+        sha = text("results", "diag-v2", "code-sha256.txt")
+        self.assertIn(DIAG2_SHA + "  diag2.py", sha)
+        self.assertIn(TAGTREE_SHA + "  tagtree.py", sha)
+        self.assertIn("def getobj_objstm_by_number", text("results", "diag-v2", "diag2.py"))
+        self.assertIn("class ByNumber", text("results", "diag-v2", "test_diag2.py"))
+        self.assertNotIn("http", json.dumps(d))  # URL hashes only
+        self.assertEqual(sorted(f["url_sha256"] for f in self.files), sorted(self.dis))
+        self.assertTrue(self.files[0]["url_sha256"].startswith("c8c71fae"))
+
+    def test_confirmed(self):
+        # the confirmation rule written before the job ran (the page's "How diag-v2 was to be read")
+        for f in self.files:
+            rec, h = self.dis[f["url_sha256"]], f["header_check"]
+            self.assertEqual(f["fetch"], "ok")
+            self.assertEqual(f["pypdf_elements"], rec["x"]["elements"])
+            self.assertGreater(h["index_wrong"], 0)
+            self.assertEqual(h["index_ok"] + h["index_wrong"] + h.get("absent", 0), h["compressed_objects"])
+            self.assertEqual((h["streams_with_wrong_index"], h["streams_header_ascending"]), (h["streams"],) * 2)
+            self.assertEqual(h["duplicate_numbers"], 0)
+            a = f["pdfminer_as_is"]
+            self.assertGreaterEqual(h["elements_index_wrong"], a["checked"] - a["same_element"])
+            b = f["pdfminer_by_number"]
+            self.assertEqual((b["checked"], b["same_element"], b["wrong"]), (rec["x"]["elements"],) * 2 + ({},))
+            t = f["tagtree_by_number"]
+            self.assertEqual((t["result"], t["elements"], t["untagged"], t["dangling"], t["leak_share"], t["shell"]),
+                             ("ok", rec["x"]["elements"], 0, 0, 0.0, False))
+            self.assertEqual(t["reachable"], t["content_chars"])
+            for k in TAGTREE_KEYS:  # read as before: the first run's record exactly
+                if k in rec:
+                    self.assertEqual(f["tagtree_as_is"][k], rec[k], k)
+        s = self.d["synthetic"]["swapped_index"]
+        self.assertEqual(s["pdfminer_as_is"], {"4": "dict S=B", "5": "dict S=A"})
+        for k in ("pdfminer_by_number", "pypdf", "qpdf"):
+            self.assertEqual(s[k], {"4": "dict S=A", "5": "dict S=B"}, k)
+
+    def test_doc(self):
+        doc = self.doc
+        a, b = self.files
+        ha, hb = a["header_check"], b["header_check"]
+        self.assertIn("In the first file, {:,} of the {:,} objects stored in object streams have a cross-reference "
+                      "index that points at a different slot".format(ha["index_wrong"], ha["compressed_objects"]), doc)
+        self.assertIn("in both of its {} object streams; in the second file, {:,} of {:,}, in all {}".format(
+            ha["streams"], hb["index_wrong"], hb["compressed_objects"], hb["streams"]), doc)
+        self.assertIn("Among them are {:,} of the {:,} structure elements and {:,} of the {:,}".format(
+            ha["elements_index_wrong"], a["pypdf_elements"], hb["elements_index_wrong"], b["pypdf_elements"]), doc)
+        ex = {e["objid"]: e for f in self.files for e in f["header_check"]["examples"]}
+        self.assertEqual([(ex[n]["xref_index"], ex[n]["header_slot"]) for n in (140, 141, 127)],
+                         [(6, 5), (5, 6), (344, 0)])
+        self.assertIn("objects 140 and 141 have indexes 6 and 5 but sit in slots 5 and 6, and object 127, "
+                      "first in its stream's header, has index 344", doc)
+        self.assertIn("returns the same element as pypdf for {:,} of {:,} and {:,} of {:,}".format(
+            a["pdfminer_by_number"]["same_element"], a["pdfminer_by_number"]["checked"],
+            b["pdfminer_by_number"]["same_element"], b["pdfminer_by_number"]["checked"]), doc)
+        ta, tb = a["tagtree_by_number"], b["tagtree_by_number"]
+        self.assertIn("tagtree reaches {:,} and {:,} structure elements and finds no dangling or untagged text in "
+                      "either file: all {:,} and {:,} characters are reachable".format(
+                          ta["elements"], tb["elements"], ta["reachable"], tb["reachable"]), doc)
+        self.assertIn('"%s"' % a["producer"], doc)
+        self.assertEqual(a["producer"], b["producer"])
+        self.assertIn("its 7 unit tests passed first", doc)
+
+    def test_corrected_first_run(self):
+        v1, alt, n = self.v1, self.corrected(self.v1), len(self.v1)
+        self.assertEqual(sum(1 for d in v1 if d["url_sha256"] in self.fixed), 2)
+        before, after = sum(1 for d in v1 if leaky(d)), sum(1 for d in alt if leaky(d))
+        word = [d for d in alt if d["producer_family"] == "word"]
+        other = [d for d in alt if d["producer_family"] != "word"]
+        wk, ok = sum(1 for d in word if leaky(d)), sum(1 for d in other if leaky(d))
+        diff = 100.0 * (ok / len(other) - wk / len(word))
+        sb, sa = sum(1 for d in v1 if d["shell"]), sum(1 for d in alt if d["shell"])
+        content = sum(d["content_chars"] for d in alt)
+        self.assertEqual(content, sum(d["content_chars"] for d in v1))
+        lost_b = sum(d["untagged"] + d["dangling"] for d in v1)
+        lost_a = sum(d["untagged"] + d["dangling"] for d in alt)
+        lines = [
+            "leaky: %d of %d (%s), not %d (%s)" % (after, n, pct(after, n), before, pct(before, n)),
+            "Word %s (%d of %d) against %s (%d of %d): %.1f points" % (
+                pct(wk, len(word)), wk, len(word), pct(ok, len(other)), ok, len(other), diff),
+            "shell page: %d of %d (%s), not %d (%s)" % (sa, n, pct(sa, n), sb, pct(sb, n)),
+            "dangling text in {} PDFs, not {}; {:,} dangling characters, not {:,}; {:,} of {:,} characters ({}) "
+            "unreachable, not {:,} ({})".format(
+                sum(1 for d in alt if d["dangling"] > 0), sum(1 for d in v1 if d["dangling"] > 0),
+                sum(d["dangling"] for d in alt), sum(d["dangling"] for d in v1), lost_a, content,
+                pct(lost_a, content), lost_b, pct(lost_b, content)),
+            "structure tree with at most one element: %d PDFs, not %d" % (
+                sum(1 for d in alt if d["elements"] <= 1), sum(1 for d in v1 if d["elements"] <= 1)),
+        ]
+        for line in lines:
+            self.assertIn(line, self.doc)
+            self.assertIn(line, self.reach)
+        # the verdicts do not change
+        self.assertLess(after / n, 0.10)
+        self.assertLess(diff, 10)
+        self.assertGreaterEqual(sa / n, 0.02)
+
+    def test_p4_bound(self):
+        pages = [x for d in self.v1 for x in d["page_discordance"]]
+        hit = [d for d in self.v1 if d["url_sha256"] in self.fixed]
+        extra = sum(d["pages_analyzed"] for d in hit)
+        zeros = sum(1 for x in pages if x == 0)
+        self.assertEqual(sum(len(d["page_discordance"]) for d in hit), 0)
+        self.assertGreaterEqual(zeros, 781)
+        self.assertGreaterEqual(zeros, (len(pages) + extra) // 2 + 1)  # so the median stays 0.0
+        phrase = ("the two files add at most {} pages to the {:,}, and at least 781 of those {:,} have a "
+                  "discordance of 0, so the median stays 0.0".format(extra, len(pages), len(pages)))
+        self.assertIn(phrase, self.doc)
+        self.assertIn(phrase, self.reach)
+
+    def test_recrawl_corrected(self):
+        alt, n = self.corrected(self.pairs), len(self.pairs)
+        lk, sh = sum(1 for d in alt if leaky(d)), sum(1 for d in alt if d["shell"])
+        self.assertIn("With both files read correctly, %d of %d are leaky (%s) and %d have a shell page (%s)" % (
+            lk, n, pct(lk, n), sh, pct(sh, n)), self.doc)
+        for f in self.files:  # X1, X3, X4 and X5 on the two files, with the fix
+            x, t = self.dis[f["url_sha256"]]["x"], f["tagtree_by_number"]
+            self.assertEqual(t["elements"], x["elements"])
+            self.assertEqual(t["dangling"] > 0, x["dangling"] > 0)
+            self.assertEqual(t["shell"], x["shell"])
+            self.assertEqual(t["leak_share"] >= LEAK, x["leak_share"] >= LEAK)
+
+    def test_reach_page(self):
+        low = self.reach.lower()
+        self.assertIn("## Correction (2026-10-18): two files were misread", self.reach)
+        self.assertIn("None of the four verdicts changes", self.reach)
+        self.assertIn("rests on 21 PDFs and 10,788 characters, not 23 and 24,047", self.reach)
+        self.assertNotIn("stay as first published until", self.reach)
+        for phrase in ("by hand", "by eye", "hand check", "hand-check", "an ai"):
+            self.assertNotIn(phrase, low, phrase)
 
 
 if __name__ == "__main__":

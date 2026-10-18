@@ -10,6 +10,29 @@ Apache-2.0 (code), CC BY 4.0 (this text and the data).
 Machine checks only. Nothing here is a WCAG conformance judgment about any government, and no
 government is named.
 
+## Correction (2026-10-18): two files were misread
+tagtree 0.1.0 misread two of the 753 PDFs. pdfminer.six, which tagtree uses, picks objects out of
+compressed object streams by an index that, in these two Word files, disagrees with the stream's
+own list of object numbers, so it returned the wrong objects for most of their structure elements
+([tagtree-xcheck-results.md](tagtree-xcheck-results.md), "What the diagnosis found"). Read
+correctly, both files are fully reachable. With their records corrected (from
+`results/diag-v2/diag2.json`; `test_results_xcheck.py` recomputes these lines), the first run's
+figures become:
+
+- leaky: 47 of 753 (6.2%), not 49 (6.5%). P1 (10% or more) still fails.
+- Word against the rest: Word 2.9% (8 of 280) against 8.2% (39 of 473): 5.4 points. P2 (10
+  points) still fails.
+- shell page: 31 of 753 (4.1%), not 32 (4.2%). P3 (2% or more) still holds.
+- dangling text in 21 PDFs, not 23; 10,788 dangling characters, not 24,047; 90,929 of 2,566,660
+  characters (3.5%) unreachable, not 104,188 (4.1%).
+- structure tree with at most one element: 8 PDFs, not 9.
+- P4 still holds: the two files add at most 6 pages to the 1,420, and at least 781 of those 1,420
+  have a discordance of 0, so the median stays 0.0 whatever the 6 pages show.
+
+The rest of this page is as first published, with the figures of tagtree 0.1.0. None of the four
+verdicts changes. The two files held more than half of the dangling text, so the finding that
+dangling text is "not rare" rests on 21 PDFs and 10,788 characters, not 23 and 24,047.
+
 ## What was measured
 For each tagged PDF, tagtree 0.1.0 walks the structure tree from its root, as a screen reader in
 tag order does, and sorts every character on the first 3 pages into reachable (its marked-content
@@ -72,15 +95,9 @@ pages (9.7%) are out of order by more than 0.2.
   reached and the dangling, shell and leaky flags ([tagtree-xcheck-results.md](tagtree-xcheck-results.md)).
   **The two exceptions matter here.** Both are Word PDFs from this page's sample, where tagtree
   reaches 0 and 4 structure elements and the pypdf reader 809 and 3,690. Together they hold 13,259
-  of the 24,047 dangling characters above. **A third parser (qpdf) has since sided with pypdf,
-  so we now treat tagtree's reading of these two files as wrong**: pdfminer.six, which tagtree
-  uses, returns different objects from pypdf and qpdf for most of their structure elements
-  (details and the cause under test are on the cross-check page). Once tagtree reads them correctly, this page's figures are
-  expected to become: 47 leaky PDFs, not 49; Word 8 of 280, not 10; 31 shells, not 32; 21 PDFs
-  with dangling text, not 23; 90,929 unreachable characters (3.5%), not 104,188 (4.1%); 8 trees
-  with at most one element, not 9. P1 and P2 would still fail and P3 would still hold. The
-  figures on this page stay as first published until a fixed tagtree has read both files; then
-  the corrected figures go next to them.
+  of the 24,047 dangling characters above. A third parser (qpdf) sided with pypdf, and a second
+  diagnosis confirmed why pdfminer.six misreads them: the correction at the top of this page.
+  In the re-crawl, no other PDF made the two readers disagree.
 - **"Visible" was not quite right.** The pre-registration says tagtree counts visible characters.
   tagtree.py does not check the text render mode, so invisible text (for example an OCR layer
   over a scan) is counted too. A screen reader reads that text as well, so it belongs in the

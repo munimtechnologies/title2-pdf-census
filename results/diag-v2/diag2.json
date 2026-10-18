@@ -1,0 +1,326 @@
+{
+ "version": "0.2.0",
+ "pdfminer": "20260107",
+ "pypdf": "6.21.1",
+ "pikepdf": "10.17.0",
+ "files": [
+  {
+   "url_sha256": "c8c71fae13ccf1cf19cd67e19caf9f6caccad3bb0c4dc520ad8939e3c0b425b7",
+   "fetch": "ok",
+   "bytes": 714328,
+   "sha256": "58f6f62bc3de1b7c9090235cfb74ddf48bc9d68a27482dd9ab0d890d05394649",
+   "producer": "Microsoft\u00ae Word for Microsoft 365",
+   "pypdf_elements": 809,
+   "header_check": {
+    "compressed_objects": 859,
+    "streams": 2,
+    "index_ok": 74,
+    "index_wrong": 785,
+    "elements_index_wrong": 735,
+    "duplicate_numbers": 0,
+    "streams_header_ascending": 2,
+    "streams_with_wrong_index": 2,
+    "examples": [
+     {
+      "objid": 140,
+      "xref_index": 6,
+      "header_slot": 5,
+      "stream": 134
+     },
+     {
+      "objid": 141,
+      "xref_index": 5,
+      "header_slot": 6,
+      "stream": 134
+     },
+     {
+      "objid": 127,
+      "xref_index": 344,
+      "header_slot": 0,
+      "stream": 681
+     },
+     {
+      "objid": 128,
+      "xref_index": 345,
+      "header_slot": 1,
+      "stream": 681
+     }
+    ],
+    "per_stream": {
+     "134": {
+      "index_ok": 74,
+      "index_wrong": 426,
+      "elements_index_wrong": 391,
+      "duplicate_numbers": 0,
+      "header_ascending": 1,
+      "members": 500
+     },
+     "681": {
+      "index_wrong": 359,
+      "elements_index_wrong": 344,
+      "duplicate_numbers": 0,
+      "header_ascending": 1,
+      "members": 359
+     }
+    }
+   },
+   "pdfminer_as_is": {
+    "checked": 809,
+    "same_element": 304,
+    "wrong": {
+     "Lbl": 88,
+     "LBody": 87,
+     "LI": 77,
+     "P": 54,
+     "null": 38,
+     "Span": 31
+    }
+   },
+   "tagtree_as_is": {
+    "result": "ok",
+    "elements": 0,
+    "wildcard_mcids": 1,
+    "reachable": 146,
+    "untagged": 0,
+    "dangling": 5574,
+    "artifact": 255,
+    "content_chars": 5720,
+    "leak_share": 0.9745,
+    "shell": false
+   },
+   "pdfminer_by_number": {
+    "checked": 809,
+    "same_element": 809,
+    "wrong": {}
+   },
+   "tagtree_by_number": {
+    "result": "ok",
+    "elements": 809,
+    "wildcard_mcids": 0,
+    "reachable": 5720,
+    "untagged": 0,
+    "dangling": 0,
+    "artifact": 255,
+    "content_chars": 5720,
+    "leak_share": 0.0,
+    "shell": false
+   }
+  },
+  {
+   "url_sha256": "5b10b0e8850b95ae1ae47e646da889ea9a5cc8b2fc34ca1f9e36631a57363ac3",
+   "fetch": "ok",
+   "bytes": 4227803,
+   "sha256": "b2696d00fc5b69095cf2258436756f7cc388f07a22172f954014e5db9ef84bd5",
+   "producer": "Microsoft\u00ae Word for Microsoft 365",
+   "pypdf_elements": 3690,
+   "header_check": {
+    "compressed_objects": 3844,
+    "streams": 8,
+    "index_ok": 722,
+    "index_wrong": 3122,
+    "elements_index_wrong": 2968,
+    "duplicate_numbers": 0,
+    "streams_header_ascending": 8,
+    "streams_with_wrong_index": 8,
+    "examples": [
+     {
+      "objid": 342,
+      "xref_index": 4,
+      "header_slot": 3,
+      "stream": 339
+     },
+     {
+      "objid": 343,
+      "xref_index": 3,
+      "header_slot": 4,
+      "stream": 339
+     },
+     {
+      "objid": 1006,
+      "xref_index": 165,
+      "header_slot": 138,
+      "stream": 866
+     },
+     {
+      "objid": 1008,
+      "xref_index": 140,
+      "header_slot": 139,
+      "stream": 866
+     },
+     {
+      "objid": 1374,
+      "xref_index": 142,
+      "header_slot": 0,
+      "stream": 1393
+     },
+     {
+      "objid": 1379,
+      "xref_index": 141,
+      "header_slot": 1,
+      "stream": 1393
+     },
+     {
+      "objid": 1900,
+      "xref_index": 10,
+      "header_slot": 0,
+      "stream": 1914
+     },
+     {
+      "objid": 1911,
+      "xref_index": 0,
+      "header_slot": 1,
+      "stream": 1914
+     }
+    ],
+    "per_stream": {
+     "339": {
+      "index_ok": 120,
+      "index_wrong": 380,
+      "elements_index_wrong": 300,
+      "duplicate_numbers": 0,
+      "header_ascending": 1,
+      "members": 500
+     },
+     "866": {
+      "index_ok": 195,
+      "index_wrong": 305,
+      "elements_index_wrong": 305,
+      "duplicate_numbers": 0,
+      "header_ascending": 1,
+      "members": 500
+     },
+     "1393": {
+      "index_wrong": 425,
+      "elements_index_wrong": 425,
+      "index_ok": 75,
+      "duplicate_numbers": 0,
+      "header_ascending": 1,
+      "members": 500
+     },
+     "1914": {
+      "index_wrong": 428,
+      "elements_index_wrong": 428,
+      "index_ok": 72,
+      "duplicate_numbers": 0,
+      "header_ascending": 1,
+      "members": 500
+     },
+     "2446": {
+      "index_wrong": 349,
+      "elements_index_wrong": 349,
+      "index_ok": 151,
+      "duplicate_numbers": 0,
+      "header_ascending": 1,
+      "members": 500
+     },
+     "2979": {
+      "index_wrong": 452,
+      "elements_index_wrong": 452,
+      "index_ok": 48,
+      "duplicate_numbers": 0,
+      "header_ascending": 1,
+      "members": 500
+     },
+     "3514": {
+      "index_wrong": 439,
+      "elements_index_wrong": 432,
+      "index_ok": 61,
+      "duplicate_numbers": 0,
+      "header_ascending": 1,
+      "members": 500
+     },
+     "4047": {
+      "index_wrong": 344,
+      "elements_index_wrong": 277,
+      "duplicate_numbers": 0,
+      "header_ascending": 1,
+      "members": 344
+     }
+    }
+   },
+   "pdfminer_as_is": {
+    "checked": 3690,
+    "same_element": 1042,
+    "wrong": {
+     "LI": 647,
+     "LBody": 641,
+     "Lbl": 636,
+     "L": 122,
+     "P": 105,
+     "null": 90
+    }
+   },
+   "tagtree_as_is": {
+    "result": "ok",
+    "elements": 4,
+    "wildcard_mcids": 0,
+    "reachable": 0,
+    "untagged": 0,
+    "dangling": 7685,
+    "artifact": 124,
+    "content_chars": 7685,
+    "leak_share": 1.0,
+    "shell": true
+   },
+   "pdfminer_by_number": {
+    "checked": 3690,
+    "same_element": 3690,
+    "wrong": {}
+   },
+   "tagtree_by_number": {
+    "result": "ok",
+    "elements": 3690,
+    "wildcard_mcids": 0,
+    "reachable": 7685,
+    "untagged": 0,
+    "dangling": 0,
+    "artifact": 124,
+    "content_chars": 7685,
+    "leak_share": 0.0,
+    "shell": false
+   }
+  }
+ ],
+ "synthetic": {
+  "swapped_index": {
+   "bytes": 357,
+   "sha256": "e32cf178ad8f61375e2e530640f848ec336cce6643d28f5e5d5aae3f7b8d6798",
+   "pdfminer_as_is": {
+    "4": "dict S=B",
+    "5": "dict S=A"
+   },
+   "pdfminer_by_number": {
+    "4": "dict S=A",
+    "5": "dict S=B"
+   },
+   "pypdf": {
+    "4": "dict S=A",
+    "5": "dict S=B"
+   },
+   "qpdf": {
+    "4": "dict S=A",
+    "5": "dict S=B"
+   }
+  },
+  "bare_reference": {
+   "bytes": 340,
+   "sha256": "832e9ba8684058f1291fdca00d211271ca2733de6cb88508fdfd91afd5efad6b",
+   "pdfminer_as_is": {
+    "4": "error ValueError: not enough values to unpack (expected 2, got 0)",
+    "5": "error PDFObjectNotFound: 5"
+   },
+   "pdfminer_by_number": {
+    "4": "error ValueError: not enough values to unpack (expected 2, got 0)",
+    "5": "error PDFObjectNotFound: 5"
+   },
+   "pypdf": {
+    "4": "NumberObject",
+    "5": "NoneType"
+   },
+   "qpdf": {
+    "4": "int",
+    "5": "NoneType"
+   }
+  }
+ }
+}
