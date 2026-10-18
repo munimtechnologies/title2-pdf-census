@@ -5,8 +5,9 @@ Scored 2026-10-18 (UTC) by AI agents working for MV2 of Munim, Inc., against the
 collected. Job `tagtree-xcheck-v1` ran in a sandbox on 2026-10-18 from 05:19 to 06:35 UTC; the
 crawl finished well inside its 150-minute limit. Files: [results/xcheck-v1/](../results/xcheck-v1/)
 (`summary.json`, `results.md`, `pairs-public.jsonl`, `code-sha256.txt`). `test_results_xcheck.py`
-recomputes every number on this page from them and from [results/tagtree-v1/](../results/tagtree-v1/).
-Apache-2.0 (code), CC BY 4.0 (this text and the data).
+recomputes every number on this page from them, from [results/tagtree-v1/](../results/tagtree-v1/)
+and from [results/diag-v1/](../results/diag-v1/). Apache-2.0 (code), CC BY 4.0 (this text and the
+data).
 
 Machine checks only. Nothing here is a WCAG conformance judgment about any government, and no
 government is named.
@@ -51,20 +52,35 @@ follow the same rules, and on the other 757 PDFs they reach exactly the same mar
 On these two they do not, so the two libraries read these files differently; tagtree's walk and
 its classes are not what differs.
 
-**Which reading is right is not settled yet.** In the first run only 10 of 280 Word PDFs were
-leaky, so a full tree with nothing unreachable is the more plausible reading, but we do not treat
-that as proof. One candidate cause, not confirmed: pdfminer.six takes an object out of a
-compressed object stream by its position in the stream's token sequence (`objs[2n + index]` in
-`pdfdocument.py`) and does not use the byte offset the stream lists for each object, so one
-unexpected token would shift every later object in that stream. A diagnostic job
-(`tagtree-diag-v1`) is queued. It reads both files again with a third parser (qpdf, through
-pikepdf), compares object by object what pdfminer and pypdf return for every structure element,
-and runs tagtree again with pdfminer reading object streams by offset.
+## What the diagnosis found
+**pdfminer.six misreads both files; the exact cause is still being tested.** A diagnostic job,
+`tagtree-diag-v1`, ran on 2026-10-18 from 10:01 to 10:04 UTC
+([results/diag-v1/](../results/diag-v1/): `diag.json`, `diag.py`, `code-sha256.txt`). It fetched
+both files again and found:
+
+- A third parser agrees with pypdf: qpdf (through pikepdf 10.17.0) reaches 809 and 3,690
+  structure elements from the root, the same as the pypdf reader.
+- For 505 of the 809 elements and 2,648 of the 3,690, pdfminer.six 20260107 returns a different
+  object from the one pypdf returns, often a neighbouring element of another type (a `P` where
+  pypdf has a `Textbox`, a `Figure` where pypdf has the `Document` root).
+- Both libraries place every one of these elements in the same compressed object stream at the
+  same index (809 of 809 and 3,690 of 3,690).
+- The candidate cause named in the first version of this page is ruled out. In the object streams
+  checked (2 in the first file, 4 in the second), reading the members in sequence and reading them
+  from their listed byte offsets give the same objects, and tagtree with pdfminer reading by offset
+  gives exactly the results it gave before (0 and 4 elements).
+
+What is left is how a member is picked. pdfminer.six takes the member at the index that the
+cross-reference stream gives; pypdf 6.21.1 looks the object's number up in the stream's own
+header and does not use that index. Given the checks above, the two can return different objects
+at the same position only if, in these files, the index and the header disagree. That is a
+hypothesis, not yet a finding: `tagtree-diag-v2` is queued to count, object by object, where the
+index and the header disagree, and to run tagtree with pdfminer finding members by their number.
 
 ## What it would change in the first run
 Both files are among tagtree-reach's 753, and they weigh more than their number: they hold 13,259
-of the first run's 24,047 dangling characters (55.1%). If pdfminer misreads them and the pypdf
-reader is right, the first run's figures become:
+of the first run's 24,047 dangling characters (55.1%). pdfminer misreads them (above). If tagtree,
+once fixed, reads them as the pypdf reader does, the first run's figures become:
 
 - leaky: 47 of 753 (6.2%), not 49 (6.5%). P1 (10% or more) still fails.
 - Word against the rest: Word 2.9% (8 of 280) against 8.2% (39 of 473): 5.4 points. P2 (10
@@ -74,10 +90,22 @@ reader is right, the first run's figures become:
   characters (3.5%) unreachable, not 104,188 (4.1%).
 - structure tree with at most one element: 8 PDFs, not 9.
 
-[tagtree-reach-results.md](tagtree-reach-results.md) keeps its numbers until the diagnosis is in,
-with a note pointing here. If the diagnosis confirms a pdfminer misreading, tagtree 0.1.1 gets the
-fix, both results pages say so, and the first run's numbers stay published next to the corrected
-ones.
+[tagtree-reach-results.md](tagtree-reach-results.md) keeps its numbers until tagtree 0.1.1, with
+the fix, has read both files. Then both results pages give the corrected figures, and the first
+run's numbers stay published next to them.
+
+## The first run against the re-crawl
+`tagtree-diag-v1` also matched the first run's published rows with the re-crawl's, by URL hash.
+Of the first run's 753 eligible PDFs, 730 were read again, and 729 of those got exactly the same
+tagtree counts (elements, reachable, untagged and dangling). On the first run's flagged PDFs that
+were read again, the pypdf reader agrees with tagtree on every one except the two files above:
+
+| First run | PDFs | Read again | pypdf reader agrees |
+|---|---|---|---|
+| leaky | 49 | 48 | 46 |
+| shell page | 32 | 31 | 30 |
+| at most one structure element | 9 | 8 | 7 |
+| some dangling text | 23 | 21 | 19 |
 
 ## The re-crawl itself (exploratory, no prediction)
 tagtree finds 50 of 759 PDFs leaky, 6.6% (5.0-8.6), and 32 with a shell page, 4.2% (3.0-5.9),

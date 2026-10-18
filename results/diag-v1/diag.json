@@ -1,0 +1,547 @@
+{
+ "version": "0.1.0",
+ "pdfminer": "20260107",
+ "pypdf": "6.21.1",
+ "pikepdf": "10.17.0",
+ "files": [
+  {
+   "url_sha256": "c8c71fae13ccf1cf19cd67e19caf9f6caccad3bb0c4dc520ad8939e3c0b425b7",
+   "fetch": "ok",
+   "file": {
+    "bytes": 714328,
+    "sha256": "58f6f62bc3de1b7c9090235cfb74ddf48bc9d68a27482dd9ab0d890d05394649",
+    "header": "%PDF-1.7",
+    "startxref": 1,
+    "eof_markers": 1,
+    "xrefstm_keys": 1,
+    "prev_keys": 0,
+    "objstm_keys": 4,
+    "linearized_keys": 0
+   },
+   "pypdf": {
+    "elements": 809,
+    "indirect_elements": 809,
+    "root_k": "array",
+    "objstm_entries": 859
+   },
+   "qpdf_elements": 809,
+   "pdfminer": {
+    "xref_sections": [
+     "PDFXRef",
+     "PDFXRefStream"
+    ],
+    "miner_root_k": "array",
+    "miner_root_k_resolved": "array",
+    "elements_checked": 809,
+    "same_element": 304,
+    "missing": 0,
+    "wrong_by_type": {
+     "dict": 494,
+     "array": 11
+    },
+    "position_agree": 809,
+    "position_differ": 0,
+    "mismatch_streams": {
+     "134": 355,
+     "681": 150
+    },
+    "examples": [
+     {
+      "objid": 131,
+      "pypdf_S": "Document",
+      "pdfminer": "dict",
+      "pdfminer_S": "Figure",
+      "pypdf_where": [
+       681,
+       343
+      ],
+      "pdfminer_where": {
+       "section": 1,
+       "kind": "PDFXRefStream",
+       "stream": 681,
+       "index": 343
+      }
+     },
+     {
+      "objid": 140,
+      "pypdf_S": "Textbox",
+      "pdfminer": "dict",
+      "pdfminer_S": "P",
+      "pypdf_where": [
+       134,
+       6
+      ],
+      "pdfminer_where": {
+       "section": 1,
+       "kind": "PDFXRefStream",
+       "stream": 134,
+       "index": 6
+      }
+     },
+     {
+      "objid": 141,
+      "pypdf_S": "P",
+      "pdfminer": "dict",
+      "pdfminer_S": "Textbox",
+      "pypdf_where": [
+       134,
+       5
+      ],
+      "pdfminer_where": {
+       "section": 1,
+       "kind": "PDFXRefStream",
+       "stream": 134,
+       "index": 5
+      }
+     },
+     {
+      "objid": 143,
+      "pypdf_S": "Textbox",
+      "pdfminer": "dict",
+      "pdfminer_S": "P",
+      "pypdf_where": [
+       134,
+       9
+      ],
+      "pdfminer_where": {
+       "section": 1,
+       "kind": "PDFXRefStream",
+       "stream": 134,
+       "index": 9
+      }
+     },
+     {
+      "objid": 144,
+      "pypdf_S": "P",
+      "pdfminer": "dict",
+      "pdfminer_S": "Textbox",
+      "pypdf_where": [
+       134,
+       8
+      ],
+      "pdfminer_where": {
+       "section": 1,
+       "kind": "PDFXRefStream",
+       "stream": 134,
+       "index": 8
+      }
+     },
+     {
+      "objid": 147,
+      "pypdf_S": "Textbox",
+      "pdfminer": "dict",
+      "pdfminer_S": "P",
+      "pypdf_where": [
+       134,
+       12
+      ],
+      "pdfminer_where": {
+       "section": 1,
+       "kind": "PDFXRefStream",
+       "stream": 134,
+       "index": 12
+      }
+     },
+     {
+      "objid": 148,
+      "pypdf_S": "P",
+      "pdfminer": "dict",
+      "pdfminer_S": "Textbox",
+      "pypdf_where": [
+       134,
+       11
+      ],
+      "pdfminer_where": {
+       "section": 1,
+       "kind": "PDFXRefStream",
+       "stream": 134,
+       "index": 11
+      }
+     },
+     {
+      "objid": 150,
+      "pypdf_S": "Textbox",
+      "pdfminer": "dict",
+      "pdfminer_S": "P",
+      "pypdf_where": [
+       134,
+       15
+      ],
+      "pdfminer_where": {
+       "section": 1,
+       "kind": "PDFXRefStream",
+       "stream": 134,
+       "index": 15
+      }
+     }
+    ],
+    "streams": {
+     "134": {
+      "n": 500,
+      "first": 4822,
+      "data_bytes": 35133,
+      "header_tokens": 1000,
+      "header_tokens_expected": 1000,
+      "sequential_tokens": 1500,
+      "sequential_tokens_expected": 1500,
+      "offset_types": {
+       "dict": 500
+      },
+      "top_level_refs": 0,
+      "first_difference_index": null,
+      "sequential_types_there": null,
+      "offset_types_there": null,
+      "endobj_tokens": 0,
+      "obj_headers": 0
+     },
+     "681": {
+      "n": 359,
+      "first": 3553,
+      "data_bytes": 30442,
+      "header_tokens": 718,
+      "header_tokens_expected": 718,
+      "sequential_tokens": 1077,
+      "sequential_tokens_expected": 1077,
+      "offset_types": {
+       "dict": 348,
+       "array": 11
+      },
+      "top_level_refs": 0,
+      "first_difference_index": null,
+      "sequential_types_there": null,
+      "offset_types_there": null,
+      "endobj_tokens": 0,
+      "obj_headers": 0
+     }
+    }
+   },
+   "tagtree_as_is": {
+    "result": "ok",
+    "elements": 0,
+    "wildcard_mcids": 1,
+    "reachable": 146,
+    "untagged": 0,
+    "dangling": 5574,
+    "artifact": 255,
+    "content_chars": 5720,
+    "leak_share": 0.9745,
+    "shell": false
+   },
+   "tagtree_by_offset": {
+    "result": "ok",
+    "elements": 0,
+    "wildcard_mcids": 1,
+    "reachable": 146,
+    "untagged": 0,
+    "dangling": 5574,
+    "artifact": 255,
+    "content_chars": 5720,
+    "leak_share": 0.9745,
+    "shell": false
+   }
+  },
+  {
+   "url_sha256": "5b10b0e8850b95ae1ae47e646da889ea9a5cc8b2fc34ca1f9e36631a57363ac3",
+   "fetch": "ok",
+   "file": {
+    "bytes": 4227803,
+    "sha256": "b2696d00fc5b69095cf2258436756f7cc388f07a22172f954014e5db9ef84bd5",
+    "header": "%PDF-1.7",
+    "startxref": 1,
+    "eof_markers": 1,
+    "xrefstm_keys": 1,
+    "prev_keys": 82,
+    "objstm_keys": 16,
+    "linearized_keys": 0
+   },
+   "pypdf": {
+    "elements": 3690,
+    "indirect_elements": 3690,
+    "root_k": "array",
+    "objstm_entries": 3844
+   },
+   "qpdf_elements": 3690,
+   "pdfminer": {
+    "xref_sections": [
+     "PDFXRef",
+     "PDFXRefStream"
+    ],
+    "miner_root_k": "array",
+    "miner_root_k_resolved": "array",
+    "elements_checked": 3690,
+    "same_element": 1042,
+    "missing": 0,
+    "wrong_by_type": {
+     "dict": 2590,
+     "array": 58
+    },
+    "position_agree": 3690,
+    "position_differ": 0,
+    "mismatch_streams": {
+     "2979": 441,
+     "3514": 423,
+     "1914": 376,
+     "2446": 333,
+     "1393": 297,
+     "866": 294,
+     "339": 267,
+     "4047": 217
+    },
+    "examples": [
+     {
+      "objid": 336,
+      "pypdf_S": "Document",
+      "pdfminer": "dict",
+      "pdfminer_S": "LBody",
+      "pypdf_where": [
+       4047,
+       276
+      ],
+      "pdfminer_where": {
+       "section": 1,
+       "kind": "PDFXRefStream",
+       "stream": 4047,
+       "index": 276
+      }
+     },
+     {
+      "objid": 342,
+      "pypdf_S": "Textbox",
+      "pdfminer": "dict",
+      "pdfminer_S": "P",
+      "pypdf_where": [
+       339,
+       4
+      ],
+      "pdfminer_where": {
+       "section": 1,
+       "kind": "PDFXRefStream",
+       "stream": 339,
+       "index": 4
+      }
+     },
+     {
+      "objid": 343,
+      "pypdf_S": "P",
+      "pdfminer": "dict",
+      "pdfminer_S": "Textbox",
+      "pypdf_where": [
+       339,
+       3
+      ],
+      "pdfminer_where": {
+       "section": 1,
+       "kind": "PDFXRefStream",
+       "stream": 339,
+       "index": 3
+      }
+     },
+     {
+      "objid": 348,
+      "pypdf_S": "Textbox",
+      "pdfminer": "dict",
+      "pdfminer_S": "P",
+      "pypdf_where": [
+       339,
+       10
+      ],
+      "pdfminer_where": {
+       "section": 1,
+       "kind": "PDFXRefStream",
+       "stream": 339,
+       "index": 10
+      }
+     },
+     {
+      "objid": 349,
+      "pypdf_S": "P",
+      "pdfminer": "dict",
+      "pdfminer_S": "Textbox",
+      "pypdf_where": [
+       339,
+       7
+      ],
+      "pdfminer_where": {
+       "section": 1,
+       "kind": "PDFXRefStream",
+       "stream": 339,
+       "index": 7
+      }
+     },
+     {
+      "objid": 352,
+      "pypdf_S": "Textbox",
+      "pdfminer": "dict",
+      "pdfminer_S": "P",
+      "pypdf_where": [
+       339,
+       12
+      ],
+      "pdfminer_where": {
+       "section": 1,
+       "kind": "PDFXRefStream",
+       "stream": 339,
+       "index": 12
+      }
+     },
+     {
+      "objid": 353,
+      "pypdf_S": "P",
+      "pdfminer": "dict",
+      "pdfminer_S": "Textbox",
+      "pypdf_where": [
+       339,
+       11
+      ],
+      "pdfminer_where": {
+       "section": 1,
+       "kind": "PDFXRefStream",
+       "stream": 339,
+       "index": 11
+      }
+     },
+     {
+      "objid": 372,
+      "pypdf_S": "Textbox",
+      "pdfminer": "dict",
+      "pdfminer_S": "LBody",
+      "pypdf_where": [
+       339,
+       72
+      ],
+      "pdfminer_where": {
+       "section": 1,
+       "kind": "PDFXRefStream",
+       "stream": 339,
+       "index": 72
+      }
+     }
+    ],
+    "streams": {
+     "2979": {
+      "n": 500,
+      "first": 5320,
+      "data_bytes": 36473,
+      "header_tokens": 1000,
+      "header_tokens_expected": 1000,
+      "sequential_tokens": 1500,
+      "sequential_tokens_expected": 1500,
+      "offset_types": {
+       "dict": 500
+      },
+      "top_level_refs": 0,
+      "first_difference_index": null,
+      "sequential_types_there": null,
+      "offset_types_there": null,
+      "endobj_tokens": 0,
+      "obj_headers": 0
+     },
+     "3514": {
+      "n": 500,
+      "first": 5326,
+      "data_bytes": 36155,
+      "header_tokens": 1000,
+      "header_tokens_expected": 1000,
+      "sequential_tokens": 1500,
+      "sequential_tokens_expected": 1500,
+      "offset_types": {
+       "dict": 500
+      },
+      "top_level_refs": 0,
+      "first_difference_index": null,
+      "sequential_types_there": null,
+      "offset_types_there": null,
+      "endobj_tokens": 0,
+      "obj_headers": 0
+     },
+     "1914": {
+      "n": 500,
+      "first": 5320,
+      "data_bytes": 35343,
+      "header_tokens": 1000,
+      "header_tokens_expected": 1000,
+      "sequential_tokens": 1500,
+      "sequential_tokens_expected": 1500,
+      "offset_types": {
+       "dict": 500
+      },
+      "top_level_refs": 0,
+      "first_difference_index": null,
+      "sequential_types_there": null,
+      "offset_types_there": null,
+      "endobj_tokens": 0,
+      "obj_headers": 0
+     },
+     "2446": {
+      "n": 500,
+      "first": 5311,
+      "data_bytes": 34877,
+      "header_tokens": 1000,
+      "header_tokens_expected": 1000,
+      "sequential_tokens": 1500,
+      "sequential_tokens_expected": 1500,
+      "offset_types": {
+       "dict": 500
+      },
+      "top_level_refs": 0,
+      "first_difference_index": null,
+      "sequential_types_there": null,
+      "offset_types_there": null,
+      "endobj_tokens": 0,
+      "obj_headers": 0
+     }
+    }
+   },
+   "tagtree_as_is": {
+    "result": "ok",
+    "elements": 4,
+    "wildcard_mcids": 0,
+    "reachable": 0,
+    "untagged": 0,
+    "dangling": 7685,
+    "artifact": 124,
+    "content_chars": 7685,
+    "leak_share": 1.0,
+    "shell": true
+   },
+   "tagtree_by_offset": {
+    "result": "ok",
+    "elements": 4,
+    "wildcard_mcids": 0,
+    "reachable": 0,
+    "untagged": 0,
+    "dangling": 7685,
+    "artifact": 124,
+    "content_chars": 7685,
+    "leak_share": 1.0,
+    "shell": true
+   }
+  }
+ ],
+ "overlap": {
+  "v1_eligible": 753,
+  "recrawl_pairs": 759,
+  "read_again": 730,
+  "same_tagtree_record": 729,
+  "leaky": {
+   "v1": 49,
+   "read_again": 48,
+   "pypdf_agrees": 46
+  },
+  "shell": {
+   "v1": 32,
+   "read_again": 31,
+   "pypdf_agrees": 30
+  },
+  "elements_le_1": {
+   "v1": 9,
+   "read_again": 8,
+   "pypdf_agrees": 7
+  },
+  "any_dangling": {
+   "v1": 23,
+   "read_again": 21,
+   "pypdf_agrees": 19
+  }
+ }
+}
