@@ -101,7 +101,9 @@ The second, `tagtree-diag-v2`, ran on 2026-10-18 from 11:30 to 11:33 UTC
 Every one of these results meets the confirmation rule we wrote down before `tagtree-diag-v2` ran
 (below). Both files name "Microsoft® Word for Microsoft 365" as their producer; we have not checked
 whether Word or a later tool wrote the indexes, or how common files like these are elsewhere. In
-the 759 PDFs of the re-crawl, no other file made the two readers disagree.
+the 759 PDFs of the re-crawl, no other file made the two readers disagree. A later pre-registered
+census on a fresh crawl of the same sample found such indexes in 2 of 715 eligible PDFs with object
+streams, these same two files ([objstm-census-results.md](objstm-census-results.md)).
 
 **What changes in tagtree.** tagtree 0.1.1, released on 2026-10-18, finds object-stream members by
 their number in the header, with exactly the change tested in `tagtree-diag-v2`;
@@ -187,7 +189,9 @@ the marked-content IDs each walk reaches and was not run again.
 - Only the two files were read again with tagtree 0.1.1; the first run and the re-crawl were not
   re-run with it. On every other PDF of the re-crawl the pypdf reader, which also finds members
   by number, agreed with tagtree 0.1.0, so we expect no other record to change, but we have not
-  measured it.
+  measured it. Update: the objstm-census crawl (same seed, read with tagtree 0.1.1) measured it
+  on its own sample: of 775 eligible PDFs, only these two get a different record when members are
+  found by index ([objstm-census-results.md](objstm-census-results.md)).
 - The pypdf reader counts bytes of shown strings, not characters, so its leak shares differ a
   little from tagtree's; the checks compare flags, decided by the point estimate.
 - The same team wrote both readers from the same definitions, so a shared misunderstanding of

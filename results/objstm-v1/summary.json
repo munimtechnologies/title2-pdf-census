@@ -1,0 +1,138 @@
+{
+ "version": "0.1.0",
+ "pdfs": 790,
+ "tagtree_results": {
+  "ok": 789,
+  "timeout": 1
+ },
+ "eligible": 775,
+ "check_results": {
+  "ok": 775
+ },
+ "checked": 775,
+ "with_object_streams": 715,
+ "with_wrong_index": 2,
+ "changed_by_xref_index": 2,
+ "O1_wrong_share": {
+  "k": 2,
+  "n": 715,
+  "share": 0.0028,
+  "ci95": [
+   0.0008,
+   0.0101
+  ],
+  "met": true
+ },
+ "O2_word_share": {
+  "k": 2,
+  "n": 2,
+  "share": 1.0,
+  "ci95": [
+   0.3424,
+   1.0
+  ],
+  "met": true
+ },
+ "O3_changed": {
+  "k": 2,
+  "max": 2,
+  "met": true
+ },
+ "known_files": {
+  "c8c71fae": {
+   "eligible": true,
+   "same_bytes": true,
+   "index_wrong": 785,
+   "expected": 785,
+   "changed": true
+  },
+  "5b10b0e8": {
+   "eligible": true,
+   "same_bytes": true,
+   "index_wrong": 3122,
+   "expected": 3122,
+   "changed": true
+  }
+ },
+ "explore_by_family": {
+  "adobe": [
+   351,
+   0
+  ],
+  "generator": [
+   7,
+   0
+  ],
+  "libreoffice": [
+   1,
+   0
+  ],
+  "office-other": [
+   44,
+   0
+  ],
+  "other": [
+   12,
+   0
+  ],
+  "print-to-pdf": [
+   2,
+   0
+  ],
+  "scanner": [
+   6,
+   0
+  ],
+  "unknown": [
+   12,
+   0
+  ],
+  "word": [
+   280,
+   2
+  ]
+ },
+ "explore_hybrid": {
+  "hybrid": [
+   272,
+   2
+  ],
+  "not_hybrid": [
+   443,
+   0
+  ]
+ },
+ "explore_word365": {
+  "other_word": [
+   143,
+   0
+  ],
+  "word365": [
+   137,
+   2
+  ]
+ },
+ "explore_wrong_created_year": {
+  "2025": 2
+ },
+ "explore_wrong_fraction_median": 0.863,
+ "explore_elements_index_wrong": 3703,
+ "explore_leaky_0_1_1": {
+  "k": 50,
+  "n": 775,
+  "share": 0.0645,
+  "ci95": [
+   0.0493,
+   0.0841
+  ]
+ },
+ "explore_shell_0_1_1": {
+  "k": 31,
+  "n": 775,
+  "share": 0.04,
+  "ci95": [
+   0.0283,
+   0.0562
+  ]
+ }
+}
