@@ -1,0 +1,5 @@
+95365902783dddee8292d6438bc1e074de72ae1c27ca55438c2b789976650a2e  census.py
+dee52208087a6a85ebb3dc282cf3b2ab519e8ecdef6f180cb7ea970366db54b5  lang.py
+3fd78db5ca2e7c4dd4b724e63d2bd3ce11eb2d946dc89a0a50d52de25372d3f5  test_lang.py
+e6874ac29742c4739f7b968db0395bb22a51e88d191102b41bd2ef461d3d72d5  lang-census-prereg.md
+pypdf 6.21.1 py3langid 0.4.0 langdetect 1.0.9

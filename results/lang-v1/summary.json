@@ -1,0 +1,153 @@
+{
+ "version": "0.1.1",
+ "pdfs": 4339,
+ "check_results": {
+  "ok": 4339
+ },
+ "ok": 4339,
+ "text_lang_counts": {
+  "en": 2813,
+  "undetermined": 1428,
+  "es": 54,
+  "mixed": 33,
+  "vi": 4,
+  "ko": 2,
+  "ru": 2,
+  "fr": 1,
+  "pt": 1,
+  "tl": 1
+ },
+ "determined": 2878,
+ "english": 2813,
+ "non_english": 65,
+ "non_english_sites": 46,
+ "L1_non_english_wrong": {
+  "k": 57,
+  "n": 65,
+  "share": 0.8769,
+  "ci95": [
+   0.7755,
+   0.9363
+  ],
+  "met": true,
+  "cluster_ci95": [
+   0.7571,
+   0.9701
+  ]
+ },
+ "L2_local_match": {
+  "k": 16,
+  "n": 38,
+  "share": 0.4211,
+  "ci95": [
+   0.2785,
+   0.5781
+  ],
+  "met": true
+ },
+ "L3_english_other": {
+  "k": 3,
+  "n": 2813,
+  "share": 0.0011,
+  "ci95": [
+   0.0004,
+   0.0031
+  ],
+  "met": true
+ },
+ "L4_malformed": {
+  "k": 3,
+  "n": 2795,
+  "share": 0.0011,
+  "ci95": [
+   0.0004,
+   0.0032
+  ],
+  "met": true
+ },
+ "K_detector_agreement": {
+  "k": 63709,
+  "n": 64464,
+  "share": 0.9883,
+  "ci95": [
+   0.9874,
+   0.9891
+  ],
+  "met": true
+ },
+ "explore_non_english_declared": {
+  "es:match": 4,
+  "es:none": 18,
+  "es:other": 32,
+  "fr:match": 1,
+  "ko:other": 2,
+  "pt:other": 1,
+  "ru:match": 1,
+  "ru:none": 1,
+  "tl:other": 1,
+  "vi:match": 2,
+  "vi:other": 2
+ },
+ "explore_non_english_declared_as": {
+  "en": 38
+ },
+ "explore_english_declared": {
+  "match": 1936,
+  "none": 873,
+  "other": 3,
+  "unusable": 1
+ },
+ "explore_non_english_by_family": {
+  "adobe": [
+   34,
+   27
+  ],
+  "generator": [
+   1,
+   1
+  ],
+  "other": [
+   8,
+   8
+  ],
+  "print-to-pdf": [
+   4,
+   4
+  ],
+  "unknown": [
+   3,
+   3
+  ],
+  "word": [
+   15,
+   14
+  ]
+ },
+ "explore_non_english_by_tagged": {
+  "tagged": [
+   50,
+   42
+  ],
+  "untagged": [
+   15,
+   15
+  ]
+ },
+ "explore_mixed_declared": {
+  "None": 14,
+  "en": 19
+ },
+ "explore_malformed_values": {
+  "EN_US": 3
+ },
+ "explore_lang_is_name": 0,
+ "explore_lang_present_all": {
+  "k": 2795,
+  "n": 4339,
+  "share": 0.6442,
+  "ci95": [
+   0.6298,
+   0.6583
+  ]
+ }
+}
