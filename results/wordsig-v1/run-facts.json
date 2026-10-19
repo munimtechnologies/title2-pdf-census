@@ -1,0 +1,37 @@
+{
+ "version": "0.1.0",
+ "cohort_sites": 367,
+ "cohort_provinces": {
+  "Quebec": 112,
+  "Ontario": 110,
+  "British Columbia": 69,
+  "Alberta": 45,
+  "Nova Scotia": 9,
+  "Saskatchewan": 6,
+  "Manitoba": 5,
+  "New Brunswick": 5,
+  "Newfoundland and Labrador": 4,
+  "Prince Edward Island": 1,
+  "Northwest Territories": 1
+ },
+ "sites_crawled": 367,
+ "site_results": {
+  "ok": 341,
+  "other": 20,
+  "robots_disallow": 6
+ },
+ "pdfs_from_sites": 1616,
+ "started_at": "2026-10-19T13:04:06Z",
+ "finished_at": "2026-10-19T13:42:07Z",
+ "code_sha256": {
+  "wordsig.py": "c77cf4fc02995c55550d576c5b669336dade46e094d013cf430facd2bd5162dc",
+  "test_wordsig.py": "103845dadd78ee4b6ed7d59ea0fefe68fd6b7bb500aaf87f17d473fd4ceeeacd",
+  "census.py": "95365902783dddee8292d6438bc1e074de72ae1c27ca55438c2b789976650a2e",
+  "results/lang-v1/lang.py": "dee52208087a6a85ebb3dc282cf3b2ab519e8ecdef6f180cb7ea970366db54b5",
+  "wordsig-prereg.md": "e9dfc8ba79815acbeb5044589e8d95b6e8718a48d2a9656285b3c24d04a97fe0"
+ },
+ "code_matches_prereg": true,
+ "package_versions": "pypdf 6.21.1 py3langid 0.4.0 langdetect 1.0.9",
+ "census_tag_sha256": "95365902783dddee8292d6438bc1e074de72ae1c27ca55438c2b789976650a2e",
+ "census_tag_equals_census": true
+}

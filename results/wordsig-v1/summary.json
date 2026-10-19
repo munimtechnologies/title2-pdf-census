@@ -1,0 +1,143 @@
+{
+ "version": "0.1.0",
+ "seed": "wordsig-v1",
+ "pdfs": 1616,
+ "ok": 1616,
+ "determined": 1240,
+ "text_lang_counts": {
+  "en": 793,
+  "fr": 440,
+  "undetermined": 364,
+  "mixed": 12,
+  "pa": 2,
+  "ko": 2,
+  "fa": 2,
+  "ar": 1
+ },
+ "mismatched": 60,
+ "W1_word_marks_inside_more_than_adobe": {
+  "word": {
+   "k": 6,
+   "n": 6,
+   "share": 1.0,
+   "cluster_ci95": [
+    1.0,
+    1.0
+   ]
+  },
+  "adobe": {
+   "k": 7,
+   "n": 46,
+   "share": 0.1522,
+   "cluster_ci95": [
+    0.0588,
+    0.3103
+   ]
+  },
+  "p_one_sided": 8.4e-05,
+  "status": "inconclusive: too few",
+  "met": null
+ },
+ "W2_word_60_adobe_40": {
+  "met": null
+ },
+ "W3_same_sign_each_direction": {
+  "directions": {
+   "fr-as-en": {
+    "word": {
+     "k": 6,
+     "n": 6,
+     "share": 1.0
+    },
+    "adobe": {
+     "k": 5,
+     "n": 38,
+     "share": 0.1316
+    },
+    "testable": true
+   },
+   "en-as-fr": {
+    "word": {
+     "k": 0,
+     "n": 0,
+     "share": null
+    },
+    "adobe": {
+     "k": 1,
+     "n": 1,
+     "share": 1.0
+    },
+    "testable": false
+   }
+  },
+  "met": null
+ },
+ "W4_word_sites": {
+  "sites": 4,
+  "met": false
+ },
+ "explore_french_wrong": {
+  "k": 193,
+  "n": 440,
+  "share": 0.4386,
+  "ci95": [
+   0.393,
+   0.4853
+  ],
+  "cluster_ci95": [
+   0.3645,
+   0.5194
+  ]
+ },
+ "explore_declared_by_text_lang": {
+  "ar:match": 1,
+  "en:match": 514,
+  "en:none": 277,
+  "en:other": 2,
+  "fa:other": 2,
+  "fr:match": 247,
+  "fr:none": 141,
+  "fr:other": 52,
+  "ko:other": 2,
+  "pa:other": 2
+ },
+ "explore_mismatched_by_family_direction": {
+  "adobe|en-as-fr": [
+   1,
+   1
+  ],
+  "adobe|fr-as-en": [
+   38,
+   5
+  ],
+  "adobe|other": [
+   7,
+   1
+  ],
+  "office-other|fr-as-en": [
+   1,
+   0
+  ],
+  "other|fr-as-en": [
+   6,
+   0
+  ],
+  "other|other": [
+   1,
+   0
+  ],
+  "word|fr-as-en": [
+   6,
+   6
+  ]
+ },
+ "explore_word_share_non_english": {
+  "k": 101,
+  "n": 447,
+  "share": 0.226,
+  "ci95": [
+   0.1896,
+   0.267
+  ]
+ }
+}

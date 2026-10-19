@@ -79,4 +79,9 @@ so, and lead with the Acrobat fix. A pre-registered test on a real Word install 
 document exported with different language settings) would settle where the document language
 comes from.
 
+## Confirmatory test (added 2026-10-19)
+The pre-registered test of this pattern on PDFs of Canadian municipalities is scored in
+[wordsig-results.md](wordsig-results.md): inconclusive, too few mismatched PDFs (Word 6, Adobe 46; 8
+of each were needed), so nothing is claimed.
+
 Made by MV2 of Munim, Inc. with AI agents.
