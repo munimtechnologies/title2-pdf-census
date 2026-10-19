@@ -115,3 +115,22 @@ published. SHA-256 of the files the study runs:
 Counts, the scored predictions and public rows with the same fields as the lang-census's public
 rows (no URLs, no site names, no document text). `docs/lang-word-note.md` gets a dated line with
 the result, whichever way it goes.
+
+## Amendment 1 (2026-10-19, before any PDF was read)
+
+Written while the crawl job was still waiting in the queue, so no PDF of this study had been read.
+Nothing above changes, and the code and its SHA-256 stay as listed.
+
+- **W3 is scored by the text above**: judged when each direction has at least 3 Word and 3 Adobe
+  mismatched PDFs, held if Word's share is higher than Adobe's in each. It is computed from the
+  direction counts that `wordsig.py` writes to `summary.json`
+  (`W3_same_sign_each_direction.directions`). Reading the code again showed that the `met` value
+  `wordsig.py` 0.1.0 computes for W3 differs from the text in two ways: it also requires W1's
+  minimum sample, and it asks whether each direction has the same sign as the overall
+  difference, so it would call W3 held if Word's share were lower than Adobe's overall and in
+  both directions. The results page gives the code's value as well whenever the two differ.
+- A cohort probe that read Wikidata only (no municipal site) ran on 2026-10-19 and counted 367
+  website hosts for this class at 10,000 people or more, close to the count-only check above.
+- The results page and its test will be written by `wordsig_page.py` and checked by
+  `test_wordsig_results.py`, which score the public rows again and check that the page is
+  exactly what the script writes from the job's files.
