@@ -1,0 +1,22 @@
+{
+ "src": "lang-public.jsonl",
+ "src_bytes": 2388344,
+ "src_sha256": "29848ecff526c277e116d25ae3d9113e0c85ae57f105a8c2229064b7e2fc653b",
+ "src_rows": 4339,
+ "max_bytes": 1900000,
+ "parts": [
+  {
+   "name": "lang-public-1.jsonl",
+   "bytes": 1899823,
+   "rows": 3451,
+   "sha256": "3f3d3ed1e534989f87d3edf5f442d1443321c8122927fbc3acde86524e5a1f36"
+  },
+  {
+   "name": "lang-public-2.jsonl",
+   "bytes": 488521,
+   "rows": 888,
+   "sha256": "5c0820863e0607bf4fd18b74b2f6d6d92ec925b3afafe0e395fa19de12eff9d4"
+  }
+ ],
+ "joined_equals_src": true
+}

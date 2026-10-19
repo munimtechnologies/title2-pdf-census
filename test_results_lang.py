@@ -1,15 +1,20 @@
 """Checks the published lang-census results (results/lang-v1): recomputes every count, share,
 interval and prediction verdict in summary.json that the public rows allow from the public rows
 (lang-public.jsonl as the job wrote it, split byte for byte into lang-public-1.jsonl,
-lang-public-2.jsonl, ... to keep each file under 2 MB; the row checks are skipped until the parts
-are in the repository), checks each row against the rules that produced it, checks that the job
-started after its pre-registration was public, and that no public row carries a URL, a site id
-or a raw /Lang string. Public rows have no site id, so the site count and the site-resampled
-interval are only checked for shape. Then checks that every number and verdict on
-docs/lang-census-results.md is the one in summary.json, and that L1 to L3 are not scored as
-findings there if check K failed. No network. Apache-2.0 licensed."""
+lang-public-2.jsonl, ... to keep each file under 2 MB; split-report.json gives the size and
+SHA-256 of each part and of the original, and the parts must join back to it; the row checks are
+skipped until the parts are in the repository), checks each row against the rules that produced
+it, checks that the job started after its pre-registration was public, and that no public row
+carries a URL, a site id or a raw /Lang string. Public rows have no site id, so the site count
+and the site-resampled interval are only checked for shape. The crawl drops a repeated PDF link
+within a site but not across sites, so a link two governments both post is a row for each, as
+pre-registered; the repeats are counted, kept out of the non-English PDFs, and every verdict is
+recomputed with each link counted once (added 2026-10-19). Then checks that every number and
+verdict on docs/lang-census-results.md is the one in summary.json, and that L1 to L3 are not
+scored as findings there if check K failed. No network. Apache-2.0 licensed."""
 
 import collections
+import hashlib
 import json
 import os
 import re
@@ -23,6 +28,8 @@ MIN_DETERMINED, MAJORITY, MAX_CHUNKS, MAX_TEXT = 400, 0.8, 60, 20_000
 PREREG_PUBLIC_AT = "2026-10-18T17:48:37Z"  # the commit that published the pre-registration
 AMENDMENT_PUBLIC_AT = "2026-10-18T19:54:03Z"  # Amendment 1 and lang.py 0.1.1
 NOTE_PUBLIC_AT = "2026-10-18T20:37:37Z"  # docs/lang-census-note-before-results.md
+# Rows whose URL hash an earlier row already has: links reached from more than one site.
+REPEATED_ROWS = 4
 PUBLIC_FIELDS = {"url_sha256", "kind", "state", "producer_family", "created", "tagged", "result",
                  "lang_present", "lang_well_formed", "lang_primary", "lang_is_name", "text_chars",
                  "chunks", "chunks_confident", "chunks_agree", "determined_chars", "text_langs",
@@ -131,6 +138,27 @@ def tally(items):
     return {key(k): v for k, v in collections.Counter(items).items()}
 
 
+def predictions(rows):
+    """L1 to L4 and K (without L1's site-resampled interval) as lang.py scores them."""
+    det = [d for d in rows if is_language(d["text_lang"])]
+    english = [d for d in det if d["text_lang"] == "en"]
+    other = [d for d in det if d["text_lang"] != "en"]
+    present = [d for d in rows if d["lang_present"]]
+    as_english = [d for d in other if d["lang_primary"] == "en"]
+    return {
+        "L1_non_english_wrong": met(share(sum(1 for d in other if wrong(d)), len(other)),
+                                    lambda x: x >= L1_MIN),
+        "L2_local_match": met(share(sum(1 for d in as_english if local_match(d)), len(as_english)),
+                              lambda x: x >= L2_MIN),
+        "L3_english_other": met(share(sum(1 for d in english if declared(d) == "other"), len(english)),
+                                lambda x: x < L3_MAX),
+        "L4_malformed": met(share(sum(1 for d in present if not d["lang_well_formed"]), len(present)),
+                            lambda x: x < L4_MAX),
+        "K_detector_agreement": met(share(sum(d["chunks_agree"] for d in rows),
+                                          sum(d["chunks_confident"] for d in rows)),
+                                    lambda x: x >= K_MIN)}
+
+
 class LangTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -142,6 +170,30 @@ class LangTests(unittest.TestCase):
         cls.english = [d for d in cls.det if d["text_lang"] == "en"]
         cls.other = [d for d in cls.det if d["text_lang"] != "en"]
         cls.present = [d for d in cls.ok if d["lang_present"]]
+        first = {}
+        for d in cls.ok:
+            first.setdefault(d["url_sha256"], d)
+        cls.once = list(first.values())  # each link counted once, at its first row
+
+    def test_parts_join(self):
+        """The parts are the job's lang-public.jsonl, byte for byte (split_rows.py's report)."""
+        rep = load("split-report.json")
+        self.assertEqual(rep["src"], "lang-public.jsonl")
+        self.assertTrue(rep["joined_equals_src"])
+        names = sorted(n for n in os.listdir(LANG) if re.fullmatch(r"lang-public(-\d+)?\.jsonl", n))
+        self.assertEqual(names, [p["name"] for p in rep["parts"]])
+        joined = b""
+        for p in rep["parts"]:
+            with open(os.path.join(LANG, p["name"]), "rb") as f:
+                b = f.read()
+            self.assertLessEqual(len(b), rep["max_bytes"], p["name"])
+            self.assertEqual((len(b), hashlib.sha256(b).hexdigest()), (p["bytes"], p["sha256"]), p["name"])
+            self.assertTrue(b.endswith(b"\n"), p["name"])  # cut at line ends only
+            joined += b
+        self.assertEqual((len(joined), hashlib.sha256(joined).hexdigest()),
+                         (rep["src_bytes"], rep["src_sha256"]))
+        self.assertEqual(sum(p["rows"] for p in rep["parts"]), rep["src_rows"])
+        self.assertEqual(rep["src_rows"], len(self.ok))
 
     def test_rows_add_up(self):
         s = self.s
@@ -149,13 +201,36 @@ class LangTests(unittest.TestCase):
         self.assertEqual(sum(s["check_results"].values()), s["pdfs"])
         self.assertEqual(s["check_results"].get("ok", 0), s["ok"])
         self.assertEqual(len(self.ok), s["ok"])
-        self.assertEqual(len({d["url_sha256"] for d in self.ok}), len(self.ok))
+        self.assertEqual(len(self.ok) - len(self.once), REPEATED_ROWS)
         self.assertEqual(tally(d["text_lang"] for d in self.ok), s["text_lang_counts"])
         self.assertEqual((len(self.det), len(self.english), len(self.other)),
                          (s["determined"], s["english"], s["non_english"]))
         # no site ids in public rows: only the shape of the site count can be checked
         self.assertLessEqual(s["non_english_sites"], s["non_english"])
         self.assertEqual(s["non_english_sites"] == 0, s["non_english"] == 0)
+
+    def test_repeated_links(self):
+        """A link posted by two governments is a row for each, as the pre-registration counts
+        PDFs; counted once instead, no non-English PDF changes and no verdict changes."""
+        seen = collections.Counter(d["url_sha256"] for d in self.ok)
+        for d in self.other:
+            self.assertEqual(seen[d["url_sha256"]], 1, d["url_sha256"])
+        once = predictions(self.once)
+        for name in ("L1_non_english_wrong", "L2_local_match"):
+            self.assertEqual(once[name], {k: v for k, v in self.s[name].items() if k != "cluster_ci95"})
+        for name, *_ in PREDICTIONS:
+            self.assertEqual(once[name]["met"], self.s[name]["met"], name)
+        self.assertLessEqual(once["L3_english_other"]["k"], self.s["L3_english_other"]["k"])
+        self.assertLessEqual(once["L4_malformed"]["k"], self.s["L4_malformed"]["k"])
+        self.assertGreaterEqual(once["K_detector_agreement"]["share"], 0.988)
+        doc = flat(text("docs", "lang-census-results.md"))
+        self.assertIn("%d rows hold %d distinct URL hashes" % (len(self.ok), len(self.once)), doc)
+        self.assertIn("None of the %d non-English PDFs has a repeated link" % len(self.other), doc)
+        self.assertIn("L3 stays at %d or fewer of at least %d English PDFs" % (
+            self.s["L3_english_other"]["k"], self.s["L3_english_other"]["n"] - REPEATED_ROWS), doc)
+        self.assertIn("L4 at %d or fewer of at least %d" % (
+            self.s["L4_malformed"]["k"], self.s["L4_malformed"]["n"] - REPEATED_ROWS), doc)
+        self.assertIn("K at 98.8% or more", doc)
 
     def test_each_row(self):
         for d in self.ok:
@@ -192,23 +267,15 @@ class LangTests(unittest.TestCase):
                 self.assertEqual((d["lang_well_formed"], d["lang_primary"]), (False, None), h)
 
     def test_predictions(self):
-        s, other = self.s, self.other
-        l1 = met(share(sum(1 for d in other if wrong(d)), len(other)), lambda x: x >= L1_MIN)
-        self.assertEqual(l1, {k: v for k, v in s["L1_non_english_wrong"].items() if k != "cluster_ci95"})
+        s, once = self.s, predictions(self.ok)
+        for name, *_ in PREDICTIONS:
+            want = {k: v for k, v in s[name].items() if k != "cluster_ci95"}
+            self.assertEqual(once[name], want, name)
         ci = s["L1_non_english_wrong"]["cluster_ci95"]
-        if other:
+        if self.other:
             self.assertTrue(0.0 <= ci[0] <= ci[1] <= 1.0, ci)
         else:
             self.assertIsNone(ci)
-        as_english = [d for d in other if d["lang_primary"] == "en"]
-        self.assertEqual(met(share(sum(1 for d in as_english if local_match(d)), len(as_english)),
-                             lambda x: x >= L2_MIN), s["L2_local_match"])
-        self.assertEqual(met(share(sum(1 for d in self.english if declared(d) == "other"), len(self.english)),
-                             lambda x: x < L3_MAX), s["L3_english_other"])
-        self.assertEqual(met(share(sum(1 for d in self.present if not d["lang_well_formed"]), len(self.present)),
-                             lambda x: x < L4_MAX), s["L4_malformed"])
-        self.assertEqual(met(share(sum(d["chunks_agree"] for d in self.ok), sum(d["chunks_confident"] for d in self.ok)),
-                             lambda x: x >= K_MIN), s["K_detector_agreement"])
 
     def test_exploratory(self):
         s, other = self.s, self.other

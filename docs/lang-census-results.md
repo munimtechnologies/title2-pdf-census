@@ -17,6 +17,17 @@ follow this page in a second commit, split byte for byte into numbered parts
 count, share, interval and verdict below from those rows (until they are in, it skips that part),
 and checks that every number on this page is the one in `summary.json`.
 
+**Added 2026-10-19: repeated links.** When the rows were about to go in, a check of ours in
+`test_results_lang.py`, written before the results, that every row has its own URL hash failed:
+the 4339 rows hold 4335 distinct URL hashes. The crawl drops a repeated PDF link within one site
+but not across sites, so a PDF that two governments' pages both link to was checked once for
+each, and 4 rows repeat a link from an earlier row. The pre-registration counts every PDF each
+site's crawl reads, so the numbers below stay as scored, and that check is replaced by one that
+counts the repeats. None of the 65 non-English PDFs has a repeated link, so L1 and L2 are the
+same if each link is counted once; L3 stays at 3 or fewer of at least 2809 English PDFs, L4 at 3
+or fewer of at least 2791 `/Lang` values, and K at 98.8% or more, so no verdict changes. The test
+recomputes all of this from the rows.
+
 ## In short
 **Check K held:** langdetect named the same language as py3langid for 63709 of 64464 chunks py3langid
 was sure of (98.8%), above the pre-registered 90%, so L1 to L4 are scored as pre-registered, and all
