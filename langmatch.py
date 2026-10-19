@@ -13,6 +13,11 @@ first 5 pages is split into chunks of about 200 characters, each read by two ind
 detectors (py3langid and langdetect); a chunk counts only where both name the same language with
 probability 0.9 or more. Both detectors are optional: without them, check() says "not checked".
 
+Since 0.1.1 (site_check 0.2.1), when a PDF declares one language while parts of it are already
+marked with the text's language, the note leads with the Acrobat fix and says that re-applying
+Word's proofing language may not help: in the census, 11 of the 13 Word-made non-English PDFs
+declared English looked like this (docs/lang-word-note.md, exploratory).
+
 Apache-2.0 licensed. Made by MV2 of Munim, Inc. with AI agents.
 """
 
@@ -20,7 +25,7 @@ import collections
 import io
 import re
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 LANG_VERSION = "0.1.1"  # the lang.py these rules are copied from
 
 TEXT_PAGES = 5            # pages whose text, element and marked-content languages are read
@@ -35,6 +40,8 @@ NODE_CAP = 20_000
 ALIASES = {"iw": "he", "in": "id", "ji": "yi", "nb": "no", "nn": "no", "fil": "tl",
            "eng": "en", "spa": "es", "zho": "zh", "chi": "zh", "vie": "vi", "kor": "ko"}
 MC_LANG = re.compile(rb"/Lang\s*\(([^)]{0,35})\)")
+# Where the note on Word-made PDFs with the right language inside and the wrong one outside lives.
+WORD_NOTE = "https://github.com/munimtechnologies/title2-pdf-census/blob/main/docs/lang-word-note.md"
 
 # English names for the report; any other code is shown as it is.
 NAMES = {"en": "English", "es": "Spanish", "zh": "Chinese", "vi": "Vietnamese", "ko": "Korean",
@@ -259,6 +266,18 @@ def note(lc, lang_set=False):
     if v in (None, "match"):
         return None
     lang = name(text_lang)
+    if v == "other" and lc.get("local_match"):
+        # The Word signature (docs/lang-word-note.md): the text already carries its language, so
+        # setting Word's proofing language again may leave the document language as it was.
+        declared = name(lc["declared"])
+        return ("Its text looks like %s, but its document language says %s, so a screen reader will "
+                "read it with %s pronunciation. Parts of the file are already marked as %s, so only "
+                "the document language is wrong. Set it to %s in Acrobat: File > Properties > "
+                "Advanced > Language. If the file was made in Word, choosing %s again as the proofing "
+                "language may not change the document language when you save as PDF again, because "
+                "the text already has it (%s). Setting the language of Word's Normal style (Modify "
+                "Style > Format > Language) has been reported to help; site_check has not tested it."
+                % (lang, declared, declared, lang, lang, lang, WORD_NOTE))
     if v == "other":
         out = ("Its text looks like %s, but its document language says %s, so a screen reader will "
                "read it with %s pronunciation. Set the document language to %s (Acrobat: File > "

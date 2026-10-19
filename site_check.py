@@ -10,7 +10,8 @@ pages turn up no PDF link, it reads the site's other pages first (0.1.2). It rea
 16 pages by default, so it falls back only after 8 document-like pages (0.1.3).
 Since 0.2.0 it also checks whether each PDF's document language matches the
 language of its text, with lang-census's rules (langmatch.py), when py3langid and
-langdetect are installed.
+langdetect are installed. Since 0.2.1, when parts of a PDF already carry the text's
+language and only the document language is wrong, it leads with the Acrobat fix.
 
 Same manners as census.py: public pages only, robots.txt honoured, a pause between
 requests, a User-Agent that names Munim, Inc. and an email. Machine checks only:
@@ -36,7 +37,7 @@ import urllib.parse
 import census as c
 import langmatch as lm
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 # Inner pages read by default. The third doc-first test (docs/doc-first-v3-results.md) ran 0.1.2
 # with 16: it falls back only after 8 document-like pages, as many as 0.1.1 read in all.

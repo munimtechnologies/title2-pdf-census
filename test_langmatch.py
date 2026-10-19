@@ -1,4 +1,4 @@
-"""Offline tests for langmatch and site_check 0.2.0's /Lang-against-text check (no network).
+"""Offline tests for langmatch and site_check 0.2.1's /Lang-against-text check (no network).
 The PDF tests need pypdf and the detector tests py3langid and langdetect; each is skipped if
 its package is missing. Apache-2.0 licensed."""
 
@@ -37,10 +37,13 @@ def read(*parts):
         return f.read()
 
 
-def make_pdf(lines, lang="en-US"):
-    """A one-page PDF with the given lines of text (Helvetica, WinAnsi) and catalog /Lang."""
+def make_pdf(lines, lang="en-US", mc_lang=None):
+    """A one-page PDF with the given lines of text (Helvetica, WinAnsi) and catalog /Lang;
+    mc_lang wraps the text in a marked-content sequence with that /Lang, as Word writes it."""
     stream = b"BT /F1 10 Tf 12 TL 40 760 Td " + b"".join(
         b"(" + line.encode("cp1252") + b") Tj T* " for line in lines) + b"ET"
+    if mc_lang:
+        stream = b"/Span << /Lang (" + mc_lang.encode() + b") >> BDC " + stream + b" EMC"
     catalog = b"<< /Type /Catalog /Pages 2 0 R" + (b" /Lang (" + lang.encode() + b")" if lang else b"") + b" >>"
     objs = [catalog, b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
             b"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >>"
@@ -98,16 +101,31 @@ class SameRulesAsLangCensus(unittest.TestCase):
 
 
 class NoteTests(unittest.TestCase):
+    OTHER = {"checked": True, "declared": "en", "declared_raw": "en-US", "text_lang": "es",
+             "local_match": False, "verdict": "other"}
+
     def test_declares_another_language(self):
-        lc = {"checked": True, "declared": "en", "declared_raw": "en-US", "text_lang": "es",
-              "local_match": False, "verdict": "other"}
-        note = lm.note(lc, True)
+        note = lm.note(self.OTHER, True)
         for text in ("Its text looks like Spanish, but its document language says English",
                      "read it with English pronunciation", "Set the document language to Spanish",
                      "File > Properties > Advanced > Language", "Set Proofing Language"):
             self.assertIn(text, note)
-        self.assertNotIn("already tagged", note)
-        self.assertIn("Some parts are already tagged as Spanish", lm.note(dict(lc, local_match=True), True))
+        self.assertNotIn("already", note)
+        self.assertNotIn(lm.WORD_NOTE, note)
+
+    def test_declares_another_language_with_the_right_one_inside(self):
+        """0.2.1: the Word signature; the Acrobat fix comes first, proofing is not the advice."""
+        note = lm.note(dict(self.OTHER, local_match=True), True)
+        for text in ("Its text looks like Spanish, but its document language says English",
+                     "read it with English pronunciation",
+                     "Parts of the file are already marked as Spanish, so only the document language is wrong",
+                     "Set it to Spanish in Acrobat: File > Properties > Advanced > Language",
+                     "choosing Spanish again as the proofing language may not change the document language",
+                     lm.WORD_NOTE, "Modify Style > Format > Language", "site_check has not tested it"):
+            self.assertIn(text, note)
+        self.assertLess(note.index("Acrobat"), note.index("Word"))
+        self.assertNotIn("Set Proofing Language", note)
+        self.assertNotIn("Some parts are already tagged", note)
 
     def test_no_or_unusable_language(self):
         lc = {"checked": True, "declared": None, "declared_raw": "", "text_lang": "vi",
@@ -115,6 +133,11 @@ class NoteTests(unittest.TestCase):
         self.assertEqual(lm.note(lc, False),
                          "Its text looks like Vietnamese: when you set the document language, choose Vietnamese.")
         self.assertIn("(/en-US) is not a language code", lm.note(dict(lc, declared_raw="/en-US"), True))
+        # No document language at all: the 0.2.0 wording, with the parts mentioned.
+        self.assertEqual(lm.note(dict(lc, local_match=True), False),
+                         "Its text looks like Vietnamese: when you set the document language, choose Vietnamese. "
+                         "Some parts are already tagged as Vietnamese, which helps screen readers that honour "
+                         "such tags; the document language still decides the rest.")
 
     def test_nothing_to_say(self):
         for lc in (None, {}, {"checked": False}, {"checked": True, "verdict": "match", "text_lang": "es"},
@@ -126,6 +149,15 @@ class NoteTests(unittest.TestCase):
 
     def test_not_checked_without_detectors(self):
         self.assertEqual(lm.check(b"%PDF-1.4", None), {"checked": False})
+
+    def test_word_note_is_the_one_in_this_repository(self):
+        prefix = "https://github.com/munimtechnologies/title2-pdf-census/blob/main/"
+        self.assertTrue(lm.WORD_NOTE.startswith(prefix))
+        doc = " ".join(read(*lm.WORD_NOTE[len(prefix):].split("/")).split())
+        for text in ("Exploratory, not pre-registered", "In 11 of Word's 13 English-declared non-English PDFs",
+                     "File > Properties > Advanced > Language", "(Modify Style > Format > Language)"):
+            self.assertIn(text, doc)
+        self.assertIn("11 of the 13 Word-made non-English PDFs", lm.__doc__)
 
 
 class SiteCheckTests(unittest.TestCase):
@@ -146,17 +178,20 @@ class SiteCheckTests(unittest.TestCase):
                 "lang_check": sc.lang_summary(rows, on)}
 
     def test_version(self):
-        self.assertEqual(sc.__version__, "0.2.0")
+        self.assertEqual(sc.__version__, "0.2.1")
+        self.assertEqual(lm.__version__, "0.1.1")
 
     def test_mismatch_is_a_note_not_a_fifth_basic(self):
-        r = self.result([self.OTHER])
+        r = self.result([self.OTHER, dict(self.OTHER, local_match=True)])
         row = r["pdfs"][0]
         self.assertEqual(row["fails"], [])
         self.assertTrue(row["notes"][0].startswith("Its text looks like Spanish"))
         md = sc.markdown(r)
         self.assertIn("## Also worth fixing", md)
         self.assertIn("- 0.pdf: Its text looks like Spanish", md)
-        self.assertIn("- 1 PDFs checked; 1 pass all four basics; 0 could not be read.", md)
+        self.assertIn("- 1.pdf: Its text looks like Spanish", md)
+        self.assertIn(lm.WORD_NOTE, md)
+        self.assertIn("- 2 PDFs checked; 2 pass all four basics; 0 could not be read.", md)
 
     def test_summary_and_line(self):
         match = dict(self.OTHER, declared="es", verdict="match")
@@ -214,6 +249,12 @@ class PdfTests(unittest.TestCase):
         self.assertEqual(lm.check(make_pdf(textwrap.wrap(SPANISH, 70), lang=None), Always("es"))["verdict"], "none")
         self.assertEqual(lm.check(make_pdf(["Too short."], lang="es"), Always("es"))["verdict"], None)
 
+    def test_marked_content_language_found(self):
+        pdf = make_pdf(textwrap.wrap(SPANISH, 70), lang="en-US", mc_lang="es-ES")
+        lc = lm.check(pdf, Always("es"))
+        self.assertEqual((lc["verdict"], lc["local_langs"], lc["local_match"]), ("other", ["es"], True))
+        self.assertIn("Set it to Spanish in Acrobat", lm.note(lc, True))
+
     def test_pdf_record_keeps_the_basics_if_the_check_fails(self):
         class Broken:
             def detect(self, text):
@@ -243,6 +284,11 @@ class RealDetectorTests(unittest.TestCase):
         lc = lm.check(make_pdf(textwrap.wrap(SPANISH, 70), lang="en-US"), self.det)
         self.assertEqual((lc["text_lang"], lc["verdict"]), ("es", "other"), lc)
         self.assertIn("Its text looks like Spanish, but its document language says English", lm.note(lc, True))
+
+    def test_spanish_declared_english_marked_spanish_inside(self):
+        lc = lm.check(make_pdf(textwrap.wrap(SPANISH, 70), lang="en-US", mc_lang="es-ES"), self.det)
+        self.assertEqual((lc["text_lang"], lc["verdict"], lc["local_match"]), ("es", "other", True), lc)
+        self.assertIn("Parts of the file are already marked as Spanish", lm.note(lc, True))
 
     def test_spanish_declared_spanish(self):
         lc = lm.check(make_pdf(textwrap.wrap(SPANISH, 70), lang="es-MX"), self.det)
