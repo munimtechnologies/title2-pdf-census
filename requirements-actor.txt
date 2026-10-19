@@ -1,2 +1,4 @@
 apify
 pypdf[crypto]>=5
+py3langid==0.4.0
+langdetect==1.0.9

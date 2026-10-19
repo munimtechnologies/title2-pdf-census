@@ -14,6 +14,16 @@ For each PDF that fails, it says in plain words what to fix (for example, which 
 option adds tags). It also counts tagged figures without alt text, and says whether the home
 page links to a page about accessibility or the ADA.
 
+**New in 0.2.0: does the document language match the text?** A screen reader picks its voice
+and pronunciation from a PDF's document language, so a Spanish notice whose document language
+says English is read aloud with English rules. The check reads the text of each PDF's first
+five pages with two independent language detectors, which must agree, and compares the result
+with the declared language. If they differ, or no language is declared, the report says which
+language to set and where. In the open lang-census (October 18, 2026), 57 of 65 PDFs from large
+US cities and counties whose text is not English (87.7%) had a document language that was
+missing or named another language, most often English. The check uses that census's own rules,
+unchanged.
+
 The example input checks ada.gov and the Justice Department's own Title II web rule PDF.
 
 ## Why
@@ -44,7 +54,8 @@ site, give PDF links directly or raise Pages to read (up to 30).
 
 ## Output
 
-- **Dataset**: one row per PDF, with each basic as yes/no, what to fix and other notes.
+- **Dataset**: one row per PDF, with each basic as yes/no, what to fix and other notes, and
+  the declared language, the text's language and whether they match.
 - **REPORT** (key-value store): a plain-language Markdown report for the whole check.
 - **SUMMARY** (key-value store): the counts.
 
@@ -56,11 +67,15 @@ conformance judgment or legal advice, and it does not decide which older documen
 the rule's exceptions. It reads a few pages, not the whole site: PDFs linked only from pages it
 did not read are not checked. If it finds none, give PDF links directly or raise Pages to read.
 
+The language check reads the first five pages only. It gives no verdict when there is too little
+text the two detectors agree on, or when no language has 80% of it, and a language mismatch is
+listed as something to fix, not as a failed basic. No screen reader was tested.
+
 It reads public pages only, honours robots.txt, waits a second between requests and identifies
 itself with a User-Agent that names Munim, Inc. and an email address. It stores no document text.
 
 ## Who made it
 
 Made by MV2 of Munim, Inc. with AI agents. The code is open source under Apache-2.0:
-https://github.com/munimtechnologies/title2-pdf-census (`site_check.py`). Questions:
-mv2@munimtech.com.
+https://github.com/munimtechnologies/title2-pdf-census (`site_check.py`, `langmatch.py`).
+Questions: mv2@munimtech.com.

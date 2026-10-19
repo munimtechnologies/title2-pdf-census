@@ -8,6 +8,9 @@ reads the pages that look like document lists first (Documents, Agendas, Forms,
 Library and the like), so it finds a site's PDFs with fewer requests. If half its
 pages turn up no PDF link, it reads the site's other pages first (0.1.2). It reads
 16 pages by default, so it falls back only after 8 document-like pages (0.1.3).
+Since 0.2.0 it also checks whether each PDF's document language matches the
+language of its text, with lang-census's rules (langmatch.py), when py3langid and
+langdetect are installed.
 
 Same manners as census.py: public pages only, robots.txt honoured, a pause between
 requests, a User-Agent that names Munim, Inc. and an email. Machine checks only:
@@ -18,8 +21,8 @@ Usage:
     python site_check.py https://www.example.gov/ --md report.md --json report.json
     python site_check.py --pdf https://www.example.gov/docs/agenda.pdf --md report.md
 
-Standard library plus pypdf. Apache-2.0 licensed.
-Made by MV2 of Munim, Inc. with AI agents.
+Standard library plus pypdf; the language check also needs py3langid and langdetect.
+Apache-2.0 licensed. Made by MV2 of Munim, Inc. with AI agents.
 """
 
 import argparse
@@ -31,8 +34,9 @@ import time
 import urllib.parse
 
 import census as c
+import langmatch as lm
 
-__version__ = "0.1.3"
+__version__ = "0.2.0"
 
 # Inner pages read by default. The third doc-first test (docs/doc-first-v3-results.md) ran 0.1.2
 # with 16: it falls back only after 8 document-like pages, as many as 0.1.1 read in all.
@@ -47,6 +51,11 @@ DEADLINES = ("Under the ADA Title II rule (DOJ, 2024-04-24; dates moved by the i
 BASELINE = ("For comparison: of 5,412 PDFs from 926 US cities and counties of 50,000+ "
             "(title2-pdf-census, third full run, 2026-10-17), 60.5% were tagged and 22.0% "
             "passed all four basics.")
+# lang-census (docs/lang-census-results.md), for comparison.
+LANG_FINDING = ("In a pre-registered census of PDFs from US cities and counties of 50,000+ "
+                "(title2-pdf-census lang-census, 2026-10-18), 57 of 65 PDFs whose text is not English "
+                "(87.7%) had a document language that was missing or named another language.")
+LANG_MISSING = "not checked (install py3langid and langdetect to check it)."
 NO_PDFS = ("No PDF links were found on the pages read. Give PDF links directly, or read more pages.")
 
 # Words in a link's text or URL path that suggest a page listing documents, including
@@ -79,6 +88,15 @@ PRINT_NOTE = ("Made with print-to-PDF, whose output is seldom tagged (16.1% in t
               "program's own Save as PDF or Export instead.")
 SCANNER_NOTE = "Made by a scanner (4.5% of scanner output in the census was tagged)."
 
+_DETECTORS = []  # loaded on first use: [lm.Detectors()] or [None] if not installed
+
+
+def detectors():
+    """The two language detectors, loaded once; None if either is not installed."""
+    if not _DETECTORS:
+        _DETECTORS.append(lm.detectors())
+    return _DETECTORS[0]
+
 
 def failures(rec):
     """The basics a readable PDF record fails, most serious first."""
@@ -88,6 +106,9 @@ def failures(rec):
 def notes(rec):
     """Other things worth fixing in a readable PDF record, in plain words."""
     out = []
+    lang = lm.note(rec.get("lang_check"), bool(rec.get("lang")))
+    if lang:
+        out.append(lang)
     missing = rec.get("figures", 0) - rec.get("figures_alt", 0)
     if missing > 0:
         out.append("%d of %d tagged figures have no alt text." % (missing, rec["figures"]))
@@ -102,8 +123,9 @@ def notes(rec):
     return out
 
 
-def pdf_record(url, resp):
-    """One PDF's record from its response, as census.crawl_site makes it."""
+def pdf_record(url, resp, lang=True):
+    """One PDF's record from its response, as census.crawl_site makes it, plus (if lang) the
+    /Lang-against-text check."""
     rec = {"url": url, "status": resp.status, "bytes": len(resp.body)}
     if resp.status != 200:
         rec["result"] = "http_error"
@@ -118,6 +140,11 @@ def pdf_record(url, resp):
         except Exception as e:
             rec["result"] = "parse_error"
             rec["error"] = ("%s: %s" % (type(e).__name__, e))[:200]
+    if lang and rec["result"] == "ok":
+        try:
+            rec["lang_check"] = lm.check(resp.body, detectors())
+        except Exception as e:  # a failed language check never costs the four basics
+            rec["lang_check"] = {"checked": False, "error": ("%s: %s" % (type(e).__name__, e))[:200]}
     return rec
 
 
@@ -140,7 +167,7 @@ def page_links(page, url):
 
 
 def crawl(site_url, get=c.http_get, pages=PAGES, pdfs=8, delay=1.0, sleep=time.sleep,
-          max_page_bytes=5_000_000, max_pdf_bytes=15_000_000):
+          max_page_bytes=5_000_000, max_pdf_bytes=15_000_000, lang=True):
     """Read a website's home page and up to `pages` of its pages, document-like pages first
     (and the document-like pages they link to), stopping early once there are twice `pdfs`
     PDF links; then check up to `pdfs` readable PDFs from them. If half the pages are read
@@ -216,7 +243,7 @@ def crawl(site_url, get=c.http_get, pages=PAGES, pdfs=8, delay=1.0, sleep=time.s
             break
         if not allowed(url):
             continue
-        rec = pdf_record(url, get(url, max_pdf_bytes))
+        rec = pdf_record(url, get(url, max_pdf_bytes), lang)
         sleep(delay)
         site["pdfs_tried"] += 1
         site["pdfs_ok"] += rec["result"] == "ok"
@@ -224,7 +251,7 @@ def crawl(site_url, get=c.http_get, pages=PAGES, pdfs=8, delay=1.0, sleep=time.s
     return site, found
 
 
-def check_pdfs(urls, get=c.http_get, sleep=time.sleep, delay=1.0, max_pdf_bytes=15_000_000):
+def check_pdfs(urls, get=c.http_get, sleep=time.sleep, delay=1.0, max_pdf_bytes=15_000_000, lang=True):
     """Fetch and check each PDF link (http or https), honouring each host's robots.txt."""
     robots, found = {}, []
     for url in dict.fromkeys(u.strip() for u in urls if u and u.strip()):
@@ -241,20 +268,30 @@ def check_pdfs(urls, get=c.http_get, sleep=time.sleep, delay=1.0, max_pdf_bytes=
             continue
         resp = get(url, max_pdf_bytes)
         sleep(delay)
-        found.append(pdf_record(url, resp))
+        found.append(pdf_record(url, resp, lang))
     return found
 
 
+def lang_summary(rows, lang=True):
+    """Counts of the /Lang-against-text check over the readable PDFs."""
+    checked = [r["lang_check"] for r in rows
+               if r.get("result") == "ok" and (r.get("lang_check") or {}).get("checked")]
+    verdicts = [lc.get("verdict") for lc in checked]
+    return {"on": bool(lang), "checked": len(checked),
+            "text_language_found": sum(1 for v in verdicts if v is not None),
+            "declares_other": verdicts.count("other"), "declares_none": verdicts.count("none")}
+
+
 def run(site_url="", pdf_urls=(), pages=PAGES, pdfs=8, get=c.http_get, sleep=time.sleep, delay=1.0,
-        checked=None):
+        checked=None, lang=True):
     """Check a website (its home page, some of its pages and the PDFs they link) and/or a list
     of PDF links. Returns a dict with the site, one row per PDF and a summary."""
     site, found = None, []
     if site_url:
-        site, found = crawl(site_url, get=get, pages=pages, pdfs=pdfs, delay=delay, sleep=sleep)
+        site, found = crawl(site_url, get=get, pages=pages, pdfs=pdfs, delay=delay, sleep=sleep, lang=lang)
     seen = {r["url"] for r in found}
     found += check_pdfs([u for u in pdf_urls if u.strip() not in seen], get=get, sleep=sleep,
-                        delay=delay)
+                        delay=delay, lang=lang)
     rows = []
     for rec in found:
         row = dict(rec)
@@ -268,7 +305,7 @@ def run(site_url="", pdf_urls=(), pages=PAGES, pdfs=8, get=c.http_get, sleep=tim
                "fail": {key: sum(1 for r in ok if key in r["fails"]) for key, _, _ in BASICS}}
     return {"version": __version__, "census_version": c.__version__,
             "checked": checked or time.strftime("%Y-%m-%d", time.gmtime()),
-            "site": site, "pdfs": rows, "summary": summary}
+            "site": site, "pdfs": rows, "summary": summary, "lang_check": lang_summary(rows, lang)}
 
 
 def name_of(url):
@@ -296,6 +333,20 @@ def status_line(result):
         s["pdfs_checked"], s["pass_all_four"], s["pdfs_not_read"])
 
 
+def lang_line(result):
+    """The report's line on the /Lang-against-text check, or None if no PDF was read."""
+    s = result.get("lang_check") or {}
+    if not result["summary"]["pdfs_checked"]:
+        return None
+    if not s.get("on"):
+        return "- Document language against the text: not checked (turned off)."
+    if not s.get("checked"):
+        return "- Document language against the text: " + LANG_MISSING
+    return ("- Document language against the text: the text's language was clear in %d of %d PDFs; "
+            "%d of those declare a different language and %d declare none." % (
+                s["text_language_found"], s["checked"], s["declares_other"], s["declares_none"]))
+
+
 def markdown(result):
     """A plain-language report of one check."""
     site, rows, s = result["site"], result["pdfs"], result["summary"]
@@ -312,7 +363,10 @@ def markdown(result):
                   "- Pages read besides the home page: %d; PDF links found: %d" % (site["pages_read"],
                                                                                   site["pdf_links"]),
                   "- Home page links to a page about accessibility or the ADA: %s" % a11y]
-    lines += ["- %s" % status_line(result), ""]
+    lines += ["- %s" % status_line(result)]
+    if lang_line(result):
+        lines.append(lang_line(result))
+    lines.append("")
     if site and site["status"] == "ok" and not site["pdf_links"]:
         lines += [NO_PDFS, ""]
     ok = [r for r in rows if r.get("result") == "ok"]
@@ -342,7 +396,10 @@ def markdown(result):
         lines += ["## Not read", ""]
         lines += ["- %s: %s" % (cell(r["url"]), r["result"]) for r in unread]
         lines.append("")
-    lines += [BASELINE, "", DEADLINES, "",
+    lines += [BASELINE, ""]
+    if (result.get("lang_check") or {}).get("checked"):
+        lines += [LANG_FINDING, ""]
+    lines += [DEADLINES, "",
               "Made by MV2 of Munim, Inc. with AI agents (site_check, Apache-2.0: "
               "https://github.com/munimtechnologies/title2-pdf-census). Questions: mv2@munimtech.com.", ""]
     return "\n".join(lines)
@@ -354,11 +411,14 @@ def dataset_rows(result):
     for r in result["pdfs"]:
         row = {"name": name_of(r["url"]), "url": r["url"], "result": r.get("result")}
         if r.get("result") == "ok":
+            lc = r.get("lang_check") or {}
             row.update(all_four=not r["fails"], tagged=bool(r.get("tagged")), lang=bool(r.get("lang")),
                        title=bool(r.get("title")), has_text=not r.get("image_only"),
                        fails=[LABELS[k] for k in r["fails"]], notes=r["notes"], pages=r.get("pages"),
                        figures=r.get("figures"), figures_alt=r.get("figures_alt"),
-                       created=r.get("created"), producer_family=r.get("producer_family"))
+                       created=r.get("created"), producer_family=r.get("producer_family"),
+                       declared_lang=lc.get("declared"), text_lang=lc.get("text_lang"),
+                       lang_matches_text={"match": True, "other": False, "none": False}.get(lc.get("verdict")))
         out.append(row)
     return out
 
@@ -371,6 +431,8 @@ def parser():
     ap.add_argument("--pages", type=int, default=PAGES, help="inner pages read (default %d)" % PAGES)
     ap.add_argument("--pdfs", type=int, default=8, help="readable PDFs checked from the site (default 8)")
     ap.add_argument("--delay", type=float, default=1.0, help="seconds between requests (default 1)")
+    ap.add_argument("--no-lang-check", action="store_true",
+                    help="skip the check of each PDF's document language against its text")
     ap.add_argument("--json", help="write the full result as JSON here")
     ap.add_argument("--md", help="write the report as Markdown here")
     return ap
@@ -382,7 +444,8 @@ def main(argv=None):
     if not args.site and not args.pdf:
         ap.error("give a website or at least one --pdf")
     logging.getLogger("pypdf").setLevel(logging.ERROR)
-    result = run(args.site, args.pdf, pages=args.pages, pdfs=args.pdfs, delay=max(0.5, args.delay))
+    result = run(args.site, args.pdf, pages=args.pages, pdfs=args.pdfs, delay=max(0.5, args.delay),
+                 lang=not args.no_lang_check)
     text = markdown(result)
     if args.json:
         with open(args.json, "w", encoding="utf-8") as f:
