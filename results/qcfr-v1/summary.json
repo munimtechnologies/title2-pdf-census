@@ -1,0 +1,60 @@
+{
+ "version": "0.1.0",
+ "lang_version": "0.1.1",
+ "pdfs": 1616,
+ "ok": 1616,
+ "french_text": 440,
+ "french_text_no_province": 0,
+ "sites_with_two_groups": 0,
+ "Q1_rest_wrong_more_than_quebec": {
+  "quebec": {
+   "sites": 88,
+   "k": 186,
+   "n": 433,
+   "share": 0.4296
+  },
+  "rest": {
+   "sites": 6,
+   "k": 7,
+   "n": 7,
+   "share": 1.0
+  },
+  "gap": null,
+  "p_permutation": null,
+  "permutations": 20000,
+  "seed": "qcfr-v1",
+  "status": "inconclusive: too few",
+  "met": null
+ },
+ "explore_by_group": {
+  "quebec": {
+   "declared": {
+    "match": 247,
+    "none": 140,
+    "other": 46
+   },
+   "declared_other_primary": {
+    "en": 46
+   },
+   "cluster_ci95": [
+    0.3522,
+    0.5061
+   ]
+  },
+  "rest": {
+   "declared": {
+    "none": 1,
+    "other": 6
+   },
+   "declared_other_primary": {
+    "en": 5,
+    "ar": 1
+   },
+   "cluster_ci95": [
+    1.0,
+    1.0
+   ]
+  }
+ },
+ "explore_pdf_level_fisher_p": 0.002936
+}
