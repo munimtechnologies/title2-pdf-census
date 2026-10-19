@@ -33,6 +33,10 @@ The tool stores **structural facts only**: no document text, no metadata titles,
 
 As far as we could find, this is the first **open, reproducible, per-government** measurement of PDF basics for the governments facing the 2027 deadline, and the first to ask whether **documents made since the rule** are better than older ones.
 
+## Results at a glance
+
+[docs/measured.md](docs/measured.md) lists every result so far on one page, each with its limits and a link to its full results. `test_measured.py` checks every number on it against the summary file or the tested page it comes from.
+
 ## Use
 
 ```
