@@ -52,6 +52,34 @@ a `/Lang` that is missing, unusable or names another language; Quebec has 433 fr
 them (43.0%) with such a `/Lang`. The minimum was 20 PDFs and 4 sites in each group, so nothing is
 claimed. No new crawl was made: [qcfr-results.md](qcfr-results.md).
 
+## New PDFs around the Title II extension (four pre-registered follow-ups)
+
+On 2026-04-20 the US Department of Justice moved the Title II compliance date for governments
+serving 50,000 or more people from 2026-04-24 to 2027-04-26. These four studies split the third full
+run's PDFs by creation date around that day.
+
+- Deadline split, 2 of 6 predictions held. Pooled over the 12 months on each side, new PDFs were
+  tagged as often after the extension as before (67.2% vs 67.3%). In the last 3 months before it,
+  74.4% were tagged; in the first 3 months after, 66.7%. The share with a title fell from 45.1% to
+  39.0%. Results: [deadline-split-results.md](deadline-split-results.md).
+- Site split, 4 of 6 held. In the same windows, giving each government one vote, the site-weighted
+  share fell 5.5 points, but among the 102 governments that posted in both windows, slightly more
+  went up (25) than down (20): no decline within the same governments (the sign test gave p = 0.55).
+  Results: [site-split-results.md](site-split-results.md).
+- Title mix, 6 of 6 held. Split by the software that made each file, almost none of the fall in
+  titles is a change in software mix (-0.8 points). It is a change within the same software groups
+  (-5.3 points). Results: [title-mix-results.md](title-mix-results.md).
+- Title pairs, 5 of 6 held. Within the 329 governments with files on both sides, the average title
+  share fell 3.7 points (93 up, 103 down, sign test p = 0.52), past the line set in advance, so that
+  prediction failed. In the three months either side of the extension, the 102 governments with
+  files on both sides show no drop at all (+0.8 points). Results:
+  [title-pairs-results.md](title-pairs-results.md).
+
+Read together, the drops in tagging and in titles look mostly like a change in which governments
+posted in each window, not governments changing their own practice. That reading is untested, not a
+finding. A file's creation date is not when it went online, and the extension came four days before
+the original date, so no cause is claimed.
+
 ## What a site owner can do
 
 site_check, in this repository, runs the same checks on one website or a list of PDF links and

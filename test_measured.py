@@ -73,6 +73,50 @@ FACTS = [
     ("The minimum was 20 PDFs and 4 sites in each group", "docs/qcfr-results.md",
      "minimum was 20 PDFs and 4 sites in each group"),
     ("No new crawl was made", "README.md", "No new crawl was made"),
+    # Title II extension follow-ups (deadline split, site split, title mix, title pairs)
+    ("On 2026-04-20 the US Department of Justice", "docs/deadline-split-results.md",
+     "On 2026-04-20, four days before the original date, the US Department of Justice"),
+    ("serving 50,000 or more people from 2026-04-24 to 2027-04-26",
+     "docs/deadline-split-results.md",
+     "serving 50,000 or more people from 2026-04-24 to 2027-04-26"),
+    ("Deadline split, 2 of 6 predictions held", "docs/deadline-split-results.md",
+     "2 of 6 pre-registered predictions held"),
+    ("Pooled over the 12 months on each side, new PDFs were tagged as often after the "
+     "extension as before (67.2% vs 67.3%)", "docs/deadline-split-results.md",
+     "Pooled over the 12 months on each side of the extension, PDFs that cities and counties "
+     "of 50,000+ created after DOJ postponed the Title II compliance date were tagged as "
+     "often as before (67.2% vs 67.3%)"),
+    ("In the last 3 months before it, 74.4% were tagged; in the first 3 months after, 66.7%",
+     "docs/deadline-split-results.md",
+     "last 3 months before: 74.4%; first 3 months after: 66.7%"),
+    ("The share with a title fell from 45.1% to 39.0%", "docs/deadline-split-results.md",
+     "45.1% (488/1,081) | 39.0% (446/1,143)"),
+    ("Site split, 4 of 6 held", "docs/site-split-results.md",
+     "4 of 6** pre-registered predictions held"),
+    ("the site-weighted share fell 5.5 points", "docs/site-split-results.md",
+     "the site-weighted share fell 5.5 points"),
+    ("among the 102 governments that posted in both windows, slightly more went up (25) "
+     "than down (20)", "docs/site-split-results.md",
+     "among the 102 governments that posted in **both** windows, slightly more went up (25) "
+     "than down (20)"),
+    ("sign test gave p = 0.55", "docs/site-split-results.md", "sign test gave p = 0.55"),
+    ("Title mix, 6 of 6 held", "docs/title-mix-results.md",
+     "6 of 6** pre-registered predictions held"),
+    ("is a change in software mix (-0.8 points). It is a change within the same software "
+     "groups (-5.3 points", "docs/title-mix-results.md",
+     "is a change in software mix (−0.8 points). It is a change **within** the same "
+     "software groups (−5.3 points"),
+    ("Title pairs, 5 of 6 held", "docs/title-pairs-results.md",
+     "5 of 6** pre-registered predictions held"),
+    ("Within the 329 governments with files on both sides, the average title share fell 3.7 "
+     "points (93 up, 103 down, sign test p = 0.52)", "docs/title-pairs-results.md",
+     "Within the 329 governments with files on both sides, the average change is −3.7 "
+     "points (−9.5 to +2.1): 93 governments went up, 103 went down and 133 did not "
+     "change (sign test p = 0.52)"),
+    ("In the three months either side of the extension, the 102 governments with files on "
+     "both sides show no drop at all (+0.8 points)", "docs/title-pairs-results.md",
+     "In the three months either side of the extension, the 102 governments with files on "
+     "both sides show no drop at all (+0.8 points)"),
     # site_check and limits
     ("Since 0.2.0 it also compares", "README.md", "(since 0.2.0)"),
     ("Text languages are read from the first 5 pages", "README.md",
