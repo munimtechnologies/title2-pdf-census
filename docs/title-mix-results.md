@@ -99,7 +99,9 @@ zero at the site level, but not by much.
   vanished among governments present in both windows, so it was more likely a change in which
   governments posted. The same could be true here: different governments using Word or Acrobat with
   different templates or settings would show up as a "within" change. A paired title check by
-  government was not done.
+  government followed: [title-pairs-results.md](title-pairs-results.md) (2026-10-24) found no clear
+  within-government drop (paired mean −3.7 points, interval −9.5 to +2.1; +0.8 in the three-month
+  windows).
 - Six groups only. Office and adobe each hide many versions and settings, and later editing tools can
   rewrite the Producer string (a Word file fixed in Acrobat counts as adobe), so "within" can still
   include a mix change inside a group.
