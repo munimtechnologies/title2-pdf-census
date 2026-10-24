@@ -19,9 +19,12 @@ pre-registered predictions held; the two misses (S3, S4) are the main finding.
 ## Background
 On 2026-04-20 the US Department of Justice issued an interim final rule (91 Fed. Reg. 20902) moving the
 Title II web-accessibility compliance date for public entities serving 50,000 or more from 2026-04-24 to
-2026-04-26. The pooled 3-month-each-side drop in machine-detectable PDF tagging is in the parent result.
+2027-04-26. The pooled 3-month-each-side drop in machine-detectable PDF tagging is in the parent result.
 A pooled share weights each site by how many PDFs it links, so this check asks whether the same drop
 appears when each government (one Wikidata `qid` per city, county or town) counts once.
+
+Correction (2026-10-24): the first version of this page gave the new date as 2026-04-26; it is
+2027-04-26, one year later. No number or window depended on it.
 
 ## Data and method
 - The same `title2-pdf-census` v0.2.2 row file (crawl started 2026-10-16T23:55:01Z); rows with

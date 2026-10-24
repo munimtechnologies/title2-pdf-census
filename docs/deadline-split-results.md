@@ -14,9 +14,13 @@ push that faded once the date moved, but the design cannot show cause. 2 of 6 pr
 predictions held.
 
 ## Background
-On 2026-04-20 the US Department of Justice issued an interim final rule (91 Fed. Reg. 20902) that moved
-the ADA Title II web-accessibility compliance date for public entities serving 50,000 or more people
-from 2026-04-24 to 2026-04-26, four days before the original date. WCAG 2.1 AA stayed the standard.
+On 2026-04-20, four days before the original date, the US Department of Justice issued an interim final
+rule (91 Fed. Reg. 20902) that moved the ADA Title II web-accessibility compliance date for public
+entities serving 50,000 or more people from 2026-04-24 to 2027-04-26. WCAG 2.1 AA stayed the standard.
+
+Correction (2026-10-24): the first version of this page gave the new date as 2026-04-26; it is
+2027-04-26, one year later. The same slip is in [deadline-split-prereg.md](deadline-split-prereg.md),
+which is left unchanged as the dated pre-registration. No number or window depended on it.
 
 ## Data and method
 - Row file of the v0.2.2 run (crawl started 2026-10-16T23:55:01Z): 5,412 readable PDFs linked from 926
@@ -52,6 +56,10 @@ predicted: all four basics 28.0% (303/1,081) before vs 24.1% (276/1,143) after; 
 What the misses say: I expected the long-run rise to continue (about +3 to +7 points in tagging); it
 did not. Tagging was flat, the title share fell, and the alt-text gap did not improve. P3, P4 and P6
 were each set to detect a change, and P3 and P4 found one whose interval excludes zero.
+
+Follow-ups, each pre-registered: [site-split-results.md](site-split-results.md) (the P4 tagging drop
+does not hold among governments present in both windows) and [title-mix-results.md](title-mix-results.md)
+(the P3 title drop is within software groups, not a change in software mix).
 
 ## Exploratory (not pre-registered)
 
