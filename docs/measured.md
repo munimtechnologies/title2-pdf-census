@@ -80,6 +80,29 @@ posted in each window, not governments changing their own practice. That reading
 finding. A file's creation date is not when it went online, and the extension came four days before
 the original date, so no cause is claimed.
 
+## Does a re-crawl see the same files? (two pre-registered checks)
+
+The second and third full runs crawled the same sites about six hours apart on the same day. Matching
+files by government and a hash of each address, these two checks measure what a later same-file panel
+has to beat: how many files a re-crawl misses when nothing has changed, and how often the checks
+change on the same file.
+
+- Panel retest, 6 of 6 held. The later crawl read again 91.3% of the 5,285 PDFs the earlier one read
+  (94.1% on the 892 sites read in both). On the 4,826 files read twice, the five machine checks agreed
+  on all but 3 (99.94%). Within sites, failing files were read again slightly less often than passing
+  ones, and the direction is consistent (70 sites down, 29 up). Results:
+  [panel-retest-results.md](panel-retest-results.md).
+- Miss reasons, 3 of 4 held. That gap sits mostly in files that were tried again but not readable,
+  not in links that had gone: within sites, failing files ended that way 1.4 points more often (42
+  sites up, 11 down). Of the 84 files tried again but not readable, 83 got no response at all (a
+  timeout, or a DNS, TLS or connection error). File size does not explain the gap: comparing files of
+  similar size leaves the gap as large as before (-1.12 vs -1.08 points), so the size prediction
+  failed. The gap is not a `<base href>` effect either. Results:
+  [miss-reasons-results.md](miss-reasons-results.md).
+
+A 2027 claim that failing PDFs were taken down more often must therefore not count a no-response
+fetch as "gone": a later panel should retry such files and record why each file was missed.
+
 ## What a site owner can do
 
 site_check, in this repository, runs the same checks on one website or a list of PDF links and

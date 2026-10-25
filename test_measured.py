@@ -117,6 +117,36 @@ FACTS = [
      "both sides show no drop at all (+0.8 points)", "docs/title-pairs-results.md",
      "In the three months either side of the extension, the 102 governments with files on "
      "both sides show no drop at all (+0.8 points)"),
+    # Re-crawl checks (panel retest, miss reasons)
+    ("Panel retest, 6 of 6 held", "docs/panel-retest-results.md",
+     "All 6 pre-registered predictions held"),
+    ("later crawl read again 91.3% of the 5,285 PDFs the earlier one read (94.1% on the 892 "
+     "sites read in both)", "docs/panel-retest-results.md",
+     "later crawl read again 91.3% of the 5,285 PDFs the earlier one read (94.1% on the 892 "
+     "sites read in both)"),
+    ("On the 4,826 files read twice, the five machine checks agreed on all but 3 (99.94%)",
+     "docs/panel-retest-results.md",
+     "On the 4,826 files read twice, the five machine checks agreed on all but 3 (99.94%)"),
+    ("failing files were read again slightly less often than passing ones, and the direction "
+     "is consistent (70 sites down, 29 up", "docs/panel-retest-results.md",
+     "failing files were read again slightly less often than passing ones, and the direction "
+     "is consistent (70 sites down, 29 up"),
+    ("Miss reasons, 3 of 4 held", "docs/miss-reasons-results.md",
+     "3 of 4 pre-registered predictions held"),
+    ("failing files ended that way 1.4 points more often (42 sites up, 11 down",
+     "docs/miss-reasons-results.md",
+     "failing files ended that way 1.4 points more often (42 sites up, 11 down"),
+    ("Of the 84 files tried again but not readable, 83 got no response at all",
+     "docs/miss-reasons-results.md",
+     "Of the 84 files tried again but not readable, 83 got no response at all"),
+    ("comparing files of similar size leaves the gap as large as before (-1.12 vs -1.08 "
+     "points)", "docs/miss-reasons-results.md",
+     "comparing files of similar size leaves the gap as large as before (-1.12 vs -1.08 "
+     "points)"),
+    ("A 2027 claim that failing PDFs were taken down more often must therefore not count a "
+     "no-response fetch as \"gone\"", "docs/miss-reasons-results.md",
+     "A 2027 claim that failing PDFs were taken down more often must therefore not count a "
+     "no-response fetch as \"gone\""),
     # site_check and limits
     ("Since 0.2.0 it also compares", "README.md", "(since 0.2.0)"),
     ("Text languages are read from the first 5 pages", "README.md",
