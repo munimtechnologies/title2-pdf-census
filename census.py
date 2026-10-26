@@ -13,6 +13,13 @@ home page links to a page about accessibility or the ADA.
 Machine checks only: passing them is necessary for an accessible PDF, never
 sufficient, and nothing here is a WCAG conformance judgment.
 
+Since 0.2.3 a crawl also records why a file could be missed by a later one: each site
+record lists the SHA-256 of every PDF link found, of the ranked candidates and of each
+inner page read, and each PDF record names the page its link was found on, its rank and,
+for a fetch with no response, a coarse cause (miss_reason reads them). The retry command
+fetches once more, at a later hour, every PDF that got no response; its records are kept
+apart and never change the crawl's own results. Sampling and checks are as in 0.2.2.
+
 Reads public pages only, one site at a time with a pause between requests,
 honouring robots.txt, under a User-Agent that names Munim, Inc. and an email.
 Stores no document text and no metadata titles, only structural facts.
@@ -39,7 +46,7 @@ import urllib.parse
 import urllib.request
 import urllib.robotparser
 
-__version__ = "0.2.2"
+__version__ = "0.2.3"
 
 UA = ("MV2-title2-pdf-census/%s (Munim, Inc.; mv2@munimtech.com; "
       "reads public pages only)" % __version__)
@@ -77,6 +84,14 @@ CHECKS = ("tagged", "marked", "lang", "title", "display_doc_title", "image_only"
 # Characters left as they are when a link is percent-encoded: the URL delimiters and
 # existing %xx escapes. Spaces and non-ASCII letters are encoded.
 URL_SAFE = "/%:@!$&'()*+,;=~?"
+# Coarse causes of a fetch with no response, by words in its error text; the first match wins.
+NO_RESPONSE_KINDS = (
+    ("timeout", ("timed out", "timeout")),
+    ("dns", ("name or service", "getaddrinfo", "nodename", "name resolution", "no address")),
+    ("tls", ("ssl", "certificate", "tls")),
+    ("refused", ("refused",)),
+    ("reset", ("reset", "aborted", "remote end closed", "connection broken")),
+)
 
 Response = collections.namedtuple("Response", "status url ctype body truncated error")
 
@@ -110,6 +125,23 @@ def http_get(url, max_bytes, timeout=20):
         return Response(e.code, url, "", b"", False, "http %d" % e.code)
     except Exception as e:  # DNS, TLS, timeouts, resets
         return Response(0, url, "", b"", False, ("%s: %s" % (type(e).__name__, e))[:200])
+
+
+def url_hash(url):
+    """SHA-256 of an address, as redact.py publishes it in place of the URL."""
+    return hashlib.sha256(url.encode("utf-8")).hexdigest()
+
+
+def no_response_kind(resp):
+    """Coarse cause of a fetch with no response (status 0): timeout, dns, tls, refused, reset
+    or other. None if a response came back. Only the cause is kept, never the error text."""
+    if resp.status != 0:
+        return None
+    text = (resp.error or "").lower()
+    for kind, words in NO_RESPONSE_KINDS:
+        if any(w in text for w in words):
+            return kind
+    return "other"
 
 
 class LinkParser(html.parser.HTMLParser):
@@ -247,6 +279,20 @@ def robots_for(resp):
     return rp
 
 
+def robots_checker(get, delay, sleep):
+    """allowed(url) for one site's crawl: each host's robots.txt is read once, then a pause."""
+    robots = {}
+
+    def allowed(url):
+        host = urllib.parse.urlsplit(url)
+        key = "%s://%s" % (host.scheme, host.netloc)
+        if key not in robots:
+            robots[key] = robots_for(get(key + "/robots.txt", 500_000))
+            sleep(delay)
+        return robots[key].can_fetch(UA, url)
+    return allowed
+
+
 def normalize_site(url):
     url = url.strip()
     if not re.match(r"https?://", url, re.I):
@@ -372,6 +418,29 @@ def analyze_pdf(data, text_pages=2):
     return row
 
 
+def check_pdf(resp, rec):
+    """Set rec's result from one PDF response, and its checks if the PDF is readable.
+    True if it is; a fetch with no response also gets its coarse cause."""
+    kind = no_response_kind(resp)
+    if kind:
+        rec["no_response"] = kind
+    if resp.status != 200:
+        rec["result"] = "http_error"
+    elif resp.truncated:
+        rec["result"] = "too_large"
+    elif b"%PDF" not in resp.body[:1024]:
+        rec["result"] = "not_pdf"
+    else:
+        try:
+            rec.update(analyze_pdf(resp.body))
+            rec["result"] = "ok"
+            return True
+        except Exception as e:
+            rec["result"] = "parse_error"
+            rec["error"] = ("%s: %s" % (type(e).__name__, e))[:200]
+    return False
+
+
 # ---------------------------------------------------------------- crawling
 
 def crawl_site(row, get=http_get, pages=8, pdfs=8, delay=1.0, sleep=time.sleep,
@@ -384,15 +453,7 @@ def crawl_site(row, get=http_get, pages=8, pdfs=8, delay=1.0, sleep=time.sleep,
         site["status"] = "not_started"
         return site, found
     start = normalize_site(row["website"])
-    robots = {}
-
-    def allowed(url):
-        host = urllib.parse.urlsplit(url)
-        key = "%s://%s" % (host.scheme, host.netloc)
-        if key not in robots:
-            robots[key] = robots_for(get(key + "/robots.txt", 500_000))
-            sleep(delay)
-        return robots[key].can_fetch(UA, url)
+    allowed = robots_checker(get, delay, sleep)
 
     if not allowed(start):
         site["status"] = "robots_disallow"
@@ -410,24 +471,40 @@ def crawl_site(row, get=http_get, pages=8, pdfs=8, delay=1.0, sleep=time.sleep,
     links = extract_links(page, base)
     site["a11y_link"] = bool(accessibility_links(page, base))
     pdf_urls = [u for u in links if looks_like_pdf(u)]
+    found_on = dict.fromkeys(pdf_urls, "home")  # the first page each PDF link was seen on
     inner = [u for u in links if same_site(u, base) and not looks_like_pdf(u) and crawlable_page(u)
              and u.rstrip("/") != base.rstrip("/")]
+    site["pages"] = []  # each inner page tried: its address hash, status and PDF links
     for url in sample(inner, pages, start):
         if deadline and time.time() > deadline:
             site["status"] = "deadline"
             break
         if not allowed(url):
+            site["pages"].append({"sha256": url_hash(url), "status": "robots", "pdf_links": 0})
             continue
         resp = get(url, max_page_bytes)
         sleep(delay)
         site["pages_read"] += 1
+        entry = {"sha256": url_hash(url), "status": resp.status, "pdf_links": 0}
         if resp.status == 200 and is_html(resp):
-            pdf_urls += [u for u in extract_links(decode(resp), resp.url or url) if looks_like_pdf(u)]
+            new = [u for u in extract_links(decode(resp), resp.url or url) if looks_like_pdf(u)]
+            entry["pdf_links"] = len(new)
+            for u in new:
+                found_on.setdefault(u, entry["sha256"])
+            pdf_urls += new
+        site["pages"].append(entry)
     pdf_urls = list(dict.fromkeys(pdf_urls))
     site["pdf_links"] = len(pdf_urls)
-    for url in sample(pdf_urls, 2 * pdfs, start):
+    candidates = sample(pdf_urls, 2 * pdfs, start)
+    site["pdf_links_sha256"] = [url_hash(u) for u in pdf_urls]
+    site["candidates_sha256"] = [url_hash(u) for u in candidates]
+    site["candidates_looked_at"] = 0
+    site["stopped"] = "candidates_done"
+    for rank, url in enumerate(candidates):
         if site["pdfs_ok"] >= pdfs or (deadline and time.time() > deadline):
+            site["stopped"] = "quota" if site["pdfs_ok"] >= pdfs else "deadline"
             break
+        site["candidates_looked_at"] += 1
         if not allowed(url):
             continue
         resp = get(url, max_pdf_bytes)
@@ -435,21 +512,9 @@ def crawl_site(row, get=http_get, pages=8, pdfs=8, delay=1.0, sleep=time.sleep,
         site["pdfs_tried"] += 1
         rec = {"qid": site["qid"], "kind": site["kind"], "state": site["state"], "url": url,
                "host": bare_host(url), "same_site": same_site(url, base), "status": resp.status,
-               "bytes": len(resp.body)}
-        if resp.status != 200:
-            rec["result"] = "http_error"
-        elif resp.truncated:
-            rec["result"] = "too_large"
-        elif b"%PDF" not in resp.body[:1024]:
-            rec["result"] = "not_pdf"
-        else:
-            try:
-                rec.update(analyze_pdf(resp.body))
-                rec["result"] = "ok"
-                site["pdfs_ok"] += 1
-            except Exception as e:
-                rec["result"] = "parse_error"
-                rec["error"] = ("%s: %s" % (type(e).__name__, e))[:200]
+               "bytes": len(resp.body), "found_on": found_on.get(url), "candidate_rank": rank}
+        if check_pdf(resp, rec):
+            site["pdfs_ok"] += 1
         found.append(rec)
     return site, found
 
@@ -473,6 +538,84 @@ def crawl(cohort, out_sites, out_pdfs, workers=24, deadline=None, **kw):
             fp.flush()
             if i % 50 == 0:
                 print("%d/%d sites" % (i, len(futures)), flush=True)
+
+
+# ---------------------------------------------------------------- misses and retries
+
+def miss_reason(url_sha256, site, rows, found_on=None):
+    """Why a file an earlier crawl read was or was not read again by this crawl.
+
+    site is this crawl's record of the file's site (None if it has none), rows this crawl's
+    PDF records for that site, each with url_sha256 as redact.py writes it, and found_on the
+    page the earlier crawl found the link on ("home" or a page hash), if it recorded one.
+    Returns "read", or, for a file fetched again, "no_response" (status 0) or its result
+    (http_error, too_large, not_pdf, parse_error); otherwise the first step it fell out at:
+    site_not_read, page_not_read (its earlier page was not read this time), link_absent,
+    outranked (linked, but not among the ranked candidates), robots, quota or deadline."""
+    for r in rows:
+        if r.get("url_sha256") == url_sha256:
+            if r.get("result") == "ok":
+                return "read"
+            if r.get("status") == 0:
+                return "no_response"
+            return r.get("result") or "unknown"
+    if not site or "candidates_sha256" not in site:
+        return "site_not_read"
+    if url_sha256 not in site["pdf_links_sha256"]:
+        read_pages = {p["sha256"] for p in site.get("pages", []) if p.get("status") == 200}
+        if found_on and found_on != "home" and found_on not in read_pages:
+            return "page_not_read"
+        return "link_absent"
+    if url_sha256 not in site["candidates_sha256"]:
+        return "outranked"
+    if site["candidates_sha256"].index(url_sha256) < site["candidates_looked_at"]:
+        return "robots"
+    return site["stopped"]
+
+
+def retry_no_response(rows, get=http_get, delay=1.0, sleep=time.sleep, workers=12,
+                      max_pdf_bytes=15_000_000):
+    """Fetch once more every PDF record whose fetch got no response (status 0), one site per
+    worker, honouring robots.txt and the pause. Returns new records marked "retry"; the crawl's
+    own records are not changed and the summary never counts these."""
+    groups = collections.OrderedDict()
+    for r in rows:
+        if r.get("status") == 0:
+            groups.setdefault(r.get("qid"), []).append(r)
+
+    def one(group):
+        allowed = robots_checker(get, delay, sleep)
+        out = []
+        for old in group:
+            rec = {k: old[k] for k in ("qid", "kind", "state", "url", "host", "same_site",
+                                       "found_on", "candidate_rank") if k in old}
+            rec.update(retry=True, first_status=0, first_no_response=old.get("no_response"))
+            if not allowed(old["url"]):
+                rec.update(status=None, bytes=0, result="robots_disallow")
+                out.append(rec)
+                continue
+            resp = get(old["url"], max_pdf_bytes)
+            sleep(delay)
+            rec.update(status=resp.status, bytes=len(resp.body))
+            check_pdf(resp, rec)
+            out.append(rec)
+        return out
+
+    results = []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
+        for out in pool.map(one, list(groups.values())):
+            results.extend(out)
+    return results
+
+
+def retry_counts(recs):
+    """Counts of retry results and of no-response causes, for the run log."""
+    n = collections.Counter(retried=len(recs))
+    for r in recs:
+        n["result_" + r.get("result", "")] += 1
+        if r.get("no_response"):
+            n["no_response_" + r["no_response"]] += 1
+    return dict(sorted(n.items()))
 
 
 # ---------------------------------------------------------------- cohort
@@ -692,6 +835,12 @@ def main(argv=None):
     r.add_argument("--delay", type=float, default=1.0, help="seconds between requests to one site")
     r.add_argument("--limit", type=int, default=0, help="only the first N sites (0: all)")
     r.add_argument("--max-minutes", type=float, default=0)
+    t = sub.add_parser("retry", help="fetch once more, later, every PDF that got no response")
+    t.add_argument("--pdfs", required=True, help="the crawl's PDF records (with URLs)")
+    t.add_argument("--out", required=True, help="where the retry records go")
+    t.add_argument("--wait-minutes", type=float, default=60, help="pause before retrying")
+    t.add_argument("--workers", type=int, default=12)
+    t.add_argument("--delay", type=float, default=1.0, help="seconds between requests to one site")
     s = sub.add_parser("summarize", help="write summary.json, results.md and sites.csv")
     s.add_argument("--sites", required=True)
     s.add_argument("--pdfs", required=True)
@@ -710,6 +859,18 @@ def main(argv=None):
         deadline = time.time() + 60 * args.max_minutes if args.max_minutes else None
         crawl(cohort, args.sites_out, args.pdfs_out, workers=args.workers, deadline=deadline,
               pages=args.pages, pdfs=args.pdfs, delay=args.delay)
+    elif args.cmd == "retry":
+        rows = read_jsonl(args.pdfs)
+        n = sum(1 for p in rows if p.get("status") == 0)
+        print("%d PDFs got no response; retrying them after %g minutes" % (n, args.wait_minutes),
+              flush=True)
+        if n and args.wait_minutes > 0:
+            time.sleep(60 * args.wait_minutes)
+        recs = retry_no_response(rows, workers=args.workers, delay=args.delay)
+        with open(args.out, "w", encoding="utf-8") as f:
+            for rec in recs:
+                f.write(json.dumps(rec) + "\n")
+        print(json.dumps(retry_counts(recs)))
     else:
         sites, pdfs = read_jsonl(args.sites), read_jsonl(args.pdfs)
         summary = summarize(sites, pdfs)

@@ -1,10 +1,10 @@
-"""Offline tests for census 0.2.2: relative links resolve against the page's <base href>.
+"""Offline tests for census 0.2.2 and later: relative links resolve against the page's <base href>.
 
 The second full run (0.2.1) found that 536 of the 1,242 PDF links with a space in them came
-back 404, against 211 of the 5,391 without one. A hand check of one Revize-hosted county site
+back 404, against 211 of the 5,391 without one. A check of one Revize-hosted county site
 showed why: its pages set <base href> to the site root and write links such as
 "Complaint Form 20.04.02.pdf", which 0.2.1 resolved under each inner page's folder.
-No network. Apache-2.0 licensed."""
+No network. Apache-2.0 licensed. Made by MV2 of Munim, Inc. with AI agents."""
 
 import os
 import sys
@@ -53,9 +53,9 @@ class BaseHrefTests(unittest.TestCase):
         self.assertEqual(c.parse_links('<base href=" https://x.example/ ">').base, "https://x.example/")
         self.assertIsNone(c.parse_links('<a href="/x">x</a>').base)
 
-    def test_version(self):
-        self.assertEqual(c.__version__, "0.2.2")
-        self.assertIn("0.2.2", c.UA)
+    def test_version(self):  # 0.2.3 adds miss-reason records and retries; links resolve as in 0.2.2
+        self.assertEqual(c.__version__, "0.2.3")
+        self.assertIn("0.2.3", c.UA)
 
     @unittest.skipUnless(HAVE_PYPDF, "pypdf not installed")
     def test_crawl_site_follows_base_href(self):

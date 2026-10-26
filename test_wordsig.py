@@ -1,6 +1,6 @@
 """Tests for wordsig.py: the cohort query in census.py's shape, the exact Fisher tests and power,
 and the scoring of W1-W4 on made-up rows, including the lang-census Word note's 11 of 13 against
-2 of 14. Loads census.py (0.2.2) and results/lang-v1/lang.py (0.1.1) as in the repository. No
+2 of 14. Loads census 0.2.2 (fixtures/census_0_2_2.py) and results/lang-v1/lang.py (0.1.1). No
 network. Apache-2.0 licensed. Made by MV2 of Munim, Inc. with AI agents."""
 
 import json
@@ -14,7 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import wordsig as ws  # noqa: E402
 
-CENSUS = os.path.join(HERE, "census.py")
+CENSUS = os.path.join(HERE, "fixtures", "census_0_2_2.py")  # wordsig ran with census 0.2.2
 LANG = os.path.join(HERE, "results", "lang-v1", "lang.py")
 
 
