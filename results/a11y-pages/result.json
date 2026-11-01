@@ -1,0 +1,159 @@
+{
+ "version": "0.1.0",
+ "script_sha256": "b0b27c819b2d31b9d6e17fb207129b23aebe767e40e157678e37ad6851e200e0",
+ "gates": {
+  "P0_prereg_public": true,
+  "A1_cohort": true,
+  "A2_homes": true,
+  "A3_pages": true
+ },
+ "polls": 1,
+ "cohort_sha256": "c6426ed955b0b4f553e6dfb6305af4f8a4d8c422cb80a5263175506527260647",
+ "cohort": 1657,
+ "crawl_started_utc": "2026-11-01T08:13:23Z",
+ "crawl_finished_utc": "2026-11-01T08:19:42Z",
+ "homes_ok": 1195,
+ "pages_ok": 808,
+ "described": {
+  "home": {
+   "ok": 1195,
+   "robots": 258,
+   "http_0": 145,
+   "http_403": 36,
+   "http_404": 12,
+   "http_400": 4,
+   "http_500": 3,
+   "http_307": 2,
+   "http_409": 1,
+   "http_522": 1
+  },
+  "page_status": {
+   "ok": 808,
+   "": 462,
+   "no_link": 380,
+   "http_0": 2,
+   "robots": 2,
+   "http_301": 1,
+   "http_404": 1,
+   "short": 1
+  },
+  "page_rank": {
+   "0": 682,
+   "3": 76,
+   "1": 50
+  },
+  "versions": {
+   "": 300,
+   "2.0": 283,
+   "2.1": 191,
+   "2.2": 22,
+   "2.1+2.2": 7,
+   "2.0+2.1": 4,
+   "2.0+2.1+2.2": 1
+  },
+  "wcag_any": 564,
+  "section508": 418,
+  "title2": 179,
+  "old_date": 12,
+  "new_date": 5,
+  "both_dates": 0,
+  "title2_only_2.0": 13,
+  "overlay_on_home": {
+   "": 701,
+   "audioeye": 267,
+   "userway": 148,
+   "accessibe": 43,
+   "recite": 19,
+   "equalweb": 5,
+   "accessibe+userway": 3,
+   "recite+userway": 3,
+   "accessibe+audioeye": 2,
+   "audioeye+recite": 2,
+   "audioeye+recite+userway": 1,
+   "audioeye+userway": 1
+  },
+  "no_same_site_link_but_offsite": 46,
+  "by_kind": {
+   "city": {
+    "pages": 391,
+    "versioned": 237,
+    "only_2.0": 136
+   },
+   "city-county": {
+    "pages": 6,
+    "versioned": 5,
+    "only_2.0": 0
+   },
+   "county": {
+    "pages": 392,
+    "versioned": 251,
+    "only_2.0": 138
+   },
+   "town": {
+    "pages": 19,
+    "versioned": 15,
+    "only_2.0": 9
+   }
+  }
+ },
+ "measures": {
+  "H1_only_2.0_of_versioned": [
+   283,
+   508,
+   0.5571,
+   [
+    0.5136,
+    0.5997
+   ]
+  ],
+  "H2_highest_counts": {
+   "2.0": 283,
+   "2.1": 195,
+   "2.2": 30
+  },
+  "H3_versioned_of_pages": [
+   508,
+   808,
+   0.6287,
+   [
+    0.5949,
+    0.6613
+   ]
+  ],
+  "H4_old_only_of_dated": [
+   12,
+   17,
+   0.7059,
+   [
+    0.4687,
+    0.8672
+   ]
+  ],
+  "H5_versioned_big": [
+   71,
+   157,
+   0.4522,
+   [
+    0.3764,
+    0.5303
+   ]
+  ],
+  "H5_versioned_small": [
+   437,
+   651,
+   0.6713,
+   [
+    0.6343,
+    0.7063
+   ]
+  ]
+ },
+ "predictions": {
+  "H1": true,
+  "H2": false,
+  "H3": true,
+  "H4": null,
+  "H5": false
+ },
+ "status": "graded"
+}
