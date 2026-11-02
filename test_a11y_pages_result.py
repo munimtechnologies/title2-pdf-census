@@ -1,12 +1,14 @@
 """Tests for A11Y-PAGES-RESULT.md (no network). Apache-2.0.
 
 Rebuilds the printed result from the saved result.json with a11y_pages 0.1.0, re-derives every
-prediction from the saved measures with the pre-registered thresholds, and checks every figure
-the note quotes. The run and the note were made by AI agents working for MV2; no person has
-checked them yet.
+prediction from the saved measures and from the per-site table (a11y-pages.csv), and checks every
+figure the note quotes, including the shared-wording counts added on 2026-11-02. The run and the
+note were made by AI agents working for MV2; no person has checked them yet.
 """
 
+import csv
 import hashlib
+import io
 import json
 import os
 import re
@@ -22,6 +24,13 @@ RUN_SHA256 = {
     "a11y_pages.py": "b0b27c819b2d31b9d6e17fb207129b23aebe767e40e157678e37ad6851e200e0",
     "test_a11y_pages.py": "4d69bd9b04d88075a97f7b4639d09a4ba9cbdf9128b2ec8177609d8575f468ec",
 }
+# The run's per-site table, and the published copy with one official's name removed.
+SOURCE_CSV_SHA256 = "76d4e90ffb7bf325c4c75aa4265de811ed864f460e298e01966bedf6e3a19166"
+CSV_SHA256 = "56b82a41258e6144c9467f3c4a64d510ad353ecdb8d59909fe0c73bca8cffce6"
+REDACTED_ROW = "Q56151"
+STOCK = "We work to comply with Section 508 as well as"
+TITLE_RE = re.compile(r"[A-Z][a-z]+ (?:[A-Z]\. )?[A-Z][a-z]+, (?:Director|Coordinator|Manager|"
+                      r"Clerk|Chief|Officer|Administrator|Specialist|Supervisor|Deputy|Assistant)")
 OVERLAY_NAMES = (("audioeye", "AudioEye"), ("userway", "UserWay"), ("accessibe", "accessiBe"),
                  ("recite", "Recite Me"), ("equalweb", "EqualWeb"))
 
@@ -252,6 +261,142 @@ class NoteTests(unittest.TestCase):
         self.assertEqual(re.findall(r"by\s+hand|by\s+eye|hand[- ]check", md, re.I), [])
         self.assertNotIn("MIT", md)
         self.assertNotIn("@", md)
+        self.assertNotIn("will be added", md)
+
+
+class TableTests(unittest.TestCase):
+    """The per-site table: it is the run's table, and every shared-wording figure comes from it."""
+
+    @classmethod
+    def setUpClass(cls):
+        with open(os.path.join(RESULT, "a11y-pages.csv"), "rb") as f:
+            cls.raw = f.read()
+        cls.rows = list(csv.DictReader(io.StringIO(cls.raw.decode("utf-8"))))
+        cls.r = json.loads(text("result.json"))
+        cls.md = text("A11Y-PAGES-RESULT.md")
+        cls.flat = re.sub(r"\s+", " ", cls.md)
+        cls.ok = [x for x in cls.rows if x["page_status"] == "ok"]
+        cls.stock = [x for x in cls.ok if STOCK in x["version_snippet"]]
+
+    def test_table_is_the_published_copy(self):
+        self.assertEqual(hashlib.sha256(self.raw).hexdigest(), CSV_SHA256)
+        self.assertIn(CSV_SHA256, self.md)
+        self.assertIn(SOURCE_CSV_SHA256, self.md)
+        self.assertEqual(list(self.rows[0]), ap.COLUMNS)
+
+    def test_table_gives_the_graded_result(self):
+        r = self.r
+        self.assertEqual(len(self.rows), r["cohort"])
+        self.assertEqual(len({x["qid"] for x in self.rows}), r["cohort"])
+        self.assertEqual(sum(1 for x in self.rows if x["home"] == "ok"), r["homes_ok"])
+        self.assertEqual(len(self.ok), r["pages_ok"])
+        rows = [dict(x, old_date=x["old_date"] == "True", new_date=x["new_date"] == "True")
+                for x in self.rows]
+        measures, preds = ap.grade(rows)
+        for key, value in measures.items():
+            self.assertEqual(value, r["measures"][key], key)
+        self.assertEqual(preds, r["predictions"])
+
+    def test_name_removed(self):
+        self.assertEqual(self.raw.count(b"[name removed]"), 1)
+        row = [x for x in self.rows if x["qid"] == REDACTED_ROW]
+        self.assertEqual(len(row), 1)
+        self.assertTrue(row[0]["version_snippet"].endswith("contact -- [name removed]"))
+        for x in self.rows:
+            self.assertIsNone(TITLE_RE.search(x["version_snippet"]), x["qid"])
+            self.assertIsNone(TITLE_RE.search(x["date_snippet"]), x["qid"])
+        self.assertIn("One snippet (row %s) quoted a named county official" % REDACTED_ROW,
+                      self.md)
+
+    def test_stock_sentence(self):
+        md, ok, stock = self.md, self.ok, self.stock
+        versioned = [x for x in ok if x["highest"]]
+        only20 = [x for x in ok if x["highest"] == "2.0"]
+        by_high = {}
+        for x in stock:
+            by_high[x["highest"]] = by_high.get(x["highest"], 0) + 1
+        self.assertEqual(set(by_high), {"2.0", "2.1"})
+        self.assertIn("- Its opening words (\"%s\") are in the version snippet of %d of the %d "
+                      "pages: %d name WCAG 2.0 as their highest version and %d name 2.1 instead."
+                      % (STOCK, len(stock), len(ok), by_high["2.0"], by_high["2.1"]), md)
+        k = sum(1 for x in only20 if STOCK in x["version_snippet"])
+        self.assertEqual(k, by_high["2.0"])
+        self.assertIn("- %d of the %d pages that name only WCAG 2.0 (%s%%) carry it."
+                      % (k, len(only20), pct(k, len(only20))), md)
+        self.assertIn("Added on 2026-11-02, not pre-registered: %d of the %d pages that name only "
+                      "WCAG 2.0 carry one stock sentence" % (k, len(only20)), md)
+        rest = [x for x in versioned if STOCK not in x["version_snippet"]]
+        hi = {v: sum(1 for x in rest if x["highest"] == v) for v in ("2.0", "2.1", "2.2")}
+        self.assertEqual(len(rest), len(versioned) - len(stock))
+        self.assertIn("- Leaving those %d pages out, %d of the other %d versioned pages name only "
+                      "WCAG 2.0 (%s%%); %d name 2.1 as their highest version and %d name 2.2. "
+                      "Without the stock sentence, 2.1 leads, as H2 predicted."
+                      % (len(stock), hi["2.0"], len(rest), pct(hi["2.0"], len(rest)), hi["2.1"],
+                         hi["2.2"]), md)
+        self.assertTrue(hi["2.1"] > hi["2.0"] and hi["2.1"] > hi["2.2"])
+        self.assertIn("\"We work to comply with Section 508 as well as WCAG 2.0 A and AA referring "
+                      "to website accessibility standards.\"", md)
+        self.assertTrue(any("as well as WCAG 2.0 A and AA referring to website accessibility "
+                            "standards" in x["version_snippet"] for x in stock))
+
+    def test_stock_by_size(self):
+        md, ok, stock = self.md, self.ok, self.stock
+        big_pages = [x for x in ok if ap.big(x)]
+        small_pages = [x for x in ok if not ap.big(x)]
+        sb = sum(1 for x in stock if ap.big(x))
+        ss = len(stock) - sb
+        self.assertIn("- It is on %d of the %d pages of governments of 250,000+ and on %d of the %d "
+                      "pages of those of 50,000 to 249,999." % (sb, len(big_pages), ss,
+                                                                len(small_pages)), md)
+        nb = [x for x in big_pages if STOCK not in x["version_snippet"]]
+        ns = [x for x in small_pages if STOCK not in x["version_snippet"]]
+        vb = sum(1 for x in nb if x["highest"])
+        vs = sum(1 for x in ns if x["highest"])
+        gap = "%.1f" % (100 * (vs / len(ns) - vb / len(nb)))
+        old = self.r["measures"]
+        old_gap = "%.1f" % (100 * (old["H5_versioned_small"][2] - old["H5_versioned_big"][2]))
+        self.assertIn("Leaving it out, %d of %d pages of the larger governments are versioned "
+                      "(%s%%) against %d of %d of the smaller (%s%%): a gap of %s points instead "
+                      "of %s, so most of H5's reversal comes from this one sentence."
+                      % (vb, len(nb), pct(vb, len(nb)), vs, len(ns), pct(vs, len(ns)), gap,
+                         old_gap), md)
+        self.assertLess(float(gap), float(old_gap) / 2)
+
+    def test_repeats(self):
+        md, ok, stock = self.md, self.ok, self.stock
+        self.assertIn("- The %d pages have %d distinct texts:" % (
+            len(stock), len({x["text_sha256"] for x in stock})), md)
+        urls, texts = {}, {}
+        for x in ok:
+            urls.setdefault(x["page_url"], []).append(x["name"])
+            texts.setdefault(x["text_sha256"], []).append(x["qid"])
+        self.assertIn("- Repeats: the %d pages have %d distinct URLs and %d distinct texts."
+                      % (len(ok), len(urls), len(texts)), md)
+        shared = {u: sorted(n) for u, n in urls.items() if len(n) > 1}
+        self.assertEqual(shared, {
+            "https://www.accgov.com/Site/Accessibility": ["Athens", "Clarke County"],
+            "https://www.in.gov/core/accessibility-feedback.html": [
+                "Floyd County", "Grant County", "Howard County"]})
+        for u in shared:
+            self.assertIn(u, md)
+        self.assertEqual(sorted(len(q) for q in texts.values() if len(q) > 1), [2, 3])
+
+    def test_dates(self):
+        md = self.md
+        old_only = [x for x in self.ok if x["old_date"] == "True" and x["new_date"] != "True"]
+        self.assertEqual(len(old_only), self.r["measures"]["H4_old_only_of_dated"][0])
+        self.assertIn("- The %d pages counted as giving the April 24, 2026 date use it in "
+                      "different ways:" % len(old_only), md)
+        cc = [x for x in old_only if x["name"] == "Corpus Christi"]
+        self.assertEqual(len(cc), 1)
+        self.assertIn("Street Closures", cc[0]["date_snippet"])
+        self.assertIn("once (Corpus Christi) only in a list of street-closure news dates", md)
+
+    def test_civicplus_wording(self):
+        flat = self.flat
+        self.assertIn("All five have \"CivicEngage\" in the page title", flat)
+        self.assertIn("Five pages do not show that all 280 are CivicPlus sites.", flat)
+        self.assertEqual(len(self.stock), 280)
 
 
 if __name__ == "__main__":
