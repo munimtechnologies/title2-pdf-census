@@ -51,6 +51,21 @@ python -m unittest -v
 
 **Records for a later re-crawl (since 0.2.3).** Each crawl also writes what a later crawl needs to say why it missed a file, by address hash only (the SHA-256 of the URL, as the published rows use): each site record lists every PDF link found (`pdf_links_sha256`), the ranked candidates and how far the crawl got through them (`candidates_sha256`, `candidates_looked_at`, `stopped`) and each inner page tried (`pages`: hash, status and number of PDF links); each PDF record adds the page its link was found on (`found_on`), its rank (`candidate_rank`) and, for a fetch that got no response, a coarse cause (`no_response`: timeout, dns, tls, refused, reset or other, never the error text). `miss_reason()` reads them. `python census.py retry --pdfs pdfs.jsonl --out retry.jsonl --wait-minutes 60` fetches once more, after the wait, every PDF that got no response, with the same manners (robots.txt honoured, a pause between requests); its records go to their own file and never change the crawl's records or `summarize`. The pages and PDFs sampled, the requests made and every field 0.2.2 wrote are unchanged: `test_census_023.py` runs 0.2.2's crawl (kept as `fixtures/census_0_2_2.py`) and 0.2.3's on the same synthetic site with seven settings and checks that they make the very same requests in the same order and write the same values.
 
+## Accessibility statements: what the linked pages promise (2026)
+
+The Title II rule adopts WCAG 2.1 Level AA. A pre-registered follow-up, [results/a11y-pages](results/a11y-pages/A11Y-PAGES-RESULT.md), read the accessibility page linked from each home page of the 50,000+ cohort in October and November 2026: of 1,657 governments, 1,195 home pages and 808 accessibility pages could be read. 508 of those pages name a WCAG version; for 283 of them (55.7%) the highest is WCAG 2.0, for 195 WCAG 2.1 and for 30 WCAG 2.2. 280 of the 808 carry the same stock sentence ("We work to comply with Section 508 as well as WCAG 2.0 A and AA ..."; counted after the crawl, not pre-registered). 179 name Title II. Of the 17 that give a compliance date, 12 give only April 24, 2026, the date the interim final rule of April 20, 2026 moved to April 26, 2027. Two of the four graded predictions held; a fifth had too few dated pages to grade. A statement's wording is not a WCAG conformance judgment, and the rule does not require a statement.
+
+**Check one statement (statement_check).** [STATEMENT-CHECK.md](STATEMENT-CHECK.md) explains `statement_check.py`, a free check of one accessibility page by the same rules: which WCAG versions it names, whether it carries the stock sentence, and whether it gives a compliance date the interim final rule replaced (use `--small` for governments of under 50,000 and special districts, whose date is now April 26, 2028). It reads only what the page says, not whether the site meets WCAG, and it is not legal advice.
+
+```
+python statement_check.py --find https://www.example.gov
+python statement_check.py https://www.example.gov/accessibility --small
+```
+
+**Pre-registered next steps.** [results/statement-reread](results/statement-reread/PREREG.md) reads the same 808 pages again in January-February and May-June 2027, before and after the April 26, 2027 date, to see whether they change.
+
+[results/small-pages](results/small-pages/PREREG.md) asks the same questions of up to 2,500 governments of 10,000 to 49,999 people, and whether their pages still give April 26, 2027, the date that was theirs until April 2026.
+
 ## Check one website (site_check)
 
 `site_check.py` runs the same checks on one website, or on a list of PDF links, and writes a plain-language report: which PDFs pass the four basics, and for each one that fails, what to fix (for example, the Word export option that adds tags, or where to set a title and a language). It is meant for the people who publish the PDFs: a city clerk, a web team or a consultant checking their own site before the deadline.
