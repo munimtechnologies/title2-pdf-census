@@ -64,7 +64,7 @@ python statement_check.py https://www.example.gov/accessibility --small
 
 **Pre-registered next steps.** [results/statement-reread](results/statement-reread/PREREG.md) reads the same 808 pages again in January-February and May-June 2027, before and after the April 26, 2027 date, to see whether they change.
 
-[results/small-pages](results/small-pages/PREREG.md) asks the same questions of up to 2,500 governments of 10,000 to 49,999 people, and whether their pages still give April 26, 2027, the date that was theirs until April 2026.
+**Smaller governments (result, 2026-11-02).** A pre-registered follow-up, [results/small-pages](results/small-pages/SMALL-PAGES-RESULT.md) ([plan](results/small-pages/PREREG.md)), read the accessibility pages of 2,500 sampled US cities, counties and towns of 10,000 to 49,999 people: 1,942 home pages and 1,042 accessibility pages could be read. Of the 809 pages naming a WCAG version, 638 (78.9%) name only WCAG 2.0, against 55.7% in the 50,000+ cohort; 698 of the 1,042 carry the same stock sentence. Only 94 name Title II and only 3 give any compliance date. 1,053 of the 1,942 home pages (54.2%) link to an accessibility or ADA page. All four graded predictions held; the fifth, on dates, had too few dated pages to grade.
 
 ## Check one website (site_check)
 
