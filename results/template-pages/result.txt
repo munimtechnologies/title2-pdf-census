@@ -1,0 +1,42 @@
+template_check 0.1.0
+status: graded
+gates: G0_tables=True, G1_reread=True, P0_prereg_public=True
+table large: pages=808 sha256=56b82a41258e
+table small: pages=1042 sha256=255eb09f8483
+  G1_reread_large: [805, 808, 0.9963, [0.9891, 0.9987]]
+  G1_reread_small: [1038, 1042, 0.9962, [0.9902, 0.9985]]
+  T1_placeholder_of_small: [25, 1038, 0.0241, [0.0164, 0.0353]]
+  T2_placeholder_of_large: [4, 805, 0.005, [0.0019, 0.0127]]
+  T3_civicplus_of_flagged: [28, 29, 0.9655, [0.8282, 0.9939]]
+  T4_no_wcag_of_small: [76, 1038, 0.0732, [0.0589, 0.0907]]
+  T5_in_group_of_flagged_small: [25, 25, 1.0, [0.8668, 1.0]]
+predictions: T1=True, T2=True, T3=True, T4=True, T5=True
+  flagged: large | Daly City | California | city | muni+template_note+contact_block
+  flagged: large | Passaic | New Jersey | city | muni+template_note+contact_block
+  flagged: large | Mount Vernon | New York | city | muni+template_note+contact_block
+  flagged: large | Wayne County | New York | county | muni+template_note
+  flagged: small | Los Alamitos | California | city | muni+template_note+contact_block
+  flagged: small | Henry County | Illinois | county | muni+template_note+contact_block
+  flagged: small | Neosho County | Kansas | county | muni+template_note+contact_block
+  flagged: small | Beverly | Massachusetts | city | contact_block
+  flagged: small | Rockland | Massachusetts | town | muni+template_note+contact_block
+  flagged: small | Lino Lakes | Minnesota | city | contact_block
+  flagged: small | New Ulm | Minnesota | city | muni+template_note+contact_block
+  flagged: small | Rahway | New Jersey | city | muni+template_note+contact_block
+  flagged: small | Westfield | New Jersey | town | contact_block
+  flagged: small | Garfield Heights | Ohio | city | muni+template_note+contact_block
+  flagged: small | Henry County | Ohio | county | muni+template_note+contact_block
+  flagged: small | Vandalia | Ohio | city | muni+template_note+contact_block
+  flagged: small | Zanesville | Ohio | city | muni+template_note+contact_block
+  flagged: small | Gaffney | South Carolina | city | muni+template_note+contact_block
+  flagged: small | Williamsburg County | South Carolina | county | muni+template_note+contact_block
+  flagged: small | Beadle County | South Dakota | county | muni+template_note+contact_block
+  flagged: small | Andrews County | Texas | county | muni+template_note+contact_block
+  flagged: small | Bay City | Texas | city | muni+template_note+contact_block
+  flagged: small | Friendswood | Texas | city | muni+template_note+contact_block
+  flagged: small | Marshall | Texas | city | muni+template_note+contact_block
+  flagged: small | Orange | Texas | city | muni+template_note+contact_block
+  flagged: small | Royse City | Texas | city | muni+template_note+contact_block
+  flagged: small | Amelia County | Virginia | county | muni+template_note+contact_block
+  flagged: small | Lynden | Washington | city | muni+template_note+contact_block
+  flagged: small | Vienna | West Virginia | city | muni+template_note+contact_block

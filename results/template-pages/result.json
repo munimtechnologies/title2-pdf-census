@@ -1,0 +1,352 @@
+{
+ "version": "0.1.0",
+ "gates": {
+  "P0_prereg_public": true,
+  "G0_tables": true,
+  "G1_reread": true
+ },
+ "files": {
+  "template_check.py": "5dfcf124d6644bd6640fac60ba245c92a9aff7fce2f72e9b19c50494c63f60a8",
+  "a11y_pages.py": "b0b27c819b2d31b9d6e17fb207129b23aebe767e40e157678e37ad6851e200e0"
+ },
+ "tables": {
+  "large": {
+   "sha256": "56b82a41258e6144c9467f3c4a64d510ad353ecdb8d59909fe0c73bca8cffce6",
+   "pages": 808
+  },
+  "small": {
+   "sha256": "255eb09f84838dac020d9787210d1314abdb7a4b45d577f2bca161bc5a0863bf",
+   "pages": 1042
+  }
+ },
+ "prereg_attempts": 1,
+ "measures": {
+  "G1_reread_large": [
+   805,
+   808,
+   0.9963,
+   [
+    0.9891,
+    0.9987
+   ]
+  ],
+  "G1_reread_small": [
+   1038,
+   1042,
+   0.9962,
+   [
+    0.9902,
+    0.9985
+   ]
+  ],
+  "T1_placeholder_of_small": [
+   25,
+   1038,
+   0.0241,
+   [
+    0.0164,
+    0.0353
+   ]
+  ],
+  "T2_placeholder_of_large": [
+   4,
+   805,
+   0.005,
+   [
+    0.0019,
+    0.0127
+   ]
+  ],
+  "T3_civicplus_of_flagged": [
+   28,
+   29,
+   0.9655,
+   [
+    0.8282,
+    0.9939
+   ]
+  ],
+  "T4_no_wcag_of_small": [
+   76,
+   1038,
+   0.0732,
+   [
+    0.0589,
+    0.0907
+   ]
+  ],
+  "T5_in_group_of_flagged_small": [
+   25,
+   25,
+   1.0,
+   [
+    0.8668,
+    1.0
+   ]
+  ]
+ },
+ "predictions": {
+  "T1": true,
+  "T2": true,
+  "T3": true,
+  "T4": true,
+  "T5": true
+ },
+ "described": {
+  "status": {
+   "large": {
+    "ok": 805,
+    "http_0": 3
+   },
+   "small": {
+    "ok": 1038,
+    "http_0": 2,
+    "crash": 1,
+    "http_404": 1
+   }
+  },
+  "flagged": [
+   [
+    "large",
+    "Daly City",
+    "California",
+    "city",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "large",
+    "Passaic",
+    "New Jersey",
+    "city",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "large",
+    "Mount Vernon",
+    "New York",
+    "city",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "large",
+    "Wayne County",
+    "New York",
+    "county",
+    "muni+template_note"
+   ],
+   [
+    "small",
+    "Los Alamitos",
+    "California",
+    "city",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Henry County",
+    "Illinois",
+    "county",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Neosho County",
+    "Kansas",
+    "county",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Beverly",
+    "Massachusetts",
+    "city",
+    "contact_block"
+   ],
+   [
+    "small",
+    "Rockland",
+    "Massachusetts",
+    "town",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Lino Lakes",
+    "Minnesota",
+    "city",
+    "contact_block"
+   ],
+   [
+    "small",
+    "New Ulm",
+    "Minnesota",
+    "city",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Rahway",
+    "New Jersey",
+    "city",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Westfield",
+    "New Jersey",
+    "town",
+    "contact_block"
+   ],
+   [
+    "small",
+    "Garfield Heights",
+    "Ohio",
+    "city",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Henry County",
+    "Ohio",
+    "county",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Vandalia",
+    "Ohio",
+    "city",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Zanesville",
+    "Ohio",
+    "city",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Gaffney",
+    "South Carolina",
+    "city",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Williamsburg County",
+    "South Carolina",
+    "county",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Beadle County",
+    "South Dakota",
+    "county",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Andrews County",
+    "Texas",
+    "county",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Bay City",
+    "Texas",
+    "city",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Friendswood",
+    "Texas",
+    "city",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Marshall",
+    "Texas",
+    "city",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Orange",
+    "Texas",
+    "city",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Royse City",
+    "Texas",
+    "city",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Amelia County",
+    "Virginia",
+    "county",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Lynden",
+    "Washington",
+    "city",
+    "muni+template_note+contact_block"
+   ],
+   [
+    "small",
+    "Vienna",
+    "West Virginia",
+    "city",
+    "muni+template_note+contact_block"
+   ]
+  ],
+  "large": {
+   "muni": 4,
+   "template_note": 4,
+   "contact_block": 3,
+   "bracket": 0,
+   "placeholder": 4,
+   "no_wcag": 35,
+   "stock": 320,
+   "civicplus": 376,
+   "same_text": 602,
+   "pages": 805,
+   "placeholder_not_seen_before": 3,
+   "placeholder_civicplus": 4,
+   "placeholder_by_kind": {
+    "city": 3,
+    "county": 1
+   }
+  },
+  "small": {
+   "muni": 22,
+   "template_note": 22,
+   "contact_block": 25,
+   "bracket": 0,
+   "placeholder": 25,
+   "no_wcag": 76,
+   "stock": 695,
+   "civicplus": 728,
+   "same_text": 873,
+   "pages": 1038,
+   "placeholder_not_seen_before": 21,
+   "placeholder_civicplus": 24,
+   "placeholder_by_kind": {
+    "city": 16,
+    "county": 7,
+    "town": 2
+   }
+  }
+ },
+ "status": "graded"
+}
