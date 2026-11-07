@@ -1,0 +1,275 @@
+{
+ "version": "0.1.0",
+ "gates": {
+  "P0_prereg_public": true,
+  "G0_tables": true,
+  "F1_frame": true,
+  "G1_answered": true
+ },
+ "files": {
+  "revize_stock.py": "d0110409d7ba07de89b837c893f744b10dfb13a70d08a616f3e055220b809b6d",
+  "stock153.py": "8a4e63c31a07facedf0446fa3e3633f869073f954ad7aa6b4f2bd5b4d1552e50",
+  "template_check.py": "5dfcf124d6644bd6640fac60ba245c92a9aff7fce2f72e9b19c50494c63f60a8",
+  "a11y_pages.py": "b0b27c819b2d31b9d6e17fb207129b23aebe767e40e157678e37ad6851e200e0"
+ },
+ "tables": {
+  "large": {
+   "sha256": "56b82a41258e6144c9467f3c4a64d510ad353ecdb8d59909fe0c73bca8cffce6",
+   "rows": 1657
+  },
+  "small": {
+   "sha256": "a79a066474d98c0e337ed5d9b464a361cf92d6c27ee582dbd537d62f1fddee5c",
+   "rows": 3588
+  },
+  "sample": {
+   "sha256": "255eb09f84838dac020d9787210d1314abdb7a4b45d577f2bca161bc5a0863bf",
+   "rows": 2500
+  }
+ },
+ "prereg_attempts": 1,
+ "frame": {
+  "hosts": 5243,
+  "dropped": 2
+ },
+ "crawl": {
+  "started_utc": "2026-11-06T23:25:53Z",
+  "finished_utc": "2026-11-06T23:47:17Z"
+ },
+ "measures": {
+  "F1_hosts": 5243,
+  "G1_answered": [
+   4753,
+   5243,
+   0.9065,
+   [
+    0.8984,
+    0.9141
+   ]
+  ],
+  "R1_stock_hosts": 32,
+  "R2_unfilled_hosts": 11,
+  "R3_placeholder_of_stock": [
+   13,
+   32,
+   0.4062,
+   [
+    0.2552,
+    0.5774
+   ]
+  ]
+ },
+ "predictions": {
+  "R1": true,
+  "R2": true,
+  "R3": true
+ },
+ "described": {
+  "status": {
+   "large": {
+    "http_404": 1064,
+    "robots": 258,
+    "http_0": 145,
+    "ok": 96,
+    "http_403": 67,
+    "short": 10,
+    "http_400": 5,
+    "http_500": 4,
+    "http_307": 2,
+    "http_503": 2,
+    "http_409": 1,
+    "http_522": 1,
+    "http_525": 1
+   },
+   "small": {
+    "http_404": 2523,
+    "http_0": 345,
+    "robots": 265,
+    "http_403": 194,
+    "ok": 176,
+    "short": 39,
+    "http_307": 9,
+    "http_500": 7,
+    "http_503": 6,
+    "http_522": 6,
+    "http_409": 5,
+    "http_400": 3,
+    "http_429": 3,
+    "http_523": 2,
+    "http_301": 1,
+    "http_410": 1,
+    "http_444": 1,
+    "http_520": 1
+   }
+  },
+  "census": {
+   "large": {
+    "home_ok": 1195,
+    "home_failed": 461
+   },
+   "small": {
+    "home_ok": 1941,
+    "not_sampled": 1088,
+    "home_failed": 558
+   }
+  },
+  "ok_pages": 272,
+  "stock_by_cohort": {
+   "small": 20,
+   "large": 12
+  },
+  "stock_revize_markup": 32,
+  "stock_by_census_group": {
+   "found_rv": 23,
+   "not_sampled": 5,
+   "hidden": 4
+  },
+  "placeholder_by_cohort": {
+   "small": 9,
+   "large": 4
+  },
+  "placeholder_by_census_group": {
+   "found_rv": 7,
+   "hidden": 3,
+   "not_sampled": 3
+  },
+  "placeholder_counts": {
+   "ph_name": 11,
+   "ph_date": 10,
+   "ph_email": 9,
+   "ph_phone": 9,
+   "ph_address": 9,
+   "ph_days": 12
+  },
+  "n_placeholders": {
+   "6": 9,
+   "1": 3,
+   "3": 1
+  },
+  "flagged_by_template_check": 0,
+  "ok_not_stock_with_placeholder": 0,
+  "ok_other_bracket": 23,
+  "ok_token": 0,
+  "opener_on_stock": 32,
+  "census_rv_not_stock_now": 15,
+  "flagged": [
+   [
+    "large",
+    "Q488885",
+    "Highlands County",
+    "Florida",
+    "county",
+    "name+date+email+phone+address+days",
+    "found_rv"
+   ],
+   [
+    "large",
+    "Q1124743",
+    "Penobscot County",
+    "Maine",
+    "county",
+    "name+date+email+phone+address+days",
+    "found_rv"
+   ],
+   [
+    "large",
+    "Q485588",
+    "Athens County",
+    "Ohio",
+    "county",
+    "name+date+email+phone+address+days",
+    "found_rv"
+   ],
+   [
+    "large",
+    "Q156216",
+    "Benton County",
+    "Washington",
+    "county",
+    "days",
+    "hidden"
+   ],
+   [
+    "small",
+    "Q990940",
+    "Oxford",
+    "",
+    "city",
+    "name+date+days",
+    "not_sampled"
+   ],
+   [
+    "small",
+    "Q80018",
+    "San Luis",
+    "Arizona",
+    "city",
+    "days",
+    "not_sampled"
+   ],
+   [
+    "small",
+    "Q1207502",
+    "Watertown",
+    "Connecticut",
+    "town",
+    "name+date+email+phone+address+days",
+    "found_rv"
+   ],
+   [
+    "small",
+    "Q2443384",
+    "Winder",
+    "Georgia",
+    "city",
+    "name+date+email+phone+address+days",
+    "found_rv"
+   ],
+   [
+    "small",
+    "Q1018273",
+    "Schererville",
+    "Indiana",
+    "town",
+    "name",
+    "hidden"
+   ],
+   [
+    "small",
+    "Q3180809",
+    "Berea",
+    "Kentucky",
+    "city",
+    "name+date+email+phone+address+days",
+    "found_rv"
+   ],
+   [
+    "small",
+    "Q955130",
+    "Raymore",
+    "Missouri",
+    "city",
+    "name+date+email+phone+address+days",
+    "found_rv"
+   ],
+   [
+    "small",
+    "Q1012255",
+    "Manchester",
+    "Tennessee",
+    "city",
+    "name+date+email+phone+address+days",
+    "not_sampled"
+   ],
+   [
+    "small",
+    "Q501939",
+    "Trousdale County",
+    "Tennessee",
+    "county",
+    "name+date+email+phone+address+days",
+    "hidden"
+   ]
+  ]
+ },
+ "status": "graded"
+}

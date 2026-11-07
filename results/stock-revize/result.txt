@@ -1,0 +1,26 @@
+revize_stock 0.1.0
+status: graded
+gates: F1_frame=True, G0_tables=True, G1_answered=True, P0_prereg_public=True
+table large: rows=1657 sha256=56b82a41258e
+table sample: rows=2500 sha256=255eb09f8483
+table small: rows=3588 sha256=a79a066474d9
+frame: hosts=5243 dropped=2
+  F1_hosts: 5243
+  G1_answered: [4753, 5243, 0.9065, [0.8984, 0.9141]]
+  R1_stock_hosts: 32
+  R2_unfilled_hosts: 11
+  R3_placeholder_of_stock: [13, 32, 0.4062, [0.2552, 0.5774]]
+predictions: R1=True, R2=True, R3=True
+  flagged: large | Q488885 | Highlands County | Florida | county | name+date+email+phone+address+days | found_rv
+  flagged: large | Q1124743 | Penobscot County | Maine | county | name+date+email+phone+address+days | found_rv
+  flagged: large | Q485588 | Athens County | Ohio | county | name+date+email+phone+address+days | found_rv
+  flagged: large | Q156216 | Benton County | Washington | county | days | hidden
+  flagged: small | Q990940 | Oxford |  | city | name+date+days | not_sampled
+  flagged: small | Q80018 | San Luis | Arizona | city | days | not_sampled
+  flagged: small | Q1207502 | Watertown | Connecticut | town | name+date+email+phone+address+days | found_rv
+  flagged: small | Q2443384 | Winder | Georgia | city | name+date+email+phone+address+days | found_rv
+  flagged: small | Q1018273 | Schererville | Indiana | town | name | hidden
+  flagged: small | Q3180809 | Berea | Kentucky | city | name+date+email+phone+address+days | found_rv
+  flagged: small | Q955130 | Raymore | Missouri | city | name+date+email+phone+address+days | found_rv
+  flagged: small | Q1012255 | Manchester | Tennessee | city | name+date+email+phone+address+days | not_sampled
+  flagged: small | Q501939 | Trousdale County | Tennessee | county | name+date+email+phone+address+days | hidden
