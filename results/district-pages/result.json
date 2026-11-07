@@ -1,0 +1,293 @@
+{
+ "version": "0.1.0",
+ "dry_run": false,
+ "gates": {
+  "P0_prereg_public": true,
+  "F1_frame": true,
+  "G1_read": true
+ },
+ "files": {
+  "district_pages.py": "2ad1a23ab3616bd26260957a74cc406b9bf56a396825c867577c40e53b2c0a0b",
+  "district_check.py": "9e90167d0387ac9086994d29b1153f40d7bad282dd4000c996ea54b799d7dee3",
+  "a11y_pages.py": "b0b27c819b2d31b9d6e17fb207129b23aebe767e40e157678e37ad6851e200e0",
+  "statement_check.py": "dc12261151610d914149e34a40c2619f458c2dc271c811265d86733cbdde4a23",
+  "template_check.py": "5dfcf124d6644bd6640fac60ba245c92a9aff7fce2f72e9b19c50494c63f60a8"
+ },
+ "prereg_attempts": 1,
+ "ccd_file": "ccd_lea_029_2425_w_1a_073025.zip",
+ "ccd_sha256": "2745169e4bc7cd53adff179830c3d4b9bb035ac79580ecea01ef389a161936a9",
+ "ccd_rows": 19630,
+ "saipe_file": "ussd24.txt",
+ "saipe_sha256": "c2dfef8866bd9e5b48654d181b2c7d9a73ad22ceb8d52fd443848928ada6f975",
+ "saipe_rows": 13131,
+ "frame": 11582,
+ "frame_by_band": {
+  "50k+": 1322,
+  "under50k": 10260
+ },
+ "sampled": 2500,
+ "sampled_by_band": {
+  "50k+": 800,
+  "under50k": 1700
+ },
+ "homes_ok": 2245,
+ "pages_ok": 933,
+ "described": {
+  "home": {
+   "ok": 2245,
+   "http_0": 113,
+   "http_429": 76,
+   "robots": 31,
+   "http_404": 17,
+   "http_409": 7,
+   "http_403": 6,
+   "not_html": 3,
+   "http_520": 1,
+   "http_522": 1
+  },
+  "page_status": {
+   "no_link": 1258,
+   "ok": 933,
+   "": 255,
+   "http_429": 41,
+   "http_404": 7,
+   "robots": 4,
+   "short": 2
+  },
+  "by_band": {
+   "50k+": {
+    "sampled": 800,
+    "homes_ok": 681,
+    "pages_ok": 415,
+    "highest": {
+     "2.0": 141,
+     "2.1": 123,
+     "2.2": 13
+    },
+    "wcag_any": 292,
+    "section508": 38,
+    "title2": 140,
+    "s504": 202,
+    "ocr": 22,
+    "stock": 1,
+    "no_wcag": 1,
+    "placeholder": 41,
+    "placeholder_kinds": {
+     "your_school+your_domain+fake_phone": 24,
+     "your_school": 16,
+     "your_school+your_domain": 1
+    },
+    "students_threshold": 0,
+    "finalsite_line": 0,
+    "generator_line": 52,
+    "contact": 409,
+    "date_2026_04_24": 4,
+    "date_2027_04_26": 1,
+    "date_2028_04_26": 0,
+    "vendor_named": {
+     "finalsite": 226,
+     "apptegy": 50,
+     "edlio": 12,
+     "schoolmessenger": 8,
+     "catapult": 4,
+     "blackboard+finalsite": 3,
+     "finalsite+schoolmessenger": 2,
+     "apptegy+finalsite": 1,
+     "edlio+finalsite": 1
+    },
+    "platform_on_home": {
+     "finalsite": 280,
+     "apptegy": 148,
+     "": 112,
+     "edlio": 38,
+     "wordpress": 33,
+     "schoolmessenger+sharpschool": 17,
+     "catapult": 15,
+     "blackboard+finalsite": 5,
+     "finalsite+schoolmessenger": 4,
+     "schoolblocks": 4,
+     "apptegy+finalsite": 3,
+     "apptegy+blackboard": 2,
+     "apptegy+schoolmessenger": 2,
+     "edlio+finalsite": 2,
+     "edlio+wordpress": 2,
+     "finalsite+wordpress": 2,
+     "schoolmessenger": 2,
+     "apptegy+edlio": 1,
+     "apptegy+schoolmessenger+wordpress": 1,
+     "apptegy+wordpress": 1,
+     "blackboard+catapult": 1,
+     "blackboard+wordpress": 1,
+     "edlio+schoolmessenger": 1,
+     "finalsite+schoolblocks": 1,
+     "finalsite+sharpschool": 1,
+     "schoolmessenger+wordpress": 1,
+     "sharpschool": 1
+    },
+    "overlay_on_home": {
+     "": 357,
+     "audioeye": 296,
+     "userway": 21,
+     "accessibe": 6,
+     "audioeye+userway": 1
+    },
+    "no_link_but_offsite": 4
+   },
+   "under50k": {
+    "sampled": 1700,
+    "homes_ok": 1564,
+    "pages_ok": 518,
+    "highest": {
+     "2.1": 227,
+     "2.0": 185,
+     "2.2": 5
+    },
+    "wcag_any": 428,
+    "section508": 24,
+    "title2": 233,
+    "s504": 288,
+    "ocr": 20,
+    "stock": 1,
+    "no_wcag": 0,
+    "placeholder": 88,
+    "placeholder_kinds": {
+     "your_school+your_domain+fake_phone": 67,
+     "your_school": 19,
+     "your_domain+fake_phone": 2
+    },
+    "students_threshold": 0,
+    "finalsite_line": 0,
+    "generator_line": 105,
+    "contact": 508,
+    "date_2026_04_24": 0,
+    "date_2027_04_26": 0,
+    "date_2028_04_26": 3,
+    "vendor_named": {
+     "finalsite": 209,
+     "apptegy": 27,
+     "edlio": 9,
+     "schoolmessenger": 9,
+     "blackboard+finalsite": 4,
+     "schoolblocks": 4,
+     "finalsite+schoolmessenger": 2,
+     "civicplus": 1
+    },
+    "platform_on_home": {
+     "apptegy": 564,
+     "": 472,
+     "finalsite": 229,
+     "wordpress": 81,
+     "edlio": 67,
+     "schoolblocks": 36,
+     "schoolmessenger+sharpschool": 32,
+     "schoolmessenger": 10,
+     "apptegy+blackboard": 9,
+     "apptegy+wordpress": 9,
+     "catapult": 9,
+     "finalsite+schoolmessenger": 8,
+     "blackboard+finalsite": 7,
+     "apptegy+sharpschool": 5,
+     "blackboard": 4,
+     "apptegy+schoolmessenger": 3,
+     "sharpschool": 3,
+     "edlio+wordpress": 2,
+     "finalsite+wordpress": 2,
+     "schoolblocks+schoolmessenger": 2,
+     "schoolmessenger+wordpress": 2,
+     "apptegy+edlio": 1,
+     "catapult+schoolmessenger": 1,
+     "catapult+sharpschool": 1,
+     "catapult+wordpress": 1,
+     "civicplus": 1,
+     "civicplus+wordpress": 1,
+     "schoolmessenger+sharpschool+wordpress": 1,
+     "sharpschool+wordpress": 1
+    },
+    "overlay_on_home": {
+     "": 1279,
+     "audioeye": 245,
+     "userway": 28,
+     "accessibe": 6,
+     "audioeye+userway": 4,
+     "accessibe+audioeye": 1,
+     "equalweb": 1
+    },
+    "no_link_but_offsite": 50
+   }
+  }
+ },
+ "measures": {
+  "D1_only_2.0_of_versioned_under50k": [
+   185,
+   417,
+   0.4436,
+   [
+    0.3967,
+    0.4916
+   ]
+  ],
+  "D2_stock_of_pages_under50k": [
+   1,
+   518,
+   0.0019,
+   [
+    0.0003,
+    0.0109
+   ]
+  ],
+  "D3_newer_of_versioned_50k+": [
+   136,
+   277,
+   0.491,
+   [
+    0.4326,
+    0.5496
+   ]
+  ],
+  "D3_newer_of_versioned_under50k": [
+   232,
+   417,
+   0.5564,
+   [
+    0.5084,
+    0.6033
+   ]
+  ],
+  "D4_placeholder_of_pages_all": [
+   129,
+   933,
+   0.1383,
+   [
+    0.1176,
+    0.1619
+   ]
+  ],
+  "D5_linked_of_homes_under50k": [
+   528,
+   1564,
+   0.3376,
+   [
+    0.3146,
+    0.3614
+   ]
+  ],
+  "D6_title2_of_pages_under50k": [
+   233,
+   518,
+   0.4498,
+   [
+    0.4075,
+    0.4929
+   ]
+  ]
+ },
+ "predictions": {
+  "D1": true,
+  "D2": true,
+  "D3": false,
+  "D4": true,
+  "D5": false,
+  "D6": true
+ },
+ "status": "graded"
+}

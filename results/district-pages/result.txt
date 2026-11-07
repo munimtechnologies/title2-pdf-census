@@ -1,0 +1,23 @@
+district_pages 0.1.0
+gates: F1_frame=True, G1_read=True, P0_prereg_public=True
+ccd_file: ccd_lea_029_2425_w_1a_073025.zip
+ccd_rows: 19630
+saipe_file: ussd24.txt
+saipe_rows: 13131
+frame: 11582
+frame_by_band: {'50k+': 1322, 'under50k': 10260}
+sampled: 2500
+sampled_by_band: {'50k+': 800, 'under50k': 1700}
+homes_ok: 2245
+pages_ok: 933
+  D1_only_2.0_of_versioned_under50k: [185, 417, 0.4436, [0.3967, 0.4916]]
+  D2_stock_of_pages_under50k: [1, 518, 0.0019, [0.0003, 0.0109]]
+  D3_newer_of_versioned_50k+: [136, 277, 0.491, [0.4326, 0.5496]]
+  D3_newer_of_versioned_under50k: [232, 417, 0.5564, [0.5084, 0.6033]]
+  D4_placeholder_of_pages_all: [129, 933, 0.1383, [0.1176, 0.1619]]
+  D5_linked_of_homes_under50k: [528, 1564, 0.3376, [0.3146, 0.3614]]
+  D6_title2_of_pages_under50k: [233, 518, 0.4498, [0.4075, 0.4929]]
+predictions: D1=True, D2=True, D3=False, D4=True, D5=False, D6=True
+by_band: {"50k+": {"contact": 409, "date_2026_04_24": 4, "date_2027_04_26": 1, "date_2028_04_26": 0, "finalsite_line": 0, "generator_line": 52, "highest": {"2.0": 141, "2.1": 123, "2.2": 13}, "homes_ok": 681, "no_link_but_offsite": 4, "no_wcag": 1, "ocr": 22, "overlay_on_home": {"": 357, "accessibe": 6, "audioeye": 296, "audioeye+userway": 1, "userway": 21}, "pages_ok": 415, "placeholder": 41, "placeholder_kinds": {"your_school": 16, "your_school+your_domain": 1, "your_school+your_domain+fake_phone": 24}, "platform_on_home": {"": 112, "apptegy": 148, "apptegy+blackboard": 2, "apptegy+edlio": 1, "apptegy+finalsite": 3, "apptegy+schoolmessenger": 2, "apptegy+schoolmessenger+wordpress": 1, "apptegy+wordpress": 1, "blackboard+catapult": 1, "blackboard+finalsite": 5, "blackboard+wordpress": 1, "catapult": 15, "edlio": 38, "edlio+finalsite": 2, "edlio+schoolmessenger": 1, "edlio+wordpress": 2, "finalsite": 280, "finalsite+schoolblocks": 1, "finalsite+schoolmessenger": 4, "finalsite+sharpschool": 1, "finalsite+wordpress": 2, "schoolblocks": 4, "schoolmessenger": 2, "schoolmessenger+sharpschool": 17, "schoolmessenger+wordpress": 1, "sharpschool": 1, "wordpress": 33}, "s504": 202, "sampled": 800, "section508": 38, "stock": 1, "students_threshold": 0, "title2": 140, "vendor_named": {"apptegy": 50, "apptegy+finalsite": 1, "blackboard+finalsite": 3, "catapult": 4, "edlio": 12, "edlio+finalsite": 1, "finalsite": 226, "finalsite+schoolmessenger": 2, "schoolmessenger": 8}, "wcag_any": 292}, "under50k": {"contact": 508, "date_2026_04_24": 0, "date_2027_04_26": 0, "date_2028_04_26": 3, "finalsite_line": 0, "generator_line": 105, "highest": {"2.0": 185, "2.1": 227, "2.2": 5}, "homes_ok": 1564, "no_link_but_offsite": 50, "no_wcag": 0, "ocr": 20, "overlay_on_home": {"": 1279, "accessibe": 6, "accessibe+audioeye": 1, "audioeye": 245, "audioeye+userway": 4, "equalweb": 1, "userway": 28}, "pages_ok": 518, "placeholder": 88, "placeholder_kinds": {"your_domain+fake_phone": 2, "your_school": 19, "your_school+your_domain+fake_phone": 67}, "platform_on_home": {"": 472, "apptegy": 564, "apptegy+blackboard": 9, "apptegy+edlio": 1, "apptegy+schoolmessenger": 3, "apptegy+sharpschool": 5, "apptegy+wordpress": 9, "blackboard": 4, "blackboard+finalsite": 7, "catapult": 9, "catapult+schoolmessenger": 1, "catapult+sharpschool": 1, "catapult+wordpress": 1, "civicplus": 1, "civicplus+wordpress": 1, "edlio": 67, "edlio+wordpress": 2, "finalsite": 229, "finalsite+schoolmessenger": 8, "finalsite+wordpress": 2, "schoolblocks": 36, "schoolblocks+schoolmessenger": 2, "schoolmessenger": 10, "schoolmessenger+sharpschool": 32, "schoolmessenger+sharpschool+wordpress": 1, "schoolmessenger+wordpress": 2, "sharpschool": 3, "sharpschool+wordpress": 1, "wordpress": 81}, "s504": 288, "sampled": 1700, "section508": 24, "stock": 1, "students_threshold": 0, "title2": 233, "vendor_named": {"apptegy": 27, "blackboard+finalsite": 4, "civicplus": 1, "edlio": 9, "finalsite": 209, "finalsite+schoolmessenger": 2, "schoolblocks": 4, "schoolmessenger": 9}, "wcag_any": 428}}
+home: {"http_0": 113, "http_403": 6, "http_404": 17, "http_409": 7, "http_429": 76, "http_520": 1, "http_522": 1, "not_html": 3, "ok": 2245, "robots": 31}
+page_status: {"": 255, "http_404": 7, "http_429": 41, "no_link": 1258, "ok": 933, "robots": 4, "short": 2}
