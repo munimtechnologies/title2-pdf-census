@@ -1,0 +1,16 @@
+equalize_stock 0.1.0
+status: graded
+gates: F1_frame=True, G0_tables=True, G1_answered=True, P0_prereg_public=True
+table large: rows=1657 sha256=56b82a41258e
+table sample: rows=2500 sha256=255eb09f8483
+table small: rows=3588 sha256=a79a066474d9
+frame: hosts=5243 dropped=2
+  F1_hosts: 5243
+  G1_answered: [4750, 5243, 0.906, [0.8978, 0.9136]]
+  W1_stock_hosts: 6
+  W2_placeholder_hosts: 3
+  W3_placeholder_of_stock: [3, 6, 0.5, [0.1876, 0.8124]]
+predictions: W1=False, W2=False, W3=None
+  flagged: small | Q995006 | Miami Lakes | Florida | town | name+features+fix+issues+email+phone | hidden
+  flagged: small | Q484745 | Colfax County | Nebraska | county | name+features+fix+issues+email+phone | not_sampled
+  flagged: small | Q1909193 | South Euclid | Ohio | city | name+features+fix+issues+email+phone | hidden

@@ -1,0 +1,182 @@
+{
+ "version": "0.1.0",
+ "gates": {
+  "P0_prereg_public": true,
+  "G0_tables": true,
+  "F1_frame": true,
+  "G1_answered": true
+ },
+ "files": {
+  "equalize_stock.py": "ec82c87dd87239d6e042103b2cc77e4a53db44abfba2809e5cd5294b0b0b750a",
+  "stock153.py": "8a4e63c31a07facedf0446fa3e3633f869073f954ad7aa6b4f2bd5b4d1552e50",
+  "template_check.py": "5dfcf124d6644bd6640fac60ba245c92a9aff7fce2f72e9b19c50494c63f60a8",
+  "a11y_pages.py": "b0b27c819b2d31b9d6e17fb207129b23aebe767e40e157678e37ad6851e200e0"
+ },
+ "tables": {
+  "large": {
+   "sha256": "56b82a41258e6144c9467f3c4a64d510ad353ecdb8d59909fe0c73bca8cffce6",
+   "rows": 1657
+  },
+  "small": {
+   "sha256": "a79a066474d98c0e337ed5d9b464a361cf92d6c27ee582dbd537d62f1fddee5c",
+   "rows": 3588
+  },
+  "sample": {
+   "sha256": "255eb09f84838dac020d9787210d1314abdb7a4b45d577f2bca161bc5a0863bf",
+   "rows": 2500
+  }
+ },
+ "prereg_attempts": 1,
+ "frame": {
+  "hosts": 5243,
+  "dropped": 2
+ },
+ "crawl": {
+  "started_utc": "2026-11-07T21:17:08Z",
+  "finished_utc": "2026-11-07T21:38:35Z"
+ },
+ "measures": {
+  "F1_hosts": 5243,
+  "G1_answered": [
+   4750,
+   5243,
+   0.906,
+   [
+    0.8978,
+    0.9136
+   ]
+  ],
+  "W1_stock_hosts": 6,
+  "W2_placeholder_hosts": 3,
+  "W3_placeholder_of_stock": [
+   3,
+   6,
+   0.5,
+   [
+    0.1876,
+    0.8124
+   ]
+  ]
+ },
+ "predictions": {
+  "W1": false,
+  "W2": false,
+  "W3": null
+ },
+ "described": {
+  "status": {
+   "large": {
+    "http_404": 1072,
+    "robots": 259,
+    "http_0": 143,
+    "ok": 118,
+    "http_403": 29,
+    "short": 15,
+    "http_400": 7,
+    "http_500": 4,
+    "http_503": 3,
+    "http_307": 2,
+    "http_409": 1,
+    "http_490": 1,
+    "http_522": 1,
+    "http_525": 1
+   },
+   "small": {
+    "http_404": 2566,
+    "http_0": 350,
+    "robots": 267,
+    "ok": 229,
+    "short": 69,
+    "http_403": 58,
+    "http_307": 9,
+    "http_500": 8,
+    "http_503": 7,
+    "http_522": 7,
+    "http_400": 5,
+    "http_409": 5,
+    "http_502": 2,
+    "http_523": 2,
+    "http_301": 1,
+    "http_444": 1,
+    "http_520": 1
+   }
+  },
+  "census": {
+   "large": {
+    "home_ok": 1195,
+    "home_failed": 461
+   },
+   "small": {
+    "home_ok": 1941,
+    "not_sampled": 1088,
+    "home_failed": 558
+   }
+  },
+  "ok_pages": 347,
+  "stock_by_cohort": {
+   "small": 6
+  },
+  "stock_plugin_markup": 5,
+  "stock_by_census_group": {
+   "found_as": 3,
+   "hidden": 2,
+   "not_sampled": 1
+  },
+  "placeholder_by_cohort": {
+   "small": 3
+  },
+  "placeholder_by_census_group": {
+   "hidden": 2,
+   "not_sampled": 1
+  },
+  "unfilled": 3,
+  "placeholder_counts": {
+   "ph_name": 3,
+   "ph_standard": 0,
+   "ph_features": 3,
+   "ph_fix": 3,
+   "ph_issues": 3,
+   "ph_email": 3,
+   "ph_phone": 3
+  },
+  "n_placeholders": {
+   "6": 3
+  },
+  "flagged_by_template_check": 3,
+  "second_without_first": 1,
+  "ok_not_stock_with_placeholder": 0,
+  "ok_other_bracket": 17,
+  "ok_plugin_markup": 5,
+  "census_as_not_stock_now": 55,
+  "flagged": [
+   [
+    "small",
+    "Q995006",
+    "Miami Lakes",
+    "Florida",
+    "town",
+    "name+features+fix+issues+email+phone",
+    "hidden"
+   ],
+   [
+    "small",
+    "Q484745",
+    "Colfax County",
+    "Nebraska",
+    "county",
+    "name+features+fix+issues+email+phone",
+    "not_sampled"
+   ],
+   [
+    "small",
+    "Q1909193",
+    "South Euclid",
+    "Ohio",
+    "city",
+    "name+features+fix+issues+email+phone",
+    "hidden"
+   ]
+  ]
+ },
+ "status": "graded"
+}
