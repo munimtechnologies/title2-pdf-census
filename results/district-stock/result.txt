@@ -1,0 +1,36 @@
+district_stock 0.1.0
+status: graded
+gates: F1_frame=True, G0_census=True, G0_federal=True, G1_answered=True, P0_prereg_public=True
+ccd_file: "ccd_lea_029_2425_w_1a_073025.zip"
+saipe_file: "ussd24.txt"
+census_rows: 2500
+frame: {"census_sampled": 2500, "dropped": 1, "hosts": 11581, "hosts_50k+": 1322}
+table_bytes: {"hosts-50k.csv": 294367, "hosts-under50k.csv": 2066333}
+  F1_hosts: 11581
+  F1_hosts_50k+: 1322
+  G1_answered: [10920, 11581, 0.9429, [0.9385, 0.947]]
+  K1_placeholder_hosts: 1067
+  K2_uncounted_of_sampled: [136, 257, 0.5292, [0.4682, 0.5893]]
+  K3_kept_of_census_here: [119, 119, 1.0, [0.9687, 1.0]]
+  K4_markup_of_placeholder: [1066, 1067, 0.9991, [0.9947, 0.9998]]
+predictions: K1=True, K2=True, K3=True, K4=True
+census: {"50k+": {"found_elsewhere": 275, "found_here": 140, "home_failed": 119, "no_page": 266, "not_sampled": 522}, "under50k": {"found_elsewhere": 350, "found_here": 168, "home_failed": 136, "no_page": 1046, "not_sampled": 8559}}
+census_here_placeholder: 123
+census_here_same_text: 119
+census_here_status: {"http_0": 4, "ok": 119}
+markup_pages: 1981
+ok_pages: 2284
+placeholder_by_census: {"found_elsewhere": 61, "found_here": 119, "home_failed": 28, "no_page": 49, "not_sampled": 810}
+placeholder_by_state: {"AK": 5, "AL": 23, "AR": 3, "AZ": 20, "CA": 91, "CO": 13, "CT": 14, "DE": 3, "FL": 8, "GA": 6, "IA": 7, "IL": 55, "IN": 26, "KS": 11, "KY": 34, "MA": 39, "ME": 3, "MI": 24, "MN": 44, "MO": 26, "MS": 17, "MT": 8, "NC": 13, "ND": 5, "NH": 1, "NJ": 96, "NM": 1, "NV": 5, "NY": 74, "OH": 107, "OK": 5, "OR": 15, "PA": 73, "SC": 10, "SD": 9, "TN": 12, "TX": 99, "VA": 8, "WA": 19, "WI": 31, "WY": 4}
+placeholder_generator: 934
+placeholder_highest: {"": 4, "2.0": 1044, "2.1": 13, "2.2": 6}
+placeholder_kinds: {"fake_phone": 1, "your_domain": 3, "your_domain+fake_phone": 12, "your_school": 237, "your_school+fake_phone": 2, "your_school+your_domain": 1, "your_school+your_domain+fake_phone": 811}
+placeholder_of_answered: {"50k+": [198, 1256, 0.1576, [0.1385, 0.1788]], "under50k": [869, 9664, 0.0899, [0.0844, 0.0958]]}
+placeholder_t2017: 1061
+placeholder_t2026: 0
+placeholder_title2: 57
+retried: 0
+status: {"50k+": {"http_0": 66, "http_302": 1, "http_403": 71, "http_404": 626, "http_409": 1, "http_500": 2, "http_502": 1, "http_520": 1, "not_html": 1, "ok": 539, "robots": 11, "short": 2}, "under50k": {"http_0": 595, "http_301": 1, "http_400": 1, "http_401": 4, "http_403": 468, "http_404": 7166, "http_409": 23, "http_500": 35, "http_502": 3, "http_520": 1, "http_522": 1, "http_525": 1, "http_530": 1, "not_html": 8, "ok": 1745, "robots": 172, "short": 34}}
+t2017_pages: 1624
+t2017_without_placeholder: 563
+t2026_pages: 2

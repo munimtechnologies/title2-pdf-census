@@ -1,0 +1,240 @@
+{
+ "version": "0.1.0",
+ "gates": {
+  "P0_prereg_public": true,
+  "G0_census": true,
+  "G0_federal": true,
+  "F1_frame": true,
+  "G1_answered": true
+ },
+ "files": {
+  "district_stock.py": "28e2b2da851a28a9e7eb399cc17ffa59babed5db7f7e5d97e9ee61b00261cc7f",
+  "district_pages.py": "2ad1a23ab3616bd26260957a74cc406b9bf56a396825c867577c40e53b2c0a0b",
+  "district_check.py": "9e90167d0387ac9086994d29b1153f40d7bad282dd4000c996ea54b799d7dee3",
+  "a11y_pages.py": "b0b27c819b2d31b9d6e17fb207129b23aebe767e40e157678e37ad6851e200e0",
+  "statement_check.py": "dc12261151610d914149e34a40c2619f458c2dc271c811265d86733cbdde4a23",
+  "template_check.py": "5dfcf124d6644bd6640fac60ba245c92a9aff7fce2f72e9b19c50494c63f60a8"
+ },
+ "prereg_attempts": 1,
+ "census_rows": 2500,
+ "ccd_file": "ccd_lea_029_2425_w_1a_073025.zip",
+ "ccd_sha256": "2745169e4bc7cd53adff179830c3d4b9bb035ac79580ecea01ef389a161936a9",
+ "saipe_file": "ussd24.txt",
+ "saipe_sha256": "c2dfef8866bd9e5b48654d181b2c7d9a73ad22ceb8d52fd443848928ada6f975",
+ "frame": {
+  "hosts": 11581,
+  "hosts_50k+": 1322,
+  "dropped": 1,
+  "census_sampled": 2500
+ },
+ "crawl": {
+  "started_utc": "2026-11-08T13:01:08Z",
+  "finished_utc": "2026-11-08T14:33:59Z"
+ },
+ "table_bytes": {
+  "hosts-50k.csv": 294367,
+  "hosts-under50k.csv": 2066333
+ },
+ "measures": {
+  "F1_hosts": 11581,
+  "F1_hosts_50k+": 1322,
+  "G1_answered": [
+   10920,
+   11581,
+   0.9429,
+   [
+    0.9385,
+    0.947
+   ]
+  ],
+  "K1_placeholder_hosts": 1067,
+  "K2_uncounted_of_sampled": [
+   136,
+   257,
+   0.5292,
+   [
+    0.4682,
+    0.5893
+   ]
+  ],
+  "K3_kept_of_census_here": [
+   119,
+   119,
+   1.0,
+   [
+    0.9687,
+    1.0
+   ]
+  ],
+  "K4_markup_of_placeholder": [
+   1066,
+   1067,
+   0.9991,
+   [
+    0.9947,
+    0.9998
+   ]
+  ]
+ },
+ "predictions": {
+  "K1": true,
+  "K2": true,
+  "K3": true,
+  "K4": true
+ },
+ "described": {
+  "status": {
+   "50k+": {
+    "http_404": 626,
+    "ok": 539,
+    "http_403": 71,
+    "http_0": 66,
+    "robots": 11,
+    "http_500": 2,
+    "short": 2,
+    "http_302": 1,
+    "http_409": 1,
+    "http_502": 1,
+    "http_520": 1,
+    "not_html": 1
+   },
+   "under50k": {
+    "http_404": 7166,
+    "ok": 1745,
+    "http_0": 595,
+    "http_403": 468,
+    "robots": 172,
+    "http_500": 35,
+    "short": 34,
+    "http_409": 23,
+    "not_html": 8,
+    "http_401": 4,
+    "http_502": 3,
+    "http_301": 1,
+    "http_400": 1,
+    "http_520": 1,
+    "http_522": 1,
+    "http_525": 1,
+    "http_530": 1
+   }
+  },
+  "census": {
+   "50k+": {
+    "not_sampled": 522,
+    "found_elsewhere": 275,
+    "no_page": 266,
+    "found_here": 140,
+    "home_failed": 119
+   },
+   "under50k": {
+    "not_sampled": 8559,
+    "no_page": 1046,
+    "found_elsewhere": 350,
+    "found_here": 168,
+    "home_failed": 136
+   }
+  },
+  "placeholder_of_answered": {
+   "50k+": [
+    198,
+    1256,
+    0.1576,
+    [
+     0.1385,
+     0.1788
+    ]
+   ],
+   "under50k": [
+    869,
+    9664,
+    0.0899,
+    [
+     0.0844,
+     0.0958
+    ]
+   ]
+  },
+  "ok_pages": 2284,
+  "placeholder_by_census": {
+   "not_sampled": 810,
+   "found_here": 119,
+   "found_elsewhere": 61,
+   "no_page": 49,
+   "home_failed": 28
+  },
+  "placeholder_kinds": {
+   "your_school+your_domain+fake_phone": 811,
+   "your_school": 237,
+   "your_domain+fake_phone": 12,
+   "your_domain": 3,
+   "your_school+fake_phone": 2,
+   "fake_phone": 1,
+   "your_school+your_domain": 1
+  },
+  "placeholder_highest": {
+   "2.0": 1044,
+   "2.1": 13,
+   "2.2": 6,
+   "": 4
+  },
+  "placeholder_title2": 57,
+  "placeholder_t2017": 1061,
+  "placeholder_t2026": 0,
+  "placeholder_generator": 934,
+  "t2017_pages": 1624,
+  "t2017_without_placeholder": 563,
+  "t2026_pages": 2,
+  "markup_pages": 1981,
+  "census_here_placeholder": 123,
+  "census_here_status": {
+   "ok": 119,
+   "http_0": 4
+  },
+  "census_here_same_text": 119,
+  "retried": 0,
+  "placeholder_by_state": {
+   "OH": 107,
+   "TX": 99,
+   "NJ": 96,
+   "CA": 91,
+   "NY": 74,
+   "PA": 73,
+   "IL": 55,
+   "MN": 44,
+   "MA": 39,
+   "KY": 34,
+   "WI": 31,
+   "IN": 26,
+   "MO": 26,
+   "MI": 24,
+   "AL": 23,
+   "AZ": 20,
+   "WA": 19,
+   "MS": 17,
+   "OR": 15,
+   "CT": 14,
+   "CO": 13,
+   "NC": 13,
+   "TN": 12,
+   "KS": 11,
+   "SC": 10,
+   "SD": 9,
+   "FL": 8,
+   "MT": 8,
+   "VA": 8,
+   "IA": 7,
+   "GA": 6,
+   "AK": 5,
+   "ND": 5,
+   "NV": 5,
+   "OK": 5,
+   "WY": 4,
+   "AR": 3,
+   "DE": 3,
+   "ME": 3,
+   "NH": 1,
+   "NM": 1
+  }
+ },
+ "status": "graded"
+}
