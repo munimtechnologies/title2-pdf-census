@@ -1,0 +1,247 @@
+{
+ "checker_version": "0.3.0",
+ "crawl": {
+  "finished_utc": "2026-11-09T14:18:04Z",
+  "started_utc": "2026-11-09T10:15:41Z",
+  "workers": 8
+ },
+ "described": {
+  "by_type_group": {
+   "Academies": {
+    "hosts": 10813,
+    "ok": 3146,
+    "placeholder": 310
+   },
+   "Colleges": {
+    "hosts": 169,
+    "ok": 56,
+    "placeholder": 0
+   },
+   "Free Schools": {
+    "hosts": 773,
+    "ok": 204,
+    "placeholder": 9
+   },
+   "Independent schools": {
+    "hosts": 1303,
+    "ok": 117,
+    "placeholder": 27
+   },
+   "Local authority maintained schools": {
+    "hosts": 9056,
+    "ok": 2640,
+    "placeholder": 301
+   },
+   "Online provider": {
+    "hosts": 12,
+    "ok": 1,
+    "placeholder": 0
+   },
+   "Other types": {
+    "hosts": 398,
+    "ok": 36,
+    "placeholder": 6
+   },
+   "Special schools": {
+    "hosts": 1090,
+    "ok": 165,
+    "placeholder": 14
+   },
+   "Universities": {
+    "hosts": 128,
+    "ok": 22,
+    "placeholder": 0
+   },
+   "Welsh schools": {
+    "hosts": 60,
+    "ok": 25,
+    "placeholder": 0
+   }
+  },
+  "juniper_field_ids": {
+   "accessibility_email": 35,
+   "delete_as_appropriate": 127,
+   "examples_only": 123,
+   "method_note": 76,
+   "please_instruction": 136,
+   "prior_to_publication": 129,
+   "review_note": 146,
+   "sample_notice": 128,
+   "school_address": 35,
+   "school_phone": 33,
+   "website_link_and_date": 40
+  },
+  "juniper_field_pages": 240,
+  "juniper_field_without_placeholder": 126,
+  "ok_gov_uk_wording": 2950,
+  "ok_highest": {
+   "": 3029,
+   "2.0": 97,
+   "2.1": 206,
+   "2.2": 3080
+  },
+  "ok_juniper_credit": 4852,
+  "ok_juniper_sample": 129,
+  "ok_juniper_template": 2639,
+  "ok_pages": 6412,
+  "placeholder_by_phase": {
+   "All-through": 2,
+   "Middle deemed secondary": 2,
+   "Not applicable": 59,
+   "Nursery": 15,
+   "Primary": 530,
+   "Secondary": 59
+  },
+  "placeholder_by_region": {
+   "East Midlands": 72,
+   "East of England": 107,
+   "London": 71,
+   "North East": 7,
+   "North West": 75,
+   "Not Applicable": 4,
+   "South East": 145,
+   "South West": 81,
+   "West Midlands": 64,
+   "Yorkshire and the Humber": 41
+  },
+  "placeholder_distinct_texts": 663,
+  "placeholder_establishments": 672,
+  "placeholder_highest": {
+   "": 1,
+   "2.0": 30,
+   "2.1": 9,
+   "2.2": 627
+  },
+  "placeholder_ids": {
+   "generic/insert_bracket": 5,
+   "gov-uk/add_link": 2,
+   "gov-uk/email_address": 329,
+   "gov-uk/example_document": 10,
+   "gov-uk/first_published": 1,
+   "gov-uk/guidance_note": 7,
+   "gov-uk/insert_one_of": 2,
+   "gov-uk/last_reviewed": 1,
+   "gov-uk/number_of_days": 334,
+   "gov-uk/organisation_name": 1,
+   "gov-uk/other_contact": 1,
+   "gov-uk/phone": 329,
+   "gov-uk/rough_timing": 3,
+   "gov-uk/scope": 1,
+   "gov-uk/select_option": 2,
+   "revize/date": 50,
+   "school/fake_phone": 23,
+   "school/school_bracket": 273,
+   "school/your_domain": 23,
+   "school/your_school": 29
+  },
+  "placeholder_or_juniper_field": 793,
+  "placeholder_other_host": 10,
+  "retried": 17,
+  "staging_domain_pages": 50,
+  "status": {
+   "http_0": 1110,
+   "http_202": 2,
+   "http_301": 1,
+   "http_302": 7,
+   "http_307": 6,
+   "http_400": 1,
+   "http_403": 106,
+   "http_404": 13806,
+   "http_409": 5,
+   "http_418": 4,
+   "http_500": 35,
+   "http_502": 3,
+   "http_503": 13,
+   "http_520": 1,
+   "http_521": 1,
+   "http_522": 10,
+   "http_526": 6,
+   "not_html": 7,
+   "not_statement": 409,
+   "ok": 6412,
+   "redirect_home": 411,
+   "robots": 1351,
+   "short": 95
+  }
+ },
+ "files": {
+  "results/uk-schools/PREREG.md": "9487f61f8216a51ad2fdaaa4891ff0bcf88bcb1e611a95d2f6bb502d5d1320c6",
+  "school_stock.py": "f2cde48bba5415b9072377cb3762306274554323c54c2eb440229769e81a32db",
+  "statement_template_check.py": "3f9a1999255ac5d62427117a05811cdbe9208075420ec9be2629ca3c09375a28"
+ },
+ "frame": {
+  "bad_base": 0,
+  "dropped": 0,
+  "hosts": 23802,
+  "parts_ok": {
+   "frame-part1.csv": true,
+   "frame-part2.csv": true,
+   "frame-part3.csv": true
+  },
+  "rows": 24659
+ },
+ "gates": {
+  "F1_frame": true,
+  "G1_answered": true,
+  "P0_checker": true,
+  "P0_prereg": true
+ },
+ "measures": {
+  "F1_hosts": 23802,
+  "G1_answered": {
+   "k": 22692,
+   "n": 23802,
+   "pct": 95.34
+  },
+  "J1_placeholder_hosts": 667,
+  "J2_credit_of_placeholder": {
+   "k": 292,
+   "n": 667,
+   "pct": 43.78
+  },
+  "J3_kept_of_juniper_template": {
+   "k": 614,
+   "n": 2639,
+   "pct": 23.27
+  },
+  "J4_wcag22_of_gov_uk_wording": {
+   "k": 2854,
+   "n": 2950,
+   "pct": 96.75
+  }
+ },
+ "predictions": {
+  "J1": true,
+  "J2": false,
+  "J3": false,
+  "J4": true
+ },
+ "status": "graded",
+ "tables": [
+  {
+   "bytes": 1899789,
+   "file": "hosts-part1.csv",
+   "rows": 6513,
+   "sha256": "926ef49f9e3be110d6e9ed7ffe9f882c0adb535cd9bf0ee627888e217dbfb4ee"
+  },
+  {
+   "bytes": 1899979,
+   "file": "hosts-part2.csv",
+   "rows": 6524,
+   "sha256": "0b708b78ef1b39f49718e7e567e02744087b9e91c01594b21febac54097b82bc"
+  },
+  {
+   "bytes": 1899923,
+   "file": "hosts-part3.csv",
+   "rows": 6432,
+   "sha256": "cedfb76a665a525cb54ab7c1e9fa907cd80660047e287c0285f54b2702cee8ce"
+  },
+  {
+   "bytes": 1264560,
+   "file": "hosts-part4.csv",
+   "rows": 4333,
+   "sha256": "64bc441ec68c24f60c75629551062e4d1c48a20ed76bae952ae36b73f7855606"
+  }
+ ],
+ "version": "0.1.0"
+}
