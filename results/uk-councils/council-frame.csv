@@ -1,0 +1,386 @@
+name,snac,gss,kind,host,links,links_on_host,host_share
+Aberdeen City Council,,S12000033,scotland_council,aberdeencity.gov.uk,87,79,0.908
+Aberdeenshire Council,,S12000034,scotland_council,aberdeenshire.gov.uk,55,45,0.818
+Adur District Council,,E07000223,england_district,adur-worthing.gov.uk,112,111,0.991
+Amber Valley Borough Council,,E07000032,england_district,ambervalley.gov.uk,96,89,0.927
+Angus Council,,S12000041,scotland_council,angus.gov.uk,54,50,0.926
+Antrim and Newtownabbey Borough Council,,N09000001,northern_ireland_district,antrimandnewtownabbey.gov.uk,36,26,0.722
+Ards and North Down Borough Council,,N09000011,northern_ireland_district,ardsandnorthdown.gov.uk,38,28,0.737
+Argyll and Bute Council,,S12000035,scotland_council,argyll-bute.gov.uk,57,50,0.877
+"Armagh City, Banbridge and Craigavon Borough Council",,N09000002,northern_ireland_district,armaghbanbridgecraigavon.gov.uk,37,26,0.703
+Arun District Council,,E07000224,england_district,arun.gov.uk,106,99,0.934
+Ashfield District Council,,E07000170,england_district,ashfield.gov.uk,89,58,0.652
+Ashford Borough Council,,E07000105,england_district,ashford.gov.uk,110,107,0.973
+Babergh District Council,,E07000200,england_district,babergh.gov.uk,100,94,0.940
+Barnsley Metropolitan Borough Council,,E08000016,england_metropolitan,barnsley.gov.uk,155,154,0.994
+Basildon Borough Council,,E07000066,england_district,basildon.gov.uk,100,79,0.790
+Basingstoke and Deane Borough Council,,E07000084,england_district,basingstoke.gov.uk,92,90,0.978
+Bassetlaw District Council,,E07000171,england_district,bassetlaw.gov.uk,100,93,0.930
+Bath and North East Somerset Council,,E06000022,england_unitary,bathnes.gov.uk,141,124,0.879
+Bedford Borough Council,,E06000055,england_unitary,bedford.gov.uk,165,157,0.952
+Belfast City Council,,N09000003,northern_ireland_district,belfastcity.gov.uk,38,24,0.632
+Birmingham City Council,,E08000025,england_metropolitan,birmingham.gov.uk,192,185,0.964
+Blaby District Council,,E07000129,england_district,blaby.gov.uk,80,75,0.938
+Blackburn with Darwen Borough Council,,E06000008,england_unitary,blackburn.gov.uk,158,148,0.937
+Blackpool Borough Council,,E06000009,england_unitary,blackpool.gov.uk,161,145,0.901
+Blaenau Gwent County Borough Council,,W06000019,wales_unitary,blaenau-gwent.gov.uk,158,114,0.722
+Bolsover District Council,,E07000033,england_district,bolsover.gov.uk,115,81,0.704
+Bolton Metropolitan Borough Council,,E08000001,england_metropolitan,bolton.gov.uk,175,163,0.931
+Borough Council of Kings Lynn and West Norfolk,,E07000146,england_district,west-norfolk.gov.uk,96,93,0.969
+Borough of Broxbourne,,E07000095,england_district,broxbourne.gov.uk,70,64,0.914
+Borough of Poole,,E06000029,england_unitary,bcpcouncil.gov.uk,1,1,1.000
+Boston Borough Council,,E07000136,england_district,boston.gov.uk,60,53,0.883
+"Bournemouth, Christchurch and Poole Council",,E06000058,england_unitary,bcpcouncil.gov.uk,111,100,0.901
+Bracknell Forest Council,,E06000036,england_unitary,bracknell-forest.gov.uk,152,136,0.895
+Braintree District Council,,E07000067,england_district,braintree.gov.uk,102,89,0.873
+Breckland Council,,E07000143,england_district,breckland.gov.uk,82,75,0.915
+Brentwood Borough Council,,E07000068,england_district,brentwood.gov.uk,65,63,0.969
+Bridgend County Borough Council,,W06000013,wales_unitary,bridgend.gov.uk,100,63,0.630
+Brighton and Hove City Council,,E06000043,england_unitary,brighton-hove.gov.uk,166,150,0.904
+Bristol City Council,,E06000023,england_unitary,bristol.gov.uk,201,199,0.990
+Broadland District Council,,E07000144,england_district,southnorfolkandbroadland.gov.uk,113,108,0.956
+Bromsgrove District Council,,E07000234,england_district,bromsgrove.gov.uk,77,72,0.935
+Broxtowe Borough Council,,E07000172,england_district,broxtowe.gov.uk,106,101,0.953
+Buckinghamshire Council,,E06000060,england_unitary,buckinghamshire.gov.uk,164,118,0.720
+Burnley Borough Council,,E07000117,england_district,burnley.gov.uk,74,69,0.932
+Bury Metropolitan Borough Council,,E08000002,england_metropolitan,bury.gov.uk,105,90,0.857
+Caerphilly County Borough Council,,W06000018,wales_unitary,caerphilly.gov.uk,176,172,0.977
+Calderdale Metropolitan Borough Council,,E08000033,england_metropolitan,calderdale.gov.uk,188,149,0.793
+Cambridge City Council,,E07000008,england_district,cambridge.gov.uk,81,75,0.926
+Cambridgeshire County Council,,E10000003,england_county,cambridgeshire.gov.uk,94,74,0.787
+Cannock Chase District Council,,E07000192,england_district,cannockchasedc.gov.uk,102,101,0.990
+Canterbury City Council,,E07000106,england_district,canterbury.gov.uk,100,94,0.940
+Carmarthenshire County Council,,W06000010,wales_unitary,carmarthenshire.gov.wales,132,103,0.780
+Castle Point Borough Council,,E07000069,england_district,castlepoint.gov.uk,89,88,0.989
+Causeway Coast and Glens Borough Council,,N09000004,northern_ireland_district,causewaycoastandglens.gov.uk,37,28,0.757
+Central Bedfordshire Council,,E06000056,england_unitary,centralbedfordshire.gov.uk,201,194,0.965
+Ceredigion County Council,,W06000008,wales_unitary,ceredigion.gov.uk,102,94,0.922
+Charnwood Borough Council,,E07000130,england_district,charnwood.gov.uk,108,97,0.898
+Chelmsford City Council,,E07000070,england_district,chelmsford.gov.uk,97,97,1.000
+Cheltenham Borough Council,,E07000078,england_district,cheltenham.gov.uk,108,99,0.917
+Cherwell District Council,,E07000177,england_district,cherwell.gov.uk,98,97,0.990
+Cheshire East Council,,E06000049,england_unitary,cheshireeast.gov.uk,156,137,0.878
+Cheshire West and Chester Council,,E06000050,england_unitary,cheshirewestandchester.gov.uk,186,177,0.952
+Chesterfield Borough Council,,E07000034,england_district,chesterfield.gov.uk,107,101,0.944
+Chichester District Council,,E07000225,england_district,chichester.gov.uk,101,96,0.950
+Chorley Council,,E07000118,england_district,chorley.gov.uk,102,93,0.912
+Christchurch Borough Council,,E07000048,england_district,bcpcouncil.gov.uk,1,1,1.000
+City and County of Swansea Council,,W06000011,wales_unitary,swansea.gov.uk,172,170,0.988
+City of Bradford Metropolitan District Council,,E08000032,england_metropolitan,bradford.gov.uk,165,149,0.903
+City of Cardiff Council,,W06000015,wales_unitary,cardiff.gov.uk,149,131,0.879
+City of Edinburgh Council,,S12000036,scotland_council,edinburgh.gov.uk,157,148,0.943
+City of Lincoln Council,,E07000138,england_district,lincoln.gov.uk,112,99,0.884
+City of London Corporation,,E09000001,london_borough,cityoflondon.gov.uk,160,149,0.931
+City of Westminster,,E09000033,london_borough,westminster.gov.uk,165,150,0.909
+City of Wolverhampton Council,,E08000031,england_metropolitan,wolverhampton.gov.uk,166,145,0.873
+City of York Council,,E06000014,england_unitary,york.gov.uk,195,185,0.949
+Clackmannanshire Council,,S12000005,scotland_council,clacks.gov.uk,47,43,0.915
+Colchester City Council,,E07000071,england_district,colchester.gov.uk,88,72,0.818
+Comhairle nan Eilean Siar,,S12000013,scotland_council,cne-siar.gov.uk,38,35,0.921
+Conwy County Borough Council,,W06000003,wales_unitary,conwy.gov.uk,161,158,0.981
+Cornwall Council,,E06000052,england_unitary,cornwall.gov.uk,194,174,0.897
+Cotswold District Council,,E07000079,england_district,cotswold.gov.uk,105,105,1.000
+Council of the Isles of Scilly,,E06000053,england_unitary,scilly.gov.uk,161,160,0.994
+Coventry City Council,,E08000026,england_metropolitan,coventry.gov.uk,178,163,0.916
+Crawley Borough Council,,E07000226,england_district,crawley.gov.uk,107,104,0.972
+Cumberland Council,,E06000063,england_unitary,cumberland.gov.uk,2,1,0.500
+Dacorum Borough Council,,E07000096,england_district,dacorum.gov.uk,99,87,0.879
+Darlington Borough Council,,E06000005,england_unitary,darlington.gov.uk,154,137,0.890
+Dartford Borough Council,,E07000107,england_district,dartford.gov.uk,87,85,0.977
+Denbighshire County Council,,W06000004,wales_unitary,denbighshire.gov.uk,180,167,0.928
+Derby City,,E06000015,england_unitary,derby.gov.uk,169,123,0.728
+Derbyshire County Council,,E10000007,england_county,derbyshire.gov.uk,101,97,0.960
+Derbyshire Dales District Council,,E07000035,england_district,derbyshiredales.gov.uk,116,109,0.940
+Derry City and Strabane District Council,,N09000005,northern_ireland_district,derrystrabane.com,45,33,0.733
+Devon County Council,,E10000008,england_county,new.devon.gov.uk,94,60,0.638
+Doncaster Metropolitan Borough Council,,E08000017,england_metropolitan,doncaster.gov.uk,163,152,0.933
+Dorset Council,,E06000059,england_unitary,dorsetcouncil.gov.uk,199,169,0.849
+Dover District Council,,E07000108,england_district,dover.gov.uk,105,102,0.971
+Dudley Metropolitan Borough Council,,E08000027,england_metropolitan,dudley.gov.uk,194,177,0.912
+Dumfries and Galloway Council,,S12000006,scotland_council,dumfriesandgalloway.gov.uk,46,29,0.630
+Dundee City Council,,S12000042,scotland_council,dundeecity.gov.uk,51,46,0.902
+Durham County Council,,E06000047,england_unitary,durham.gov.uk,189,180,0.952
+East Ayrshire Council,,S12000008,scotland_council,east-ayrshire.gov.uk,45,39,0.867
+East Cambridgeshire District Council,,E07000009,england_district,eastcambs.gov.uk,87,86,0.989
+East Devon District Council,,E07000040,england_district,eastdevon.gov.uk,86,84,0.977
+East Dunbartonshire Council,,S12000045,scotland_council,eastdunbarton.gov.uk,51,44,0.863
+East Hampshire District Council,,E07000085,england_district,easthants.gov.uk,90,87,0.967
+East Hertfordshire District Council,,E07000242,england_district,eastherts.gov.uk,96,85,0.885
+East Lindsey District Council,,E07000137,england_district,e-lindsey.gov.uk,99,91,0.919
+East Lothian Council,,S12000010,scotland_council,eastlothian.gov.uk,46,42,0.913
+East Renfrewshire Council,,S12000011,scotland_council,eastrenfrewshire.gov.uk,43,40,0.930
+East Riding of Yorkshire Council,,E06000011,england_unitary,eastriding.gov.uk,198,184,0.929
+East Staffordshire Borough Council,,E07000193,england_district,eaststaffsbc.gov.uk,79,62,0.785
+East Suffolk District Council,,E07000244,england_district,eastsuffolk.gov.uk,49,48,0.980
+East Sussex County Council,,E10000011,england_county,eastsussex.gov.uk,94,71,0.755
+Eastbourne Borough Council,,E07000061,england_district,lewes-eastbourne.gov.uk,107,106,0.991
+Eastleigh Borough Council,,E07000086,england_district,eastleigh.gov.uk,93,75,0.806
+Elmbridge Borough Council,,E07000207,england_district,elmbridge.gov.uk,115,103,0.896
+Epping Forest District Council,,E07000072,england_district,eppingforestdc.gov.uk,92,90,0.978
+Epsom and Ewell Borough Council,,E07000208,england_district,epsom-ewell.gov.uk,107,105,0.981
+Erewash Borough Council,,E07000036,england_district,erewash.gov.uk,92,88,0.957
+Essex County Council,,E10000012,england_county,essex.gov.uk,98,94,0.959
+Exeter City Council,,E07000041,england_district,exeter.gov.uk,96,94,0.979
+Falkirk Council,,S12000014,scotland_council,falkirk.gov.uk,50,43,0.860
+Fareham Borough Council,,E07000087,england_district,fareham.gov.uk,103,98,0.951
+Fenland District Council,,E07000010,england_district,fenland.gov.uk,55,51,0.927
+Fermanagh and Omagh District Council,,N09000006,northern_ireland_district,fermanaghomagh.com,35,25,0.714
+Fife Council,,S12000015,scotland_council,fife.gov.uk,124,122,0.984
+Flintshire County Council,,W06000005,wales_unitary,flintshire.gov.uk,175,168,0.960
+Folkestone and Hythe District Council,,E07000112,england_district,folkestone-hythe.gov.uk,63,62,0.984
+Forest of Dean District Council,,E07000080,england_district,fdean.gov.uk,120,120,1.000
+Fylde Borough Council,,E07000119,england_district,fylde.gov.uk,79,45,0.570
+Gateshead Metropolitan Borough Council,,E08000037,england_metropolitan,gateshead.gov.uk,198,185,0.934
+Gedling Borough Council,,E07000173,england_district,gedling.gov.uk,109,103,0.945
+Glasgow City Council,,S12000046,scotland_council,glasgow.gov.uk,66,61,0.924
+Gloucester City Council,,E07000081,england_district,gloucester.gov.uk,85,73,0.859
+Gloucestershire County Council,,E10000013,england_county,gloucestershire.gov.uk,105,81,0.771
+Gosport Borough Council,,E07000088,england_district,gosport.gov.uk,113,112,0.991
+Gravesham Borough Council,,E07000109,england_district,gravesham.gov.uk,109,109,1.000
+Great Yarmouth Borough Council,,E07000145,england_district,great-yarmouth.gov.uk,110,108,0.982
+Guildford Borough Council,,E07000209,england_district,guildford.gov.uk,90,89,0.989
+Gwynedd Council,,W06000002,wales_unitary,gwynedd.llyw.cymru,159,136,0.855
+Halton Borough Council,,E06000006,england_unitary,www4.halton.gov.uk,170,115,0.676
+Hampshire County Council,,E10000014,england_county,hants.gov.uk,105,99,0.943
+Harborough District Council,,E07000131,england_district,harborough.gov.uk,89,82,0.921
+Harlow Council,,E07000073,england_district,harlow.gov.uk,69,64,0.928
+Hart District Council,,E07000089,england_district,hart.gov.uk,114,104,0.912
+Hartlepool Borough Council,,E06000001,england_unitary,hartlepool.gov.uk,151,145,0.960
+Hastings Borough Council,,E07000062,england_district,hastings.gov.uk,93,92,0.989
+Havant Borough Council,,E07000090,england_district,havant.gov.uk,88,86,0.977
+Herefordshire Council,,E06000019,england_unitary,herefordshire.gov.uk,199,193,0.970
+Hertfordshire County Council,,E10000015,england_county,hertfordshire.gov.uk,109,100,0.917
+Hertsmere Borough Council,,E07000098,england_district,hertsmere.gov.uk,91,90,0.989
+High Peak Borough Council,,E07000037,england_district,highpeak.gov.uk,79,66,0.835
+Hinckley and Bosworth Borough Council,,E07000132,england_district,hinckley-bosworth.gov.uk,106,106,1.000
+Horsham District Council,,E07000227,england_district,horsham.gov.uk,112,100,0.893
+Hull City Council,,E06000010,england_unitary,hull.gov.uk,165,150,0.909
+Huntingdonshire District Council,,E07000011,england_district,huntingdonshire.gov.uk,73,60,0.822
+Hyndburn Borough Council,,E07000120,england_district,hyndburnbc.gov.uk,41,37,0.902
+Inverclyde Council,,S12000018,scotland_council,inverclyde.gov.uk,46,43,0.935
+Ipswich Borough Council,,E07000202,england_district,ipswich.gov.uk,99,89,0.899
+Isle of Anglesey County Council,,W06000001,wales_unitary,anglesey.gov.uk,117,82,0.701
+Isle of Wight Council,,E06000046,england_unitary,iow.gov.uk,162,160,0.988
+Kent County Council,,E10000016,england_county,kent.gov.uk,101,98,0.970
+Kirklees Council,,E08000034,england_metropolitan,kirklees.gov.uk,168,150,0.893
+Knowsley Metropolitan Borough Council,,E08000011,england_metropolitan,knowsley.gov.uk,137,108,0.788
+Lancashire County Council,,E10000017,england_county,lancashire.gov.uk,85,78,0.918
+Lancaster City Council,,E07000121,england_district,lancaster.gov.uk,93,91,0.978
+Leeds City Council,,E08000035,england_metropolitan,leeds.gov.uk,166,145,0.873
+Leicester City Council,,E06000016,england_unitary,leicester.gov.uk,186,171,0.919
+Leicestershire County Council,,E10000018,england_county,leicestershire.gov.uk,103,102,0.990
+Lewes District Council,,E07000063,england_district,lewes-eastbourne.gov.uk,103,103,1.000
+Lichfield District Council,,E07000194,england_district,lichfielddc.gov.uk,98,92,0.939
+Lincolnshire County Council,,E10000019,england_county,lincolnshire.gov.uk,94,84,0.894
+Lisburn and Castlereagh City Council,,N09000007,northern_ireland_district,lisburncastlereagh.gov.uk,36,26,0.722
+Liverpool City Council,,E08000012,england_metropolitan,liverpool.gov.uk,160,142,0.887
+London Borough of Barking and Dagenham,,E09000002,london_borough,lbbd.gov.uk,187,182,0.973
+London Borough of Barnet,,E09000003,london_borough,barnet.gov.uk,148,142,0.959
+London Borough of Bexley,,E09000004,london_borough,bexley.gov.uk,171,163,0.953
+London Borough of Brent,,E09000005,london_borough,brent.gov.uk,202,199,0.985
+London Borough of Bromley,,E09000006,london_borough,bromley.gov.uk,195,160,0.821
+London Borough of Camden,,E09000007,london_borough,camden.gov.uk,186,168,0.903
+London Borough of Croydon,,E09000008,london_borough,croydon.gov.uk,182,172,0.945
+London Borough of Ealing,,E09000009,london_borough,ealing.gov.uk,178,170,0.955
+London Borough of Enfield,,E09000010,london_borough,new.enfield.gov.uk,126,69,0.548
+London Borough of Hackney,,E09000012,london_borough,hackney.gov.uk,172,144,0.837
+London Borough of Hammersmith & Fulham,,E09000013,london_borough,lbhf.gov.uk,159,148,0.931
+London Borough of Haringey,,E09000014,london_borough,haringey.gov.uk,196,193,0.985
+London Borough of Harrow,,E09000015,london_borough,harrow.gov.uk,193,187,0.969
+London Borough of Havering,,E09000016,london_borough,havering.gov.uk,203,190,0.936
+London Borough of Hillingdon,,E09000017,london_borough,hillingdon.gov.uk,185,133,0.719
+London Borough of Hounslow,,E09000018,london_borough,hounslow.gov.uk,197,185,0.939
+London Borough of Islington,,E09000019,london_borough,islington.gov.uk,178,169,0.949
+London Borough of Lambeth,,E09000022,london_borough,lambeth.gov.uk,176,163,0.926
+London Borough of Lewisham,,E09000023,london_borough,lewisham.gov.uk,184,172,0.935
+London Borough of Merton,,E09000024,london_borough,merton.gov.uk,185,179,0.968
+London Borough of Newham,,E09000025,london_borough,newham.gov.uk,135,105,0.778
+London Borough of Redbridge,,E09000026,london_borough,redbridge.gov.uk,150,122,0.813
+London Borough of Richmond upon Thames,,E09000027,london_borough,richmond.gov.uk,183,175,0.956
+London Borough of Southwark,,E09000028,london_borough,southwark.gov.uk,192,170,0.885
+London Borough of Sutton,,E09000029,london_borough,sutton.gov.uk,65,63,0.969
+London Borough of Tower Hamlets,,E09000030,london_borough,towerhamlets.gov.uk,178,167,0.938
+London Borough of Waltham Forest,,E09000031,london_borough,walthamforest.gov.uk,174,169,0.971
+London Borough of Wandsworth,,E09000032,london_borough,wandsworth.gov.uk,155,144,0.929
+Luton Borough Council,,E06000032,england_unitary,luton.gov.uk,175,168,0.960
+Maidstone Borough Council,,E07000110,england_district,maidstone.gov.uk,56,51,0.911
+Maldon District Council,,E07000074,england_district,maldon.gov.uk,109,108,0.991
+Malvern Hills District Council,,E07000235,england_district,malvernhills.gov.uk,95,58,0.611
+Manchester City Council,,E08000003,england_metropolitan,manchester.gov.uk,167,147,0.880
+Mansfield District Council,,E07000174,england_district,mansfield.gov.uk,94,90,0.957
+Medway Council,,E06000035,england_unitary,medway.gov.uk,194,173,0.892
+Melton Borough Council,,E07000133,england_district,melton.gov.uk,79,73,0.924
+Merthyr Tydfil County Borough Council,,W06000024,wales_unitary,merthyr.gov.uk,185,175,0.946
+Mid Devon District Council,,E07000042,england_district,middevon.gov.uk,68,66,0.971
+Mid Suffolk District Council,,E07000203,england_district,midsuffolk.gov.uk,101,92,0.911
+Mid Sussex District Council,,E07000228,england_district,midsussex.gov.uk,111,96,0.865
+Mid Ulster District Council,,N09000009,northern_ireland_district,midulstercouncil.org,37,26,0.703
+Mid and East Antrim Borough Council,,N09000008,northern_ireland_district,midandeastantrim.gov.uk,39,25,0.641
+Middlesbrough Borough Council,,E06000002,england_unitary,middlesbrough.gov.uk,200,175,0.875
+Midlothian Council,,S12000019,scotland_council,midlothian.gov.uk,48,45,0.938
+Milton Keynes City Council,,E06000042,england_unitary,milton-keynes.gov.uk,135,127,0.941
+Mole Valley District Council,,E07000210,england_district,molevalley.gov.uk,96,77,0.802
+Monmouthshire County Council,,W06000021,wales_unitary,monmouthshire.gov.uk,143,127,0.888
+Neath Port Talbot County Borough Council,,W06000012,wales_unitary,npt.gov.uk,157,140,0.892
+New Forest District Council,,E07000091,england_district,newforest.gov.uk,110,104,0.945
+Newark and Sherwood District Council,,E07000175,england_district,newark-sherwooddc.gov.uk,97,84,0.866
+Newcastle City Council,,E08000021,england_metropolitan,newcastle.gov.uk,170,145,0.853
+Newcastle-under-Lyme District Council,,E07000195,england_district,newcastle-staffs.gov.uk,84,80,0.952
+Newport City Council,,W06000022,wales_unitary,newport.gov.uk,143,114,0.797
+"Newry, Mourne and Down District Council",,N09000010,northern_ireland_district,newrymournedown.org,36,25,0.694
+Norfolk County Council,,E10000020,england_county,norfolk.gov.uk,104,95,0.913
+North Ayrshire Council,,S12000021,scotland_council,north-ayrshire.gov.uk,48,43,0.896
+North Devon Council,,E07000043,england_district,northdevon.gov.uk,89,81,0.910
+North East Derbyshire District Council,,E07000038,england_district,ne-derbyshire.gov.uk,87,70,0.805
+North East Lincolnshire Council,,E06000012,england_unitary,nelincs.gov.uk,180,165,0.917
+North Hertfordshire District Council,,E07000099,england_district,north-herts.gov.uk,95,86,0.905
+North Kesteven District Council,,E07000139,england_district,n-kesteven.gov.uk,109,108,0.991
+North Lanarkshire Council,,S12000044,scotland_council,northlanarkshire.gov.uk,51,45,0.882
+North Lincolnshire Council,,E06000013,england_unitary,northlincs.gov.uk,195,185,0.949
+North Norfolk District Council,,E07000147,england_district,north-norfolk.gov.uk,71,37,0.521
+North Northamptonshire Council,,E06000061,england_unitary,northnorthants.gov.uk,115,115,1.000
+North Somerset Council,,E06000024,england_unitary,n-somerset.gov.uk,153,145,0.948
+North Tyneside Council,,E08000022,england_metropolitan,my.northtyneside.gov.uk,177,122,0.689
+North Warwickshire Borough Council,,E07000218,england_district,northwarks.gov.uk,85,80,0.941
+North West Leicestershire District Council,,E07000134,england_district,nwleics.gov.uk,85,82,0.965
+North Yorkshire Council,,E10000023,england_county,northyorks.gov.uk,195,194,0.995
+Northamptonshire County Council,,E10000021,england_county,northnorthants.gov.uk,1,1,1.000
+Northumberland County Council,,E06000057,england_unitary,northumberland.gov.uk,143,124,0.867
+Norwich City Council,,E07000148,england_district,norwich.gov.uk,103,96,0.932
+Nottingham City Council,,E06000018,england_unitary,nottinghamcity.gov.uk,185,157,0.849
+Nottinghamshire County Council,,E10000024,england_county,nottinghamshire.gov.uk,96,85,0.885
+Nuneaton and Bedworth Borough Council,,E07000219,england_district,nuneatonandbedworth.gov.uk,89,86,0.966
+Oadby and Wigston Borough Council,,E07000135,england_district,oadby-wigston.gov.uk,70,66,0.943
+Oldham Metropolitan Borough Council,,E08000004,england_metropolitan,oldham.gov.uk,176,164,0.932
+Orkney Islands Council,,S12000023,scotland_council,orkney.gov.uk,43,41,0.953
+Oxford City Council,,E07000178,england_district,oxford.gov.uk,114,105,0.921
+Oxfordshire County Council,,E10000025,england_county,oxfordshire.gov.uk,88,75,0.852
+Pembrokeshire County Council,,W06000009,wales_unitary,pembrokeshire.gov.uk,152,123,0.809
+Pendle Borough Council,,E07000122,england_district,pendle.gov.uk,97,90,0.928
+Perth and Kinross Council,,S12000024,scotland_council,pkc.gov.uk,64,57,0.891
+Peterborough City Council,,E06000031,england_unitary,peterborough.gov.uk,187,161,0.861
+Plymouth City Council,,E06000026,england_unitary,plymouth.gov.uk,192,188,0.979
+Portsmouth City Council,,E06000044,england_unitary,portsmouth.gov.uk,166,157,0.946
+Powys County Council,,W06000023,wales_unitary,powys.gov.uk,175,142,0.811
+Preston City Council,,E07000123,england_district,preston.gov.uk,88,81,0.920
+Reading Borough Council,,E06000038,england_unitary,reading.gov.uk,179,150,0.838
+Redcar and Cleveland Borough Council,,E06000003,england_unitary,redcar-cleveland.gov.uk,158,148,0.937
+Redditch Borough Council,,E07000236,england_district,redditchbc.gov.uk,70,65,0.929
+Reigate and Banstead Borough Council,,E07000211,england_district,reigate-banstead.gov.uk,102,100,0.980
+Renfrewshire Council,,S12000038,scotland_council,renfrewshire.gov.uk,54,44,0.815
+Rhondda Cynon Taf County Borough Council,,W06000016,wales_unitary,rctcbc.gov.uk,127,123,0.969
+Ribble Valley Borough Council,,E07000124,england_district,ribblevalley.gov.uk,77,75,0.974
+Rochdale Metropolitan Borough Council,,E08000005,england_metropolitan,rochdale.gov.uk,192,190,0.990
+Rochford District Council,,E07000075,england_district,rochford.gov.uk,77,72,0.935
+Rossendale Borough Council,,E07000125,england_district,rossendale.gov.uk,97,94,0.969
+Rother District Council,,E07000064,england_district,rother.gov.uk,77,74,0.961
+Rotherham Metropolitan Borough Council,,E08000018,england_metropolitan,rotherham.gov.uk,196,194,0.990
+Royal Borough of Greenwich,,E09000011,london_borough,royalgreenwich.gov.uk,180,163,0.906
+Royal Borough of Kensington and Chelsea,,E09000020,london_borough,rbkc.gov.uk,163,151,0.926
+Royal Borough of Kingston upon Thames,,E09000021,london_borough,kingston.gov.uk,181,176,0.972
+Royal Borough of Windsor and Maidenhead,,E06000040,england_unitary,rbwm.gov.uk,165,149,0.903
+Rugby Borough Council,,E07000220,england_district,rugby.gov.uk,67,62,0.925
+Runnymede Borough Council,,E07000212,england_district,runnymede.gov.uk,81,80,0.988
+Rushcliffe Borough Council,,E07000176,england_district,rushcliffe.gov.uk,96,80,0.833
+Rushmoor Borough Council,,E07000092,england_district,rushmoor.gov.uk,99,97,0.980
+Rutland County Council,,E06000017,england_unitary,rutland.gov.uk,159,153,0.962
+Salford City Council,,E08000006,england_metropolitan,salford.gov.uk,184,174,0.946
+Sandwell Metropolitan Borough Council,,E08000028,england_metropolitan,sandwell.gov.uk,185,172,0.930
+Scottish Borders Council,,S12000026,scotland_council,scotborders.gov.uk,51,49,0.961
+Sefton Metropolitan Borough Council,,E08000014,england_metropolitan,sefton.gov.uk,191,176,0.921
+Sevenoaks District Council,,E07000111,england_district,sevenoaks.gov.uk,91,71,0.780
+Sheffield City Council,,E08000019,england_metropolitan,sheffield.gov.uk,188,180,0.957
+Shetland Islands Council,,S12000027,scotland_council,shetland.gov.uk,38,34,0.895
+Shropshire Council,,E06000051,england_unitary,shropshire.gov.uk,182,154,0.846
+Slough Borough Council,,E06000039,england_unitary,slough.gov.uk,186,175,0.941
+Solihull Metropolitan Borough Council,,E08000029,england_metropolitan,solihull.gov.uk,190,150,0.789
+Somerset Council,,E10000027,england_county,somerset.gov.uk,109,99,0.908
+South Ayrshire Council,,S12000028,scotland_council,south-ayrshire.gov.uk,50,43,0.860
+South Cambridgeshire District Council,,E07000012,england_district,scambs.gov.uk,75,69,0.920
+South Derbyshire District Council,,E07000039,england_district,southderbyshire.gov.uk,103,59,0.573
+South Gloucestershire Council,,E06000025,england_unitary,southglos.gov.uk,192,108,0.562
+South Hams District Council,,E07000044,england_district,southhams.gov.uk,85,74,0.871
+South Holland District Council,,E07000140,england_district,sholland.gov.uk,97,94,0.969
+South Kesteven District Council,,E07000141,england_district,southkesteven.gov.uk,113,110,0.973
+South Lanarkshire Council,,S12000029,scotland_council,southlanarkshire.gov.uk,56,52,0.929
+South Norfolk District Council,,E07000149,england_district,southnorfolkandbroadland.gov.uk,113,108,0.956
+South Oxfordshire District Council,,E07000179,england_district,southoxon.gov.uk,97,97,1.000
+South Ribble Borough Council,,E07000126,england_district,southribble.gov.uk,100,93,0.930
+South Staffordshire Council,,E07000196,england_district,sstaffs.gov.uk,48,45,0.938
+South Tyneside Council,,E08000023,england_metropolitan,southtyneside.gov.uk,188,183,0.973
+Southampton City Council,,E06000045,england_unitary,southampton.gov.uk,193,181,0.938
+Southend-on-Sea City Council,,E06000033,england_unitary,southend.gov.uk,191,176,0.921
+Spelthorne Borough Council,,E07000213,england_district,spelthorne.gov.uk,98,96,0.980
+St Albans City and District Council,,E07000240,england_district,stalbans.gov.uk,111,107,0.964
+St Helens Council,,E08000013,england_metropolitan,sthelens.gov.uk,145,139,0.959
+Stafford Borough Council,,E07000197,england_district,staffordbc.gov.uk,95,94,0.989
+Staffordshire County Council,,E10000028,england_county,staffordshire.gov.uk,99,83,0.838
+Staffordshire Moorlands District Council,,E07000198,england_district,staffsmoorlands.gov.uk,102,98,0.961
+Stevenage Borough Council,,E07000243,england_district,stevenage.gov.uk,100,98,0.980
+Stirling Council,,S12000030,scotland_council,stirling.gov.uk,44,36,0.818
+Stockport Metropolitan Borough Council,,E08000007,england_metropolitan,stockport.gov.uk,169,143,0.846
+Stockton-on-Tees Borough Council,,E06000004,england_unitary,stockton.gov.uk,189,170,0.899
+Stoke-on-Trent City Council,,E06000021,england_unitary,stoke.gov.uk,154,150,0.974
+Stratford-on-Avon District Council,,E07000221,england_district,stratford.gov.uk,91,89,0.978
+Stroud District Council,,E07000082,england_district,stroud.gov.uk,96,94,0.979
+Suffolk County Council,,E10000029,england_county,suffolk.gov.uk,92,83,0.902
+Sunderland City Council,,E08000024,england_metropolitan,sunderland.gov.uk,172,146,0.849
+Surrey County Council,,E10000030,england_county,surreycc.gov.uk,109,103,0.945
+Surrey Heath Borough Council,,E07000214,england_district,surreyheath.gov.uk,103,99,0.961
+Swale Borough Council,,E07000113,england_district,swale.gov.uk,96,85,0.885
+Swindon Borough Council,,E06000030,england_unitary,swindon.gov.uk,168,158,0.940
+Tameside Metropolitan Borough Council,,E08000008,england_metropolitan,tameside.gov.uk,143,134,0.937
+Tamworth Borough Council,,E07000199,england_district,tamworth.gov.uk,78,73,0.936
+Tandridge District Council,,E07000215,england_district,tandridge.gov.uk,104,98,0.942
+Teignbridge District Council,,E07000045,england_district,teignbridge.gov.uk,83,80,0.964
+Telford & Wrekin Council,,E06000020,england_unitary,telford.gov.uk,185,136,0.735
+Tendring District Council,,E07000076,england_district,tendringdc.gov.uk,104,97,0.933
+Test Valley Borough Council,,E07000093,england_district,testvalley.gov.uk,86,80,0.930
+Tewkesbury Borough Council,,E07000083,england_district,tewkesbury.gov.uk,117,102,0.872
+Thanet District Council,,E07000114,england_district,thanet.gov.uk,75,72,0.960
+The Highland Council,,S12000017,scotland_council,highland.gov.uk,53,51,0.962
+The Moray Council,,S12000020,scotland_council,moray.gov.uk,48,39,0.812
+Three Rivers District Council,,E07000102,england_district,threerivers.gov.uk,108,107,0.991
+Thurrock Council,,E06000034,england_unitary,thurrock.gov.uk,201,186,0.925
+Tonbridge and Malling Borough Council,,E07000115,england_district,tmbc.gov.uk,89,88,0.989
+Torbay Council,,E06000027,england_unitary,torbay.gov.uk,173,158,0.913
+Torfaen County Borough Council,,W06000020,wales_unitary,torfaen.gov.uk,173,169,0.977
+Torridge District Council,,E07000046,england_district,torridge.gov.uk,92,91,0.989
+Trafford Metropolitan Borough Council,,E08000009,england_metropolitan,trafford.gov.uk,173,146,0.844
+Tunbridge Wells Borough Council,,E07000116,england_district,tunbridgewells.gov.uk,71,68,0.958
+Uttlesford District Council,,E07000077,england_district,uttlesford.gov.uk,59,57,0.966
+Vale of Glamorgan Council,,W06000014,wales_unitary,valeofglamorgan.gov.uk,190,187,0.984
+Vale of White Horse District Council,,E07000180,england_district,whitehorsedc.gov.uk,96,96,1.000
+Wakefield Metropolitan District Council,,E08000036,england_metropolitan,wakefield.gov.uk,172,161,0.936
+Walsall Metropolitan Borough Council,,E08000030,england_metropolitan,go.walsall.gov.uk,174,94,0.540
+Warrington Borough Council,,E06000007,england_unitary,warrington.gov.uk,169,163,0.964
+Warwick District Council,,E07000222,england_district,warwickdc.gov.uk,101,98,0.970
+Warwickshire County Council,,E10000031,england_county,warwickshire.gov.uk,97,92,0.948
+Watford Borough Council,,E07000103,england_district,watford.gov.uk,83,76,0.916
+Waverley Borough Council,,E07000216,england_district,waverley.gov.uk,111,108,0.973
+Wealden District Council,,E07000065,england_district,wealden.gov.uk,103,97,0.942
+Welwyn Hatfield Council,,E07000241,england_district,welhat.gov.uk,89,80,0.899
+West Berkshire Council,,E06000037,england_unitary,westberks.gov.uk,173,158,0.913
+West Devon Borough Council,,E07000047,england_district,westdevon.gov.uk,91,74,0.813
+West Dunbartonshire Council,,S12000039,scotland_council,west-dunbarton.gov.uk,58,54,0.931
+West Lancashire Borough Council,,E07000127,england_district,westlancs.gov.uk,105,104,0.990
+West Lindsey District Council,,E07000142,england_district,west-lindsey.gov.uk,104,101,0.971
+West Lothian Council,,S12000040,scotland_council,westlothian.gov.uk,54,51,0.944
+West Northamptonshire Council,,E06000062,england_unitary,westnorthants.gov.uk,118,118,1.000
+West Oxfordshire District Council,,E07000181,england_district,westoxon.gov.uk,102,102,1.000
+West Suffolk District Council,,E07000245,england_district,westsuffolk.gov.uk,30,30,1.000
+West Sussex County Council,,E10000032,england_county,westsussex.gov.uk,96,93,0.969
+Westmorland and Furness Council,,E06000064,england_unitary,westmorlandandfurness.gov.uk,3,2,0.667
+Wigan Metropolitan Borough Council,,E08000010,england_metropolitan,wigan.gov.uk,138,117,0.848
+Wiltshire Council,,E06000054,england_unitary,wiltshire.gov.uk,177,160,0.904
+Winchester City Council,,E07000094,england_district,winchester.gov.uk,107,102,0.953
+Wirral Council,,E08000015,england_metropolitan,wirral.gov.uk,186,175,0.941
+Woking Borough Council,,E07000217,england_district,woking.gov.uk,98,95,0.969
+Wokingham Borough Council,,E06000041,england_unitary,wokingham.gov.uk,199,171,0.859
+Worcester City Council,,E07000237,england_district,worcester.gov.uk,66,54,0.818
+Worcestershire County Council,,E10000034,england_county,worcestershire.gov.uk,104,95,0.913
+Worthing Borough Council,,E07000229,england_district,adur-worthing.gov.uk,113,112,0.991
+Wrexham County Borough Council,,W06000006,wales_unitary,wrexham.gov.uk,171,150,0.877
+Wychavon District Council,,E07000238,england_district,wychavon.gov.uk,99,79,0.798
+Wyre Council,,E07000128,england_district,wyre.gov.uk,95,91,0.958
+Wyre Forest District Council,,E07000239,england_district,wyreforestdc.gov.uk,85,76,0.894

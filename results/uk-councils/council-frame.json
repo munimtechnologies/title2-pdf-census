@@ -1,0 +1,58 @@
+{
+ "version": "0.1.0",
+ "source_url": "https://local-links-manager.publishing.service.gov.uk/data/links_to_services_provided_by_local_authorities.csv",
+ "source_bytes": 7627824,
+ "source_sha256": "541dfe3484a3b14a8ac5ed80127ff452b8e5b4a9d90a410037d782747c3f4b94",
+ "retrieved_utc": "2026-11-09T10:47:29Z",
+ "authorities": 385,
+ "with_host": 385,
+ "without_host": [],
+ "by_kind": {
+  "england_district": 165,
+  "england_unitary": 62,
+  "england_metropolitan": 36,
+  "london_borough": 33,
+  "scotland_council": 32,
+  "england_county": 24,
+  "wales_unitary": 22,
+  "northern_ireland_district": 11
+ },
+ "by_kind_with_host": {
+  "england_district": 165,
+  "england_unitary": 62,
+  "england_metropolitan": 36,
+  "london_borough": 33,
+  "scotland_council": 32,
+  "england_county": 24,
+  "wales_unitary": 22,
+  "northern_ireland_district": 11
+ },
+ "hosts_shared": {
+  "adur-worthing.gov.uk": 2,
+  "bcpcouncil.gov.uk": 3,
+  "southnorfolkandbroadland.gov.uk": 2,
+  "lewes-eastbourne.gov.uk": 2,
+  "northnorthants.gov.uk": 2
+ },
+ "low_share_hosts": [],
+ "frame_bytes": 33269,
+ "frame_sha256": "468dcfaa474411c17640ffd5b38a8829c5ba62905891ede15675ac1b15027ca3",
+ "note": "Frame only: no council website was requested. Source: GOV.UK Local Links Manager export, Open Government Licence v3.0.",
+ "csv_rows": 45438,
+ "columns": [
+  "Authority Name",
+  "GSS",
+  "Description",
+  "LGSL",
+  "LGIL",
+  "URL",
+  "Title",
+  "Supported by GOV.UK"
+ ],
+ "used_columns": {
+  "name": "Authority Name",
+  "snac": "",
+  "gss": "GSS",
+  "url": "URL"
+ }
+}
