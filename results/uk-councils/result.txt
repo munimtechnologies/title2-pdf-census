@@ -1,0 +1,31 @@
+council_stock 0.1.0
+status: graded
+gates: F1_frame=True, G1_answered=True, P0_checker=True, P0_prereg=True
+frame: {"bytes_ok": true, "dropped": 0, "hosts": 379, "rows": 385}
+crawl: {"finished_utc": "2026-11-10T02:21:20Z", "started_utc": "2026-11-10T02:11:33Z", "workers": 4}
+table: {"bytes": 99491, "file": "hosts.csv", "rows": 379, "sha256": "d2f696ed215882058bab2c6c3a58155a4332e9523193d472783cbe9dc5835905"}
+  F1_hosts: 379
+  G1_answered: {"k": 370, "n": 379, "pct": 97.63}
+  N1_found: {"k": 284, "n": 379, "pct": 74.93}
+  N2_placeholder_hosts: 1
+  N3_wcag22_of_found: {"k": 191, "n": 284, "pct": 67.25}
+  N4_stale_of_dated: {"k": 105, "n": 271, "pct": 38.75}
+predictions: N1=False, N2=True, N3=True, N4=True
+by_kind: {"england_county": {"dated": 19, "found": 19, "hosts": 23, "placeholder": 0, "stale": 6, "wcag22": 16}, "england_district": {"dated": 118, "found": 126, "hosts": 161, "placeholder": 1, "stale": 46, "wcag22": 84}, "england_metropolitan": {"dated": 25, "found": 26, "hosts": 36, "placeholder": 0, "stale": 13, "wcag22": 14}, "england_unitary": {"dated": 40, "found": 41, "hosts": 61, "placeholder": 0, "stale": 14, "wcag22": 29}, "london_borough": {"dated": 29, "found": 30, "hosts": 33, "placeholder": 0, "stale": 17, "wcag22": 18}, "northern_ireland_district": {"dated": 10, "found": 10, "hosts": 11, "placeholder": 0, "stale": 2, "wcag22": 6}, "scotland_council": {"dated": 21, "found": 22, "hosts": 32, "placeholder": 0, "stale": 5, "wcag22": 18}, "wales_unitary": {"dated": 9, "found": 10, "hosts": 22, "placeholder": 0, "stale": 2, "wcag22": 6}}
+date_source: {"prepared": 27, "reviewed": 244}
+distinct_texts: 284
+found_by: {"hub": 19, "link": 260, "probe1": 1, "probe2": 4}
+found_councils: 289
+found_gov_uk_wording: 233
+found_highest: {"": 7, "2.1": 86, "2.2": 191}
+found_no_date: 13
+found_other_host: 5
+found_wcag_named: 281
+home_status: {"": 47, "200": 313, "202": 1, "307": 2, "403": 13, "404": 1, "405": 2}
+offsite_link: 0
+placeholder_hosts: ["mansfield.gov.uk"]
+placeholder_ids: {"gov-uk/example_document": 1}
+retried: 0
+robots_blocked: 38
+statement_year: {"2020": 3, "2021": 8, "2022": 19, "2023": 17, "2024": 29, "2025": 44, "2026": 151}
+status: {"http_0": 9, "not_found": 48, "ok": 284, "robots": 38}
