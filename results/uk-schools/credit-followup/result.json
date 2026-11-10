@@ -1,0 +1,108 @@
+{
+ "checker_version": "0.3.0",
+ "crawl": {
+  "finished_utc": "2026-11-09T22:16:19Z",
+  "started_utc": "2026-11-09T22:06:26Z",
+  "workers": 8
+ },
+ "described": {
+  "credit_combinations": {
+   "finalsite": 26,
+   "greenhouse": 264,
+   "juniper": 226,
+   "juniper+e4education": 34,
+   "juniper+primarysite": 12,
+   "none": 12
+  },
+  "graded_e4education": 34,
+  "graded_family": 272,
+  "graded_finalsite": 26,
+  "graded_greenhouse": 264,
+  "graded_juniper": 272,
+  "graded_l1_group": {
+   "family": 0,
+   "finalsite": 0,
+   "greenhouse": 260,
+   "hosts": 260
+  },
+  "graded_no_credit": 12,
+  "graded_primarysite": 12,
+  "graded_stock_template": {
+   "family": 262,
+   "finalsite": 0,
+   "greenhouse": 264,
+   "hosts": 526
+  },
+  "graded_stock_us_template": {
+   "family": 0,
+   "finalsite": 26,
+   "greenhouse": 0,
+   "hosts": 26
+  },
+  "graded_text_changed": 11,
+  "graded_without_template_family": {
+   "family": 10,
+   "hosts": 48
+  },
+  "not_graded_by_status": {
+   "http_0": 93
+  },
+  "ok_without_placeholder": 0,
+  "retried": 0,
+  "status": {
+   "http_0": 93,
+   "ok": 574
+  }
+ },
+ "files": {
+  "school_credit.py": "5e2530632c38f32deb19ca071720f2ae1f83ec3f2e6edb18f192ba2dd8e37c56",
+  "school_stock.py": "f2cde48bba5415b9072377cb3762306274554323c54c2eb440229769e81a32db",
+  "statement_template_check.py": "3f9a1999255ac5d62427117a05811cdbe9208075420ec9be2629ca3c09375a28"
+ },
+ "frame_hosts": 667,
+ "gates": {
+  "C0_published": true,
+  "C1_hosts": true,
+  "C2_within_21_days": true,
+  "P0_checker": true,
+  "P0_registered": true
+ },
+ "measures": {
+  "K1_family": {
+   "k": 272,
+   "n": 574,
+   "pct": 47.39
+  },
+  "K2_missed_by_j2_pattern": {
+   "k": 0,
+   "n": 574,
+   "pct": 0.0
+  },
+  "K3_unchanged_text": {
+   "k": 563,
+   "n": 574,
+   "pct": 98.08
+  },
+  "L1_greenhouse_of_three_field_group": {
+   "k": 260,
+   "n": 260,
+   "pct": 100.0
+  },
+  "frame_hosts": 667,
+  "graded_hosts": 574
+ },
+ "predictions": {
+  "K1": false,
+  "K2": false,
+  "K3": true,
+  "L1": true
+ },
+ "status": "graded",
+ "table": {
+  "bytes": 85982,
+  "file": "hosts.csv",
+  "rows": 667,
+  "sha256": "0a31465ff8d03e16405f1d97249d38e95fa4acaa98b277f0ce5714fa149c5e8c"
+ },
+ "version": "0.1.0"
+}
