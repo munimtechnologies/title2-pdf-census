@@ -1,0 +1,207 @@
+name,host,statementUrl,percent,verdict,mandatoryPassed,mandatoryTotal,via
+Cheshire West and Chester,cheshirewestandchester.gov.uk,https://www.cheshirewestandchester.gov.uk/accessibility,13,not-compliant,1,8,common-path
+City of Derby,derby.gov.uk,https://www.derby.gov.uk/site-info/accessibility/,13,not-compliant,1,8,footer-link
+City of York,york.gov.uk,https://www.york.gov.uk/accessibility,13,not-compliant,1,8,footer-link
+Elmbridge,elmbridge.gov.uk,https://www.elmbridge.gov.uk/accessibility,13,not-compliant,1,8,footer-link
+Lichfield,lichfielddc.gov.uk,https://www.lichfielddc.gov.uk/accessibility,13,not-compliant,1,8,footer-link
+London Borough of Richmond upon Thames,richmond.gov.uk,https://www.richmond.gov.uk/help/web_accessibility,13,not-compliant,1,8,footer-link
+North Kesteven,n-kesteven.gov.uk,https://www.n-kesteven.gov.uk/accessibility,13,not-compliant,1,8,common-path
+Royal Borough of Greenwich,greenwich.gov.uk,https://www.royalgreenwich.gov.uk/accessibility,13,not-compliant,1,8,footer-link
+Shetland Islands Council,shetland.gov.uk,https://www.shetland.gov.uk/accessibility,13,not-compliant,1,8,footer-link
+Surrey Heath,surreyheath.gov.uk,https://www.surreyheath.gov.uk/site-information/accessibility,13,not-compliant,1,8,footer-link
+West Lindsey,west-lindsey.gov.uk,https://www.west-lindsey.gov.uk/accessibility,13,not-compliant,1,8,common-path
+Woking,woking.gov.uk,https://www.woking.gov.uk/accessibility-statements,13,not-compliant,1,8,footer-link
+Wyre,wyre.gov.uk,https://www.wyre.gov.uk/accessibility,13,not-compliant,1,8,footer-link
+Broxbourne,broxbourne.gov.uk,https://www.broxbourne.gov.uk/communications-marketing/accessibility-statement/1,25,not-compliant,2,8,footer-link
+City of Leicester,leicester.gov.uk,https://www.leicester.gov.uk/accessibility-statement,25,not-compliant,2,8,footer-link
+Clackmannanshire Council,clacks.gov.uk,https://www.clacks.gov.uk/site/webaccessibility/,25,not-compliant,2,8,footer-link
+London Borough of Islington,islington.gov.uk,https://www.islington.gov.uk/accessibility,25,not-compliant,2,8,footer-link
+London Borough of Lewisham,lewisham.gov.uk,https://lewisham.gov.uk/about-this-site/accessibility,25,not-compliant,2,8,footer-link
+Norwich,norwich.gov.uk,https://www.norwich.gov.uk/customer-services/accessibility/accessibility-statement,25,not-compliant,2,8,common-path
+Slough,slough.gov.uk,https://www.slough.gov.uk/accessibility,25,not-compliant,2,8,footer-link
+Brighton and Hove,brighton-hove.gov.uk,https://www.brighton-hove.gov.uk/about-website/website-and-accessibility/accessibility-statement,38,not-compliant,3,8,footer-link
+Hartlepool,hartlepool.gov.uk,https://www.hartlepool.gov.uk/accessibility,38,not-compliant,3,8,footer-link
+Wokingham,wokingham.gov.uk,https://www.wokingham.gov.uk/accessibility-statement-wokingham-borough-council,38,not-compliant,3,8,footer-link
+Epsom and Ewell,epsom-ewell.gov.uk,https://www.epsom-ewell.gov.uk/accessibility,63,missing-information,5,8,footer-link
+Gedling,gedling.gov.uk,https://www.gedling.gov.uk/accessibility-statement,63,missing-information,5,8,footer-link
+Havant,havant.gov.uk,https://www.havant.gov.uk/accessibility-statement,63,missing-information,5,8,footer-link
+St Albans,stalbans.gov.uk,https://www.stalbans.gov.uk/accessibility-statement,63,missing-information,5,8,footer-link
+Broxtowe,broxtowe.gov.uk,https://www.broxtowe.gov.uk/about-the-council/communications-web-and-social-media/accessibility/,75,missing-information,6,8,footer-link
+East Hampshire,easthants.gov.uk,https://www.easthants.gov.uk/accessibility-statement,75,missing-information,6,8,footer-link
+Epping Forest,eppingforestdc.gov.uk,https://www.eppingforestdc.gov.uk/accessibility/,75,missing-information,6,8,footer-link
+Gravesham,gravesham.gov.uk,https://www.gravesham.gov.uk/accessibility,75,missing-information,6,8,footer-link
+London Borough of Newham,newham.gov.uk,https://www.newham.gov.uk/contact-information/website-accessibility/1,75,missing-information,6,8,footer-link
+Mid Devon,middevon.gov.uk,https://www.middevon.gov.uk/accessibility,75,missing-information,6,8,footer-link
+Nuneaton and Bedworth,nuneatonandbedworth.gov.uk,https://www.nuneatonandbedworth.gov.uk/council/accessibility,75,missing-information,6,8,footer-link
+Oadby and Wigston,oadby-wigston.gov.uk,https://www.oadby-wigston.gov.uk/pages/accessibility,75,missing-information,6,8,footer-link
+Thanet,thanet.gov.uk,https://www.thanet.gov.uk/accessibility-statement/,75,missing-information,6,8,common-path
+Angus Council,angus.gov.uk,https://www.angus.gov.uk/communities_and_people/equality_diversity_and_human_rights/accessibility,88,missing-information,7,8,footer-link
+Ashford,ashford.gov.uk,https://www.ashford.gov.uk/accessibility-statement,88,missing-information,7,8,footer-link
+Babergh,babergh.gov.uk,https://www.babergh.gov.uk/accessibility,88,missing-information,7,8,footer-link
+Bedford,bedford.gov.uk,https://www.bedford.gov.uk/your-council/website-information/accessibility-statement-bedford-borough-council,88,missing-information,7,8,footer-link
+Blackpool,blackpool.gov.uk,https://www.blackpool.gov.uk/Accessibility.aspx,88,missing-information,7,8,footer-link
+Castle Point,castlepoint.gov.uk,https://www.castlepoint.gov.uk/w/accessibility,88,missing-information,7,8,footer-link
+City of Edinburgh Council,edinburgh.gov.uk,https://www.edinburgh.gov.uk/accessibility,88,missing-information,7,8,footer-link
+City of Kingston upon Hull,hullcc.gov.uk,https://www.hull.gov.uk/web-help/accessibility-statement,88,missing-information,7,8,footer-link
+City of Stoke-on-Trent,stoke.gov.uk,https://www.stoke.gov.uk/accessibility,88,missing-information,7,8,footer-link
+City of Westminster,westminster.gov.uk,https://www.westminster.gov.uk/accessibility,88,missing-information,7,8,footer-link
+Colchester,colchester.gov.uk,https://www.new.colchester.gov.uk/accessibility-policy,88,missing-information,7,8,common-path
+Cornwall,cornwall.gov.uk,https://www.cornwall.gov.uk/the-council-and-democracy/website-help-and-information/website-accessibility-statement/,88,missing-information,7,8,footer-link
+Dartford,dartford.gov.uk,https://www.dartford.gov.uk/website-information/website-accessibility,88,missing-information,7,8,footer-link
+Dundee City Council,dundeecity.gov.uk,https://www.dundeecity.gov.uk/service-area/council-wide/accessibility-statement,88,missing-information,7,8,footer-link
+East Dunbartonshire Council,eastdunbarton.gov.uk,https://www.eastdunbarton.gov.uk/accessibility-statement/,88,missing-information,7,8,footer-link
+East Suffolk,eastsuffolk.gov.uk,https://www.eastsuffolk.gov.uk/home/accessibilty-statement,88,missing-information,7,8,footer-link
+Erewash,erewash.gov.uk,https://www.erewash.gov.uk/accessibility-statement-erewash-borough-council,88,missing-information,7,8,footer-link
+Highland Council,highland.gov.uk,https://www.highland.gov.uk/equality-diversity/accessibility,88,missing-information,7,8,footer-link
+Ipswich,ipswich.gov.uk,https://www.ipswich.gov.uk/accessibility-statement,88,missing-information,7,8,footer-link
+London Borough of Bromley,bromley.gov.uk,https://www.bromley.gov.uk/websites/accessibility-statement,88,missing-information,7,8,footer-link
+London Borough of Ealing,ealing.gov.uk,https://www.ealing.gov.uk/accessibility,88,missing-information,7,8,footer-link
+London Borough of Hackney,hackney.gov.uk,https://www.hackney.gov.uk/more-us/accessibility-statement-hackney-council,88,missing-information,7,8,footer-link
+London Borough of Hillingdon,hillingdon.gov.uk,https://pre.hillingdon.gov.uk/website/accessibility-statement,88,missing-information,7,8,footer-link
+London Borough of Hounslow,hounslow.gov.uk,https://www.hounslow.gov.uk/customer-services/accessibility-statement,88,missing-information,7,8,footer-link
+London Borough of Lambeth,lambeth.gov.uk,https://www.lambeth.gov.uk/accessibility/accessibility-statement-lambeth-council-website?utm_source=D8LBLFooter,88,missing-information,7,8,footer-link
+London Borough of Southwark,southwark.gov.uk,https://www.southwark.gov.uk/about-council/transparency/accessibility-statement,88,missing-information,7,8,footer-link
+London Borough of Tower Hamlets,towerhamlets.gov.uk,https://www.towerhamlets.gov.uk/lgnl/council_and_democracy/Website/website_accessibility.aspx,88,missing-information,7,8,footer-link
+Mid Suffolk,midsuffolk.gov.uk,https://www.midsuffolk.gov.uk/accessibility,88,missing-information,7,8,footer-link
+North Hertfordshire,north-herts.gov.uk,https://www.north-herts.gov.uk/accessibility-statement,88,missing-information,7,8,footer-link
+North Lanarkshire Council,northlanarkshire.gov.uk,https://www.northlanarkshire.gov.uk/your-council/communication-and-resources/website-guidance/accessibility,88,missing-information,7,8,footer-link
+North Northamptonshire,northnorthants.gov.uk,https://www.northnorthants.gov.uk/web-services-and-communications/accessibility-feedback-and-copyright,88,missing-information,7,8,footer-link
+North Somerset,n-somerset.gov.uk,https://n-somerset.gov.uk/council-democracy/equality-diversity-inclusion/accessibility-statement,88,missing-information,7,8,footer-link
+North Warwickshire,northwarks.gov.uk,https://www.northwarks.gov.uk/website-social-media-1/accessibility-statement,88,missing-information,7,8,footer-link
+North West Leicestershire,nwleics.gov.uk,https://www.nwleics.gov.uk/pages/accessibility,88,missing-information,7,8,footer-link
+North Yorkshire,northyorks.gov.uk,https://www.northyorks.gov.uk/your-council/websites-and-media/website-accessibility,88,missing-information,7,8,footer-link
+Orkney Islands Council,orkney.gov.uk,https://www.orkney.gov.uk/online/web-guide/accessibility/,88,missing-information,7,8,footer-link
+Redditch,redditchbc.gov.uk,https://www.redditchbc.gov.uk/legal-pages/accessibility-statement/,88,missing-information,7,8,footer-link
+Renfrewshire Council,renfrewshire.gov.uk,https://www.renfrewshire.gov.uk/about-councils-new-website/accessibility-statement,88,missing-information,7,8,common-path
+Runnymede,runnymede.gov.uk,https://www.runnymede.gov.uk/accessibility,88,missing-information,7,8,footer-link
+Rushmoor,rushmoor.gov.uk,https://www.rushmoor.gov.uk/accessibility-statement/,88,missing-information,7,8,footer-link
+Sevenoaks,sevenoaks.gov.uk,https://www.sevenoaks.gov.uk/accessibility,88,missing-information,7,8,footer-link
+South Gloucestershire,southglos.gov.uk,https://www.southglos.gov.uk/general-information/online-services/websites-accessibility/website-accessibility/,88,missing-information,7,8,footer-link
+South Kesteven,southkesteven.gov.uk,https://www.southkesteven.gov.uk/accessibility,88,missing-information,7,8,footer-link
+Southend-on-Sea,southend.gov.uk,https://www.southend.gov.uk/council-8/accessibility-statement/1,88,missing-information,7,8,footer-link
+Spelthorne,spelthorne.gov.uk,https://www.spelthorne.gov.uk/page/1611/accessibility-statement,88,missing-information,7,8,footer-link
+Warwick,warwickdc.gov.uk,https://www.warwickdc.gov.uk/accessibility,88,missing-information,7,8,footer-link
+West Northamptonshire,westnorthants.gov.uk,https://www.westnorthants.gov.uk/about-website/accessibility-statement,88,missing-information,7,8,footer-link
+Argyll and Bute Council,argyll-bute.gov.uk,https://www.argyll-bute.gov.uk/my-council/plans-and-policy/accessibility-statement-argyll-and-bute-council,100,compliant,8,8,footer-link
+Arun,arun.gov.uk,https://www.arun.gov.uk/accessibility,100,compliant,8,8,footer-link
+Ashfield,ashfield.gov.uk,https://www.ashfield.gov.uk/accessibility-statement/,100,compliant,8,8,footer-link
+Bassetlaw,bassetlaw.gov.uk,https://www.bassetlaw.gov.uk/system-pages/accessibility-statement,100,compliant,8,8,footer-link
+Bath and North East Somerset,bathnes.gov.uk,https://www.bathnes.gov.uk/accessibility-statement-bath-north-east-somerset-council,100,compliant,8,8,footer-link
+Blaby,blaby.gov.uk,https://www.blaby.gov.uk/your-council/data-security-and-access/accessibility/,100,compliant,8,8,footer-link
+Bolsover,bolsover.gov.uk,https://www.bolsover.gov.uk/accessibility,100,compliant,8,8,footer-link
+Bracknell Forest,bracknell-forest.gov.uk,https://www.bracknell-forest.gov.uk/help/about-site/accessibility-statement,100,compliant,8,8,footer-link
+Braintree,braintree.gov.uk,https://www.braintree.gov.uk/council/accessibility-statement-wwwbraintreegovuk/1,100,compliant,8,8,footer-link
+Brentwood,brentwood.gov.uk,https://www.brentwood.gov.uk/accessibility-statement-for-wwwbrentwoodgovuk,100,compliant,8,8,footer-link
+Burnley,burnley.gov.uk,https://burnley.gov.uk/accessibility/,100,compliant,8,8,footer-link
+Cambridge,cambridge.gov.uk,https://www.cambridge.gov.uk/accessibility-statement,100,compliant,8,8,common-path
+Cannock Chase,cannockchasedc.gov.uk,https://www.cannockchasedc.gov.uk/residents/other/website-accessibility-statement,100,compliant,8,8,footer-link
+Canterbury,canterbury.gov.uk,https://www.canterbury.gov.uk/strategies-and-policies/accessibility-statement,100,compliant,8,8,footer-link
+Central Bedfordshire,centralbedfordshire.gov.uk,https://www.centralbedfordshire.gov.uk/contact-us/accessibility-statement,100,compliant,8,8,footer-link
+Charnwood,charnwood.gov.uk,https://www.charnwood.gov.uk/pages/accessibility,100,compliant,8,8,footer-link
+Chelmsford,chelmsford.gov.uk,https://www.chelmsford.gov.uk/your-council/about-our-website/accessibility-statement-for-chelmsfordgovuk/,100,compliant,8,8,footer-link
+Cheltenham,cheltenham.gov.uk,https://www.cheltenham.gov.uk/support/accessibility/,100,compliant,8,8,footer-link
+Cherwell,cherwell.gov.uk,https://www.cherwell.gov.uk/accessibility,100,compliant,8,8,footer-link
+Cheshire East,cheshireeast.gov.uk,https://www.cheshireeast.gov.uk/council-and-democracy/council-information/website-information/accessibility-statement,100,compliant,8,8,footer-link
+Chesterfield,chesterfield.gov.uk,https://www.chesterfield.gov.uk/about-this-website/accessibility-statement,100,compliant,8,8,footer-link
+City of Bristol,bristol.gov.uk,https://www.bristol.gov.uk/council/about-our-website/website-accessibility,100,compliant,8,8,footer-link
+City of Nottingham,nottinghamcity.gov.uk,https://www.nottinghamcity.gov.uk/footer-pages/accessibility/,100,compliant,8,8,footer-link
+City of Peterborough,peterborough.gov.uk,https://www.peterborough.gov.uk/accessibility,100,compliant,8,8,footer-link
+City of Plymouth,plymouth.gov.uk,https://www.plymouth.gov.uk/accessibility-statement,100,compliant,8,8,footer-link
+City of Portsmouth,portsmouth.gov.uk,https://www.portsmouth.gov.uk/services/council-and-democracy/transparency/accessibility/accessibility-statement,100,compliant,8,8,footer-link
+Comhairle nan Eilean Siar,cne-siar.gov.uk,https://www.cne-siar.gov.uk/accessibility-statement-comhairle-nan-eilean-siar,100,compliant,8,8,footer-link
+Cotswold,cotswold.gov.uk,https://www.cotswold.gov.uk/support/accessibility/,100,compliant,8,8,footer-link
+County Durham,durham.gov.uk,https://www.durham.gov.uk/article/3157/Accessibility-statement,100,compliant,8,8,footer-link
+Crawley,crawley.gov.uk,https://crawley.gov.uk/council-information/about-website/accessibility-statement,100,compliant,8,8,footer-link
+Cumberland,cumberland.gov.uk,https://www.cumberland.gov.uk/accessibility-statement,100,compliant,8,8,footer-link
+Darlington,darlington.gov.uk,https://www.darlington.gov.uk/about-this-website/accessibility/,100,compliant,8,8,footer-link
+Derbyshire Dales,derbyshiredales.gov.uk,https://www.derbyshiredales.gov.uk/accessibility,100,compliant,8,8,footer-link
+Dover,dover.gov.uk,https://www.dover.gov.uk/accessibility-statement,100,compliant,8,8,common-path
+East Ayrshire Council,east-ayrshire.gov.uk,https://www.east-ayrshire.gov.uk/Help/Accessibility-statement.aspx,100,compliant,8,8,footer-link
+East Cambridgeshire,eastcambs.gov.uk,https://eastcambs.gov.uk/about-council/data-and-information/accessibility-statement,100,compliant,8,8,footer-link
+East Hertfordshire,eastherts.gov.uk,https://www.eastherts.gov.uk/accessibility-statement-east-herts-council-website,100,compliant,8,8,footer-link
+East Riding of Yorkshire,eastriding.gov.uk,https://www.eastriding.gov.uk/council/website-and-accessibility-help/accessibility-statement/,100,compliant,8,8,footer-link
+Falkirk Council,falkirk.gov.uk,https://www.falkirk.gov.uk/help/accessibility,100,compliant,8,8,footer-link
+Fareham,fareham.gov.uk,https://www.fareham.gov.uk/accessibilitystatement.aspx,100,compliant,8,8,footer-link
+Forest of Dean,fdean.gov.uk,https://www.fdean.gov.uk/support/accessibility/,100,compliant,8,8,footer-link
+Fylde,fylde.gov.uk,https://new.fylde.gov.uk/accessibility-statement-for-fylde-gov-uk/,100,compliant,8,8,footer-link
+Gloucester,gloucester.gov.uk,https://www.gloucester.gov.uk/accessibility/,100,compliant,8,8,footer-link
+Guildford,guildford.gov.uk,https://www.guildford.gov.uk/accessibility?ccp=true,100,compliant,8,8,footer-link
+Harborough,harborough.gov.uk,https://www.harborough.gov.uk/accessibility,100,compliant,8,8,footer-link
+Harlow,harlow.gov.uk,https://www.harlow.gov.uk/accessibility,100,compliant,8,8,footer-link
+Hart,hart.gov.uk,https://www.hart.gov.uk/accessibility,100,compliant,8,8,footer-link
+Herefordshire,herefordshire.gov.uk,https://www.herefordshire.gov.uk/site-information/accessibility/,100,compliant,8,8,footer-link
+Hertsmere,hertsmere.gov.uk,https://www.hertsmere.gov.uk/accessibility/accessibility-statement,100,compliant,8,8,footer-link
+High Peak,highpeak.gov.uk,https://www.highpeak.gov.uk/article/6174/Accessibility-Statement,100,compliant,8,8,footer-link
+Huntingdonshire,huntsdc.gov.uk,https://www.huntsdc.gov.uk/council-democracy/our-website/accessibility/accessibility-statement-for-huntingdonshire-district-council/,100,compliant,8,8,footer-link
+Hyndburn,hyndburnbc.gov.uk,https://www.hyndburnbc.gov.uk/accessibility-statement/,100,compliant,8,8,footer-link
+Isles of Scilly,scilly.gov.uk,https://scilly.gov.uk/website-accessibility-statement,100,compliant,8,8,footer-link
+King's Lynn and West Norfolk,west-norfolk.gov.uk,https://www.west-norfolk.gov.uk/accessibility,100,compliant,8,8,footer-link
+Lincoln,lincoln.gov.uk,https://www.lincoln.gov.uk/accessibility,100,compliant,8,8,footer-link
+London Borough of Barking and Dagenham,lbbd.gov.uk,https://www.lbbd.gov.uk/accessibility,100,compliant,8,8,footer-link
+London Borough of Bexley,bexley.gov.uk,https://www.bexley.gov.uk/accessibility-statement/accessibility-statement-wwwbexleygovuk,100,compliant,8,8,footer-link
+London Borough of Brent,brent.gov.uk,https://www.brent.gov.uk/accessibility-statements/brent-website,100,compliant,8,8,footer-link
+London Borough of Camden,camden.gov.uk,https://www.camden.gov.uk/accessibility-statement,100,compliant,8,8,footer-link
+London Borough of Croydon,croydon.gov.uk,https://www.croydon.gov.uk/accessibility-statement-croydon-council-0,100,compliant,8,8,footer-link
+London Borough of Enfield,enfield.gov.uk,https://www.enfield.gov.uk/accessibility,100,compliant,8,8,footer-link
+London Borough of Hammersmith and Fulham,lbhf.gov.uk,https://www.lbhf.gov.uk/accessibility-statement,100,compliant,8,8,footer-link
+London Borough of Haringey,haringey.gov.uk,https://haringey.gov.uk/about-this-website/accessibility-statements,100,compliant,8,8,footer-link
+London Borough of Harrow,harrow.gov.uk,https://www.harrow.gov.uk/council/accessibility,100,compliant,8,8,footer-link
+London Borough of Havering,havering.gov.uk,https://www.havering.gov.uk/council-democracy/accessibility-statement,100,compliant,8,8,footer-link
+London Borough of Merton,merton.gov.uk,https://www.merton.gov.uk/accessibility-statements/merton,100,compliant,8,8,footer-link
+London Borough of Redbridge,redbridge.gov.uk,https://www.redbridge.gov.uk/accessibility-statement/,100,compliant,8,8,footer-link
+London Borough of Sutton,sutton.gov.uk,https://www.sutton.gov.uk/accessibility-statement,100,compliant,8,8,footer-link
+London Borough of Waltham Forest,walthamforest.gov.uk,https://www.walthamforest.gov.uk/council-and-elections/information-about-website/website-accessibility,100,compliant,8,8,footer-link
+London Borough of Wandsworth,wandsworth.gov.uk,https://www.wandsworth.gov.uk/about-this-website/accessibility-statement/,100,compliant,8,8,footer-link
+Maldon,maldon.gov.uk,https://www.maldon.gov.uk/accessibility,100,compliant,8,8,footer-link
+Malvern Hills,malvernhills.gov.uk,https://www.malvernhills.gov.uk/accessibility,100,compliant,8,8,footer-link
+Mansfield,mansfield.gov.uk,https://www.mansfield.gov.uk/-footer-links/accessibility-1/1,100,compliant,8,8,footer-link
+Medway,medway.gov.uk,https://www.medway.gov.uk/accessibility,100,compliant,8,8,footer-link
+Melton,melton.gov.uk,https://www.melton.gov.uk/your-council/data-security-and-access/accessibility-statement/,100,compliant,8,8,footer-link
+Mid Sussex,midsussex.gov.uk,https://www.midsussex.gov.uk/about-us/accessibility/,100,compliant,8,8,footer-link
+Middlesbrough,middlesbrough.gov.uk,https://www.middlesbrough.gov.uk/accessibility-statement/,100,compliant,8,8,footer-link
+Midlothian Council,midlothian.gov.uk,https://www.midlothian.gov.uk/accessibility,100,compliant,8,8,footer-link
+Mole Valley,molevalley.gov.uk,https://www.molevalley.gov.uk/accessibility-statement/,100,compliant,8,8,footer-link
+Newark and Sherwood,newark-sherwooddc.gov.uk,http://www.newark-sherwooddc.gov.uk/accessibility-statement,100,compliant,8,8,footer-link
+Newcastle-under-Lyme,newcastle-staffs.gov.uk,https://www.newcastle-staffs.gov.uk/website/accessibility-statement,100,compliant,8,8,footer-link
+North East Derbyshire,ne-derbyshire.gov.uk,https://www.ne-derbyshire.gov.uk/accessibility,100,compliant,8,8,footer-link
+North East Lincolnshire,nelincs.gov.uk,https://www.nelincs.gov.uk/accessibility/,100,compliant,8,8,footer-link
+North Norfolk,north-norfolk.gov.uk,https://www.north-norfolk.gov.uk/accessibility-statement/,100,compliant,8,8,footer-link
+Oxford,oxford.gov.uk,https://www.oxford.gov.uk/accessibility,100,compliant,8,8,footer-link
+Reading,reading.gov.uk,https://www.reading.gov.uk/the-council-and-democracy/council-strategies-plans-and-policies/accessibility/,100,compliant,8,8,footer-link
+Redcar and Cleveland,redcar-cleveland.gov.uk,https://www.redcar-cleveland.gov.uk/site-terms/accessibility-statement,100,compliant,8,8,footer-link
+Reigate and Banstead,reigate-banstead.gov.uk,https://www.reigate-banstead.gov.uk/info/20315/access_to_council_services/723/accessibility_statement_for_reigate_and_banstead_borough_council,100,compliant,8,8,footer-link
+Ribble Valley,ribblevalley.gov.uk,https://www.ribblevalley.gov.uk/accessibility,100,compliant,8,8,footer-link
+Rochford,rochford.gov.uk,https://www.rochford.gov.uk/accessibility,100,compliant,8,8,footer-link
+Rossendale,rossendale.gov.uk,https://www.rossendale.gov.uk/accessibility,100,compliant,8,8,common-path
+Royal Borough of Kensington and Chelsea,rbkc.gov.uk,https://www.rbkc.gov.uk/web-services/accessibility-statement,100,compliant,8,8,footer-link
+Royal Borough of Kingston upon Thames,kingston.gov.uk,https://www.kingston.gov.uk/your-council/privacy-and-data/privacy-notice/accessibility-statement,100,compliant,8,8,footer-link
+Rushcliffe,rushcliffe.gov.uk,https://www.rushcliffe.gov.uk/accessibility-statement/,100,compliant,8,8,footer-link
+Rutland,rutland.gov.uk,https://www.rutland.gov.uk/accessibility-statement,100,compliant,8,8,footer-link
+Scottish Borders Council,scotborders.gov.uk,https://www.scotborders.gov.uk/access-information/accessibility-statement/1,100,compliant,8,8,footer-link
+Somerset,somerset.gov.uk,https://www.somerset.gov.uk/accessibility/,100,compliant,8,8,footer-link
+South Cambridgeshire,scambs.gov.uk,https://www.scambs.gov.uk/accessibility,100,compliant,8,8,footer-link
+South Lanarkshire Council,southlanarkshire.gov.uk,https://www.southlanarkshire.gov.uk/accessibility,100,compliant,8,8,footer-link
+South Oxfordshire,southoxon.gov.uk,https://www.southoxon.gov.uk/south-oxfordshire-district-council/about-the-council/website-accessibility-statement-for-south-oxfordshire-district-council/,100,compliant,8,8,footer-link
+South Staffordshire,sstaffs.gov.uk,https://www.sstaffs.gov.uk/accessibility-statement-south-staffordshire-council,100,compliant,8,8,footer-link
+Stafford,staffordbc.gov.uk,https://www.staffordbc.gov.uk/website-accessibility-statement,100,compliant,8,8,footer-link
+Stevenage,stevenage.gov.uk,https://www.stevenage.gov.uk/accessibility,100,compliant,8,8,footer-link
+Swindon,swindon.gov.uk,https://www.swindon.gov.uk/info/20255/your_council/1654/accessibility_statement,100,compliant,8,8,footer-link
+Tamworth,tamworth.gov.uk,https://www.tamworth.gov.uk/accessibility,100,compliant,8,8,footer-link
+Tandridge,tandridge.gov.uk,https://www.tandridge.gov.uk/Your-council/Transparency-and-inclusive-service-standards/Accessibility-statement,100,compliant,8,8,footer-link
+Telford and Wrekin,telford.gov.uk,https://www.telford.gov.uk/accessibility-statement/,100,compliant,8,8,footer-link
+Tendring,tendringdc.gov.uk,https://www.tendringdc.gov.uk/policy/accessibility,100,compliant,8,8,footer-link
+Tewkesbury,tewkesburybc.gov.uk,https://tewkesbury.gov.uk/accessibility/,100,compliant,8,8,footer-link
+The Moray Council,moray.gov.uk,https://www.moray.gov.uk/accessibility-statement/,100,compliant,8,8,footer-link
+Thurrock,thurrock.gov.uk,https://www.thurrock.gov.uk/accessibility,100,compliant,8,8,footer-link
+Torbay,torbay.gov.uk,https://www.torbay.gov.uk/website-help/accessibility/,100,compliant,8,8,footer-link
+Vale of White Horse,whitehorsedc.gov.uk,https://www.whitehorsedc.gov.uk/vale-of-white-horse-district-council/about-the-council/website-accessibility-statement-for-vale-of-white-horse-district-council/,100,compliant,8,8,footer-link
+Warrington,warrington.gov.uk,https://www.warrington.gov.uk/accessibility-statement,100,compliant,8,8,footer-link
+Watford,watford.gov.uk,https://www.watford.gov.uk/council-13/accessibility-statement,100,compliant,8,8,footer-link
+Welwyn Hatfield,welhat.gov.uk,https://www.welhat.gov.uk/utilities/accessibility,100,compliant,8,8,footer-link
+West Dunbartonshire Council,west-dunbarton.gov.uk,https://www.west-dunbarton.gov.uk/accessibility,100,compliant,8,8,footer-link
+West Lothian Council,westlothian.gov.uk,https://www.westlothian.gov.uk/accessibility,100,compliant,8,8,footer-link
+West Oxfordshire,westoxon.gov.uk,https://westoxon.gov.uk/support/accessibility/,100,compliant,8,8,footer-link
+Westmorland and Furness,westmorlandandfurness.gov.uk,https://www.westmorlandandfurness.gov.uk/accessibility-statement-westmorland-and-furness-council,100,compliant,8,8,footer-link
+Winchester,winchester.gov.uk,https://www.winchester.gov.uk/no-listing/accessibility-statement,100,compliant,8,8,footer-link
+Windsor and Maidenhead,rbwm.gov.uk,https://www.rbwm.gov.uk/accessibility-statement,100,compliant,8,8,footer-link
+Worthing,adur-worthing.gov.uk,https://www.adur-worthing.gov.uk/accessibility/,100,compliant,8,8,footer-link

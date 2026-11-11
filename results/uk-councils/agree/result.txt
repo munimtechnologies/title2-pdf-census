@@ -1,0 +1,32 @@
+council_agree 0.1.0
+status: graded
+gates: A1_their_table=True, F1_mv2_table=True, G1_both_found=True, P0_pins=True, P0_prereg=True
+a_table: {"bytes": 26695, "copy": "accessibility-build-councils.csv", "copy_sha256": "4beb4c416e85074aa6a3eb81618d5095d2ea1b7161ed360372ab04efec93ebec", "dropped": 0, "fetched_utc": "2026-11-10T21:31:23Z", "rows": 206, "sha256": "4beb4c416e85074aa6a3eb81618d5095d2ea1b7161ed360372ab04efec93ebec", "status": "200", "url": "https://accessibility.build/api/research/accessibility-statements?table=councils&format=csv"}
+crawl: {"finished_utc": "2026-11-10T21:31:53Z", "pages": 22, "started_utc": "2026-11-10T21:31:23Z", "workers": 4}
+table: {"bytes": 60348, "file": "agree.csv", "rows": 206, "sha256": "5f73a92fa6b7292c1a9b24992fa96ddae3fa3ed10813e878d3ee712da5143411"}
+measure A_rows: 206
+measure G1_both_found: 189
+measure H1_low_diff: {"k": 13, "n": 17, "pct": 76.47}
+measure H2_full_same: {"k": 110, "n": 115, "pct": 95.65}
+measure H3_low_links_to_ours: {"k": 12, "n": 13, "pct": 92.31}
+measure H4_full_same_dated: {"k": 107, "n": 110, "pct": 97.27}
+measure matched: 204
+prediction H1: held
+prediction H2: held
+prediction H3: held
+prediction H4: held
+a_group: {"full": 123, "low": 23, "partial": 60}
+a_passed: {"1": 13, "2": 7, "3": 3, "5": 4, "6": 9, "7": 47, "8": 123}
+a_verdict: {"compliant": 123, "missing-information": 60, "not-compliant": 23}
+a_via: {"common-path": 10, "footer-link": 196}
+b_ok_not_in_a: 95
+b_status_of_matched: {"not_found": 14, "ok": 189, "robots": 1}
+by_group: {"full": {"a_rows": 123, "b_dated": 112, "b_found_by_hub": 1, "b_wcag22": 85, "both": 115, "diff_url": 5, "reread_answered": 4, "reread_final_is_ours": 1, "reread_is_statement": 4, "reread_links_to_ours": 3, "same_url": 110}, "low": {"a_rows": 23, "b_dated": 14, "b_found_by_hub": 11, "b_wcag22": 11, "both": 17, "diff_url": 13, "reread_answered": 13, "reread_final_is_ours": 0, "reread_is_statement": 0, "reread_links_to_ours": 12, "same_url": 4}, "partial": {"a_rows": 60, "b_dated": 53, "b_found_by_hub": 0, "b_wcag22": 33, "both": 57, "diff_url": 4, "reread_answered": 3, "reread_final_is_ours": 1, "reread_is_statement": 3, "reread_links_to_ours": 2, "same_url": 53}}
+diff_url_b_found_by: {"hub": 11, "link": 10, "probe2": 1}
+diff_url_by_via: {"common-path": 5, "footer-link": 17}
+match: {"host": 201, "none": 2, "url_host": 3}
+reread_is_statement_and_links: 5
+reread_not_statement_no_link: 1
+reread_retried: 0
+reread_robots_blocked: 0
+reread_status: {"200": 20, "404": 2}
