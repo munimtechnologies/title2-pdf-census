@@ -1,0 +1,30 @@
+govuk_stock 0.1.0
+status: graded
+gates: F1_frame=True, G1_answered=True, P0_checker=True, P0_prereg=True
+frame: {"bytes": 61627, "dropped": 0, "fetch_failed": 1, "hosts": 283, "organisations": 1273, "rows": 317, "sha256": "8ba68f9f47cb426685211eba0a89d6f4a6bb6f8e966ffc57e7d2e91edd5f977e"}
+crawl: {"finished_utc": "2026-11-11T03:10:32Z", "started_utc": "2026-11-11T03:01:35Z", "workers": 4}
+table: {"bytes": 79131, "file": "hosts.csv", "rows": 283, "sha256": "0f1799fbfd53e9e097cc49e7f0857ed759ef901fd0074b8f4042f2c773261ec0"}
+  F1_hosts: 283
+  G1_answered: {"k": 278, "n": 283, "pct": 98.23}
+  O1_found: {"k": 202, "n": 283, "pct": 71.38}
+  O2_placeholder_hosts: 1
+  O3_wcag22_of_found: {"k": 139, "n": 202, "pct": 68.81}
+  O4_stale_of_dated: {"k": 81, "n": 191, "pct": 42.41}
+predictions: O1=False, O2=True, O3=False, O4=True
+by_type: {"advisory_ndpb": {"dated": 11, "found": 12, "hosts": 17, "placeholder": 0, "stale": 9, "wcag22": 5}, "devolved_administration": {"dated": 3, "found": 3, "hosts": 3, "placeholder": 0, "stale": 3, "wcag22": 2}, "executive_agency": {"dated": 9, "found": 9, "hosts": 11, "placeholder": 0, "stale": 4, "wcag22": 4}, "executive_ndpb": {"dated": 71, "found": 76, "hosts": 101, "placeholder": 0, "stale": 24, "wcag22": 53}, "independent_monitoring_body": {"dated": 1, "found": 2, "hosts": 3, "placeholder": 0, "stale": 0, "wcag22": 2}, "non_ministerial_department": {"dated": 7, "found": 7, "hosts": 8, "placeholder": 0, "stale": 3, "wcag22": 5}, "other": {"dated": 60, "found": 64, "hosts": 95, "placeholder": 1, "stale": 27, "wcag22": 46}, "public_corporation": {"dated": 7, "found": 7, "hosts": 18, "placeholder": 0, "stale": 3, "wcag22": 5}, "special_health_authority": {"dated": 4, "found": 4, "hosts": 4, "placeholder": 0, "stale": 1, "wcag22": 4}, "sub_organisation": {"dated": 15, "found": 15, "hosts": 19, "placeholder": 0, "stale": 6, "wcag22": 11}, "tribunal": {"dated": 3, "found": 3, "hosts": 4, "placeholder": 0, "stale": 1, "wcag22": 2}}
+date_source: {"prepared": 23, "reviewed": 168}
+distinct_texts: 193
+found_by: {"hub": 7, "link": 188, "probe1": 4, "probe2": 3}
+found_gov_uk_wording: 160
+found_highest: {"": 6, "2.1": 57, "2.2": 139}
+found_no_date: 11
+found_organisations: 216
+found_other_host: 22
+home_status: {"": 21, "200": 242, "202": 2, "403": 15, "405": 1, "502": 2}
+offsite_link: 0
+placeholder_hosts: ["newcoventgardenmarket.com"]
+placeholder_ids: {"gov-uk/insert_one_of": 1}
+retried: 0
+robots_blocked: 16
+statement_year: {"2020": 5, "2021": 10, "2022": 4, "2023": 18, "2024": 17, "2025": 33, "2026": 103, "2027": 1}
+status: {"http_0": 5, "not_found": 60, "ok": 202, "robots": 16}

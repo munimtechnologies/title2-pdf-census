@@ -1,0 +1,318 @@
+slug,title,abbreviation,format,organisation_type,govuk_status,url,host,own_host,parents,fetch
+acas,"Advisory, Conciliation and Arbitration Service",Acas,Executive non-departmental public body,executive_ndpb,exempt,http://www.acas.org.uk/,acas.org.uk,True,department-for-business-innovation-science-and-trade,ok
+active-travel-england,Active Travel England,ATE,Executive agency,executive_agency,exempt,https://www.activetravelengland.gov.uk,activetravelengland.gov.uk,True,department-for-transport,ok
+advanced-research-and-invention-agency,Advanced Research and Invention Agency,ARIA,Executive non-departmental public body,executive_ndpb,exempt,https://www.aria.org.uk,aria.org.uk,True,department-for-business-innovation-science-and-trade,ok
+advisory-committees-on-justices-of-the-peace,Advisory Committees on Justices of the Peace,ACJP,Advisory non-departmental public body,advisory_ndpb,exempt,http://www.justice.gov.uk/about/all,justice.gov.uk,True,ministry-of-justice,ok
+agri-food-and-biosciences-institute,Agri-Food and Biosciences Institute (Northern Ireland),AFBI (NI),Executive non-departmental public body,executive_ndpb,exempt,http://www.afbini.gov.uk/,afbini.gov.uk,True,department-of-agriculture-environment-and-rural-affairs-northern-ireland,ok
+agriculture-and-horticulture-development-board,Agriculture and Horticulture Development Board,AHDB,Executive non-departmental public body,executive_ndpb,exempt,http://www.ahdb.org.uk/,ahdb.org.uk,True,department-for-environment-food-rural-affairs,ok
+ai-security-institute,AI Security Institute,AISI,Sub organisation,sub_organisation,exempt,https://www.aisi.gov.uk/,aisi.gov.uk,True,cabinet-office,ok
+architects-registration-board,Architects Registration Board,ARB,Public corporation,public_corporation,exempt,http://www.arb.org.uk,arb.org.uk,True,ministry-of-housing-communities-local-government,ok
+armed-forces-commissioner,Armed Forces Commissioner,AFC,Other,other,exempt,https://www.afcommissioner.org.uk/,afcommissioner.org.uk,True,ministry-of-defence,ok
+armed-forces-covenant-fund-trust,Armed Forces Covenant Fund Trust,,Executive non-departmental public body,executive_ndpb,exempt,https://www.covenantfund.org.uk/,covenantfund.org.uk,True,ministry-of-defence,ok
+arts-and-humanities-research-council,Arts and Humanities Research Council,AHRC,Sub organisation,sub_organisation,exempt,http://www.ahrc.ac.uk/,ahrc.ac.uk,True,uk-research-and-innovation,ok
+arts-council-england,Arts Council England,,Executive non-departmental public body,executive_ndpb,exempt,http://www.artscouncil.org.uk/,artscouncil.org.uk,True,department-for-digital-culture-media-and-sport,ok
+arts-council-of-northern-ireland,Arts Council of Northern Ireland,ACNI,Other,other,exempt,http://www.artscouncil-ni.org/,artscouncil-ni.org,True,department-for-communities-northern-ireland,ok
+arts-council-of-wales,Arts Council of Wales,,Other,other,exempt,https://arts.wales/,arts.wales,True,welsh-government,ok
+awe-nuclear-security-technologies,AWE Nuclear Security Technologies,AWE,Executive non-departmental public body,executive_ndpb,exempt,https://www.awe.co.uk/,awe.co.uk,True,defence-nuclear-organisation;ministry-of-defence,ok
+bank-of-england,Bank of England,,Other,other,exempt,http://www.bankofengland.co.uk/,bankofengland.co.uk,True,treasury-solicitor-s-department,ok
+bbc,BBC,BBC,Public corporation,public_corporation,exempt,http://www.bbc.co.uk,bbc.co.uk,True,department-for-digital-culture-media-and-sport,ok
+bbc-world-service,BBC World Service,BBCWS,Other,other,exempt,http://www.bbc.co.uk/worldservice/,bbc.co.uk,True,,ok
+biotechnology-biological-sciences-research-council,Biotechnology and Biological Sciences Research Council,BBSRC,Sub organisation,sub_organisation,exempt,http://www.bbsrc.ac.uk/,bbsrc.ac.uk,True,uk-research-and-innovation,ok
+board-of-trustees-of-the-royal-botanic-gardens-kew,Board of Trustees of the Royal Botanic Gardens Kew,,Executive non-departmental public body,executive_ndpb,exempt,http://www.kew.org/about/our-work/people-and-departments/board-trustees,kew.org,True,department-for-environment-food-rural-affairs,ok
+boundary-commission-for-england,Boundary Commission for England,BCE,Advisory non-departmental public body,advisory_ndpb,exempt,https://boundarycommissionforengland.independent.gov.uk/,boundarycommissionforengland.independent.gov.uk,True,ministry-of-housing-communities-local-government,ok
+boundary-commission-for-northern-ireland,Boundary Commission for Northern Ireland,BCNI,Advisory non-departmental public body,advisory_ndpb,exempt,http://www.boundarycommission.org.uk/,boundarycommission.org.uk,True,northern-ireland-office,ok
+boundary-commission-for-scotland,Boundary Commission for Scotland,BCS,Advisory non-departmental public body,advisory_ndpb,exempt,http://www.bcomm-scotland.independent.gov.uk/,bcomm-scotland.independent.gov.uk,True,scotland-office,ok
+boundary-commission-for-wales,Boundary Commission for Wales,BCW,Advisory non-departmental public body,advisory_ndpb,exempt,http://bcomm-wales.gov.uk/,bcomm-wales.gov.uk,True,ministry-of-housing-communities-local-government,ok
+british-business-bank,British Business Bank,BBB,Other,other,exempt,http://british-business-bank.co.uk/,british-business-bank.co.uk,True,department-for-business-innovation-science-and-trade,ok
+british-council,British Council,British Council,Executive non-departmental public body,executive_ndpb,exempt,http://www.britishcouncil.org,britishcouncil.org,True,foreign-commonwealth-development-office,ok
+british-film-institute,British Film Institute,BFI,Executive non-departmental public body,executive_ndpb,exempt,http://www.bfi.org.uk,bfi.org.uk,True,department-for-digital-culture-media-and-sport,ok
+british-library,British Library,BL,Executive non-departmental public body,executive_ndpb,exempt,http://www.bl.uk/,bl.uk,True,department-for-digital-culture-media-and-sport,ok
+british-museum,British Museum,BM,Executive non-departmental public body,executive_ndpb,exempt,http://www.britishmuseum.org,britishmuseum.org,True,department-for-digital-culture-media-and-sport,ok
+british-pharmacopoeia,British Pharmacopoeia Commission,,Advisory non-departmental public body,advisory_ndpb,exempt,http://pharmacopoeia.com/,pharmacopoeia.com,True,department-of-health-and-social-care,ok
+british-steel-limited,British Steel Limited,BSL,Public corporation,public_corporation,exempt,https://www.britishsteel.co.uk/,britishsteel.co.uk,True,department-for-business-innovation-science-and-trade,ok
+british-technology-investments-ltd,British Technology Investments Ltd,,Other,other,exempt,,,False,department-for-business-innovation-science-and-trade,ok
+british-transport-police-authority,British Transport Police Authority,BTPA,Executive non-departmental public body,executive_ndpb,exempt,http://btpa.police.uk/,btpa.police.uk,True,department-for-transport,ok
+british-wool,British Wool,,Other,other,exempt,https://www.britishwool.org.uk/,britishwool.org.uk,True,department-for-environment-food-rural-affairs,ok
+broads-authority,Broads Authority,,Other,other,exempt,http://www.broads-authority.gov.uk/,broads-authority.gov.uk,True,department-for-environment-food-rural-affairs,ok
+cambridge-growth-company,Cambridge Growth Company,CGC,Other,other,exempt,https://thecgc.org.uk/,thecgc.org.uk,True,ministry-of-housing-communities-local-government,ok
+care-quality-commission,Care Quality Commission,CQC,Executive non-departmental public body,executive_ndpb,exempt,http://www.cqc.org.uk/,cqc.org.uk,True,department-of-health-and-social-care,ok
+careers-wales,Careers Wales,,Other,other,exempt,http://www.careerswales.com/,careerswales.com,True,welsh-government,ok
+channel-4,Channel 4,C4,Public corporation,public_corporation,exempt,http://www.channel4.com,channel4.com,True,department-for-digital-culture-media-and-sport,ok
+chevening-foundation,Chevening Scholarship Programme,Chevening,Other,other,exempt,http://www.chevening.org/,chevening.org,True,,ok
+child-safeguarding-practice-review-panel,Child Safeguarding Practice Review Panel,,Other,other,exempt,https://childsafeguarding.independent-panel.uk/,childsafeguarding.independent-panel.uk,True,department-for-education,ok
+children-and-family-court-advisory-and-support-service,Cafcass,Cafcass,Executive non-departmental public body,executive_ndpb,exempt,http://www.cafcass.gov.uk/,cafcass.gov.uk,True,ministry-of-justice,ok
+churches-conservation-trust,Churches Conservation Trust,,Other,other,exempt,https://www.visitchurches.org.uk/,visitchurches.org.uk,True,department-for-digital-culture-media-and-sport,ok
+civil-aviation-authority,Civil Aviation Authority,CAA,Public corporation,public_corporation,exempt,http://www.caa.co.uk/,caa.co.uk,True,department-for-transport,ok
+civil-justice-council,Civil Justice Council,CJC,Advisory non-departmental public body,advisory_ndpb,exempt,https://www.judiciary.uk/related-offices-and-bodies/advisory-bodies/cjc/,judiciary.uk,True,ministry-of-justice,ok
+civil-service-commission,Civil Service Commission,CSC,Executive non-departmental public body,executive_ndpb,exempt,http://civilservicecommission.independent.gov.uk/,civilservicecommission.independent.gov.uk,True,cabinet-office,ok
+civil-service-fast-stream,Civil Service Fast Stream,,Sub organisation,sub_organisation,exempt,https://www.faststream.gov.uk/,faststream.gov.uk,True,civil-service-resourcing;government-people-group,ok
+civil-service-government-statistical-service,Government Statistical Service,,Sub organisation,sub_organisation,exempt,https://gss.civilservice.gov.uk/,gss.civilservice.gov.uk,True,civil-service,ok
+civil-service-group,Civil Service Group,,Sub organisation,sub_organisation,joining,,,False,cabinet-office,ok
+college-of-policing,College of Policing,,Other,other,exempt,http://www.college.police.uk/,college.police.uk,True,home-office,ok
+commissioner-for-public-appointments,Commissioner for Public Appointments,,Other,other,exempt,http://publicappointmentscommissioner.independent.gov.uk/,publicappointmentscommissioner.independent.gov.uk,True,cabinet-office,ok
+committee-on-climate-change,Committee on Climate Change,CCC,Executive non-departmental public body,executive_ndpb,exempt,http://www.theccc.org.uk/,theccc.org.uk,True,department-for-energy-security-and-net-zero,ok
+competition-appeal-tribunal,Competition Appeal Tribunal,CAT,Tribunal,tribunal,exempt,http://www.catribunal.org.uk/,catribunal.org.uk,True,department-for-business-innovation-science-and-trade,ok
+competition-service,Competition Service,CS,Executive non-departmental public body,executive_ndpb,exempt,https://www.catribunal.org.uk/about/competition-service,catribunal.org.uk,True,department-for-business-innovation-science-and-trade,ok
+construction-industry-training-board,Construction Industry Training Board,CITB,Executive non-departmental public body,executive_ndpb,exempt,http://www.citb.co.uk,citb.co.uk,True,department-for-work-pensions,ok
+consumer-council-for-water,Consumer Council for Water,CCW,Executive non-departmental public body,executive_ndpb,exempt,https://www.ccw.org.uk/,ccw.org.uk,True,department-for-environment-food-rural-affairs,ok
+covent-garden-market-authority,Covent Garden Market Authority,CGMA,Other,other,exempt,http://www.newcoventgardenmarket.com/,newcoventgardenmarket.com,True,department-for-environment-food-rural-affairs,ok
+criminal-cases-review-commission,Criminal Cases Review Commission,CCRC,Executive non-departmental public body,executive_ndpb,exempt,http://www.ccrc.gov.uk/,ccrc.gov.uk,True,ministry-of-justice,ok
+crossrail-international,Crossrail International,CI,Public corporation,public_corporation,exempt,https://www.crossrail-international.co.uk,crossrail-international.co.uk,True,department-for-transport,ok
+crown-prosecution-service,Crown Prosecution Service,CPS,Non-ministerial department,non_ministerial_department,exempt,http://www.cps.gov.uk/,cps.gov.uk,True,attorney-generals-office,ok
+dartmoor-national-park-authority,Dartmoor National Park Authority,DNPA,Other,other,exempt,https://www.dartmoor.gov.uk/,dartmoor.gov.uk,True,department-for-environment-food-rural-affairs,ok
+defence-academy,Defence Academy of the United Kingdom,DA,Sub organisation,sub_organisation,exempt,http://www.da.mod.uk,da.mod.uk,True,ministry-of-defence,ok
+defence-and-security-media-advisory-committee,Defence and Security Media Advisory Committee,DSMA,Other,other,exempt,http://www.dsma.uk/,dsma.uk,True,ministry-of-defence,ok
+defence-sixth-form-college,Defence Sixth Form College,DSFC,Sub organisation,sub_organisation,exempt,http://www.dsfc.ac.uk,dsfc.ac.uk,True,ministry-of-defence,ok
+department-for-communities-northern-ireland,Department for Communities (Northern Ireland),DfC (NI),Other,other,exempt,https://www.communities-ni.gov.uk/,communities-ni.gov.uk,True,northern-ireland-executive,ok
+department-for-infrastructure-northern-ireland,Department for Infrastructure (Northern Ireland),DfI (NI),Other,other,exempt,https://www.infrastructure-ni.gov.uk/,infrastructure-ni.gov.uk,True,northern-ireland-executive,ok
+department-for-the-economy-northern-ireland,Department for the Economy (Northern Ireland),DfE (NI),Other,other,exempt,https://www.economy-ni.gov.uk/,economy-ni.gov.uk,True,northern-ireland-executive,ok
+department-of-agriculture-environment-and-rural-affairs-northern-ireland,"Department of Agriculture, Environment and Rural Affairs (Northern Ireland)",DAERA (NI),Other,other,exempt,https://www.daera-ni.gov.uk/,daera-ni.gov.uk,True,northern-ireland-executive,ok
+department-of-education,Department of Education (Northern Ireland),DE (NI),Other,other,exempt,https://www.education-ni.gov.uk/,education-ni.gov.uk,True,northern-ireland-executive,ok
+department-of-finance-northern-ireland,Department of Finance (Northern Ireland),DoF (NI),Other,other,exempt,https://www.finance-ni.gov.uk/,finance-ni.gov.uk,True,northern-ireland-executive,ok
+department-of-health-northern-ireland,Department of Health (Northern Ireland),DoH (NI),Other,other,exempt,https://www.health-ni.gov.uk/,health-ni.gov.uk,True,northern-ireland-executive,ok
+department-of-justice-northern-ireland,Department of Justice (Northern Ireland),DoJ (NI),Other,other,exempt,https://www.justice-ni.gov.uk/,justice-ni.gov.uk,True,northern-ireland-executive,ok
+east-west-railway-company,East West Railway Company Limited,EWRC,Executive non-departmental public body,executive_ndpb,exempt,https://eastwestrail.co.uk/,eastwestrail.co.uk,True,department-for-transport,ok
+ebbsfleet-development-corporation,Ebbsfleet Development Corporation,,Executive non-departmental public body,executive_ndpb,exempt,http://ebbsfleetdc.org.uk/,ebbsfleetdc.org.uk,True,ministry-of-housing-communities-local-government,ok
+economic-and-social-research-council,Economic and Social Research Council,ESRC,Sub organisation,sub_organisation,exempt,http://www.esrc.ac.uk/,esrc.ac.uk,True,uk-research-and-innovation,ok
+electricity-settlements-company,Electricity Settlements Company,ESC,Other,other,exempt,https://www.lowcarboncontracts.uk/,lowcarboncontracts.uk,True,department-for-energy-security-and-net-zero,ok
+engineering-and-physical-sciences-research-council,Engineering and Physical Sciences Research Council,EPSRC,Sub organisation,sub_organisation,exempt,http://www.epsrc.ac.uk/,epsrc.ac.uk,True,uk-research-and-innovation,ok
+engineering-construction-industry-training-board,Engineering Construction Industry Training Board,ECITB,Executive non-departmental public body,executive_ndpb,exempt,http://www.ecitb.org.uk/,ecitb.org.uk,True,department-for-work-pensions,ok
+english-institute-of-sport,English Institute of Sport,,Other,other,exempt,http://www.eis2win.co.uk/,eis2win.co.uk,True,uk-sport,ok
+equality-and-human-rights-commission,Equality and Human Rights Commission,EHRC,Executive non-departmental public body,executive_ndpb,exempt,http://www.equalityhumanrights.com/,equalityhumanrights.com,True,cabinet-office,ok
+estyn,Estyn,,Other,other,exempt,http://www.estyn.gov.uk/,estyn.gov.uk,True,,ok
+ethics-and-integrity-commission,Ethics and Integrity Commission,EIC,Advisory non-departmental public body,advisory_ndpb,exempt,https://eic.independent-commission.uk/,eic.independent-commission.uk,True,cabinet-office,ok
+euston-delivery-company,Euston Delivery Company,EDC,Executive non-departmental public body,executive_ndpb,joining,https://www.discovereuston.org.uk/,discovereuston.org.uk,True,department-for-transport,ok
+exmoor-national-park-authority,Exmoor National Park Authority,Exmoor,Other,other,exempt,http://www.exmoor-nationalpark.gov.uk/,exmoor-nationalpark.gov.uk,True,department-for-environment-food-rural-affairs,ok
+family-justice-council,Family Justice Council,FJC,Advisory non-departmental public body,advisory_ndpb,exempt,https://www.judiciary.uk/related-offices-and-bodies/advisory-bodies/family-justice-council/,judiciary.uk,True,ministry-of-justice,ok
+fcdo-services,FCDO Services,,Executive agency,executive_agency,joining,https://www.fcdoservices.gov.uk,fcdoservices.gov.uk,True,foreign-commonwealth-development-office,ok
+financial-conduct-authority,Financial Conduct Authority,FCA,Other,other,exempt,https://www.fca.org.uk/,fca.org.uk,True,hm-treasury,ok
+financial-remedies-court,Financial Remedies Court,,Court,,joining,,,False,hm-courts-and-tribunals-service,failed:HTTPError
+financial-reporting-council,Financial Reporting Council,FRC,Executive non-departmental public body,executive_ndpb,exempt,https://www.frc.org.uk/,frc.org.uk,True,department-for-business-innovation-science-and-trade,ok
+fire-service-college,Fire Service College,FSC,Other,other,exempt,http://www.fireservicecollege.ac.uk/,fireservicecollege.ac.uk,True,,ok
+fleet-air-arm-museum,Fleet Air Arm Museum,,Sub organisation,sub_organisation,exempt,http://www.fleetairarm.com/,fleetairarm.com,True,ministry-of-defence,ok
+flood-re,Flood Re,,Other,other,exempt,https://www.floodre.co.uk/,floodre.co.uk,True,department-for-environment-food-rural-affairs,ok
+forest-enterprise-england,Forestry England,,Executive agency,executive_agency,exempt,https://www.forestryengland.uk,forestryengland.uk,True,forestry-commission,ok
+forest-research,Forest Research,,Executive agency,executive_agency,exempt,https://www.forestresearch.gov.uk,forestresearch.gov.uk,True,forestry-commission,ok
+gambling-commission,Gambling Commission,,Executive non-departmental public body,executive_ndpb,exempt,http://www.gamblingcommission.gov.uk/,gamblingcommission.gov.uk,True,department-for-digital-culture-media-and-sport,ok
+geffrye-museum,Museum of the Home,,Executive non-departmental public body,executive_ndpb,exempt,https://www.museumofthehome.org.uk/,museumofthehome.org.uk,True,department-for-digital-culture-media-and-sport,ok
+government-commercial-agency,Government Commercial Agency,GCA,Executive agency,executive_agency,exempt,https://www.gca.gov.uk,gca.gov.uk,True,cabinet-office,ok
+government-communications-headquarters,Government Communications Headquarters,GCHQ,Other,other,exempt,http://www.gchq.gov.uk/,gchq.gov.uk,True,foreign-commonwealth-development-office,ok
+government-cyber-profession,Government Cyber Profession,,Sub organisation,sub_organisation,joining,,,False,department-for-science-innovation-and-technology,ok
+government-partnerships-international,Government Partnerships International,GPI,Sub organisation,sub_organisation,joining,,,False,stabilisation-unit,ok
+great-britain-china-centre,Great Britain-China Centre,GBCC,Executive non-departmental public body,executive_ndpb,exempt,http://www.gbcc.org.uk/,gbcc.org.uk,True,foreign-commonwealth-development-office,ok
+great-british-energy,Great British Energy,,Other,other,exempt,https://www.gbe.gov.uk/,gbe.gov.uk,True,department-for-energy-security-and-net-zero,ok
+greater-cambridge-development-corporation,Greater Cambridge Development Corporation,,Executive non-departmental public body,executive_ndpb,exempt,http://www.greatercambridge-dc.org.uk/,greatercambridge-dc.org.uk,True,ministry-of-housing-communities-local-government,ok
+health-and-safety-executive,Health and Safety Executive,HSE,Executive non-departmental public body,executive_ndpb,exempt,http://www.hse.gov.uk/,hse.gov.uk,True,department-for-work-pensions,ok
+health-research-authority,Health Research Authority,HRA,Executive non-departmental public body,executive_ndpb,exempt,http://www.hra.nhs.uk/,hra.nhs.uk,True,department-of-health-and-social-care,ok
+health-services-safety-investigations-body,Health Services Safety Investigations Body,HSSIB,Executive non-departmental public body,executive_ndpb,exempt,https://www.hssib.org.uk/,hssib.org.uk,True,department-of-health-and-social-care,ok
+higher-education-statistical-agency,Higher Education Statistics Agency,HESA,Other,other,exempt,https://www.hesa.ac.uk/,hesa.ac.uk,True,department-for-business-innovation-skills,ok
+historic-england,Historic England,HE,Executive non-departmental public body,executive_ndpb,exempt,http://www.historicengland.org.uk/,historicengland.org.uk,True,department-for-digital-culture-media-and-sport,ok
+historic-royal-palaces,Historic Royal Palaces,HRP,Public corporation,public_corporation,exempt,http://www.hrp.org.uk,hrp.org.uk,True,department-for-digital-culture-media-and-sport,ok
+hm-crown-prosecution-service-inspectorate,HM Crown Prosecution Service Inspectorate,HMCPSI,Other,other,exempt,http://www.justiceinspectorates.gov.uk/hmcpsi/,justiceinspectorates.gov.uk,True,attorney-generals-office,ok
+hm-government-communications-centre,HM Government Communications Centre,HMGCC,Other,other,exempt,http://www.hmgcc.gov.uk/,hmgcc.gov.uk,True,foreign-commonwealth-development-office,ok
+hm-inspectorate-of-constabulary-and-fire-rescue-services,HM Inspectorate of Constabulary and Fire & Rescue Services,HMICFRS,Other,other,exempt,https://www.justiceinspectorates.gov.uk/hmicfrs/,justiceinspectorates.gov.uk,True,home-office,ok
+hm-inspectorate-of-prisons,HM Inspectorate of Prisons,,Other,other,exempt,http://www.justice.gov.uk/about/hmi-prisons,justice.gov.uk,True,ministry-of-justice,ok
+hm-inspectorate-of-probation,HM Inspectorate of Probation,,Other,other,exempt,http://www.justice.gov.uk/about/hmi-probation,justice.gov.uk,True,ministry-of-justice,ok
+horniman-museum,Horniman Public Museum and Public Park Trust,Horniman,Executive non-departmental public body,executive_ndpb,exempt,http://www.horniman.ac.uk/,horniman.ac.uk,True,department-for-digital-culture-media-and-sport,ok
+horserace-betting-levy-board,Horserace Betting Levy Board,HBLB,Executive non-departmental public body,executive_ndpb,exempt,http://www.hblb.org.uk/,hblb.org.uk,True,department-for-digital-culture-media-and-sport,ok
+house-of-lords-appointments-commission,House of Lords Appointments Commission,HOLAC,Advisory non-departmental public body,advisory_ndpb,exempt,http://lordsappointments.independent.gov.uk/,lordsappointments.independent.gov.uk,True,cabinet-office,ok
+housing-ombudsman,Housing Ombudsman,HOS,Executive non-departmental public body,executive_ndpb,exempt,http://www.housing-ombudsman.org.uk/,housing-ombudsman.org.uk,True,ministry-of-housing-communities-local-government,ok
+hsc-business-services-organisation-northern-ireland,HSC Business Services Organisation (Northern Ireland),BSO,Executive non-departmental public body,executive_ndpb,exempt,http://www.hscbusiness.hscni.net/,hscbusiness.hscni.net,True,department-of-health-northern-ireland,ok
+human-fertilisation-and-embryology-authority,Human Fertilisation and Embryology Authority,HFEA,Executive non-departmental public body,executive_ndpb,exempt,http://www.hfea.gov.uk/,hfea.gov.uk,True,department-of-health-and-social-care,ok
+human-tissue-authority,Human Tissue Authority,HTA,Executive non-departmental public body,executive_ndpb,exempt,http://www.hta.gov.uk/,hta.gov.uk,True,department-of-health-and-social-care,ok
+imperial-war-museum,Imperial War Museum,IWM,Executive non-departmental public body,executive_ndpb,exempt,http://www.iwm.org.uk/,iwm.org.uk,True,department-for-digital-culture-media-and-sport,ok
+independent-advisory-panel-on-deaths-in-detention,Independent Advisory Panel on Deaths in Detention,,Advisory non-departmental public body,advisory_ndpb,exempt,https://iapdeathsincustody.independent.gov.uk/,iapdeathsincustody.independent.gov.uk,True,ministry-of-justice,ok
+independent-anti-slavery-commissioner,Independent Anti-slavery Commissioner,IASC,Independent monitoring body,independent_monitoring_body,exempt,http://www.antislaverycommissioner.co.uk/,antislaverycommissioner.co.uk,True,home-office,ok
+independent-commission-for-aid-impact,Independent Commission for Aid Impact,ICAI,Advisory non-departmental public body,advisory_ndpb,exempt,http://icai.independent.gov.uk/,icai.independent.gov.uk,True,foreign-commonwealth-development-office,ok
+independent-complaints-reviewer,Independent Complaints Reviewer,ICR,Other,other,exempt,http://www.icrev.org.uk/,icrev.org.uk,True,,ok
+independent-football-regulator,Independent Football Regulator,IFR,Executive non-departmental public body,executive_ndpb,exempt,https://www.footballregulator.org.uk/,footballregulator.org.uk,True,department-for-digital-culture-media-and-sport,ok
+independent-monitoring-authority-for-the-citizens-rights-agreements,Independent Monitoring Authority for the Citizens’ Rights Agreements,IMA,Executive non-departmental public body,executive_ndpb,exempt,https://ima-citizensrights.org.uk/,ima-citizensrights.org.uk,True,ministry-of-justice,ok
+independent-monitoring-boards-of-prisons-immigration-removal-centres-and-short-term-holding-rooms,Independent Monitoring Boards,IMB,Other,other,exempt,http://www.imb.org.uk/,imb.org.uk,True,ministry-of-justice,ok
+independent-office-for-police-conduct,Independent Office for Police Conduct,IOPC,Executive non-departmental public body,executive_ndpb,exempt,https://policeconduct.gov.uk/,policeconduct.gov.uk,True,home-office,ok
+independent-parliamentary-standards-authority,Independent Parliamentary Standards Authority,IPSA,Executive non-departmental public body,executive_ndpb,exempt,http://www.theipsa.org.uk/,theipsa.org.uk,True,,ok
+independent-reviewer-of-terrorism-legislation,Independent Reviewer of Terrorism Legislation,Independent Reviewer,Other,other,exempt,https://terrorismlegislationreviewer.independent.gov.uk,terrorismlegislationreviewer.independent.gov.uk,True,home-office,ok
+infected-blood-compensation-authority,Infected Blood Compensation Authority,,Other,other,exempt,https://ibca.org.uk/,ibca.org.uk,True,,ok
+information-commission,Information Commission,ICO,Executive non-departmental public body,executive_ndpb,exempt,https://ico.org.uk/,ico.org.uk,True,department-for-digital-culture-media-and-sport,ok
+innovate-uk,Innovate UK,Innovate UK,Sub organisation,sub_organisation,exempt,https://www.ukri.org/councils/innovate-uk/,ukri.org,True,uk-research-and-innovation,ok
+invest-northern-ireland,Invest Northern Ireland,Invest NI,Other,other,exempt,https://www.investni.com/,investni.com,True,department-for-the-economy-northern-ireland,ok
+investigatory-powers-commissioners-office,Investigatory Powers Commissioner's Office,IPCO,Other,other,exempt,https://www.ipco.org.uk,ipco.org.uk,True,home-office,ok
+investigatory-powers-tribunal,Investigatory Powers Tribunal,IPT,Tribunal,tribunal,exempt,http://www.ipt-uk.com/,ipt-uk.com,True,home-office,ok
+iraq-inquiry,Iraq Inquiry,,Other,other,exempt,http://www.iraqinquiry.org.uk,iraqinquiry.org.uk,True,,ok
+joint-maritime-security-centre,Joint Maritime Security Centre,JMSC,Other,other,joining,,,False,department-for-transport;home-office;ministry-of-defence,ok
+joint-nature-conservation-committee,Joint Nature Conservation Committee,JNCC,Executive non-departmental public body,executive_ndpb,exempt,http://jncc.defra.gov.uk/,jncc.defra.gov.uk,True,department-for-environment-food-rural-affairs,ok
+judicial-appointments-commission,Judicial Appointments Commission,JAC,Executive non-departmental public body,executive_ndpb,exempt,https://www.judicialappointments.gov.uk,judicialappointments.gov.uk,True,ministry-of-justice,ok
+judicial-office,Judicial Office,JO,Other,other,exempt,https://www.judiciary.uk/about-the-judiciary/training-support/judicial-office/,judiciary.uk,True,ministry-of-justice,ok
+labour-relations-agency,Labour Relations Agency (Northern Ireland),LRA (NI),Other,other,exempt,https://www.lra.org.uk/,lra.org.uk,True,department-for-the-economy-northern-ireland,ok
+lake-district-national-park-authority,Lake District National Park Authority,LDNP,Other,other,exempt,http://www.lakedistrict.gov.uk/,lakedistrict.gov.uk,True,department-for-environment-food-rural-affairs,ok
+law-commission,Law Commission,,Advisory non-departmental public body,advisory_ndpb,exempt,http://www.lawcom.gov.uk,lawcom.gov.uk,True,ministry-of-justice,ok
+leasehold-advisory-service,Leasehold Advisory Service,LEASE,Executive non-departmental public body,executive_ndpb,exempt,https://www.lease-advice.org/,lease-advice.org,True,ministry-of-housing-communities-local-government,ok
+legal-services-agency-northern-ireland,Legal Services Agency (Northern Ireland),LSANI,Executive agency,executive_agency,exempt,https://www.justice-ni.gov.uk/topics/legal-aid/legal-services-agency-northern-ireland,justice-ni.gov.uk,True,department-of-justice-northern-ireland,ok
+legal-services-board,Legal Services Board,LSB,Executive non-departmental public body,executive_ndpb,exempt,http://www.legalservicesboard.org.uk/,legalservicesboard.org.uk,True,ministry-of-justice,ok
+livestock-and-meat-commission-for-northern-ireland,Livestock and Meat Commission for Northern Ireland,LMC (NI),Executive non-departmental public body,executive_ndpb,exempt,https://www.lmcni.com/,lmcni.com,True,department-of-agriculture-environment-and-rural-affairs-northern-ireland,ok
+local-audit-office,Local Audit Office,LAO,Executive non-departmental public body,executive_ndpb,joining,,,False,ministry-of-housing-communities-local-government,ok
+local-government-ombudsman,Local Government and Social Care Ombudsman,LGSCO,Other,other,exempt,http://www.lgo.org.uk,lgo.org.uk,True,ministry-of-housing-communities-local-government,ok
+low-carbon-contracts-company,Low Carbon Contracts Company,LCCC,Other,other,exempt,https://www.lowcarboncontracts.uk/,lowcarboncontracts.uk,True,department-for-energy-security-and-net-zero,ok
+marshall-aid-commemoration-commission,Marshall Aid Commemoration Commission,MACC,Executive non-departmental public body,executive_ndpb,exempt,http://www.marshallscholarship.org/,marshallscholarship.org,True,foreign-commonwealth-development-office,ok
+medical-research-council,Medical Research Council,MRC,Sub organisation,sub_organisation,exempt,http://www.mrc.ac.uk/,mrc.ac.uk,True,uk-research-and-innovation,ok
+met-office,Met Office,,Executive agency,executive_agency,exempt,http://www.metoffice.gov.uk/,metoffice.gov.uk,True,department-for-business-innovation-science-and-trade,ok
+military-engineering-experimental-establishment,Military Engineering Experimental Establishment,MEXE,Other,other,exempt,https://mexe.org.uk/,mexe.org.uk,True,,ok
+national-armaments,National Armaments,NA,Sub organisation,sub_organisation,joining,,,False,ministry-of-defence,ok
+national-army-museum,National Army Museum,NAM,Executive non-departmental public body,executive_ndpb,exempt,http://www.nam.ac.uk/,nam.ac.uk,True,ministry-of-defence,ok
+national-counter-terrorism-security-office,National Counter Terrorism Security Office,NaCTSO,Other,other,exempt,https://www.protectuk.police.uk,protectuk.police.uk,True,home-office,ok
+national-crime-agency,National Crime Agency,NCA,Non-ministerial department,non_ministerial_department,exempt,http://www.nationalcrimeagency.gov.uk/,nationalcrimeagency.gov.uk,True,,ok
+national-cyber-security-centre,National Cyber Security Centre,NCSC,Sub organisation,sub_organisation,exempt,https://www.ncsc.gov.uk/,ncsc.gov.uk,True,government-communications-headquarters,ok
+national-employment-savings-trust,National Employment Savings Trust (NEST) Corporation,NEST Corporation,Public corporation,public_corporation,exempt,http://www.nestpensions.org.uk/,nestpensions.org.uk,True,department-for-work-pensions,ok
+national-energy-system-operator,National Energy System Operator,NESO,Public corporation,public_corporation,exempt,https://www.neso.energy/,neso.energy,True,department-for-energy-security-and-net-zero,ok
+national-forest-company,National Forest Company,NFC,Other,other,exempt,http://www.nationalforest.org,nationalforest.org,True,department-for-environment-food-rural-affairs,ok
+national-gallery,National Gallery,,Executive non-departmental public body,executive_ndpb,exempt,http://www.nationalgallery.org.uk/,nationalgallery.org.uk,True,department-for-digital-culture-media-and-sport,ok
+national-guardians-office,National Guardian's Office,NGO,Sub organisation,sub_organisation,exempt,https://nationalguardian.org.uk/,nationalguardian.org.uk,True,care-quality-commission,ok
+national-heritage-memorial-fund,National Heritage Memorial Fund,NHMF,Executive non-departmental public body,executive_ndpb,exempt,http://www.nhmf.org.uk/,nhmf.org.uk,True,department-for-digital-culture-media-and-sport,ok
+national-highways,National Highways,,Executive non-departmental public body,executive_ndpb,exempt,http://www.nationalhighways.co.uk/,nationalhighways.co.uk,True,department-for-transport,ok
+national-institute-for-clinical-excellence,National Institute for Health and Care Excellence,NICE,Executive non-departmental public body,executive_ndpb,exempt,http://www.nice.org.uk/,nice.org.uk,True,department-of-health-and-social-care,ok
+national-lottery-heritage-fund,National Lottery Heritage Fund,,Other,other,exempt,https://www.heritagefund.org.uk/,heritagefund.org.uk,True,national-heritage-memorial-fund,ok
+national-museums-liverpool,National Museums Liverpool,NML,Executive non-departmental public body,executive_ndpb,exempt,http://www.liverpoolmuseums.org.uk/,liverpoolmuseums.org.uk,True,department-for-digital-culture-media-and-sport,ok
+national-physical-laboratory,National Physical Laboratory,NPL,Public corporation,public_corporation,exempt,https://www.npl.co.uk/,npl.co.uk,True,department-for-business-innovation-science-and-trade,ok
+national-portrait-gallery,National Portrait Gallery,NPG,Executive non-departmental public body,executive_ndpb,exempt,http://www.npg.org.uk/,npg.org.uk,True,department-for-digital-culture-media-and-sport,ok
+national-protective-security-authority,National Protective Security Authority,NPSA,Sub organisation,sub_organisation,exempt,https://www.npsa.gov.uk/,npsa.gov.uk,True,the-security-service-mi5,ok
+national-school-of-government-and-public-services,National School of Government and Public Services,,Sub organisation,sub_organisation,exempt,https://nationalschool.gov.uk/,nationalschool.gov.uk,True,cabinet-office,ok
+natural-environment-research-council,Natural Environment Research Council,NERC,Sub organisation,sub_organisation,exempt,http://www.nerc.ac.uk/,nerc.ac.uk,True,uk-research-and-innovation,ok
+natural-history-museum,Natural History Museum,NHM,Executive non-departmental public body,executive_ndpb,exempt,http://www.nhm.ac.uk/,nhm.ac.uk,True,department-for-digital-culture-media-and-sport,ok
+natural-resources-wales,Natural Resources Wales,,Other,other,exempt,http://naturalresourceswales.gov.uk/,naturalresourceswales.gov.uk,True,welsh-government,ok
+network-rail,Network Rail,,Executive non-departmental public body,executive_ndpb,exempt,https://www.networkrail.co.uk/,networkrail.co.uk,True,department-for-transport,ok
+new-forest-national-park-authority,New Forest National Park Authority,NFNPA,Other,other,exempt,http://www.newforestnpa.gov.uk/,newforestnpa.gov.uk,True,department-for-environment-food-rural-affairs,ok
+nhs-blood-and-transplant,NHS Blood and Transplant,NHSBT,Special health authority,special_health_authority,exempt,http://www.nhsbt.nhs.uk/,nhsbt.nhs.uk,True,department-of-health-and-social-care,ok
+nhs-business-services-authority,NHS Business Services Authority,NHSBSA,Special health authority,special_health_authority,exempt,http://www.nhsbsa.nhs.uk/,nhsbsa.nhs.uk,True,department-of-health-and-social-care,ok
+nhs-counter-fraud-authority,NHS Counter Fraud Authority,NHSCFA,Special health authority,special_health_authority,exempt,https://cfa.nhs.uk/,cfa.nhs.uk,True,department-of-health-and-social-care,ok
+nhs-england,NHS England,,Executive non-departmental public body,executive_ndpb,exempt,http://www.england.nhs.uk/,england.nhs.uk,True,department-of-health-and-social-care,ok
+nhs-resolution,NHS Resolution,,Special health authority,special_health_authority,exempt,https://resolution.nhs.uk/,resolution.nhs.uk,True,department-of-health-and-social-care,ok
+nhs-wales-informatics-service,NHS Wales Informatics Service,,Other,other,exempt,https://nwis.nhs.wales/,nwis.nhs.wales,True,,ok
+north-sea-transition-authority,North Sea Transition Authority,NSTA,Executive non-departmental public body,executive_ndpb,exempt,https://www.nstauthority.co.uk/,nstauthority.co.uk,True,department-for-energy-security-and-net-zero,ok
+north-york-moors-national-park,North York Moors National Park Authority,NYMNP,Other,other,exempt,http://www.northyorkmoors.org.uk/,northyorkmoors.org.uk,True,department-for-environment-food-rural-affairs,ok
+northern-ireland-cancer-registry,Northern Ireland Cancer Registry,NICR,Other,other,exempt,https://www.qub.ac.uk/research-centres/nicr/,qub.ac.uk,True,department-of-health-northern-ireland,ok
+northern-ireland-council-for-the-curriculum-examinations-and-assessment,"Northern Ireland Council for the Curriculum, Examinations and Assessment",CCEA,Executive non-departmental public body,executive_ndpb,exempt,https://ccea.org.uk/,ccea.org.uk,True,department-of-education,ok
+northern-ireland-court-service,Northern Ireland Courts and Tribunals Service,NICTS,Executive agency,executive_agency,exempt,https://www.justice-ni.gov.uk/topics/courts-and-tribunals,justice-ni.gov.uk,True,department-of-justice-northern-ireland,ok
+northern-ireland-executive,Northern Ireland Executive,,Devolved government,devolved_administration,exempt,http://www.northernireland.gov.uk,northernireland.gov.uk,True,,ok
+northern-ireland-housing-executive,Northern Ireland Housing Executive,NIHE,Executive non-departmental public body,executive_ndpb,exempt,http://www.nihe.gov.uk/index/about.htm,nihe.gov.uk,True,department-for-communities-northern-ireland,ok
+northern-ireland-human-rights-commission,Northern Ireland Human Rights Commission,NIHRC,Executive non-departmental public body,executive_ndpb,exempt,http://www.nihrc.org/,nihrc.org,True,northern-ireland-office,ok
+northern-ireland-policing-board,Northern Ireland Policing Board,NIPB,Executive non-departmental public body,executive_ndpb,exempt,http://www.nipolicingboard.org.uk/,nipolicingboard.org.uk,True,department-of-justice-northern-ireland,ok
+northern-ireland-prison-service,Northern Ireland Prison Service,NIPS,Executive agency,executive_agency,exempt,https://www.justice-ni.gov.uk/topics/prisons,justice-ni.gov.uk,True,department-of-justice-northern-ireland,ok
+northern-ireland-statistics-and-research-agency,Northern Ireland Statistics and Research Agency,NISRA,Executive agency,executive_agency,exempt,http://www.nisra.gov.uk/,nisra.gov.uk,True,department-of-finance-northern-ireland,ok
+northern-lighthouse-board,Northern Lighthouse Board,NLB,Executive non-departmental public body,executive_ndpb,exempt,http://www.nlb.org.uk/,nlb.org.uk,True,department-for-transport,ok
+northumberland-national-park-authority,Northumberland National Park Authority,,Other,other,exempt,http://www.northumberlandnationalpark.org.uk,northumberlandnationalpark.org.uk,True,department-for-environment-food-rural-affairs,ok
+nsandi,National Savings and Investments,NS&I,Non-ministerial department,non_ministerial_department,exempt,https://www.nsandi.com/,nsandi.com,True,hm-treasury,ok
+oak-national-academy,Oak National Academy,,Executive non-departmental public body,executive_ndpb,exempt,https://www.thenational.academy/,thenational.academy,True,department-for-education,ok
+ofcom,Ofcom,Ofcom,Other,other,exempt,http://www.ofcom.org.uk,ofcom.org.uk,True,department-for-digital-culture-media-and-sport,ok
+office-for-budget-responsibility,Office for Budget Responsibility,OBR,Executive non-departmental public body,executive_ndpb,exempt,https://obr.uk/,obr.uk,True,hm-treasury,ok
+office-for-environmental-protection,Office for Environmental Protection,OEP,Executive non-departmental public body,executive_ndpb,exempt,https://www.theoep.org.uk/,theoep.org.uk,True,department-for-environment-food-rural-affairs,ok
+office-for-national-statistics,Office for National Statistics,ONS,Other,other,exempt,http://www.ons.gov.uk/,ons.gov.uk,True,uk-statistics-authority,ok
+office-for-nuclear-regulation,Office for Nuclear Regulation,ONR,Public corporation,public_corporation,exempt,http://www.onr.org.uk/index.htm,onr.org.uk,True,department-for-energy-security-and-net-zero,ok
+office-for-students,Office for Students,OfS,Executive non-departmental public body,executive_ndpb,exempt,https://www.officeforstudents.org.uk/,officeforstudents.org.uk,True,department-for-education,ok
+office-of-rail-and-road,Office of Rail and Road,ORR,Non-ministerial department,non_ministerial_department,exempt,http://www.orr.gov.uk,orr.gov.uk,True,department-for-transport,ok
+office-of-the-chief-electoral-officer-for-northern-ireland,Office of the Chief Electoral Officer for Northern Ireland,,Other,other,exempt,https://www.eoni.org.uk/,eoni.org.uk,True,,ok
+office-of-the-children-s-commissioner,Office of the Children's Commissioner,,Executive non-departmental public body,executive_ndpb,exempt,http://www.childrenscommissioner.gov.uk/,childrenscommissioner.gov.uk,True,department-for-education,ok
+office-of-the-police-ombudsman-for-northern-ireland,Office of the Police Ombudsman for Northern Ireland,OPONI,Other,other,exempt,https://www.policeombudsman.org/,policeombudsman.org,True,department-of-justice-northern-ireland,ok
+office-of-the-registrar-of-consultant-lobbyists,Office of the Registrar of Consultant Lobbyists,ORCL,Other,other,exempt,http://registrarofconsultantlobbyists.org.uk/,registrarofconsultantlobbyists.org.uk,True,cabinet-office,ok
+office-of-the-windrush-commissioner,Office of the Windrush Commissioner,Office of the Windrush Commissioner,Independent monitoring body,independent_monitoring_body,exempt,https://www.windrushcommissioner.uk/,windrushcommissioner.uk,True,home-office,ok
+ofgem,Ofgem,,Non-ministerial department,non_ministerial_department,exempt,http://www.ofgem.gov.uk/,ofgem.gov.uk,True,department-for-energy-security-and-net-zero,ok
+ordnance-survey,Ordnance Survey,OS,Public corporation,public_corporation,exempt,http://www.ordnancesurvey.co.uk/,ordnancesurvey.co.uk,True,department-for-business-innovation-science-and-trade,ok
+parades-commission-for-northern-ireland,Parades Commission for Northern Ireland,PCNI,Executive non-departmental public body,executive_ndpb,exempt,http://www.paradescommission.org/,paradescommission.org,True,northern-ireland-office,ok
+parliamentary-contributory-pension-fund,Parliamentary Contributory Pension Fund,,Other,other,exempt,https://www.parliament.uk/about/mps-and-lords/members/pay-mps/pension-fund/,parliament.uk,True,,ok
+payment-systems-regulator,Payment Systems Regulator,PSR,Other,other,exempt,https://www.psr.org.uk/,psr.org.uk,True,hm-treasury,ok
+peak-district-national-park,Peak District National Park Authority,PDNP,Other,other,exempt,http://www.peakdistrict.gov.uk/,peakdistrict.gov.uk,True,department-for-environment-food-rural-affairs,ok
+pension-protection-fund,Pension Protection Fund,PPF,Public corporation,public_corporation,exempt,https://www.ppf.co.uk/,ppf.co.uk,True,department-for-work-pensions,ok
+pension-protection-fund-ombudsman,The Pension Protection Fund Ombudsman,PPFO,Tribunal,tribunal,exempt,https://www.pensions-ombudsman.org.uk/,pensions-ombudsman.org.uk,True,department-for-work-pensions,ok
+pensions-ombudsman,The Pensions Ombudsman,PO,Tribunal,tribunal,exempt,http://www.pensions-ombudsman.org.uk/,pensions-ombudsman.org.uk,True,department-for-work-pensions,ok
+platform4,Platform4,,Public corporation,public_corporation,exempt,https://platform4.com/,platform4.com,True,department-for-transport;network-rail,ok
+police-service-of-northern-ireland,Police Service of Northern Ireland,PSNI,Executive non-departmental public body,executive_ndpb,exempt,http://www.psni.police.uk/,psni.police.uk,True,department-of-justice-northern-ireland,ok
+policy-lab,Policy Lab,,Other,other,joining,,,False,,ok
+porton-biopharma-limited,Porton Biopharma Limited,PBL,Other,other,exempt,http://www.portonbiopharma.com/,portonbiopharma.com,True,department-of-health-and-social-care,ok
+post-office,Post Office,,Public corporation,public_corporation,exempt,https://www.postoffice.co.uk/,postoffice.co.uk,True,department-for-business-innovation-science-and-trade,ok
+prisons-and-probation-ombudsman,Prisons and Probation Ombudsman,PPO,Other,other,exempt,http://www.ppo.gov.uk/,ppo.gov.uk,True,ministry-of-justice,ok
+privy-council-office,Privy Council Office,PCO,Other,other,exempt,http://privycouncil.independent.gov.uk/,privycouncil.independent.gov.uk,True,cabinet-office,ok
+probation-board-for-northern-ireland,Probation Board for Northern Ireland,PBNI,Other,other,exempt,http://www.pbni.org.uk/,pbni.org.uk,True,department-of-justice-northern-ireland,ok
+professional-standards-authority-for-health-and-social-care,Professional Standards Authority for Health and Social Care,,Other,other,exempt,http://www.professionalstandards.org.uk/,professionalstandards.org.uk,True,,ok
+public-health-agency-northern-ireland,Public Health Agency (Northern Ireland),PHA (NI),Other,other,exempt,http://www.publichealth.hscni.net,publichealth.hscni.net,True,department-of-health-northern-ireland,ok
+public-health-wales,Public Health Wales,PHW,Other,other,exempt,https://phw.nhs.wales/,phw.nhs.wales,True,,ok
+public-prosecution-service-for-northern-ireland,Public Prosecution Service for Northern Ireland,PPSNI,Other,other,exempt,http://www.ppsni.gov.uk/,ppsni.gov.uk,True,northern-ireland-executive,ok
+public-service-ombudsman,Public Service Ombudsman,The Ombudsman,Other,other,exempt,https://www.ombudsman.org.uk/,ombudsman.org.uk,True,,ok
+public-services-ombudsman-for-wales,Public Services Ombudsman for Wales,,Other,other,exempt,http://www.ombudsman.wales/,ombudsman.wales,True,,ok
+pubs-code-adjudicator,Pubs Code Adjudicator,PCA,Other,other,exempt,https://www.pubscodeadjudicator.org.uk/,pubscodeadjudicator.org.uk,True,department-for-business-innovation-science-and-trade,ok
+queen-elizabeth-ii-conference-centre,Queen Elizabeth II Conference Centre,QEIICC,Executive agency,executive_agency,exempt,https://qeiicentre.london/,qeiicentre.london,True,ministry-of-housing-communities-local-government,ok
+radiation-protection-sciences,Radiation Protection Sciences,RPS,Sub organisation,sub_organisation,joining,,,False,uk-health-security-agency,ok
+rail-safety-and-standards-board,Rail Safety and Standards Board,RSSB,Other,other,exempt,http://www.rssb.co.uk/,rssb.co.uk,True,,ok
+remploy-pension-scheme-trustees-ltd,Remploy Pension Scheme Trustees Ltd,,Other,other,exempt,,,False,department-for-work-pensions,ok
+research-england,Research England,,Sub organisation,sub_organisation,exempt,https://www.ukri.org/councils/research-england/,ukri.org,True,uk-research-and-innovation,ok
+royal-air-force-museum,Royal Air Force Museum,RAFM,Executive non-departmental public body,executive_ndpb,exempt,http://www.rafmuseum.org.uk,rafmuseum.org.uk,True,ministry-of-defence,ok
+royal-armouries-museum,Royal Armouries Museum,RA,Executive non-departmental public body,executive_ndpb,exempt,http://www.royalarmouries.org/,royalarmouries.org,True,department-for-digital-culture-media-and-sport,ok
+royal-marines-museum,Royal Marines Museum,RMM,Sub organisation,sub_organisation,exempt,https://www.nmrn.org.uk/,nmrn.org.uk,True,ministry-of-defence,ok
+royal-mint,Royal Mint,RM,Other,other,exempt,http://www.royalmint.com/,royalmint.com,True,hm-treasury,ok
+royal-museums-greenwich,Royal Museums Greenwich,RMG,Executive non-departmental public body,executive_ndpb,exempt,http://www.rmg.co.uk,rmg.co.uk,True,department-for-digital-culture-media-and-sport,ok
+royal-naval-museum,Royal Navy Museums,RNM,Executive non-departmental public body,executive_ndpb,exempt,http://www.nmrn.org.uk,nmrn.org.uk,True,ministry-of-defence,ok
+royal-navy-submarine-museum,Royal Navy Submarine Museum,RNSM,Sub organisation,sub_organisation,exempt,http://www.submarine-museum.co.uk/,submarine-museum.co.uk,True,ministry-of-defence,ok
+royal-parks,Royal Parks,Royal Parks,Public corporation,public_corporation,exempt,http://www.royalparks.org.uk/,royalparks.org.uk,True,department-for-digital-culture-media-and-sport,ok
+s4c,S4C,S4C,Other,other,exempt,http://www.s4c.co.uk,s4c.co.uk,True,department-for-digital-culture-media-and-sport,ok
+salix-finance-ltd,Salix Finance Ltd,,Executive non-departmental public body,executive_ndpb,exempt,https://www.salixfinance.co.uk,salixfinance.co.uk,True,department-for-energy-security-and-net-zero,ok
+science-advisory-committees,Science Advisory Committees,SACs,Executive non-departmental public body,executive_ndpb,joining,https://sac.food.gov.uk/,sac.food.gov.uk,True,food-standards-agency,ok
+science-and-technology-facilities-council,Science and Technology Facilities Council,STFC,Sub organisation,sub_organisation,exempt,https://www.ukri.org/councils/stfc/,ukri.org,True,uk-research-and-innovation,ok
+science-museum-group,Science Museum Group,,Executive non-departmental public body,executive_ndpb,exempt,https://group.sciencemuseum.org.uk,group.sciencemuseum.org.uk,True,department-for-digital-culture-media-and-sport,ok
+seafish,Seafish,Seafish,Executive non-departmental public body,executive_ndpb,exempt,http://www.seafish.org/,seafish.org,True,department-for-environment-food-rural-affairs,ok
+secret-intelligence-service,Secret Intelligence Service,SIS,Other,other,exempt,https://www.sis.gov.uk/,sis.gov.uk,True,foreign-commonwealth-development-office,ok
+service-prosecuting-authority,Service Prosecuting Authority,SPA,Other,other,transitioning,https://www.gov.uk/guidance/service-prosecuting-authority,gov.uk,False,ministry-of-defence,ok
+sheffield-forgemasters-international-ltd,Sheffield Forgemasters International Ltd,,Public corporation,public_corporation,exempt,https://www.sheffieldforgemasters.com/,sheffieldforgemasters.com,True,ministry-of-defence,ok
+single-financial-guidance-body,Money and Pensions Service,MaPS,Executive non-departmental public body,executive_ndpb,exempt,https://moneyandpensionsservice.org.uk/,moneyandpensionsservice.org.uk,True,department-for-work-pensions,ok
+single-source-regulations-office,Single Source Regulations Office,SSRO,Executive non-departmental public body,executive_ndpb,exempt,https://ssro.gov.uk/,ssro.gov.uk,True,ministry-of-defence,ok
+sir-john-soane-s-museum,Sir John Soane's Museum,Soane's,Executive non-departmental public body,executive_ndpb,exempt,http://www.soane.org/,soane.org,True,department-for-digital-culture-media-and-sport,ok
+social-mobility-commission,Social Mobility Commission,SMC,Advisory non-departmental public body,advisory_ndpb,exempt,https://socialmobility.independent-commission.uk/,socialmobility.independent-commission.uk,True,ministry-of-housing-communities-local-government,ok
+social-work-england,Social Work England,,Executive non-departmental public body,executive_ndpb,exempt,https://socialworkengland.org.uk/,socialworkengland.org.uk,True,department-for-education,ok
+south-downs-national-park-authority,South Downs National Park Authority,SDNP,Other,other,exempt,http://www.southdowns.gov.uk,southdowns.gov.uk,True,department-for-environment-food-rural-affairs,ok
+sport-england,Sport England,SE,Executive non-departmental public body,executive_ndpb,exempt,http://www.sportengland.org,sportengland.org,True,department-for-digital-culture-media-and-sport,ok
+sports-council-for-northern-ireland,Sport Northern Ireland (Sports Council for Northern Ireland),SportNI,Other,other,exempt,http://www.sportni.net/,sportni.net,True,department-for-communities-northern-ireland,ok
+sports-council-for-wales,Sports Council for Wales,,Other,other,exempt,https://www.sport.wales,sport.wales,True,welsh-government,ok
+sports-grounds-safety-authority,Sports Grounds Safety Authority,SGSA,Executive non-departmental public body,executive_ndpb,exempt,http://www.safetyatsportsgrounds.org.uk/,safetyatsportsgrounds.org.uk,True,department-for-digital-culture-media-and-sport,ok
+supreme-court-of-the-united-kingdom,Supreme Court of the United Kingdom,SCUK,Non-ministerial department,non_ministerial_department,exempt,http://www.supremecourt.uk,supremecourt.uk,True,,ok
+tate,Tate,Tate,Executive non-departmental public body,executive_ndpb,exempt,http://www.tate.org.uk,tate.org.uk,True,department-for-digital-culture-media-and-sport,ok
+the-advisory-council-on-national-records-and-archives,The Advisory Council on National Records and Archives,ACNRA,Advisory non-departmental public body,advisory_ndpb,exempt,http://www.nationalarchives.gov.uk/advisorycouncil/default.htm,nationalarchives.gov.uk,True,department-for-digital-culture-media-and-sport,ok
+the-crown-estate,The Crown Estate,,Other,other,exempt,http://www.thecrownestate.co.uk/,thecrownestate.co.uk,True,hm-treasury,ok
+the-drinking-water-inspectorate,Drinking Water Inspectorate,DWI,Other,other,exempt,https://www.dwi.gov.uk/,dwi.gov.uk,True,department-for-environment-food-rural-affairs,ok
+the-electoral-commission,The Electoral Commission,,Independent monitoring body,independent_monitoring_body,exempt,http://www.electoralcommission.org.uk/,electoralcommission.org.uk,True,,ok
+the-executive-office-northern-ireland,The Executive Office (Northern Ireland),TEO (NI),Other,other,exempt,https://www.executiveoffice-ni.gov.uk/,executiveoffice-ni.gov.uk,True,northern-ireland-executive,ok
+the-independent-commission-for-reconciliation-and-information-recovery,The Independent Commission for Reconciliation and Information Recovery,ICRIR,Executive non-departmental public body,executive_ndpb,exempt,https://icrir.independent-inquiry.uk/,icrir.independent-inquiry.uk,True,northern-ireland-office,ok
+the-legal-ombudsman,The Legal Ombudsman,,Other,other,exempt,http://www.legalombudsman.org.uk/,legalombudsman.org.uk,True,ministry-of-justice,ok
+the-national-archives,The National Archives,,Non-ministerial department,non_ministerial_department,exempt,http://www.nationalarchives.gov.uk/,nationalarchives.gov.uk,True,department-for-digital-culture-media-and-sport,ok
+the-national-lottery-community-fund,The National Lottery Community Fund,,Executive non-departmental public body,executive_ndpb,exempt,https://www.tnlcommunityfund.org.uk/,tnlcommunityfund.org.uk,True,department-for-digital-culture-media-and-sport,ok
+the-national-shipbuilding-office,The National Shipbuilding Office,NSO,Other,other,joining,,,False,,ok
+the-pensions-regulator,The Pensions Regulator,TPR,Executive non-departmental public body,executive_ndpb,exempt,https://www.thepensionsregulator.gov.uk,thepensionsregulator.gov.uk,True,department-for-work-pensions,ok
+the-reviewing-committee-on-the-export-of-works-of-art-and-objects-of-cultural-interest,The Reviewing Committee on the Export of Works of Art and Objects of Cultural Interest,RCEWA,Advisory non-departmental public body,advisory_ndpb,exempt,https://www.artscouncil.org.uk/supporting-arts-museums-and-libraries/supporting-collections-and-cultural-property/reviewing-committee-0,artscouncil.org.uk,True,department-for-digital-culture-media-and-sport,ok
+the-scottish-government,The Scottish Government,The Scottish Government,Devolved government,devolved_administration,exempt,http://www.gov.scot/,gov.scot,True,,ok
+the-security-service-mi5,The Security Service,MI5,Other,other,exempt,https://www.mi5.gov.uk/,mi5.gov.uk,True,home-office,ok
+the-sentencing-council-for-england-and-wales,Sentencing Council for England and Wales,SC,Advisory non-departmental public body,advisory_ndpb,exempt,https://www.sentencingcouncil.org.uk,sentencingcouncil.org.uk,True,ministry-of-justice,ok
+the-theatres-trust,The Theatres Trust,TTT,Advisory non-departmental public body,advisory_ndpb,exempt,http://www.theatrestrust.org.uk/,theatrestrust.org.uk,True,department-for-digital-culture-media-and-sport,ok
+the-water-services-regulation-authority,Ofwat,Ofwat,Non-ministerial department,non_ministerial_department,exempt,http://www.ofwat.gov.uk/,ofwat.gov.uk,True,department-for-environment-food-rural-affairs,ok
+transport-focus,Transport Focus,,Executive non-departmental public body,executive_ndpb,exempt,http://www.transportfocus.org.uk/,transportfocus.org.uk,True,department-for-transport,ok
+treasure-valuation-committee,Treasure Valuation Committee,TVC,Advisory non-departmental public body,advisory_ndpb,exempt,http://finds.org.uk/,finds.org.uk,True,department-for-digital-culture-media-and-sport,ok
+trinity-house,Trinity House,,Executive non-departmental public body,executive_ndpb,exempt,http://www.trinityhouse.co.uk/th/about/index.html,trinityhouse.co.uk,True,department-for-transport,ok
+uk-anti-doping,UK Anti-Doping,UKAD,Executive non-departmental public body,executive_ndpb,exempt,http://www.ukad.org.uk,ukad.org.uk,True,department-for-digital-culture-media-and-sport,ok
+uk-asset-resolution-limited,UK Asset Resolution Limited,UKAR,Other,other,exempt,https://www.ukar.co.uk/,ukar.co.uk,True,hm-treasury;uk-government-investments,ok
+uk-debt-management-office,UK Debt Management Office,DMO,Executive agency,executive_agency,exempt,http://www.dmo.gov.uk/,dmo.gov.uk,True,hm-treasury,ok
+uk-government-investments,UK Government Investments,UKGI,Other,other,exempt,https://www.ukgi.org.uk,ukgi.org.uk,True,hm-treasury,ok
+uk-national-authority-for-counter-eavesdropping,UK National Authority for Counter-Eavesdropping,UK NACE,Sub organisation,sub_organisation,joining,https://www.fcdoservices.gov.uk/uk-nace/,fcdoservices.gov.uk,True,fcdo-services,ok
+uk-research-and-innovation,UK Research and Innovation,UKRI,Executive non-departmental public body,executive_ndpb,exempt,http://www.ukri.org/,ukri.org,True,department-for-business-innovation-science-and-trade,ok
+uk-shared-business-services-ltd,UK Shared Business Services Ltd,UKSBS,Other,other,exempt,https://www.uksbs.co.uk/,uksbs.co.uk,True,department-for-business-innovation-science-and-trade,ok
+uk-sport,UK Sport,UKSP,Executive non-departmental public body,executive_ndpb,exempt,http://www.uksport.gov.uk/,uksport.gov.uk,True,department-for-digital-culture-media-and-sport,ok
+uk-statistics-authority,UK Statistics Authority,Statistics,Non-ministerial department,non_ministerial_department,exempt,http://www.statisticsauthority.gov.uk/,statisticsauthority.gov.uk,True,cabinet-office,ok
+united-kingdom-national-nuclear-laboratory,United Kingdom National Nuclear Laboratory,UKNNL,Public corporation,public_corporation,exempt,https://uknnl.com/,uknnl.com,True,department-for-energy-security-and-net-zero,ok
+valuation-tribunal-for-england,Valuation Tribunal for England,VTE,Tribunal,tribunal,exempt,https://www.valuationtribunal.gov.uk/about-us/vte,valuationtribunal.gov.uk,True,ministry-of-housing-communities-local-government,ok
+valuation-tribunal-service-for-england-valuation-tribunal-service,Valuation Tribunal Service,VTS,Executive non-departmental public body,executive_ndpb,exempt,http://www.valuationtribunal.gov.uk/,valuationtribunal.gov.uk,True,ministry-of-housing-communities-local-government,ok
+vehicle-certification-agency,Vehicle Certification Agency,VCA,Executive agency,executive_agency,exempt,https://www.vehicle-certification-agency.gov.uk/,vehicle-certification-agency.gov.uk,True,department-for-transport,ok
+victims-commissioner,Victims' Commissioner,,Other,other,exempt,http://victimscommissioner.org.uk/,victimscommissioner.org.uk,True,ministry-of-justice,ok
+victoria-and-albert-museum,Victoria and Albert Museum,VAM,Executive non-departmental public body,executive_ndpb,exempt,http://www.vam.ac.uk,vam.ac.uk,True,department-for-digital-culture-media-and-sport,ok
+visitbritain,VisitBritain,VB,Executive non-departmental public body,executive_ndpb,exempt,http://www.visitbritain.org/,visitbritain.org,True,department-for-digital-culture-media-and-sport,ok
+visitengland,VisitEngland,VE,Executive non-departmental public body,executive_ndpb,exempt,http://www.visitengland.com,visitengland.com,True,department-for-digital-culture-media-and-sport,ok
+wales-audit-office,Wales Audit Office,,Other,other,exempt,http://www.wao.gov.uk/,wao.gov.uk,True,,ok
+wallace-collection,Wallace Collection,,Executive non-departmental public body,executive_ndpb,exempt,http://www.wallacecollection.org/,wallacecollection.org,True,department-for-digital-culture-media-and-sport,ok
+welsh-government,Welsh Government,,Devolved government,devolved_administration,exempt,https://gov.wales,gov.wales,True,,ok
+welsh-language-commissioner,Welsh Language Commissioner,,Other,other,exempt,http://www.comisiynyddygymraeg.org/,comisiynyddygymraeg.org,True,,ok
+westminster-foundation-for-democracy,Westminster Foundation for Democracy,,Executive non-departmental public body,executive_ndpb,exempt,http://www.wfd.org/,wfd.org,True,foreign-commonwealth-development-office,ok
+wilton-park,Wilton Park,Wilton Park,Executive agency,executive_agency,exempt,http://www.wiltonpark.org.uk,wiltonpark.org.uk,True,foreign-commonwealth-development-office,ok
+yorkshire-dales-national-park-authority,Yorkshire Dales National Park Authority,YDNP,Other,other,exempt,http://www.yorkshiredales.org.uk/,yorkshiredales.org.uk,True,department-for-environment-food-rural-affairs,ok
+youth-justice-agency-of-northern-ireland,Youth Justice Agency of Northern Ireland,YJA (NI),Executive agency,executive_agency,exempt,https://www.justice-ni.gov.uk/topics/youth-justice/youth-justice-agency,justice-ni.gov.uk,True,department-of-justice-northern-ireland,ok

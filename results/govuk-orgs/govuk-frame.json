@@ -1,0 +1,119 @@
+{
+ "version": "0.1.0",
+ "source_url": "https://www.gov.uk/api/organisations?page=1",
+ "content_base": "https://www.gov.uk/api/content",
+ "retrieved_utc": "2026-11-11T02:56:17Z",
+ "list_pages": 64,
+ "list_total": 1273,
+ "organisations": 1273,
+ "organisations_sha256": "b8c4498edce6c0b02ba4306ac4951f355f9e4876fc46a89781ca838a63191c76",
+ "by_status_all": {
+  "closed": 603,
+  "live": 353,
+  "exempt": 302,
+  "joining": 14,
+  "transitioning": 1
+ },
+ "own_site_statuses": [
+  "exempt",
+  "joining",
+  "transitioning"
+ ],
+ "rows": 317,
+ "dropped": 0,
+ "by_status": {
+  "exempt": 302,
+  "joining": 14,
+  "transitioning": 1
+ },
+ "by_type": {
+  "other": 107,
+  "executive_ndpb": 106,
+  "sub_organisation": 27,
+  "advisory_ndpb": 19,
+  "public_corporation": 18,
+  "executive_agency": 15,
+  "non_ministerial_department": 9,
+  "tribunal": 5,
+  "special_health_authority": 4,
+  "devolved_administration": 3,
+  "independent_monitoring_body": 3,
+  "": 1
+ },
+ "by_format": {
+  "Other": 107,
+  "Executive non-departmental public body": 106,
+  "Sub organisation": 27,
+  "Advisory non-departmental public body": 19,
+  "Public corporation": 18,
+  "Executive agency": 15,
+  "Non-ministerial department": 9,
+  "Tribunal": 5,
+  "Special health authority": 4,
+  "Devolved government": 3,
+  "Independent monitoring body": 3,
+  "Court": 1
+ },
+ "with_url": 305,
+ "own_host_rows": 304,
+ "own_hosts": 283,
+ "own_hosts_by_status": {
+  "exempt": 300,
+  "joining": 4
+ },
+ "own_hosts_by_type": {
+  "executive_ndpb": 105,
+  "other": 101,
+  "sub_organisation": 22,
+  "advisory_ndpb": 19,
+  "public_corporation": 18,
+  "executive_agency": 15,
+  "non_ministerial_department": 9,
+  "tribunal": 5,
+  "special_health_authority": 4,
+  "devolved_administration": 3,
+  "independent_monitoring_body": 3
+ },
+ "hosts_shared": {
+  "artscouncil.org.uk": 2,
+  "bbc.co.uk": 2,
+  "catribunal.org.uk": 2,
+  "fcdoservices.gov.uk": 2,
+  "judiciary.uk": 3,
+  "justice-ni.gov.uk": 5,
+  "justice.gov.uk": 3,
+  "justiceinspectorates.gov.uk": 2,
+  "lowcarboncontracts.uk": 2,
+  "nationalarchives.gov.uk": 2,
+  "nmrn.org.uk": 2,
+  "pensions-ombudsman.org.uk": 2,
+  "ukri.org": 4,
+  "valuationtribunal.gov.uk": 2
+ },
+ "without_url": [
+  "british-technology-investments-ltd",
+  "civil-service-group",
+  "financial-remedies-court",
+  "government-cyber-profession",
+  "government-partnerships-international",
+  "joint-maritime-security-centre",
+  "local-audit-office",
+  "national-armaments",
+  "policy-lab",
+  "radiation-protection-sciences",
+  "remploy-pension-scheme-trustees-ltd",
+  "the-national-shipbuilding-office"
+ ],
+ "not_own_host": [
+  [
+   "service-prosecuting-authority",
+   "https://www.gov.uk/guidance/service-prosecuting-authority"
+  ]
+ ],
+ "fetch_failed": [
+  "financial-remedies-court"
+ ],
+ "frame_bytes": 61627,
+ "frame_sha256": "8ba68f9f47cb426685211eba0a89d6f4a6bb6f8e966ffc57e7d2e91edd5f977e",
+ "note": "Frame only: no organisation's own website was requested. Source: GOV.UK organisations API and content API, Open Government Licence v3.0."
+}
