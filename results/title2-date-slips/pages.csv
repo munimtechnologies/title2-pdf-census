@@ -1,0 +1,28 @@
+query,rank,url,publisher,publisher_type,date_shown,read,day_50k_plus,day_under_50k_and_special_districts,matches_rule,other_note
+Q1,1,https://www.ada.gov/resources/2024-03-08-web-rule/,U.S. Department of Justice (ADA.gov),government,none read,yes,2027-04-26,2028-04-26,yes,
+Q1,2,https://accessibe.com/accessibility-platform/reports/title-ii-government-agencies/title-ii-deadline-extension,accessiBe,vendor or guide,none read,yes,2027-04-26,2028-04-26,yes,
+Q1,3,https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web,Federal Register,government,2026-04-20,no,,,,redirected to a bot check; rule text read on eCFR instead
+Q1,4,https://www.consumerfinancialserviceslawmonitor.com/2026/04/doj-extends-title-ii-ada-web-accessibility-rule-compliance-deadlines-for-state-and-local-governments/,Consumer Financial Services Law Monitor,law firm or news,2026-04-23,yes,2027-04-26,2028-04-26,yes,
+Q1,5,https://www.ada.gov/assets/pdfs/web-rule.pdf,U.S. Department of Justice (ADA.gov),government,,no,,,,PDF not readable with the tools used
+Q1,6,https://www.accessiblu.com/insights/dojs-ada-title-ii-rule-what-you-actually-need-to-do-by-april-2026/,Accessiblu Solutions,vendor or guide,none read,yes,2027-04-26,2028-04-26,yes,
+Q1,7,https://bugport.ai/blog/ada-title-ii-web-accessibility-deadline,bugport.ai,vendor or guide,none read,yes,2027-04-26,2028-04-26,yes,
+Q1,8,https://developerofweb.com/blog/ada-title-ii-web-accessibility-rule,developerofweb.com,vendor or guide,none read,yes,2027-04-26,2028-04-26,yes,
+Q1,9,https://accessibilityscanner.app/guides/ada-title-ii-deadline,accessibilityscanner.app,vendor or guide,none read,yes,2027-04-26,2028-04-26,yes,
+Q1,10,https://adaquickscan.com/blog/ada-title-ii-deadline-delayed-doj-interim-final-rule-2026,adaquickscan.com,vendor or guide,none read,yes,2027-04-26,2028-04-26,yes,
+Q2,1,https://www.lmc.org/news-publications/news/all/doj-extends-web-accessibility-compliance-deadlines-for-local-governments/,League of Minnesota Cities,association of local governments,2026-04-20,yes,2027-04-26,2028-04-26,yes,
+Q2,2,https://www.lmc.org/news-publications/news/all/justice-department-signals-possible-changes-to-ada-web-accessibility-rule/,League of Minnesota Cities,association of local governments,2026-02-23,yes,2027-04-26,2028-04-26,yes,current days in an update note; the older body keeps the 2024 rule's days
+Q2,5,https://www.flcities.com/ada-website-compliance/,Florida League of Cities,association of local governments,2026-04-20,yes,2027-04-26,2028-04-26,yes,
+Q2,6,https://www.smartcitiesdive.com/news/ada-website-accessibility-compliance-deadline-extended-one-year/818187/,Smart Cities Dive,law firm or news,2026-04-22,yes,2027-04-26,2028-04-26,yes,
+Q2,7,https://www.jacksonlewis.com/insights/doj-extends-public-entities-compliance-deadline-ada-related-website-accessibility-hhss-may-2026-deadline-still-looms,Jackson Lewis,law firm or news,2026-04-22,yes,2027-04-26,2028-04-26,yes,"current days right; one sentence gives the former first date as April 22, 2026 and another as April 24, 2026"
+Q2,8,https://www.ada.gov/assets/pdfs/2026-ifr.pdf,U.S. Department of Justice (ADA.gov),government,,no,,,,PDF not readable with the tools used
+Q2,9,https://titleii.org/title-ii-web-accessibility,titleii.org,vendor or guide,2026-06-11,yes,2027-04-26,2028-04-26,yes,
+Q2,10,https://www.mediascribe.ai/academy/foundation-a/ada-title-ii-and-the-april-2027-deadline,MediaScribe,vendor or guide,none read,yes,2027-04-26,2028-04-26,yes,
+Q3,1,https://www.counties.org/news-and-media-article/website-accessibility-compliance-deadlines-extended-for-counties/,California State Association of Counties,association of local governments,2026-04-23,yes,2027-04-26,2028-04-26,yes,
+Q3,2,https://gic.delaware.gov/gic-accessibility-newsletter-issue-10/,Delaware Government Information Center,government,2026-06-09,yes,2027-04-24,2028-04-24,no,"countdown line: '319 Days until Revised Accessibility Deadline (4/24/27)'"
+Q3,3,https://www.naco.org/news/doj-rule-grants-extension-ada-web-based-accessibility-requirements,National Association of Counties,association of local governments,2026-06-24,yes,2027-04-24,2028-04-28,no,an older update on the same page gives the 2024 rule's days as April 24 2026 and April 24 2027
+Q3,4,https://www.accessibility.works/blog/ada-title-ii-2-compliance-standards-requirements-states-cities-towns/,Accessibility.Works,vendor or guide,2026-10-28,yes,2027-04-26,2028-04-26,yes,
+Q3,5,https://mrsc.org/stay-informed/mrsc-insight/february-2026/ada-standards-websites-apps,MRSC (Municipal Research and Services Center),association of local governments,2026-02-17,yes,2027-04-26,2028-04-26,yes,"current days in an editor's note; the older body gives the first date as April 24, 2026 in one sentence and April 26, 2026 in another"
+Q3,7,https://www.levelaccess.com/blog/the-ada-title-ii-extension-what-it-doesnt-change/,Level Access,vendor or guide,2026-05-18,yes,,,,gives no Title II day (month and year only); its HHS Section 504 days (May 11 2027 and May 10 2028) match 45 CFR 84.84(b)
+Q3,8,https://countyprogress.com/ada-county-web/,Texas County Progress (County Judges and Commissioners Association of Texas),association of local governments,2026-01-19,yes,2027-04-24,2028-04-26,no,the date shown is earlier than the extension the page describes
+Q3,9,https://titleii.org/municipal-website-accessibility,titleii.org,vendor or guide,2026-10-12,yes,2027-04-26,2028-04-26,yes,
+Q3,10,https://accessive.app/laws/ada-title-ii,Accessive,vendor or guide,2026-06,yes,2027-04-26,2028-04-26,yes,
