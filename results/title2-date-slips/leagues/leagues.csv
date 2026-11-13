@@ -1,0 +1,50 @@
+state,league,domain_searched,class,wrong_or_old_note
+AL,Alabama League of Municipalities,almonline.org,right,read by search reader only (PDF)
+AK,Alaska Municipal League,akml.org,none,
+AZ,League of Arizona Cities and Towns,azleague.org,none,
+AR,Arkansas Municipal League,arml.org,none,domain search returned no results; name search found no league page
+CA,League of California Cities,calcities.org,none,
+CO,Colorado Municipal League,cml.org,right,only page with a day is an associate member's (vendor's) newsletter item; under-50k day only
+CT,Connecticut Conference of Municipalities,ccm-ct.org,none,
+DE,Delaware League of Local Governments,dllg.us,old_only,"domain in prereg list (dllg.org) returned nothing; real domain dllg.us found by name search; page gives April 26, 2026 for under 50,000 (2024 rule: April 26, 2027)"
+FL,Florida League of Cities,flcities.com,right,already read in part 1
+GA,Georgia Municipal Association,gacities.com,right,
+ID,Association of Idaho Cities,idahocities.org,none,
+IL,Illinois Municipal League,iml.org,right,
+IN,Accelerate Indiana Municipalities,aimindiana.org,no_day,"a 2025 training brochure speaks of July 2026 and July 2027 deadlines (search reader)"
+IA,Iowa League of Cities,iowaleague.org,none,
+KS,League of Kansas Municipalities,lkm.org,none,domain search returned no results; name search found no league page
+KY,Kentucky League of Cities,klc.org,right,
+LA,Louisiana Municipal Association,lma.org,none,
+ME,Maine Municipal Association,memun.org,right,read by search reader only (PDF newsletter)
+MD,Maryland Municipal League,mdmunicipal.org,right,under-50k day only
+MA,Massachusetts Municipal Association,mma.org,right,
+MI,Michigan Municipal League,mml.org,right,
+MN,League of Minnesota Cities,lmc.org,wrong,"resource page: 50,000 or more 'Compliance deadline: April 24, 2027' (its own update note says April 26, 2027); news page of 2026-04-20 is right"
+MS,Mississippi Municipal League,mmlonline.com,none,
+MO,Missouri Municipal League,mocities.com,right,
+MT,Montana League of Cities and Towns,mtleague.org,right,
+NE,League of Nebraska Municipalities,lonm.org,none,
+NV,Nevada League of Cities and Municipalities,nvleague.org,none,domain search returned no results; name search did not find the league's domain
+NH,New Hampshire Municipal Association,nhmunicipal.org,old_only,"Nov-Dec 2024 article: 'by April 24, 2026, or April 24, 2027'; 2026 conference agenda gives months only"
+NJ,New Jersey State League of Municipalities,njlm.org,right,
+NM,New Mexico Municipal League,nmml.org,none,
+NY,New York State Conference of Mayors,nycom.org,no_day,news list headline only
+NC,North Carolina League of Municipalities,nclm.org,right,
+ND,North Dakota League of Cities,ndlc.org,right,
+OH,Ohio Municipal League,omlohio.org,none,
+OK,Oklahoma Municipal League,oml.org,none,
+OR,League of Oregon Cities,orcities.org,right,
+PA,Pennsylvania Municipal League,pml.org,right,"gives the former first date as April 26, 2026 (2024 rule: April 24, 2026)"
+RI,Rhode Island League of Cities and Towns,rileague.org,none,
+SC,Municipal Association of South Carolina,masc.sc,right,"only page with a current day is a vendor's conference handout (search reader only); the league's own March 2026 article gives the 2024 rule's days"
+SD,South Dakota Municipal League,sdmunicipalleague.org,none,
+TN,Tennessee Municipal League,tml1.org,wrong,"2026-04-22 article: 'April 27, 2028' for under 50,000; 2026-06-10 article is right; 2025-11-03 article gave April 24, 2027 for the 2024 rule"
+TX,Texas Municipal League,tml.org,right,
+UT,Utah League of Cities and Towns,ulct.org,no_day,webinar page names 'ADA Compliance Deadlines' without dates
+VT,Vermont League of Cities and Towns,vlct.org,wrong,"updated resource table: 'April 24, 2026 2027' and 'April 24, 2027 2028' (year changed, day kept); news page of 2026-04-21 is right"
+VA,Virginia Municipal League,vml.org,old_only,2025 conference slides (search reader)
+WA,Association of Washington Cities,wacities.org,right,
+WV,West Virginia Municipal League,wvml.org,none,
+WI,League of Wisconsin Municipalities,lwm-info.org,old_only,2024 slides (search reader)
+WY,Wyoming Association of Municipalities,wyomuni.org,none,

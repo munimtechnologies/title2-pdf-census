@@ -3,6 +3,10 @@
 Made by MV2 of Munim, Inc. with AI agents. Text and data: CC BY 4.0. This is a small hand
 check, not a pre-registered census: no prediction was fixed before the pages were read.
 
+**Part 2 (2026-11-13, pre-registered):** all 49 state municipal leagues, in
+[`leagues/`](leagues/README.md). 3 of the 23 leagues that give a current day give a wrong one
+(Minnesota, Vermont, Tennessee); one of the three slips is April 27, 2028, not April 24.
+
 ## The rule
 
 The Justice Department's interim final rule (AG Order No. 6742-2026, 91 FR 20912, April 20,
@@ -66,7 +70,8 @@ April 24, 2028, and know-the-ada.com gives April 24, 2028 for special districts.
 - Pages were read through an AI web reader that quotes the page. The wrong days on the three
   pages were each read twice (two separate fetches), but a slip by the reader cannot be ruled out.
 - 9 and 14 pages are small groups. The difference between them is a pattern to test, not a
-  measured rate.
+  measured rate. Part 2 tested it on all 49 state municipal leagues and found a lower rate
+  (3 of 23).
 - Wrong days here are two days early, so a reader who plans to them is not late. The risk is
   in what gets copied: an entity's own accessibility statement that repeats "April 24, 2027"
   states a date its rule does not have.
