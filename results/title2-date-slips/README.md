@@ -20,6 +20,13 @@ frame, ICMA (the International City/County Management Association) gives NACo's 
 UC Davis's accessibility FAQ gives "the ADA Title II deadline on April 24, 2027", the first
 entity page in this series with a wrong day.
 
+**Part 5 (2026-11-13, pre-registered):** all 10 University of California campuses and the 22
+California State University campuses, in [`uc-csu/`](uc-csu/README.md). 19 of 32 give a current
+day, and 5 of those 19 give April 24, 2027 instead of April 26, 2027: UC Davis, UC Irvine, Cal
+State East Bay, Cal State Northridge and Cal Poly San Luis Obispo. Both systems' own pages give
+the right day, so the slip arose campus by campus. Three of five predictions held; the two about
+a UC-system pattern failed.
+
 ## The rule
 
 The Justice Department's interim final rule (AG Order No. 6742-2026, 91 FR 20912, April 20,
