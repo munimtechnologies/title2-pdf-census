@@ -44,6 +44,13 @@ divisions. So part 6's "unit pages, not central" was too narrow: the wrong day s
 central offices' secondary pages too. Three of five predictions held. Two search-reader claims of
 the wrong day did not hold when the page was read, and UCSF's news item had been corrected.
 
+**Part 8 (2026-11-13, pre-registered):** the 22 CSU campuses, searched for the wrong day the same
+way, in [`csu-wrong-day/`](csu-wrong-day/README.md). 3 of 22 have a page giving April 24, 2027 (6
+pages), and they are the same three campuses part 5 found (East Bay, Northridge, San Luis Obispo):
+no new campus, unlike the Big Ten. 5 of the 6 pages are central, among them a Provost's message at
+Cal Poly San Luis Obispo that the campus newsletter repeated. None is a college page. Three of five
+predictions held; the two expecting a new campus failed.
+
 ## The rule
 
 The Justice Department's interim final rule (AG Order No. 6742-2026, 91 FR 20912, April 20,
