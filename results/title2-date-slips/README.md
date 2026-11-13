@@ -7,6 +7,11 @@ check, not a pre-registered census: no prediction was fixed before the pages wer
 [`leagues/`](leagues/README.md). 3 of the 23 leagues that give a current day give a wrong one
 (Minnesota, Vermont, Tennessee); one of the three slips is April 27, 2028, not April 24.
 
+**Part 3 (2026-11-13, pre-registered):** 47 state associations of counties, in
+[`counties/`](counties/README.md). Only 6 give a current day, and 2 of them give a wrong one:
+Maryland repeats NACo's exact pair (April 24, 2027 and April 28, 2028) and Michigan gives April
+24, 2027. Two of five predictions held. NACo's page still gave both wrong days on 2026-11-13.
+
 ## The rule
 
 The Justice Department's interim final rule (AG Order No. 6742-2026, 91 FR 20912, April 20,
@@ -71,7 +76,7 @@ April 24, 2028, and know-the-ada.com gives April 24, 2028 for special districts.
   pages were each read twice (two separate fetches), but a slip by the reader cannot be ruled out.
 - 9 and 14 pages are small groups. The difference between them is a pattern to test, not a
   measured rate. Part 2 tested it on all 49 state municipal leagues and found a lower rate
-  (3 of 23).
+  (3 of 23); part 3 found 2 of 6 among state associations of counties.
 - Wrong days here are two days early, so a reader who plans to them is not late. The risk is
   in what gets copied: an entity's own accessibility statement that repeats "April 24, 2027"
   states a date its rule does not have.

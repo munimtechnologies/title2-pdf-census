@@ -1,0 +1,28 @@
+state,url,author_type,date_shown,read_by,dates_are,day_50k_plus,day_under_50k,matches_rule,note
+CA,https://www.counties.org/news-and-media-article/website-accessibility-compliance-deadlines-extended-for-counties/,association,2026-04-23,page reader,current,2027-04-26,2028-04-26,yes,
+CO,https://ccionline.org/resource-library/webinar-county-websites-ada-compliance/,association,none,page reader,none,,,,Colorado state law only; no federal rule date
+FL,https://faca.fl-counties.com/ada-litigation-county-website-accessibility/,association (county attorneys),2018-2019 content,page reader,none,,,,litigation papers from before the 2024 rule
+IA,https://www.iowacounties.org/wp-content/uploads/2026/03/IA-CTY_March-2026_PDF.pdf,association,2026-03,search reader,2024 rule,2026-04-24,2027-04-26,yes (2024 rule),PDF magazine; not opened by the page reader
+KS,https://kansascounties.org/,association,none,search reader (page reader got 403),none,,,,Digital Accessibility Guide named; no day
+KS,https://kansascounties.org/page/2026KACSessionTopics,association,2026,search reader (page reader got 403),none,,,,conference session on the rule; no day
+KY,https://kaco.org/articles/deadline-extended-for-counties-to-comply-with-new-ada-website-accessibility-requirements/,association,2026-04-23,page reader,current,2027-04-26,2028-04-26,yes,"also gives the former days right (April 24, 2026 and April 26, 2027); URL taken from the search reader's headline"
+MD,https://conduitstreet.mdcounties.org/2026/03/13/countdown-to-compliance-what-counties-need-to-know-about-new-ada-digital-accessibility-standards/,association,2026-03-13,page reader,2024 rule,2026-04-24,2027-04-26,yes (2024 rule),
+MD,https://conduitstreet.mdcounties.org/2026/06/10/deep-dive-beyond-the-ada-digital-accessibility-deadline/,association,2026-06-10,page reader (twice),current,2027-04-24,2028-04-28,no,"'Counties with populations greater than 50,000 residents: April 24, 2027' / 'Counties with populations of 50,000 residents or fewer: April 28, 2028'; same pair as NACo; no correction note"
+MD,https://conduitstreet.mdcounties.org/2026/08/05/digital-accessibility-work-continues-as-counties-prepare-for-new-federal-requirements/,association,2026-08-05,page reader,current (years),,,,'extended the compliance deadlines to 2027 and 2028'
+MI,https://micounties.org/legislative-update-4-26-24/,association,2024-04-26,page reader,2024 rule (relative),,,,'within two years' / 'within three years of publication'
+MI,https://micounties.org/legislative-update-3-27-26-2/,association,2026-03-27,page reader,2024 rule,(April 24 no year),2027-04-26,yes (2024 rule),
+MI,https://micounties.org/legislative-update-4-24-26/,association,2026-04-24,page reader (twice),current,2027-04-24,2028-04-26,no,"'Counties with 50,000+ in population: April 24, 2027'; no byline; links the Federal Register notice"
+ND,https://www.ndaco.org/programs_and_services/institute-of-local-government-ilg/ilg-courses/ada-accessibility-training-webinar-series,association,event 2026-05-13,page reader,current (years),,,,'ahead of the 2027 and 2028 compliance deadlines'
+ND,https://www.ndaco.org/media/publication/county-news/issue103/Sept-Oct_2026_County_News_Final.pdf,association,2026-09,unreadable,none,,,,PDF could not be read by the page reader
+ND,https://www.ndaco.org/programs_and_services/institute-of-local-government-ilg/library/,association,none,page reader,none,,,,webinar listing; no day
+NY,https://www.nysac.org/blog_home.asp?display=115,association,none,search reader (page reader got 404),none,,,,general website ADA guidance; does not name the rule
+OH,https://ccao.org/aws/CCAO/ebulletin/view_mail/289633/3149782,association,2026-04-27,page reader,current,2027-04-26,2028-04-26,yes,"former days given right ('delayed from April 24, 2026' / 'delayed from April 26, 2027')"
+OH,https://ccao.org/aws/CCAO/ebulletin/view_mail/290119/3149915,association,2026-05-04,page reader,current,2027-04-26,2028-04-26,yes,same text as 2026-04-27
+OH,https://ccao.org/aws/CCAO/ebulletin/view_mail/293412/3149915/,association,2026-06-15,page reader,none,,,,does not mention the web rule
+PA,https://www.pacounties.org/technology/web-program/webblog/202503/adacompliance,association,2025-03 (URL),page reader,none,,,,'the new ruling from the DOJ is in effect'; no day
+SC,https://www.sccounties.org/news/nacos-new-guide-digital-accessibility-and-ada-compliance,association,2026-02-25,page reader,none,,,,no day
+SC,https://www.sccounties.org/web-accessibility-tools,association,none,page reader,none,,,,'With federal compliance deadlines approaching'; no day
+TX,https://www.county.org/resources/resource-library/tac-cira/website-accessibility-resources,association,none (copyright 2026),page reader,current,2027-04-26,2028-04-26,yes,"says the rule was published 'On April 17, 2026' (the Federal Register date is April 20, 2026)"
+TX,https://www.county.org/county-magazine-articles/blog/2026/blog-social-media-accessibility-for-co-govt,association,2026-05-20,page reader,current,2027-04-26,2028-04-26,yes,
+TX,https://www.county.org/resources/resource-library/tac-cira/cira-website-accessibility-tips-and-resources,association,none (copyright 2026),page reader,current,2027-04-26,2028-04-26,yes,
+VA,https://www.vaco.org/county-connections/web-accessibility-compliance-required-by-state-code-despite-delay-at-federal-level/,association,2026-04-24,page reader,current (no day),,,,'pushed back a year'; former dates as 'April 2026 or 2027'
