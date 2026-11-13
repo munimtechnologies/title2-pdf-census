@@ -1,0 +1,25 @@
+planned_dates 0.1.0
+status: graded
+gates: F1_frame=True, G1_read=True, P0_planned_rule=True, P0_prereg=True, P0_reader=True
+frame: {"both": 0, "ok_rows": {"council": 284, "govuk": 202}, "urls": 479, "withheld": 0}
+crawl: {"delay": 1.0, "finished_utc": "2026-11-13T18:31:34Z", "started_utc": "2026-11-13T18:27:20Z", "workers": 8}
+tables: {"planned.csv": {"bytes": 980, "rows": 7, "sha256": "bf3c04753b9e28b96211773a5254d12cc38b3ba8ab5f8f604fa43d04a6d53d18"}, "rows.csv": {"bytes": 144187, "rows": 479, "sha256": "5ee6e582d60b21606887f3b90695efed47574239564ea2583551991ca73df9b9"}}
+  F1_urls: 479
+  G1_read: {"k": 470, "n": 479, "pct": 98.12}
+  Q1_planned_of_read: {"k": 6, "n": 470, "pct": 1.28}
+  Q2_flipped_of_dated: {"k": 1, "n": 446, "pct": 0.22}
+  Q3_by_census: {"council": {"diff_pp": 0.15, "new_dated": 264, "new_pct": 38.26, "new_stale": 101, "old_dated": 265, "old_pct": 38.11, "old_stale": 101, "read": 278}, "govuk": {"diff_pp": 0.0, "new_dated": 181, "new_pct": 42.54, "new_stale": 77, "old_dated": 181, "old_pct": 42.54, "old_stale": 77, "read": 192}}
+  changed_date_of_read: {"k": 6, "n": 470, "pct": 1.28}
+predictions: Q1=True, Q2=True, Q3=True, Q4=None
+future_phrase_pages: 130
+new_source: {"prepared": 53, "reviewed": 392}
+new_undated: 25
+old_date_same_as_census: 461
+old_source: {"prepared": 50, "reviewed": 396}
+old_undated: 24
+planned_pages_by_census: {"council": 5, "govuk": 1}
+planned_phrases: 7
+planned_year: {"2022": 2, "2023": 1, "2025": 1, "2026": 2, "2027": 1}
+retried: 0
+status: {"http_0": 8, "not_statement": 1, "ok": 470}
+text_same_as_census: 313
