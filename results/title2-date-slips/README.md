@@ -35,6 +35,15 @@ search results, unit pages at 4 of the 15 (Michigan's College of Engineering IT,
 news item, Rutgers' SEBS IT and UW Tacoma) give April 24, 2027, so the slip is there too, on
 college and campus pages rather than central ones.
 
+**Part 7 (2026-11-13, pre-registered):** the same 25 universities (15 Big Ten, 10 UC), each
+searched for the wrong day itself, in [`unit-pages/`](unit-pages/README.md). 8 of the 25 have at
+least one page giving April 24, 2027 as a Title II day (6 of 15 Big Ten, 2 of 10 UC), 13 pages in
+all. Only 4 of the 13 are college or campus pages; 6 are central accessibility, compliance or IT
+pages (for example Sites at Penn State's "April 24, 2027 Deadline") and 3 are campus-wide
+divisions. So part 6's "unit pages, not central" was too narrow: the wrong day sits on the
+central offices' secondary pages too. Three of five predictions held. Two search-reader claims of
+the wrong day did not hold when the page was read, and UCSF's news item had been corrected.
+
 ## The rule
 
 The Justice Department's interim final rule (AG Order No. 6742-2026, 91 FR 20912, April 20,

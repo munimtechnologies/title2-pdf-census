@@ -61,6 +61,13 @@ appears too, but on college, campus and unit IT pages rather than on the central
 or compliance pages the fixed method reaches first. This was not counted systematically: only
 pages the search reader mentioned were checked, so the true number of such pages is not known.
 
+**Later the same day (part 7, [`../unit-pages/`](../unit-pages/README.md)):** a pre-registered
+search for "April 24, 2027" itself at these 15 universities and the 10 UC campuses found hit
+pages at 6 of the 15, and only 4 of the 13 hit pages across all 25 are college or campus pages.
+Central IT and accessibility offices' secondary pages carry the wrong day too (for example Sites
+at Penn State and an IU Knowledge Base article). Ohio State's it.osu.edu item is published by
+the central IT office, so the "unit pages" reading above was too narrow.
+
 ## Compared with part 5
 
 | | UC and CSU campuses (part 5) | Big Ten public universities (part 6) |
