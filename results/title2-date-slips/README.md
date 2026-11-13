@@ -51,6 +51,15 @@ no new campus, unlike the Big Ten. 5 of the 6 pages are central, among them a Pr
 Cal Poly San Luis Obispo that the campus newsletter repeated. None is a college page. Three of five
 predictions held; the two expecting a new campus failed.
 
+**Part 9 (2026-11-13, pre-registered):** the state government domains of the 25 most populous
+states, searched for the wrong day the same way, in [`state-wrong-day/`](state-wrong-day/README.md).
+7 of 25 have a page giving April 24, 2027 as the Title II day (18 pages): New York, Illinois,
+Michigan, Washington, Tennessee, Maryland and Wisconsin. Unlike at universities, 16 of the 18 are
+agency pages, not central ones; the one central page is New York's statewide accessibility policy
+NYS-P08-005 (modified 2026-10-07): "The current compliance deadline is now April 24, 2027." Most
+of the 18 read the April 2026 extension as one year after April 24, 2026. Three of four
+predictions held; the one expecting a page that also gives April 26, 2027 failed.
+
 ## The rule
 
 The Justice Department's interim final rule (AG Order No. 6742-2026, 91 FR 20912, April 20,
