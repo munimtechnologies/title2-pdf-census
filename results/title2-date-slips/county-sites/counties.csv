@@ -1,0 +1,40 @@
+state,county,domain,class,best_source,note
+MD,Allegany County,alleganygov.org,none,page reader,ADA page read; no web accessibility or Title II web rule text
+MD,Anne Arundel County,aacounty.org,no_day,page reader,/accessibility: 'compliant with the WCAG 2.1 AA Standards'; no date
+MD,Baltimore City,baltimorecity.gov,none,page reader,accessibility policy page is about services; no WCAG or web rule; page timestamps 01/05/2024 and 08/12/2026
+MD,Baltimore County,baltimorecountymd.gov,no_day,search reader (page reader got 403),style guide: PDFs must 'meet ADA 508 and WCAG 2.1 compliance'; no date
+MD,Calvert County,calvertcountymd.gov,no_day,page reader,'The County prioritizes web accessibility.'; ADA policy press release of July 29 2026 does not mention the web
+MD,Caroline County,carolinemd.org,none,search reader,only bids and grant documents
+MD,Carroll County,carrollcountymd.gov,none,page reader,accessibility notice and ADA page read; no web text
+MD,Cecil County,ccgov.org,none,search reader,no relevant result
+MD,Charles County,charlescountymd.gov,no_day,search reader (page reader got 403),site terms page mentions WCAG 2.1; no date
+MD,Dorchester County,dorchestercountymd.com,none,search reader,no relevant result
+MD,Frederick County,frederickcountymd.gov,no_day,page reader,ADA page: content to conform to 'WCAG 2.1 Level A and AA standards'; no date; a June 11 2026 agenda PDF could not be read
+MD,Garrett County,garrettcounty.org,none,search reader,only a business-development news page
+MD,Harford County,harfordcountymd.gov,none,search reader,building-code and transit ADA pages only
+MD,Howard County,howardcountymd.gov,none,search reader,planning letters only
+MD,Kent County,kentcounty.com,none,search reader,sheriff manuals and arts calendar only
+MD,Montgomery County,montgomerycountymd.gov,no_day,page reader + search reader,accessibility policy page has no date; Commission on People with Disabilities 2024 annual report (posted 2026-03) says the county must implement the guidelines 'by April 2026' (search reader; 2024 rule; month only)
+MD,Prince George's County,princegeorgescountymd.gov,no_day,search reader (page reader got 403),FY 2026 CAPER mentions staff training on website accessibility; no date
+MD,Queen Anne's County,qac.org,no_day,page reader,web accessibility policy: new policies 'implemented as of April 2026'; 'This information was updated on April 13 2026.'; no Title II day
+MD,St. Mary's County,stmaryscountymd.gov,none,page reader,ADA policy page read; no web text
+MD,Somerset County,somersetmd.us,none,search reader,no relevant result
+MD,Talbot County,talbotcountymd.gov,no_day,search reader (PDF not readable by page reader),"council meeting of May 12 2026: 'we do have until 2028. That was recently extended from 2027' (years only, and right)"
+MD,Washington County,washco-md.net,none,page reader,ADA compliance page read; no web text
+MD,Wicomico County,wicomicocounty.org,none,search reader,no relevant result
+MD,Worcester County,co.worcester.md.us,none,search reader,general ADA statement only
+MI,Wayne County,waynecountymi.gov,none,search reader,two contracts only
+MI,Oakland County,oakgov.com,no_day,page reader (redirected to oaklandcountymi.gov),news of 07/21/2025 on the UserWay widget; no WCAG or rule day; the county now uses oaklandcountymi.gov (see README)
+MI,Macomb County,macombgov.org,no_day,page reader,accessibility policy names Title II and WCAG 2.1 AA with no date; 'This statement was last updated on April 9 2026'
+MI,Kent County,accesskent.com,none,search reader,old pages only; the county now uses kentcountymi.gov (see README)
+MI,Genesee County,geneseecountymi.gov,none,search reader,court ADA page only
+MI,Washtenaw County,washtenaw.org,no_day,page reader,'We work to comply with Section 508 as well as WCAG 2.1 A and AA.'; no date
+MI,Ottawa County,miottawa.org,no_day,page reader,"web guide: the 2024 rule requires WCAG 2.1 AA 'by April 2026' (2024 rule; month only; one date for all entities); no posted date"
+MI,Ingham County,ingham.org,none,search reader,agendas and minutes only
+MI,Kalamazoo County,kalcounty.com,none,search reader,only an old probate court page
+MI,Livingston County,milivcounty.gov,no_day,page reader,"social media guide: 'In 2024, the U.S. Department of Justice updated the regulations for Title II'; WCAG 2.1 AA / 2.2 AA; no date"
+MI,Saginaw County,saginawcounty.com,none,search reader,court ADA coordinator page only
+MI,Muskegon County,co.muskegon.mi.us,none,search reader,old agendas only
+MI,St. Clair County,stclaircounty.org,none,search reader,general ADA notice only
+MI,Jackson County,mijackson.org,none,search reader,county policies page only
+MI,Monroe County,co.monroe.mi.us,none,search reader,ADA accommodation pages only

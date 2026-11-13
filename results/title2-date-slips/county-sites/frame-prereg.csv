@@ -1,0 +1,40 @@
+state,county,domain,domain_sure
+MD,Allegany County,alleganygov.org,yes
+MD,Anne Arundel County,aacounty.org,yes
+MD,Baltimore City,baltimorecity.gov,yes
+MD,Baltimore County,baltimorecountymd.gov,yes
+MD,Calvert County,calvertcountymd.gov,yes
+MD,Caroline County,carolinemd.org,unsure
+MD,Carroll County,carrollcountymd.gov,yes
+MD,Cecil County,ccgov.org,yes
+MD,Charles County,charlescountymd.gov,yes
+MD,Dorchester County,dorchestercountymd.com,unsure
+MD,Frederick County,frederickcountymd.gov,yes
+MD,Garrett County,garrettcounty.org,yes
+MD,Harford County,harfordcountymd.gov,yes
+MD,Howard County,howardcountymd.gov,yes
+MD,Kent County,kentcounty.com,unsure
+MD,Montgomery County,montgomerycountymd.gov,yes
+MD,Prince George's County,princegeorgescountymd.gov,yes
+MD,Queen Anne's County,qac.org,yes
+MD,St. Mary's County,stmaryscountymd.gov,yes
+MD,Somerset County,somersetmd.us,unsure
+MD,Talbot County,talbotcountymd.gov,yes
+MD,Washington County,washco-md.net,yes
+MD,Wicomico County,wicomicocounty.org,yes
+MD,Worcester County,co.worcester.md.us,unsure
+MI,Wayne County,waynecountymi.gov,unsure
+MI,Oakland County,oakgov.com,yes
+MI,Macomb County,macombgov.org,yes
+MI,Kent County,accesskent.com,unsure
+MI,Genesee County,geneseecountymi.gov,unsure
+MI,Washtenaw County,washtenaw.org,yes
+MI,Ottawa County,miottawa.org,yes
+MI,Ingham County,ingham.org,yes
+MI,Kalamazoo County,kalcounty.com,yes
+MI,Livingston County,milivcounty.gov,yes
+MI,Saginaw County,saginawcounty.com,yes
+MI,Muskegon County,co.muskegon.mi.us,unsure
+MI,St. Clair County,stclaircounty.org,yes
+MI,Jackson County,mijackson.org,unsure
+MI,Monroe County,co.monroe.mi.us,unsure

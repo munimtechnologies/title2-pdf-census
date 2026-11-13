@@ -12,6 +12,14 @@ check, not a pre-registered census: no prediction was fixed before the pages wer
 Maryland repeats NACo's exact pair (April 24, 2027 and April 28, 2028) and Michigan gives April
 24, 2027. Two of five predictions held. NACo's page still gave both wrong days on 2026-11-13.
 
+**Part 4 (2026-11-13, pre-registered):** the websites of all 24 Maryland jurisdictions and
+Michigan's 15 most populous counties, in [`county-sites/`](county-sites/README.md). None of the 39
+gives any Title II compliance day, right or wrong: county pages name WCAG 2.1 and give a month or
+year at most. Three of five predictions held, one failed and one could not be graded. Outside the
+frame, ICMA (the International City/County Management Association) gives NACo's exact pair, and
+UC Davis's accessibility FAQ gives "the ADA Title II deadline on April 24, 2027", the first
+entity page in this series with a wrong day.
+
 ## The rule
 
 The Justice Department's interim final rule (AG Order No. 6742-2026, 91 FR 20912, April 20,
