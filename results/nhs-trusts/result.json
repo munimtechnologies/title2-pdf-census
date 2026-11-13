@@ -1,0 +1,141 @@
+{
+ "checker_version": "0.3.0",
+ "crawl": {
+  "finished_utc": "2026-11-13T10:54:44Z",
+  "started_utc": "2026-11-13T10:48:20Z",
+  "workers": 4
+ },
+ "described": {
+  "by_kind": {
+   "foundation_trust": {
+    "dated": 106,
+    "found": 111,
+    "hosts": 136,
+    "placeholder": 1,
+    "stale": 62,
+    "wcag22": 80
+   },
+   "trust": {
+    "dated": 55,
+    "found": 60,
+    "hosts": 75,
+    "placeholder": 1,
+    "stale": 38,
+    "wcag22": 43
+   }
+  },
+  "date_source": {
+   "prepared": 16,
+   "reviewed": 145
+  },
+  "distinct_texts": 166,
+  "found_by": {
+   "link": 160,
+   "probe1": 3,
+   "probe2": 8
+  },
+  "found_gov_uk_wording": 145,
+  "found_highest": {
+   "": 2,
+   "2.1": 46,
+   "2.2": 123
+  },
+  "found_no_date": 10,
+  "found_organisations": 171,
+  "found_other_host": 22,
+  "home_status": {
+   "": 24,
+   "200": 183,
+   "403": 4
+  },
+  "offsite_link": 0,
+  "placeholder_hosts": [
+   "hpft.nhs.uk",
+   "lincolnshirecommunityhealthservices.nhs.uk"
+  ],
+  "placeholder_ids": {
+   "gov-uk/example_document": 1,
+   "gov-uk/insert_one_of": 1
+  },
+  "retried": 0,
+  "robots_blocked": 13,
+  "statement_year": {
+   "2020": 2,
+   "2022": 2,
+   "2023": 30,
+   "2024": 25,
+   "2025": 46,
+   "2026": 55,
+   "2027": 1
+  },
+  "status": {
+   "http_0": 11,
+   "not_found": 16,
+   "ok": 171,
+   "robots": 13
+  }
+ },
+ "files": {
+  "council_stock.py": "0c1b535e7bd2e425bc8576a31fb9bbd222575866ed40a8646ad016fdac26695d",
+  "nhs_frame.py": "7f359d5183c1d531273754c6cec6ac8dbf4bd7753d86b5504e7c004944798730",
+  "nhs_stock.py": "2f106d072cb0a04cd453790e07ce6b2f1f034f114a377425c0deaa7406adf16c",
+  "results/nhs-trusts/PREREG.md": "adfeda6f43b265c81c542a695a07776a2c8e45e80600f0617148c03b4a99fd4f",
+  "statement_template_check.py": "3f9a1999255ac5d62427117a05811cdbe9208075420ec9be2629ca3c09375a28"
+ },
+ "frame": {
+  "bytes": 25798,
+  "dropped": 0,
+  "fetch_failed": 0,
+  "hosts": 211,
+  "organisations": 247,
+  "rows": 247,
+  "sha256": "de281dd2f7fbf7855f6e19dd46999738a0a5ae409dea72ffac1bf387e009c771",
+  "without_url": 36
+ },
+ "frame_version": "0.1.0",
+ "gates": {
+  "F1_frame": true,
+  "G1_answered": true,
+  "P0_checker": true,
+  "P0_prereg": true
+ },
+ "measures": {
+  "F1_hosts": 211,
+  "G1_answered": {
+   "k": 200,
+   "n": 211,
+   "pct": 94.79
+  },
+  "T1_found": {
+   "k": 171,
+   "n": 211,
+   "pct": 81.04
+  },
+  "T2_placeholder_hosts": 2,
+  "T3_wcag22_of_found": {
+   "k": 123,
+   "n": 171,
+   "pct": 71.93
+  },
+  "T4_stale_of_dated": {
+   "k": 100,
+   "n": 161,
+   "pct": 62.11
+  }
+ },
+ "predictions": {
+  "T1": true,
+  "T2": true,
+  "T3": true,
+  "T4": true
+ },
+ "reader_version": "0.1.0",
+ "status": "graded",
+ "table": {
+  "bytes": 57529,
+  "file": "hosts.csv",
+  "rows": 211,
+  "sha256": "53a0a11789c3e37d3ee7c3ad005084262dfdc25a0716d0700fb34de1f96669a4"
+ },
+ "version": "0.1.0"
+}
