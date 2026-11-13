@@ -27,6 +27,14 @@ State East Bay, Cal State Northridge and Cal Poly San Luis Obispo. Both systems'
 the right day, so the slip arose campus by campus. Three of five predictions held; the two about
 a UC-system pattern failed.
 
+**Part 6 (2026-11-13, pre-registered):** the 15 public Big Ten universities outside California,
+in [`big-ten/`](big-ten/README.md). 11 give a current day on the pages the method reads first,
+and all 11 give the rule's April 26, 2027; 3 still give only April 24, 2026. Four of five
+predictions held; the one expecting at least one wrong university failed. Further down the same
+search results, unit pages at 4 of the 15 (Michigan's College of Engineering IT, an Ohio State IT
+news item, Rutgers' SEBS IT and UW Tacoma) give April 24, 2027, so the slip is there too, on
+college and campus pages rather than central ones.
+
 ## The rule
 
 The Justice Department's interim final rule (AG Order No. 6742-2026, 91 FR 20912, April 20,
