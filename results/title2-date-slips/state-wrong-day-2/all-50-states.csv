@@ -1,0 +1,51 @@
+state,census_2020_rank_group,part,domains,class,hit_pages,central_hit_pages,agency_hit_pages,other_hit_pages
+California,1-25,9,ca.gov,no_hit,0,0,0,0
+Texas,1-25,9,texas.gov,no_hit,0,0,0,0
+Florida,1-25,9,myflorida.com; fl.gov,no_hit,0,0,0,0
+New York,1-25,9,ny.gov,hit,1,1,0,0
+Pennsylvania,1-25,9,pa.gov,no_hit,0,0,0,0
+Illinois,1-25,9,illinois.gov,hit,1,0,0,1
+Ohio,1-25,9,ohio.gov,no_hit,0,0,0,0
+Georgia,1-25,9,georgia.gov; ga.gov,no_hit,0,0,0,0
+North Carolina,1-25,9,nc.gov,no_hit,0,0,0,0
+Michigan,1-25,9,michigan.gov,hit,10,0,10,0
+New Jersey,1-25,9,nj.gov,no_hit,0,0,0,0
+Virginia,1-25,9,virginia.gov,no_hit,0,0,0,0
+Washington,1-25,9,wa.gov,hit,1,0,1,0
+Arizona,1-25,9,az.gov,no_hit,0,0,0,0
+Massachusetts,1-25,9,mass.gov,no_hit,0,0,0,0
+Tennessee,1-25,9,tn.gov,hit,1,0,1,0
+Indiana,1-25,9,in.gov,no_hit,0,0,0,0
+Maryland,1-25,9,maryland.gov,hit,3,0,3,0
+Missouri,1-25,9,mo.gov,no_hit,0,0,0,0
+Wisconsin,1-25,9,wi.gov; wisconsin.gov,hit,1,0,1,0
+Colorado,1-25,9,colorado.gov,no_hit,0,0,0,0
+Minnesota,1-25,9,mn.gov,no_hit,0,0,0,0
+South Carolina,1-25,9,sc.gov,no_hit,0,0,0,0
+Alabama,1-25,9,alabama.gov,no_hit,0,0,0,0
+Louisiana,1-25,9,la.gov,no_hit,0,0,0,0
+Kentucky,26-50,10,ky.gov,no_hit,0,0,0,0
+Oregon,26-50,10,oregon.gov,hit,3,0,3,0
+Oklahoma,26-50,10,ok.gov; oklahoma.gov,no_hit,0,0,0,0
+Connecticut,26-50,10,ct.gov,no_hit,0,0,0,0
+Utah,26-50,10,utah.gov,hit,2,0,1,1
+Iowa,26-50,10,iowa.gov,no_hit,0,0,0,0
+Nevada,26-50,10,nv.gov,no_hit,0,0,0,0
+Arkansas,26-50,10,arkansas.gov; ar.gov,no_hit,0,0,0,0
+Mississippi,26-50,10,ms.gov,no_hit,0,0,0,0
+Kansas,26-50,10,ks.gov; kansas.gov,no_hit,0,0,0,0
+New Mexico,26-50,10,nm.gov; state.nm.us,no_hit,0,0,0,0
+Nebraska,26-50,10,nebraska.gov; ne.gov,no_hit,0,0,0,0
+Idaho,26-50,10,idaho.gov,hit,1,0,1,0
+West Virginia,26-50,10,wv.gov,no_hit,0,0,0,0
+Hawaii,26-50,10,hawaii.gov,no_hit,0,0,0,0
+New Hampshire,26-50,10,nh.gov,no_hit,0,0,0,0
+Maine,26-50,10,maine.gov,no_hit,0,0,0,0
+Rhode Island,26-50,10,ri.gov,no_hit,0,0,0,0
+Montana,26-50,10,mt.gov,no_hit,0,0,0,0
+Delaware,26-50,10,delaware.gov; de.gov,hit,2,2,0,0
+South Dakota,26-50,10,sd.gov,no_hit,0,0,0,0
+North Dakota,26-50,10,nd.gov,hit,1,0,1,0
+Alaska,26-50,10,alaska.gov,no_hit,0,0,0,0
+Vermont,26-50,10,vermont.gov,no_hit,0,0,0,0
+Wyoming,26-50,10,wyo.gov; wyoming.gov,no_hit,0,0,0,0

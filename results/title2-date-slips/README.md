@@ -60,6 +60,15 @@ NYS-P08-005 (modified 2026-10-07): "The current compliance deadline is now April
 of the 18 read the April 2026 extension as one year after April 24, 2026. Three of four
 predictions held; the one expecting a page that also gives April 26, 2027 failed.
 
+**Part 10 (2026-11-14, pre-registered):** the other 25 states (ranked 26-50), searched the same
+way, in [`state-wrong-day-2/`](state-wrong-day-2/README.md). 5 of 25 have such a page (9 pages):
+Oregon, Utah, Idaho, Delaware and North Dakota. With part 9, **12 of the 50 states (24%)** have a
+page on their state domain giving April 24, 2027, 27 pages in all, 22 of them agency pages
+([`all-50-states.csv`](state-wrong-day-2/all-50-states.csv)). Five of the nine record what was said
+between April 17 and April 24, 2026, the week around the rule's publication, among them Delaware's
+Government Information Center three days before the rule appeared ("by a full year to April 24,
+2027"). All five predictions held.
+
 ## The rule
 
 The Justice Department's interim final rule (AG Order No. 6742-2026, 91 FR 20912, April 20,
