@@ -69,6 +69,20 @@ between April 17 and April 24, 2026, the week around the rule's publication, amo
 Government Information Center three days before the rule appeared ("by a full year to April 24,
 2027"). All five predictions held.
 
+**Part 11 (2026-11-14, pre-registered):** where the wrong day came from, in
+[`origin/`](origin/README.md). Pages dated April 17-19, before the rule was published, already gave
+the new dates, and 2 of the 5 with an exact 2027 day gave April 24, 2027 (Delaware's GIC and Community
+College Daily), against 1 of 9 dated April 20-30 (NACo). The Justice Department's own pages give April
+26, 2027. All three predictions held. Not predicted: all 3 wrong pages also give the 2024 rule's second
+date as April 24, 2027 (it was April 26, 2027), while all 9 right pages that mention it give April 26.
+NACo had that wrong old date in September 2025. So the slip looks like "a full year" added to a
+mistaken pair of April 24 dates; April 24, 2027 is a Saturday, and the rule's April 26, 2027 is the
+Monday after.
+
+Related census: MV2's crawl of 1,489 state and territory .gov domains
+([`../state-pages/`](../state-pages/)) read 170 accessibility pages, and none of
+them gives any Title II compliance day; the wrong days found by search sit on other pages.
+
 ## The rule
 
 The Justice Department's interim final rule (AG Order No. 6742-2026, 91 FR 20912, April 20,
