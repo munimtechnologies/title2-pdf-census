@@ -1,0 +1,36 @@
+state_pages 0.1.0
+status: graded
+gates: C1_frame=True, P0_prereg_public=True
+frame: {"bytes": 1447631, "dropped": 0, "eligible": 1489, "retrieved_utc": "2026-11-14T11:22:56Z", "sha256": "e4a015251b4574d89928e3b4a98c0fc40a909c40ecff1adb60623ca49681ecce", "source_rows": 17071, "types": {"City": 9628, "County": 3069, "Federal": 2, "Federal - Executive": 1173, "Federal - Judicial": 24, "Federal - Legislative": 121, "Interstate": 29, "School district": 78, "Special district": 1165, "State or territory": 1489, "Tribal": 293}, "url": "https://raw.githubusercontent.com/cisagov/dotgov-data/main/current-full.csv"}
+eligible: 1489
+sampled: 1489
+crawl: {"finished_utc": "2026-11-14T11:35:39Z", "started_utc": "2026-11-14T11:22:56Z", "workers": 24}
+homes_ok: 817
+pages_ok: 264
+  ST1_only_2.0_of_versioned: [10, 67, 0.1493, [0.0831, 0.2534]]
+  ST2_highest_counts: {"2.0": 10, "2.1": 52, "2.2": 5}
+  ST3_title2_of_pages: [34, 170, 0.2, [0.1468, 0.2665]]
+  ST4_stock_of_pages: [3, 170, 0.0176, [0.006, 0.0506]]
+  ST5_linked_of_homes: [165, 644, 0.2562, [0.224, 0.2913]]
+predictions: ST1=None, ST2=None, ST3=None, ST4=None, ST5=False
+by_kind: {"court": {"2.1": 4, "2.2": 0, "only_2.0": 1, "pages": 20, "title2": 5, "versioned": 5}, "executive_other": {"2.1": 44, "2.2": 4, "only_2.0": 7, "pages": 136, "title2": 26, "versioned": 55}, "legislature": {"2.1": 4, "2.2": 1, "only_2.0": 2, "pages": 14, "title2": 3, "versioned": 7}}
+by_state: {"AK": {"2.1": 2, "2.2": 0, "only_2.0": 0, "pages": 2, "title2": 0, "versioned": 2}, "AL": {"2.1": 2, "2.2": 0, "only_2.0": 0, "pages": 3, "title2": 2, "versioned": 2}, "AR": {"2.1": 1, "2.2": 0, "only_2.0": 0, "pages": 2, "title2": 0, "versioned": 1}, "AZ": {"2.1": 0, "2.2": 0, "only_2.0": 1, "pages": 4, "title2": 1, "versioned": 1}, "CA": {"2.1": 1, "2.2": 0, "only_2.0": 0, "pages": 1, "title2": 0, "versioned": 1}, "CO": {"2.1": 7, "2.2": 2, "only_2.0": 0, "pages": 11, "title2": 3, "versioned": 9}, "CT": {"2.1": 0, "2.2": 0, "only_2.0": 1, "pages": 2, "title2": 0, "versioned": 1}, "DC": {"2.1": 1, "2.2": 0, "only_2.0": 0, "pages": 2, "title2": 0, "versioned": 1}, "DE": {"2.1": 1, "2.2": 0, "only_2.0": 0, "pages": 2, "title2": 1, "versioned": 1}, "FL": {"2.1": 0, "2.2": 0, "only_2.0": 3, "pages": 10, "title2": 2, "versioned": 3}, "GA": {"2.1": 0, "2.2": 1, "only_2.0": 0, "pages": 2, "title2": 1, "versioned": 1}, "GU": {"2.1": 0, "2.2": 0, "only_2.0": 0, "pages": 1, "title2": 0, "versioned": 0}, "HI": {"2.1": 1, "2.2": 0, "only_2.0": 0, "pages": 1, "title2": 1, "versioned": 1}, "IA": {"2.1": 2, "2.2": 0, "only_2.0": 1, "pages": 7, "title2": 0, "versioned": 3}, "ID": {"2.1": 1, "2.2": 0, "only_2.0": 1, "pages": 4, "title2": 0, "versioned": 2}, "IL": {"2.1": 1, "2.2": 0, "only_2.0": 0, "pages": 1, "title2": 0, "versioned": 1}, "IN": {"2.1": 0, "2.2": 0, "only_2.0": 0, "pages": 2, "title2": 1, "versioned": 0}, "KS": {"2.1": 3, "2.2": 1, "only_2.0": 0, "pages": 11, "title2": 0, "versioned": 4}, "KY": {"2.1": 1, "2.2": 0, "only_2.0": 0, "pages": 2, "title2": 1, "versioned": 1}, "LA": {"2.1": 2, "2.2": 0, "only_2.0": 0, "pages": 6, "title2": 0, "versioned": 2}, "MA": {"2.1": 2, "2.2": 0, "only_2.0": 1, "pages": 6, "title2": 1, "versioned": 3}, "MD": {"2.1": 2, "2.2": 0, "only_2.0": 0, "pages": 2, "title2": 1, "versioned": 2}, "ME": {"2.1": 0, "2.2": 0, "only_2.0": 0, "pages": 1, "title2": 0, "versioned": 0}, "MN": {"2.1": 1, "2.2": 0, "only_2.0": 0, "pages": 5, "title2": 2, "versioned": 1}, "MO": {"2.1": 0, "2.2": 1, "only_2.0": 0, "pages": 1, "title2": 0, "versioned": 1}, "MP": {"2.1": 1, "2.2": 0, "only_2.0": 0, "pages": 2, "title2": 1, "versioned": 1}, "MS": {"2.1": 0, "2.2": 0, "only_2.0": 0, "pages": 2, "title2": 0, "versioned": 0}, "MT": {"2.1": 1, "2.2": 0, "only_2.0": 0, "pages": 2, "title2": 0, "versioned": 1}, "NC": {"2.1": 1, "2.2": 0, "only_2.0": 0, "pages": 10, "title2": 0, "versioned": 1}, "ND": {"2.1": 4, "2.2": 0, "only_2.0": 0, "pages": 5, "title2": 3, "versioned": 4}, "NE": {"2.1": 0, "2.2": 0, "only_2.0": 0, "pages": 1, "title2": 0, "versioned": 0}, "NJ": {"2.1": 0, "2.2": 0, "only_2.0": 1, "pages": 1, "title2": 0, "versioned": 1}, "NM": {"2.1": 3, "2.2": 0, "only_2.0": 0, "pages": 5, "title2": 1, "versioned": 3}, "NY": {"2.1": 0, "2.2": 0, "only_2.0": 0, "pages": 1, "title2": 0, "versioned": 0}, "OH": {"2.1": 0, "2.2": 0, "only_2.0": 0, "pages": 4, "title2": 3, "versioned": 0}, "OK": {"2.1": 2, "2.2": 0, "only_2.0": 0, "pages": 4, "title2": 0, "versioned": 2}, "OR": {"2.1": 2, "2.2": 0, "only_2.0": 0, "pages": 4, "title2": 2, "versioned": 2}, "PA": {"2.1": 0, "2.2": 0, "only_2.0": 0, "pages": 6, "title2": 0, "versioned": 0}, "SC": {"2.1": 0, "2.2": 0, "only_2.0": 0, "pages": 1, "title2": 1, "versioned": 0}, "SD": {"2.1": 0, "2.2": 0, "only_2.0": 0, "pages": 1, "title2": 0, "versioned": 0}, "TN": {"2.1": 1, "2.2": 0, "only_2.0": 0, "pages": 3, "title2": 1, "versioned": 1}, "TX": {"2.1": 0, "2.2": 0, "only_2.0": 0, "pages": 5, "title2": 1, "versioned": 0}, "UT": {"2.1": 0, "2.2": 0, "only_2.0": 0, "pages": 1, "title2": 0, "versioned": 0}, "VA": {"2.1": 0, "2.2": 0, "only_2.0": 1, "pages": 6, "title2": 2, "versioned": 1}, "VI": {"2.1": 0, "2.2": 0, "only_2.0": 0, "pages": 1, "title2": 0, "versioned": 0}, "VT": {"2.1": 2, "2.2": 0, "only_2.0": 0, "pages": 3, "title2": 1, "versioned": 2}, "WA": {"2.1": 1, "2.2": 0, "only_2.0": 0, "pages": 1, "title2": 0, "versioned": 1}, "WI": {"2.1": 0, "2.2": 0, "only_2.0": 0, "pages": 3, "title2": 1, "versioned": 0}, "WV": {"2.1": 2, "2.2": 0, "only_2.0": 0, "pages": 5, "title2": 0, "versioned": 2}, "WY": {"2.1": 1, "2.2": 0, "only_2.0": 0, "pages": 2, "title2": 0, "versioned": 1}}
+contact: 133
+date_2026_04_24: 0
+date_2027_04_26: 0
+date_2028_04_26: 0
+distinct_home_hosts: 644
+distinct_pages: 170
+distinct_texts: 169
+domain_pages_ok: 264
+domains: 1489
+findings: {"": 158, "stock-sentence": 2, "wcag-2.0": 9, "wcag-2.0+stock-sentence": 1}
+home: {"crash": 1, "http_0": 390, "http_202": 1, "http_302": 1, "http_307": 1, "http_400": 3, "http_401": 2, "http_403": 28, "http_404": 60, "http_409": 2, "http_500": 1, "http_502": 1, "http_503": 8, "http_520": 1, "http_522": 3, "http_523": 1, "http_525": 1, "http_526": 1, "http_530": 1, "not_html": 1, "ok": 817, "robots": 164}
+home_via: {"bare": 786, "www": 31}
+only_2026_04_24: 0
+overlay_on_home: {"": 583, "accessibe": 42, "audioeye": 2, "equalweb": 1, "recite": 3, "userway": 13}
+page_rank: {"0": 133, "1": 20, "3": 17}
+page_status: {"": 671, "'site:url-brief' does not appear to be an IPv4 or IPv6 address": 1, "no_link": 551, "ok": 264, "short": 2}
+section508: 43
+versions: {"": 103, "2.0": 10, "2.0+2.1": 1, "2.1": 51, "2.1+2.2": 2, "2.2": 3}
+wcag_any: 77
