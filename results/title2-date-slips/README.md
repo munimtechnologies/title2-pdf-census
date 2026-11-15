@@ -79,6 +79,17 @@ NACo had that wrong old date in September 2025. So the slip looks like "a full y
 mistaken pair of April 24 dates; April 24, 2027 is a Saturday, and the rule's April 26, 2027 is the
 Monday after.
 
+**Part 12 (2026-11-15, pre-registered):** whether publishers that had the 2024 rule's second date
+wrong before the extension later gave the wrong new day, in [`old-date/`](old-date/README.md). The
+test could not be run as planned: six searches found only 2 publishers with only the wrong old date
+on pages dated before April 17, 2026 (4 counting two that give both days), none of them government,
+and for 3 of the 4 no new date was found at all; they still give the 2024 dates as current. Two of
+five predictions failed and three could not be graded. Outside the count, the evidence leans against
+part 11's pattern: two vendor pages give the old date wrong and the new day right, and Level Access
+gives the old date right and the new day wrong. A lead, not counted: search summaries attribute "three
+years after the publication of the final rule or April 24, 2027" to the SBA Office of Advocacy's
+April 2024 post (unread, 403), and a December 2024 municipal-web vendor post repeats that wording.
+
 Related census: MV2's crawl of 1,489 state and territory .gov domains
 ([`../state-pages/`](../state-pages/)) read 170 accessibility pages, and none of
 them gives any Title II compliance day; the wrong days found by search sit on other pages.
