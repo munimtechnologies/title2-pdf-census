@@ -99,6 +99,18 @@ compliance page (undated), the State of Nevada's Digital Accessibility page (las
 19, 2026) and Accessible.org's 2025 fact sheet. Three of six predictions held, one failed and two
 could not be graded. MV2's checker misses that full stale pair; a fix is planned after 0.11.0.
 
+**Part 14 (2026-11-15, pre-registered):** each state's own Title II rule pages, read whatever their
+date, in [`state-explainers/`](state-explainers/README.md). One fixed search per state on its own
+domains, first 2 explainer pages read. **9 of the 19 states whose pages give a date still have a
+page giving the 2024 dates as in force** (Georgia, Maryland, South Carolina, Louisiana, Connecticut,
+Nevada, Mississippi, Hawaii, Vermont); 8 give only current dates and 2 give a wrong new day (Utah,
+Delaware). In 7 of the 9 the stale page is a central office's (state IT agency, portal or statewide
+accessibility program), the reverse of the wrong day, which sat mostly on agency pages. All 10 stale
+pages show no date or a date from before the change. Connecticut and Vermont give the new dates on
+one page and the old ones on another part of the same site; South Carolina's Department of
+Education and Mississippi ITS give the old first date as April 26, 2026. Four of five predictions
+held; the one expecting 10-30% stale failed (47%).
+
 Related census: MV2's crawl of 1,489 state and territory .gov domains
 ([`../state-pages/`](../state-pages/)) read 170 accessibility pages, and none of
 them gives any Title II compliance day; the wrong days found by search sit on other pages.

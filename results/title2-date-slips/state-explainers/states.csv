@@ -1,0 +1,51 @@
+state,census_2020_rank,domains,candidates_found,pages_read,pages_unreadable,state_class,stale_pages,wrong_day_pages,current_or_mixed_pages,in_parts_9_10_wrong_day_list
+California,1,ca.gov,2,2,0,none,0,0,0,no
+Texas,2,texas.gov,0,0,0,none,0,0,0,no
+Florida,3,myflorida.com; fl.gov,0,0,0,none,0,0,0,no
+New York,4,ny.gov,2,2,0,current,0,0,2,yes
+Pennsylvania,5,pa.gov,1,1,0,none,0,0,0,no
+Illinois,6,illinois.gov,2,2,0,current,0,0,1,yes
+Ohio,7,ohio.gov,0,0,0,none,0,0,0,no
+Georgia,8,georgia.gov; ga.gov,2,2,0,stale,1,0,1,no
+North Carolina,9,nc.gov,2,2,0,current,0,0,2,no
+Michigan,10,michigan.gov,0,0,0,none,0,0,0,yes
+New Jersey,11,nj.gov,1,1,0,current,0,0,1,no
+Virginia,12,virginia.gov,2,1,1,old news only,0,0,0,no
+Washington,13,wa.gov,1,1,0,current,0,0,1,yes
+Arizona,14,az.gov,2,0,2,none,0,0,0,no
+Massachusetts,15,mass.gov,3,0,3,none,0,0,0,no
+Tennessee,16,tn.gov,0,0,0,none,0,0,0,yes
+Indiana,17,in.gov,0,0,0,none,0,0,0,no
+Maryland,18,maryland.gov,2,2,0,stale,2,0,0,yes
+Missouri,19,mo.gov,2,0,2,none,0,0,0,no
+Wisconsin,20,wi.gov; wisconsin.gov,0,0,0,none,0,0,0,yes
+Colorado,21,colorado.gov,3,0,3,none,0,0,0,no
+Minnesota,22,mn.gov,3,1,2,old news only,0,0,0,no
+South Carolina,23,sc.gov,3,2,1,stale,1,0,1,no
+Alabama,24,alabama.gov,0,0,0,none,0,0,0,no
+Louisiana,25,la.gov,1,1,0,stale,1,0,0,no
+Kentucky,26,ky.gov,0,0,0,none,0,0,0,no
+Oregon,27,oregon.gov,1,1,0,current,0,0,1,yes
+Oklahoma,28,ok.gov; oklahoma.gov,0,0,0,none,0,0,0,no
+Connecticut,29,ct.gov,2,2,0,stale,1,0,1,no
+Utah,30,utah.gov,3,2,1,wrong day,0,1,1,yes
+Iowa,31,iowa.gov,1,1,0,none,0,0,0,no
+Nevada,32,nv.gov,2,2,0,stale,1,0,0,no
+Arkansas,33,arkansas.gov; ar.gov,1,1,0,old news only,0,0,0,no
+Mississippi,34,ms.gov,1,1,0,stale,1,0,0,no
+Kansas,35,ks.gov; kansas.gov,3,0,3,none,0,0,0,no
+New Mexico,36,nm.gov; state.nm.us,1,1,0,none,0,0,0,no
+Nebraska,37,nebraska.gov; ne.gov,1,1,0,none,0,0,0,no
+Idaho,38,idaho.gov,2,2,0,current,0,0,2,yes
+West Virginia,39,wv.gov,0,0,0,none,0,0,0,no
+Hawaii,40,hawaii.gov,1,1,0,stale,1,0,0,no
+New Hampshire,41,nh.gov,0,0,0,none,0,0,0,no
+Maine,42,maine.gov,0,0,0,none,0,0,0,no
+Rhode Island,43,ri.gov,0,0,0,none,0,0,0,no
+Montana,44,mt.gov,0,0,0,none,0,0,0,no
+Delaware,45,delaware.gov; de.gov,1,1,0,wrong day,0,1,0,yes
+South Dakota,46,sd.gov,0,0,0,none,0,0,0,no
+North Dakota,47,nd.gov,1,1,0,current,0,0,1,yes
+Alaska,48,alaska.gov,0,0,0,none,0,0,0,no
+Vermont,49,vermont.gov,2,2,0,stale,1,0,1,no
+Wyoming,50,wyo.gov; wyoming.gov,0,0,0,none,0,0,0,no
