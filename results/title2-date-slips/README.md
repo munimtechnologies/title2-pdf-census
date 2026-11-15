@@ -90,6 +90,15 @@ gives the old date right and the new day wrong. A lead, not counted: search summ
 years after the publication of the final rule or April 24, 2027" to the SBA Office of Advocacy's
 April 2024 post (unread, 403), and a December 2024 municipal-web vendor post repeats that wording.
 
+**Part 13 (2026-11-15, pre-registered):** who still gives the 2024 dates (April 24, 2026 and April
+26, 2027) as current, seven months after the extension, in [`stale-dates/`](stale-dates/README.md).
+Of 29 pages from eight searches that show a date of April 21, 2026 or later, 28 give the new dates
+and 1 is stale (ADA CodeFix, updated June 10, 2026); none gives a wrong new day. The old dates sit
+on pages with no date or a date from before the change, which the plan did not count: UserWay's ADA
+compliance page (undated), the State of Nevada's Digital Accessibility page (last updated February
+19, 2026) and Accessible.org's 2025 fact sheet. Three of six predictions held, one failed and two
+could not be graded. MV2's checker misses that full stale pair; a fix is planned after 0.11.0.
+
 Related census: MV2's crawl of 1,489 state and territory .gov domains
 ([`../state-pages/`](../state-pages/)) read 170 accessibility pages, and none of
 them gives any Title II compliance day; the wrong days found by search sit on other pages.
