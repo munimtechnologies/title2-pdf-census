@@ -122,6 +122,18 @@ Education and Oklahoma's SDE give the new dates on items dated after the change.
 also a government case against part 11's pattern: its March 17, 2026 newsletter gives the 2024
 rule's second date as April 24, 2027, and its April 21, 2026 mailing gives the rule's new days.
 
+**Part 16 (2026-11-16, pre-registered):** the frame part 15 missed, the SEAs' own dated newsletters,
+memos and mailings, in [`sea-newsletters/`](sea-newsletters/README.md). It failed too: only 8 of 50
+SEAs had any such item in their search results, 12 were tried, 6 could be read, and only Wisconsin
+DPI's two mailings give a date (April 21, 2026: current; September 16, 2025: the 2024 months). None
+of six predictions held (two failed, four could not be graded). Across parts 15 and 16, 100
+searches on SEA domains found a readable dated Title II item for only 3 of 50 SEAs. The rest of
+what SEAs say about the rule sits in PDFs (Louisiana's monthly EdTech call decks, Nebraska's and
+Idaho's guides, a Tennessee legal summary), so measuring it needs a PDF-reading crawl. Outside the
+count, a search summary's "April 24, 2027" for New Jersey's IT office was wrong when the page was
+read (it gives April 26, 2027), and the Michigan Auditor General's archive disclaimer from part 9
+still gives April 24, 2027.
+
 Related census: MV2's crawl of 1,489 state and territory .gov domains
 ([`../state-pages/`](../state-pages/)) read 170 accessibility pages, and none of
 them gives any Title II compliance day; the wrong days found by search sit on other pages.
