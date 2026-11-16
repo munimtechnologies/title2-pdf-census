@@ -111,6 +111,17 @@ one page and the old ones on another part of the same site; South Carolina's Dep
 Education and Mississippi ITS give the old first date as April 26, 2026. Four of five predictions
 held; the one expecting 10-30% stale failed (47%).
 
+**Part 15 (2026-11-16, pre-registered):** the same method on the 50 state education agencies, in
+[`sea-explainers/`](sea-explainers/README.md). Only 2 of 50 have a dated Title II page that one
+search on their own domain surfaces: North Carolina's DPI (current) and South Carolina's
+Department of Education (still stale, unchanged since part 14). 10 SEAs had any candidate page, 16
+were tried and only 8 could be read. The gate prediction failed, so the stale share could not be
+graded; one of six predictions held. SEAs put the dates in newsletters, mailings, memos and slide
+decks rather than standing pages; read outside the count, Wisconsin DPI, Vermont's Agency of
+Education and Oklahoma's SDE give the new dates on items dated after the change. Wisconsin DPI is
+also a government case against part 11's pattern: its March 17, 2026 newsletter gives the 2024
+rule's second date as April 24, 2027, and its April 21, 2026 mailing gives the rule's new days.
+
 Related census: MV2's crawl of 1,489 state and territory .gov domains
 ([`../state-pages/`](../state-pages/)) read 170 accessibility pages, and none of
 them gives any Title II compliance day; the wrong days found by search sit on other pages.

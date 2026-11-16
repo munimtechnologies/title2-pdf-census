@@ -1,0 +1,51 @@
+state,sea,domains,path_rule,candidates_tried,pages_read,class
+AL,Alabama State Department of Education,alabamaachieves.org;alsde.edu,,0,0,none
+AK,Alaska Department of Education and Early Development,education.alaska.gov,,0,0,none
+AZ,Arizona Department of Education,azed.gov,,0,0,none
+AR,Arkansas Division of Elementary and Secondary Education,dese.ade.arkansas.gov,,0,0,none
+CA,California Department of Education,cde.ca.gov,,2,1,none (read page gives no date)
+CO,Colorado Department of Education,cde.state.co.us,,1,1,none (read page gives no date)
+CT,Connecticut State Department of Education,portal.ct.gov,/sde,0,0,none
+DE,Delaware Department of Education,education.delaware.gov;doe.k12.de.us,,0,0,none
+FL,Florida Department of Education,fldoe.org,,0,0,none
+GA,Georgia Department of Education,gadoe.org,,0,0,none
+HI,Hawaii State Department of Education,hawaiipublicschools.org,,0,0,none
+ID,Idaho State Department of Education,sde.idaho.gov,,0,0,none
+IL,Illinois State Board of Education,isbe.net,,0,0,none
+IN,Indiana Department of Education,in.gov,/doe,0,0,none
+IA,Iowa Department of Education,educate.iowa.gov,,0,0,none
+KS,Kansas State Department of Education,ksde.gov;ksde.org,,0,0,none
+KY,Kentucky Department of Education,education.ky.gov,,0,0,none
+LA,Louisiana Department of Education,doe.louisiana.gov;louisianabelieves.com,,0,0,none
+ME,Maine Department of Education,maine.gov,/doe,0,0,none
+MD,Maryland State Department of Education,marylandpublicschools.org,,2,0,none (both candidates 403 after redirect to msde.maryland.gov)
+MA,Massachusetts Department of Elementary and Secondary Education,doe.mass.edu,,0,0,none
+MI,Michigan Department of Education,michigan.gov,/mde,0,0,none
+MN,Minnesota Department of Education,education.mn.gov,,0,0,none
+MS,Mississippi Department of Education,mdek12.org,,0,0,none
+MO,Missouri Department of Elementary and Secondary Education,dese.mo.gov,,0,0,none
+MT,Montana Office of Public Instruction,opi.mt.gov,,0,0,none
+NE,Nebraska Department of Education,education.ne.gov,,1,1,none (read page gives no date)
+NV,Nevada Department of Education,doe.nv.gov,,0,0,none
+NH,New Hampshire Department of Education,education.nh.gov,,0,0,none
+NJ,New Jersey Department of Education,nj.gov,/education,1,1,none (read page gives no date)
+NM,New Mexico Public Education Department,ped.nm.gov;web.ped.nm.gov,,1,0,none (candidate 403)
+NY,New York State Education Department,nysed.gov,,2,0,none (both candidates: certificate error)
+NC,North Carolina Department of Public Instruction,dpi.nc.gov,,2,2,current
+ND,North Dakota Department of Public Instruction,nd.gov,/dpi,0,0,none
+OH,Ohio Department of Education and Workforce,education.ohio.gov,,0,0,none
+OK,Oklahoma State Department of Education,oklahoma.gov;sde.ok.gov,/education (oklahoma.gov only),0,0,none
+OR,Oregon Department of Education,oregon.gov,/ode,0,0,none
+PA,Pennsylvania Department of Education,pa.gov;education.pa.gov,/agencies/education (pa.gov only),0,0,none
+RI,Rhode Island Department of Education,ride.ri.gov,,0,0,none
+SC,South Carolina Department of Education,ed.sc.gov,,3,2,stale
+SD,South Dakota Department of Education,doe.sd.gov,,0,0,none
+TN,Tennessee Department of Education,tn.gov,/education,0,0,none
+TX,Texas Education Agency,tea.texas.gov,,0,0,none
+UT,Utah State Board of Education,schools.utah.gov,,0,0,none
+VT,Vermont Agency of Education,education.vermont.gov,,0,0,none
+VA,Virginia Department of Education,doe.virginia.gov,,1,0,none (candidate 403)
+WA,Washington Office of Superintendent of Public Instruction,ospi.k12.wa.us,,0,0,none
+WV,West Virginia Department of Education,wvde.us,,0,0,none
+WI,Wisconsin Department of Public Instruction,dpi.wi.gov,,0,0,none
+WY,Wyoming Department of Education,edu.wyoming.gov,,0,0,none
