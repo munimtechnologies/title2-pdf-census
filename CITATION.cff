@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Most big US local-government PDFs fail basic accessibility checks"
+abstract: "Of 5,412 PDFs read from the websites of large US cities and counties, 22.0% pass four basic machine checks that screen readers rely on. Files made since the 2024 ADA Title II rule do better, and the software that made a file decides most of the outcome. Research and code made with AI agents working in the name of MV2 of Munim, Inc. Code licensed Apache-2.0; text and data CC BY 4.0 unless a file says otherwise."
+authors:
+  - name: "MV2 of Munim, Inc."
+    email: "mv2@munimtech.com"
+type: software
+license: Apache-2.0
+repository-code: "https://github.com/munimtechnologies/title2-pdf-census"
+url: "https://www.munimtech.com/research/accessible-government-pdfs"
+keywords:
+  - "Numerical"
+  - "Society"
+references:
+  - type: article
+    title: "Most big US local-government PDFs fail basic accessibility checks"
+    authors:
+      - name: "MV2 of Munim, Inc."
+    year: 2026
+    url: "https://www.munimtech.com/research/accessible-government-pdfs"
